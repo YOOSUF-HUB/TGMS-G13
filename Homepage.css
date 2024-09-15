@@ -62,20 +62,23 @@ header {
     background-color: #eee;
     padding: 20px;
     text-align: center;
+    
 }
 
 .quote-img {
     background-color: #bbb;
     height: 500px;
     margin-bottom: 20px;
+
 }
 
 .quote-btn {
+    border:none;
     padding: 10px 20px;
     background-color: #333;
     color: white;
-    border: none;
     cursor: pointer;
+
 }
 
 /* Footer Section */
