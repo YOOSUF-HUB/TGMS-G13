@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Textile and Garment Management System</title>
     <link rel="stylesheet" href="homepage.css">
+    <!-- Load Font Awesome for using icons, like the search icon -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -26,6 +28,22 @@
         <!-- Menu icon (with open function)-->
         <img src="menu.png" style="width:30px;cursor:pointer" onclick="openNav()">
 
+
+        <!-- Container to hold the search icon and input field -->
+        <div id="searchContainer">
+            
+            <!-- Search icon (clickable) -->
+            <i class="fas fa-search" id="searchIcon" onclick="toggleSearch()"></i>
+            
+            <!-- Form for search input (initially hidden, revealed when clicked) -->
+            <form id="searchForm" onsubmit="return performSearch()">
+                <!-- Text input for search term -->
+                <input type="text" id="searchInput" placeholder="Search for products, categories..." aria-label="Search">
+                
+                <!-- Search button -->
+                <button type="submit">Search</button>
+            </form>
+        </div>
 
         <!-- Logo Section -->
         <section class="logo">

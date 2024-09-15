@@ -234,3 +234,58 @@ body {
 .logo{
     text-align: center;
 }
+
+
+/* Container to align the search bar and icon */
+#searchContainer {
+    display: flex; /* Align elements in a row */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin: 20px; /* Adds space around the container */
+    position: relative; /* Allows for proper positioning */
+}
+
+/* Style for the search icon */
+#searchIcon {
+    font-size: 20px; /* Icon size */
+    cursor: pointer; /* Shows pointer cursor on hover */
+    color: #333; /* Dark gray color for icon */
+}
+
+/* Hide the search form initially */
+#searchForm {
+    display: none; /* Keeps form hidden initially */
+    margin-left: 10px; /* Space between icon and form */
+}
+
+/* Style for the search input */
+#searchInput {
+    width: 0; /* Hidden width at first */
+    padding: 10px; /* Inner space in the input box */
+    border-radius: 20px; /* Rounded corners */
+    border: 1px solid #ccc; /* Light border around input */
+    font-size: 16px; /* Text size */
+    outline: none; /* Removes default blue border on focus */
+    transition: width 0.5s ease; /* Smoothly expands the input when clicked */
+}
+
+/* When form is shown, expand the input width */
+#searchForm.show #searchInput {
+    width: 300px; /* Expands input field when form is shown */
+}
+
+/* Style for the search button */
+button {
+    padding: 10px 20px; /* Size of the button */
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
+    border: none; /* No border around button */
+    border-radius: 20px; /* Rounded button */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin-left: 10px; /* Space between input and button */
+}
+
+/* Change button color on hover */
+button:hover {
+    background-color: #0056b3; /* Darker blue when hovering */
+}
