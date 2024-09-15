@@ -181,7 +181,8 @@ body {
 
 /* Changes link color when hovered */
 .sidenav a:hover {
-    color: #f1f1f1; /* Lighter gray when hovered */
+    color: #ECDFCC; /* Lighter gray when hovered */
+    background-color: #697565;
 }
 
 /* Close button inside the side navigation */

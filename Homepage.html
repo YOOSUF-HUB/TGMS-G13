@@ -6,22 +6,25 @@
     <title>Textile and Garment Management System</title>
     <link rel="stylesheet" href="homepage.css">
 </head>
+
 <body>
+    
     <!-- Navigation Bar Section-->
     <header>
-    <!-- Side Navigation Menu -->
-    <div id="mySidenav" class="sidenav">
-        <!-- Close button for the side navigation (triggered by onclick function) -->
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <!-- Navigation links inside the side menu -->
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Contact</a>
-        <a href="#">Terms of Services</a>
-    </div>
+        <!-- Side Navigation Menu -->
+        <div id="mySidenav" class="sidenav">
+            <!-- Close button -->
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <!-- Navigation links -->
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+            <a href="#">Terms of Services</a>
+        </div>
 
-    <img src="menu.png" style="width:30px;cursor:pointer" onclick="openNav()">
+        <!-- Menu icon (with open function)-->
+        <img src="menu.png" style="width:30px;cursor:pointer" onclick="openNav()">
 
 
         <!-- Logo Section -->
@@ -33,15 +36,15 @@
     
         </section>
 
-        <!-- Profile Container for Profile Image and Dropdown -->
+        <!-- Profile and Dropdown -->
         <div class="profile-container">
             <!-- Profile Image Icon; clicking on this toggles the dropdown -->
             <img src="profile-user.png" alt="Profile Icon" class="profile-icon" onclick="toggleDropdown()">
             
             <!-- Dropdown Menu content; links for Login, Logout, and My Orders -->
             <div id="myDropdown" class="dropdown-content">
+                <a href="#">Profile</a>
                 <a href="#">Login</a>
-                <a href="#">Logout</a>
                 <a href="#">My Orders</a>
             </div>
         </div>
