@@ -1,0 +1,228 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.search-bar {
+    width: 50%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.user-icon {
+    font-size: 24px;
+}
+
+/* Banner Section */
+.banner {
+    background-color: #ddd;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.banner-content h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.banner-content p {
+    font-size: 18px;
+}
+
+/* Quote Section */
+.quote-section {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 20px;
+}
+
+.quote-box {
+    width: 30%;
+    background-color: #eee;
+    padding: 20px;
+    text-align: center;
+}
+
+.quote-img {
+    background-color: #bbb;
+    height: 500px;
+    margin-bottom: 20px;
+}
+
+.quote-btn {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Footer Section */
+footer {
+    background-color: #f4f4f4;
+    padding: 40px 20px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.footer-links p {
+    margin: 10px 0;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 10px;
+}
+
+/* General font styling for the webpage */
+body {
+    font-family: 'Arial', sans-serif; /* Sets the font family for the page */
+    font-size: 16px; /* Sets the default font size */
+}
+
+/* Container for the profile image and dropdown */
+.profile-container {
+    position: absolute; /* Positions the container absolutely relative to its parent */
+    right: 3rem; /* Moves the container 3rem from the right edge of the page */
+    top: 10px; /* Moves the container 10px from the top */
+    display: inline-block; /* The container takes only as much space as needed */
+}
+
+/* Profile image icon styling */
+.profile-icon {
+    width: 40px; /* Sets the width of the profile image */
+    height: 40px; /* Sets the height of the profile image */
+    border-radius: 50%; /* Makes the image circular */
+    cursor: pointer; /* Changes the cursor to a pointer when hovering */
+}
+
+/* Dropdown menu styling (hidden initially) */
+.dropdown-content {
+    max-height: 0; /* Initially hides the dropdown by setting the maximum height to 0 */
+    overflow: hidden; /* Ensures content stays within the dropdown area */
+    position: absolute; /* Positions the dropdown absolutely relative to the container */
+    background-color: #f9f9f9; /* Background color of the dropdown */
+    min-width: 160px; /* Sets a minimum width for the dropdown */
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); /* Adds shadow for depth effect */
+    z-index: 1; /* Ensures the dropdown appears on top of other elements */
+    right: 0; /* Aligns the dropdown to the right */
+    transition: max-height 0.3s ease-in-out; /* Adds smooth transition effect for dropdown */
+}
+
+/* Styling for links inside the dropdown */
+.dropdown-content a {
+    color: black; /* Sets the text color to black */
+    padding: 12px 16px; /* Adds padding around the text */
+    text-decoration: none; /* Removes underline from links */
+    display: block; /* Makes the links take up the full width of the dropdown */
+}
+
+/* Changes background color of dropdown links when hovered */
+.dropdown-content a:hover {
+    background-color: #f1f1f1; /* Light gray background when hovered */
+}
+
+/* Class to expand the dropdown (smooth effect) */
+.show {
+    max-height: 500px; /* Sets a large enough max height to show the dropdown content */
+}
+
+/* Styling for the side navigation menu */
+.sidenav {
+    height: 100%; /* Full height to cover the entire screen */
+    width: 0; /* Initially hidden with 0 width */
+    position: fixed; /* Fixed in place while scrolling */
+    z-index: 1; /* Places the sidenav above other content */
+    top: 0; /* Aligns to the top of the page */
+    left: 0; /* Aligns to the left of the page */
+    background-color: #111; /* Black background color */
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+    transition: 0.5s; /* Smooth transition for opening and closing */
+    padding-top: 60px; /* Adds padding to the top of the sidenav */
+}
+
+/* Styling for links inside the sidenav */
+.sidenav a {
+    padding: 8px 8px 8px 32px; /* Padding inside links */
+    text-decoration: none; /* Removes underline from links */
+    font-size: 25px; /* Increases font size */
+    color: #818181; /* Light gray color for links */
+    display: block; /* Makes links take up the full width */
+    transition: 0.3s; /* Smooth transition for hover effect */
+}
+
+/* Changes link color when hovered */
+.sidenav a:hover {
+    color: #f1f1f1; /* Lighter gray when hovered */
+}
+
+/* Close button inside the side navigation */
+.sidenav .closebtn {
+    position: absolute; /* Positions the close button relative to the sidenav */
+    top: 0; /* Aligns it to the top */
+    right: 25px; /* 25px from the right edge of the sidenav */
+    font-size: 36px; /* Increases font size */
+    margin-left: 50px; /* Adds left margin for spacing */
+}
+
+/* Open button for side navigation*/
+.openbtn {
+    font-size: 30px; /* Increases font size */
+    cursor: pointer; /* Pointer cursor when hovered */
+    background-color: #111; /* Black background for the button */
+    color: white; /* White text color */
+    padding: 10px 15px; /* Padding inside the button */
+    border: none; /* Removes border */
+}
+
+/* When the side navigation is active (open) */
+.sidenav.active {
+    width: 350px; /* Expands the sidenav width to 250px */
+}
+
+
+
+.banner-text-h1 banner-text{
+    text-align:center ;
+}
+
+.banner-text-h1 {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#banner-text {
+    text-align: center;
+}
+
+#banner-text-p{
+    margin-left: 80px;
+    margin-right: 80px;
+}

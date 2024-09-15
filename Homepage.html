@@ -3,11 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>Textile and Garment Management System</title>
+    <link rel="stylesheet" href="homepage.css">
 </head>
 <body>
-    <h1>Hey there</h1>
-    <h2>test 2</h2>
+    <!-- Navigation Bar Section-->
+    <header>
+    <!-- Side Navigation Menu -->
+    <div id="mySidenav" class="sidenav">
+        <!-- Close button for the side navigation (triggered by onclick function) -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <!-- Navigation links inside the side menu -->
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+        <a href="#">Terms of Services</a>
+    </div>
 
+    <img src="menu.png" style="width:30px;cursor:pointer" onclick="openNav()">
+
+
+    <style>
+        .logo{
+            text-align: center;
+        }
+    </style>
+        <!-- Logo Section -->
+        <section class="logo">
+
+            <div class="logo-content">
+                <p>-----Logo-----</p>
+            </div>
+    
+        </section>
+
+        <!-- Profile Container for Profile Image and Dropdown -->
+        <div class="profile-container">
+            <!-- Profile Image Icon; clicking on this toggles the dropdown -->
+            <img src="profile-user.png" alt="Profile Icon" class="profile-icon" onclick="toggleDropdown()">
+            
+            <!-- Dropdown Menu content; links for Login, Logout, and My Orders -->
+            <div id="myDropdown" class="dropdown-content">
+                <a href="#">Login</a>
+                <a href="#">Logout</a>
+                <a href="#">My Orders</a>
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+
+    <!-- Banner Section -->
+    <section class="banner">
+        <div class="banner-content">
+            <h1>Image XXXXX</h1>
+        </div>
+        
+    </section>
+
+    <div class="banner-text-h1" >
+
+        <div id="banner-text" >
+            <h1>Looking for a Clothing Manufacturer?</h1>
+            <p id="banner-text-p" >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta minima debitis tempora voluptate hic, id harum quia laboriosam. Maxime impedit placeat natus omnis accusantium commodi ad illum molestiae a voluptatum ut eos sint temporibus quasi assumenda veritatis perspiciatis pariatur, quos voluptate maiores officiis aspernatur unde inventore voluptatem. Perferendis, ipsam quos!</p>
+        </div>
+
+    </div>
+
+    <!-- Quote Section -->
+    <section class="quote-section">
+        <div class="quote-box">
+            <div class="quote-img"></div>
+            <button class="quote-btn">Get quote</button>
+        </div>
+        <div class="quote-box">
+            <div class="quote-img"></div>
+            <button class="quote-btn">Get quote</button>
+        </div>
+        <div class="quote-box">
+            <div class="quote-img"></div>
+            <button class="quote-btn">Get quote</button>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-links">
+            <div class="footer-left">
+                <p>[Company Name]</p>
+                <p>Privacy Policy</p>
+                <p>Terms and Conditions</p>
+            </div>
+            <div class="footer-middle">
+                <p>Our service</p>
+                <p>Manufacturing</p>
+                <p>Consultancy</p>
+                <p>Sampling</p>
+            </div>
+            <div class="footer-right">
+                <p>Useful Links</p>
+                <p>About us</p>
+                <p>Contact us</p>
+                <p>Products</p>
+                <p>FAQ</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; [Company Name] 2024</p>
+        </div>
+    </footer>
+
+    <script src="homepage.js"></script>
 </body>
 </html>
