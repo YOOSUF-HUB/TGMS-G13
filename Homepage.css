@@ -8,17 +8,22 @@ body {
 header {
     background-color: #f4f4f4;
     padding: 20px;
-}
-
-.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+.navbar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%; /* Make sure the navbar takes up the full width */
+}
+
 .menu-icon {
     font-size: 24px;
     cursor: pointer;
+    margin-right: 20px; /* Space between menu icon and search bar */
 }
 
 .search-bar {
@@ -102,57 +107,58 @@ footer {
     padding-top: 10px;
 }
 
-/* General font styling for the webpage */
-body {
-    font-family: 'Arial', sans-serif; /* Sets the font family for the page */
-    font-size: 16px; /* Sets the default font size */
+
+/* Profile container */
+.profile-container {
+    position: relative; /* Position the dropdown relative to this container */
+    display: inline-block; /* Keeps the profile container only as wide as its contents */
 }
 
-/* Container for the profile image and dropdown */
-.profile-container {
-    position: absolute; /* Positions the container absolutely relative to its parent */
-    right: 3rem; /* Moves the container 3rem from the right edge of the page */
-    top: 10px; /* Moves the container 10px from the top */
-    display: inline-block; /* The container takes only as much space as needed */
-}
+
 
 /* Profile image icon styling */
 .profile-icon {
-    width: 40px; /* Sets the width of the profile image */
-    height: 40px; /* Sets the height of the profile image */
-    border-radius: 50%; /* Makes the image circular */
-    cursor: pointer; /* Changes the cursor to a pointer when hovering */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
-/* Dropdown menu styling (hidden initially) */
+
+/* Dropdown menu styling */
 .dropdown-content {
-    max-height: 0; /* Initially hides the dropdown by setting the maximum height to 0 */
-    overflow: hidden; /* Ensures content stays within the dropdown area */
-    position: absolute; /* Positions the dropdown absolutely relative to the container */
-    background-color: #f9f9f9; /* Background color of the dropdown */
-    min-width: 160px; /* Sets a minimum width for the dropdown */
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); /* Adds shadow for depth effect */
-    z-index: 1; /* Ensures the dropdown appears on top of other elements */
-    right: 0; /* Aligns the dropdown to the right */
-    transition: max-height 0.3s ease-in-out; /* Adds smooth transition effect for dropdown */
+    position: absolute; /* Position dropdown absolutely relative to profile-container */
+    right: 0; /* Align the dropdown to the right */
+    top: 100%; /* Position it just below the profile container */
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    transform: translateY(-20px); /* Start with the dropdown moved up */
+    opacity: 0; /* Start with an opacity of 0 */
+    visibility: hidden; /* Hidden by default */
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition for transform, opacity, and visibility */
 }
 
 /* Styling for links inside the dropdown */
 .dropdown-content a {
-    color: black; /* Sets the text color to black */
-    padding: 12px 16px; /* Adds padding around the text */
-    text-decoration: none; /* Removes underline from links */
-    display: block; /* Makes the links take up the full width of the dropdown */
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
 }
 
 /* Changes background color of dropdown links when hovered */
 .dropdown-content a:hover {
-    background-color: #f1f1f1; /* Light gray background when hovered */
+    background-color: #f1f1f1;
 }
 
-/* Class to expand the dropdown (smooth effect) */
-.show {
-    max-height: 500px; /* Sets a large enough max height to show the dropdown content */
+
+/* Show dropdown when active */
+.dropdown-content.show {
+    transform: translateY(0); /* Move the dropdown to its original position */
+    opacity: 1; /* Fade in */
+    visibility: visible; /* Make visible */
 }
 
 /* Styling for the side navigation menu */
@@ -165,7 +171,7 @@ body {
     left: 0; /* Aligns to the left of the page */
     background-color: #111; /* Black background color */
     overflow-x: hidden; /* Prevents horizontal scrolling */
-    transition: 0.5s; /* Smooth transition for opening and closing */
+    transition: 1s; /* Smooth transition for opening and closing */
     padding-top: 60px; /* Adds padding to the top of the sidenav */
 }
 
@@ -233,59 +239,42 @@ body {
 
 .logo{
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-
-/* Container to align the search bar and icon */
-#searchContainer {
-    display: flex; /* Align elements in a row */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    margin: 20px; /* Adds space around the container */
-    position: relative; /* Allows for proper positioning */
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-/* Style for the search icon */
-#searchIcon {
-    font-size: 20px; /* Icon size */
-    cursor: pointer; /* Shows pointer cursor on hover */
-    color: #333; /* Dark gray color for icon */
+header {
+    background-color: #f4f4f4;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* Hide the search form initially */
-#searchForm {
-    display: none; /* Keeps form hidden initially */
-    margin-left: 10px; /* Space between icon and form */
+.user-icon {
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: auto; /* Ensure profile icon aligns to the right */
 }
 
-/* Style for the search input */
-#searchInput {
-    width: 0; /* Hidden width at first */
-    padding: 10px; /* Inner space in the input box */
-    border-radius: 20px; /* Rounded corners */
-    border: 1px solid #ccc; /* Light border around input */
-    font-size: 16px; /* Text size */
-    outline: none; /* Removes default blue border on focus */
-    transition: width 0.5s ease; /* Smoothly expands the input when clicked */
+/* Profile container */
+.profile-container {
+    display: flex;
+    align-items: center;
 }
 
-/* When form is shown, expand the input width */
-#searchForm.show #searchInput {
-    width: 300px; /* Expands input field when form is shown */
-}
-
-/* Style for the search button */
-button {
-    padding: 10px 20px; /* Size of the button */
-    background-color: #007bff; /* Blue background */
-    color: white; /* White text */
-    border: none; /* No border around button */
-    border-radius: 20px; /* Rounded button */
-    cursor: pointer; /* Pointer cursor on hover */
-    margin-left: 10px; /* Space between input and button */
-}
-
-/* Change button color on hover */
-button:hover {
-    background-color: #0056b3; /* Darker blue when hovering */
+/* Profile image icon styling */
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
 }
