@@ -1,7 +1,7 @@
 // Toggle the visibility of the search bar
-function toggleSearchBar() {
-    var searchBarContainer = document.getElementById("searchBarContainer");
-    searchBarContainer.classList.toggle("active");
+function opensearchBar() {
+    var opensearchBar = document.getElementById("searchBarContainer");
+    opensearchBar.classList.toggle("active");
 }
 
 // Perform the search
