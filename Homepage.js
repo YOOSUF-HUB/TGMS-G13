@@ -1,4 +1,22 @@
+// Toggle the visibility of the search bar
+function toggleSearchBar() {
+    var searchBarContainer = document.getElementById("searchBarContainer");
+    searchBarContainer.classList.toggle("active");
+}
 
+// Perform the search
+function performSearch() {
+    var query = document.getElementById("searchInput").value;
+    if (query) {
+        // For demonstration, logging the query. Replace with actual search logic.
+        console.log("Searching for: " + query);
+        
+        // Example: Redirect to a search results page with the query
+        // window.location.href = "search-results.html?q=" + encodeURIComponent(query);
+    } else {
+        alert("Please enter a search term.");
+    }
+}
 
 // Other JavaScript functions for opening side navigation and dropdowns
 function openNav() {
