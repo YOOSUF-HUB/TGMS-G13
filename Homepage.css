@@ -42,6 +42,7 @@ header {
 
 
 .sidenav {
+    opacity: 90%;
     height: 100%; /* Full height to cover the entire screen */
     width: 0; /* Initially hidden with 0 width */
     position: fixed; /* Fixed in place while scrolling */
