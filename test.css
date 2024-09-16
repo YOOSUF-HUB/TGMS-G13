@@ -416,4 +416,16 @@ footer {
     margin: 80px;
 }
 
+.quote-detail h2 {
+    font-size: 2rem;
+}
+
+.quote-detail .quote-btn1{
+    padding: 8px 16px;
+    font-size: 1rem;
+    border: none;
+    background-color: #697565;
+    color: #fff;
+    cursor: pointer;
+}
 
