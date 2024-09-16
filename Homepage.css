@@ -295,6 +295,33 @@ header {
 }
 
 
+/* New Quote Section */
+.quote {
+    display: flex;
+    justify-content: center;
+    background-color: #bbb;
+    margin: 100px;
+}
+
+.quote-image-container {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    height: 35rem; 
+    width: 60rem;
+    position: relative; 
+}
+
+.quote-image {
+    position: absolute; 
+    top: -50px; 
+    left: 0; 
+    height: auto;
+    width: 100%; 
+    object-fit: cover;
+}
 
 
 
