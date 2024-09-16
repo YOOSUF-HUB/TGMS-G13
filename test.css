@@ -41,6 +41,17 @@ header {
 }
 
 
+/* Open button for side navigation*/
+.openbtn {
+    font-size: 30px; 
+    cursor: pointer; /* Pointer cursor when hovered */
+    background-color: #111; 
+    color: white; 
+    padding: 10px 15px; 
+    border: none; 
+}
+
+
 .sidenav {
     height: 100%; 
     width: 0;  /* Initially hidden with 0 width */
@@ -61,35 +72,26 @@ header {
     padding: 8px 8px 8px 32px; /* Padding inside links */
     text-decoration: none; 
     font-size: 1rem; 
-    color: #000000; /* Light gray color for links */
-    display: block; /* Makes links take up the full width */
-    transition: 0.3s; /* Smooth transition for hover effect */
+    color: #000000; 
+    display: block; 
+    transition: 0.3s; /* Smooth transition for hover */
 }
 
 /* Changes link color when hovered */
 .sidenav a:hover {
-    color: #ECDFCC; /* Lighter gray when hovered */
+    color: #ECDFCC; 
     background-color: #697565;
 }
 
 /* Close button inside the side navigation */
 .sidenav .closebtn {
     position: absolute; /* Positions the close button relative to the sidenav */
-    top: 0; /* Aligns it to the top */
-    right: 25px; /* 25px from the right edge of the sidenav */
-    font-size: 36px; /* Increases font size */
-    margin-left: 50px; /* Adds left margin for spacing */
+    top: 0; 
+    right: 25px; 
+    font-size: 36px; 
+    margin-left: 50px;
 }
 
-/* Open button for side navigation*/
-.openbtn {
-    font-size: 30px; /* Increases font size */
-    cursor: pointer; /* Pointer cursor when hovered */
-    background-color: #111; /* Black background for the button */
-    color: white; /* White text color */
-    padding: 10px 15px; /* Padding inside the button */
-    border: none; /* Removes border */
-}
 
 .closebtn{
 
