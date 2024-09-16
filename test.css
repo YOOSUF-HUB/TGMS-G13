@@ -18,6 +18,7 @@ header {
 }
 
 
+
 /* Container for centering the logo */
 .logo {
     text-align: center;
@@ -31,6 +32,18 @@ header {
     margin-right: 55px;
 }
 
+
+
+
+#menuIcon{
+    margin-bottom: 3px;
+}
+
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 20px; /* Space between menu icon and search bar */
+}
 
 /* Styling for the side navigation menu */
 .navbar {
@@ -111,17 +124,6 @@ header {
     width: 250px; 
 }
 
-#menuIcon{
-    margin-bottom: 3px;
-}
-
-.menu-icon {
-    font-size: 24px;
-    cursor: pointer;
-    margin-right: 20px; /* Space between menu icon and search bar */
-}
-
-
 
 
 
@@ -129,17 +131,17 @@ header {
     margin-left: 40px;
 }
 
-/* Search Bar container styling */
+/* Search Bar*/
 #searchBarContainer {
 
     margin-bottom: 4px;
     border-radius: 10px;
-    position: absolute; /* Absolute positioning to align next to the search icon */
-    top: 0; /* Align to the top of the section */
-    left: 100%; /* Start right after the search icon */
-    width: 0; /* Initial width of 0 to hide completely */
+    position: absolute; /* Align next to the search icon */
+    top: -70%; 
+    left: 120%; 
+    width: 0; 
     overflow: hidden; /* Hide overflow content */
-    transition: width 0.5s ease, opacity 0.5s ease; /* Smooth transition for width and opacity */
+    transition: 0.3s; /* Smooth transition for width and opacity */
     background-color: #f9f9f9; /* Background color */
     padding: 10px; /* Padding around the search bar */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
