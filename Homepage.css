@@ -1,5 +1,6 @@
 html{
     background-color: #ECDFCC ;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 /* General Styles */
@@ -43,6 +44,7 @@ header {
 
 
 .sidenav {
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
     opacity: 90%;
     backdrop-filter: blur(20px);
     height: 100%; /* Full height to cover the entire screen */
@@ -136,10 +138,10 @@ header {
 
 /* Search Bar container styling */
 #searchBarContainer {
-
+    height: 20px;
     border-radius: 10px;
     position: absolute; /* Absolute positioning to align next to the search icon */
-    top: -55%; /* Align to the top of the section */
+    top: -50%; /* Align to the top of the section */
     left: 120%; /* Start right after the search icon */
     width: 0; /* Initial width of 0 to hide completely */
     overflow: hidden; /* Hide overflow content */
