@@ -52,7 +52,7 @@ header {
     left: 0; /* Aligns to the left of the page */
     background-color: #ffffff; /* Black background color */
     overflow-x: hidden; /* Prevents horizontal scrolling */
-    transition: 1s; /* Smooth transition for opening and closing */
+    transition: 0.5s; /* Smooth transition for opening and closing */
     padding-top: 60px; /* Adds padding to the top of the sidenav */
 }
 

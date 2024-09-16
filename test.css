@@ -37,20 +37,20 @@ header {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    width: 100%; /* Make sure the navbar takes up the full width */
+    width: 100%; 
 }
 
 
 .sidenav {
-    height: 100%; /* Full height to cover the entire screen */
-    width: 0; /* Initially hidden with 0 width */
+    height: 100%; 
+    width: 0;  /* Initially hidden with 0 width */
     position: fixed; /* Fixed in place while scrolling */
     z-index: 1; /* Places the sidenav above other content */
-    top: 0; /* Aligns to the top of the page */
-    left: 0; /* Aligns to the left of the page */
-    background-color: #111; /* Black background color */
+    top: 0; 
+    left: 0; 
+    background-color:  #ffffff;
     overflow-x: hidden; /* Prevents horizontal scrolling */
-    transition: 1s; /* Smooth transition for opening and closing */
+    transition: 0.6s; /* Smooth transition for opening and closing */
     padding-top: 60px; /* Adds padding to the top of the sidenav */
 }
 
@@ -59,9 +59,9 @@ header {
     margin-top: 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 8px 8px 8px 32px; /* Padding inside links */
-    text-decoration: none; /* Removes underline from links */
-    font-size: 15px; /* Increases font size */
-    color: #818181; /* Light gray color for links */
+    text-decoration: none; 
+    font-size: 1rem; 
+    color: #000000; /* Light gray color for links */
     display: block; /* Makes links take up the full width */
     transition: 0.3s; /* Smooth transition for hover effect */
 }
