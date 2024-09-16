@@ -53,7 +53,7 @@ header {
     left: 0; /* Aligns to the left of the page */
     background-color: #ffffff; /* Black background color */
     overflow-x: hidden; /* Prevents horizontal scrolling */
-    transition: 1s; /* Smooth transition for opening and closing */
+    transition: 0.5s; /* Smooth transition for opening and closing */
     padding-top: 60px; /* Adds padding to the top of the sidenav */
 }
 
@@ -114,7 +114,7 @@ header {
 
 /* When the side navigation is active (open) */
 .sidenav.active {
-    width: 200px; /* Expands the sidenav width to 250px */
+    width: 200px ; /* Expands the sidenav width to 250px */
 }
 
 #menuIcon{
@@ -147,6 +147,7 @@ header {
     padding: 10px; /* Padding around the search bar */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
     display: flex; /* Flexbox for horizontal layout */
+    justify-content: center;
     align-items: center; /* Center items vertically */
     opacity: 0; /* Hide the search bar initially */
     visibility: hidden; /* Ensure the search bar is not interactable */
@@ -176,7 +177,7 @@ header {
 /* Active class for showing the search bar */
 #searchBarContainer.active {
     
-    width: 280px; /* Width when active */
+    width: 300px; /* Width when active */
     opacity: 1; /* Make the search bar fully visible */
     visibility: visible; /* Make the search bar interactable */
 }
@@ -256,6 +257,23 @@ header {
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+
+.banner-content {
+    position: relative; /* To ensure the image is positioned relative to the banner */
+    overflow: hidden; /* This will clip any overflow of the image */
+    height: 100%;
+    width: 100%;
+}
+
+.banner-content img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the container without stretching */
+    z-index: 0; /* Keep the image behind the text */
 }
 
 #banner-text{
