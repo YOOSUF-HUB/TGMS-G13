@@ -139,8 +139,8 @@ header {
     margin-bottom: 4px;
     border-radius: 10px;
     position: absolute; /* Absolute positioning to align next to the search icon */
-    top: 0; /* Align to the top of the section */
-    left: 100%; /* Start right after the search icon */
+    top: -70%; /* Align to the top of the section */
+    left: 120%; /* Start right after the search icon */
     width: 0; /* Initial width of 0 to hide completely */
     overflow: hidden; /* Hide overflow content */
     transition: 0.3s ease; /* Smooth transition for transform, opacity, and visibility */    background-color: #f9f9f9; /* Background color */
@@ -248,7 +248,7 @@ header {
 
 /* Banner Section */
 .banner {
-    margin-top: 1rem;
+    margin-top: 0rem;
     background-color: #ddd;
     height: 800px;
     display: flex;
@@ -369,8 +369,18 @@ footer {
     margin-bottom: 20px;
 }
 
-.footer-links p {
-    margin: 10px 0;
+.footer-links ul {
+    margin: 10px;
+    list-style-type: none;
+}
+
+.footer-links ul a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
 }
 
 .footer-bottom {
