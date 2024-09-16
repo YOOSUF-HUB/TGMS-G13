@@ -13,9 +13,7 @@ function performSearch() {
         
         // Example: Redirect to a search results page with the query
         // window.location.href = "search-results.html?q=" + encodeURIComponent(query);
-    } else {
-        alert("Please enter a search term.");
-    }
+    } 
 }
 
 // Other JavaScript functions for opening side navigation and dropdowns
