@@ -139,7 +139,7 @@ header {
 
     border-radius: 10px;
     position: absolute; /* Absolute positioning to align next to the search icon */
-    top: -70%; /* Align to the top of the section */
+    top: -55%; /* Align to the top of the section */
     left: 120%; /* Start right after the search icon */
     width: 0; /* Initial width of 0 to hide completely */
     overflow: hidden; /* Hide overflow content */
@@ -156,8 +156,10 @@ header {
 
 /* Search input field styling */
 #searchInput {
+    width:200px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 8px;
-    font-size: 16px;
+    font-size: 10px;
     margin-right: 10px;
     border: 1px solid #ccc; /* Border for input field */
     border-radius: 10px;
@@ -165,9 +167,10 @@ header {
 
 /* Search button styling */
 #searchBarContainer button {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     border-radius: 10px;
     padding: 8px 16px;
-    font-size: 16px;
+    font-size: 10px;
     cursor: pointer;
     border: none; /* Remove default border */
     background-color: #333; /* Button background color */
@@ -382,7 +385,7 @@ footer {
     text-decoration: none;
     border-radius: 50%;
     color: #ECDFCC;
-  }
+}
 
 .footer-links {
     display: flex;
@@ -398,6 +401,12 @@ footer {
 .footer-links ul a {
     color: #fff;
     text-decoration: none;
+}
+
+
+
+.footer-links ul a:hover {
+    color: #ECDFCC;
 }
 
 .footer-links li {
