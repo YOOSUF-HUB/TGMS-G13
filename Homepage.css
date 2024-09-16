@@ -113,7 +113,7 @@ header {
 
 /* When the side navigation is active (open) */
 .sidenav.active {
-    width: 200px; /* Expands the sidenav width to 250px */
+    width: 200px ; /* Expands the sidenav width to 250px */
 }
 
 #menuIcon{

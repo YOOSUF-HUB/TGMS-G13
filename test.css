@@ -90,16 +90,11 @@ header {
     right: 25px; 
     font-size: 36px; 
     margin-left: 50px;
-}
-
-
-.closebtn{
-
     margin-top: 20px;
     cursor: pointer;
 }
 
-.closebtn :hover{
+.sidenav .closebtn :hover{
     
     color: #f1f1f1;
 }
@@ -113,7 +108,7 @@ header {
 
 /* When the side navigation is active (open) */
 .sidenav.active {
-    width: 200px; /* Expands the sidenav width to 250px */
+    width: 250px; 
 }
 
 #menuIcon{
