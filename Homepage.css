@@ -310,7 +310,7 @@ header {
 .quote {
     display: flex;
     justify-content: center;
-    background-color: #bbb;
+    /* background-color: #bbb; */
     margin: 100px;
 }
 
@@ -334,13 +334,16 @@ header {
     object-fit: cover;
 }
 
-
+.quote-detail {
+    margin: 80px;
+}
 
 
 
 /* Footer Section */
 footer {
-    background-color: #f4f4f4;
+    background-color: #697565;
+    color: white;
     padding: 40px 20px;
 }
 
