@@ -183,9 +183,11 @@ footer {
 
 /* Styling for links inside the sidenav */
 .sidenav a {
+    margin-top: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 8px 8px 8px 32px; /* Padding inside links */
     text-decoration: none; /* Removes underline from links */
-    font-size: 25px; /* Increases font size */
+    font-size: 15px; /* Increases font size */
     color: #818181; /* Light gray color for links */
     display: block; /* Makes links take up the full width */
     transition: 0.3s; /* Smooth transition for hover effect */
@@ -216,9 +218,27 @@ footer {
     border: none; /* Removes border */
 }
 
+.closebtn{
+
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.closebtn :hover{
+    
+    color: #f1f1f1;
+}
+
+#mySidenav .closebtn{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
 /* When the side navigation is active (open) */
 .sidenav.active {
-    width: 350px; /* Expands the sidenav width to 250px */
+    width: 200px; /* Expands the sidenav width to 250px */
 }
 
 
@@ -273,6 +293,7 @@ footer {
 
 /* Search Bar container styling */
 #searchBarContainer {
+
     margin-bottom: 4px;
     border-radius: 10px;
     position: absolute; /* Absolute positioning to align next to the search icon */
