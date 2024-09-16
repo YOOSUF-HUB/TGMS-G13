@@ -370,10 +370,7 @@ footer {
 
 }
 
-.quote-btn a:hover{
-    background-color: #333;
-    color: white;
-}
+
 
 
 /* New Quote Section */
@@ -419,5 +416,10 @@ footer {
     background-color: #697565;
     color: #fff;
     cursor: pointer;
+}
+
+.quote-detail .quote-btn1:hover{
+    background-color:  white;
+    color: #333;
 }
 
