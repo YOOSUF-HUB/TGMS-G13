@@ -299,7 +299,7 @@ header {
 .quote {
     display: flex;
     justify-content: center;
-    background-color: #bbb;
+    /* background-color: #bbb; */
     margin: 100px;
 }
 
@@ -323,7 +323,9 @@ header {
     object-fit: cover;
 }
 
-
+.quote-detail {
+    margin: 80px;
+}
 
 
 
