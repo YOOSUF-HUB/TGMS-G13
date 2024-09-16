@@ -47,25 +47,6 @@ header {
     margin-right: 20px; /* Space between menu icon and search bar */
 }
 
-/* Styling for the side navigation menu */
-.navbar {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%; 
-}
-
-
-/* Open button for side navigation*/
-.openbtn {
-    font-size: 30px; 
-    cursor: pointer; /* Pointer cursor when hovered */
-    background-color: #111; 
-    color: white; 
-    padding: 10px 15px; 
-    border: none; 
-}
-
 
 .sidenav {
     height: 100%; 
