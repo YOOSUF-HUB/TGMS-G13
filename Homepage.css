@@ -331,7 +331,8 @@ header {
 
 /* Footer Section */
 footer {
-    background-color: #f4f4f4;
+    background-color: #697565;
+    color: white;
     padding: 40px 20px;
 }
 
