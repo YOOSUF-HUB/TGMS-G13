@@ -257,6 +257,23 @@ header {
     text-align: center;
 }
 
+.banner-content {
+    position: relative; /* To ensure the image is positioned relative to the banner */
+    overflow: hidden; /* This will clip any overflow of the image */
+    height: 100%;
+    width: 100%;
+}
+
+.banner-content img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the container without stretching */
+    z-index: 0; /* Keep the image behind the text */
+}
+
 #banner-text{
     justify-content: center;
     align-items: center;
