@@ -142,8 +142,7 @@ header {
     left: 100%; /* Start right after the search icon */
     width: 0; /* Initial width of 0 to hide completely */
     overflow: hidden; /* Hide overflow content */
-    transition: width 0.5s ease, opacity 0.5s ease; /* Smooth transition for width and opacity */
-    background-color: #f9f9f9; /* Background color */
+    transition: 0.3s ease; /* Smooth transition for transform, opacity, and visibility */    background-color: #f9f9f9; /* Background color */
     padding: 10px; /* Padding around the search bar */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
     display: flex; /* Flexbox for horizontal layout */
