@@ -338,6 +338,28 @@ footer {
     margin-right: 300px;
 }
 
+.banner-contact-button{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    transition: 0.2s ease;
+    cursor: pointer;
+    border: none;
+    background-color: #697565;
+    color: #ECDFCC;
+    font-size: 20px;
+    width: 200px;
+    height: 40px;
+}
+
+.banner-contact-button:hover{
+    width: 205px;
+    height: 45px;
+}
+
+
+
+
+
+
 
 
 
