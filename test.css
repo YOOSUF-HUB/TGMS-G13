@@ -394,7 +394,7 @@ footer {
 
 .quote-image {
     position: absolute; 
-    top: 0; 
+    top: -50; 
     left: 0; 
     height: auto;
     width: 100%; 
