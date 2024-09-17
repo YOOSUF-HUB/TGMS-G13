@@ -357,7 +357,7 @@ footer {
     align-items: center;
     width: 100%;
     overflow: hidden;
-    height: 900px; 
+    height: 850px; 
     width: 1900px;
     position: relative; 
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
@@ -365,12 +365,10 @@ footer {
 
 .quote-image {
     position: absolute; 
-    top: -50; 
     left: 0; 
     height: auto;
     width: 100%; 
     object-fit: cover;
-   
 }
 
 .quote-detail {
