@@ -64,69 +64,54 @@
     </header>
 
 
-    <!-- REGISTRATION FORM -->
+
     <div class="container">
         <div class="form-box">
 
-            <?php
+        <?php
 
-            include("./php/config.php");
-            if(isset($_POST['submit'])){
-                $fname = $_POST['fname'];
-                $lname = $_POST['lname'];
-                $email = $_POST['email'];
-                $password = $_POST['password'];
+        include("./php/config.php");
+        if(isset($_POST['submit'])){
+            $email = mysqli_real_escape_string($conn, $_POST['email']);
+            $password = mysqli_real_escape_string($conn, $_POST['password']);
 
-                //verifying the unique email
-                $verify_query = mysqli_query ($conn, "SELECT Email FROM users WHERE Email='$email'");
+            // Query to check the email and password
+            $login_query = "SELECT * FROM users WHERE Email='$email' AND Password='$password'";
+            $result = mysqli_query($conn, $login_query);
+            $row = mysqli_fetch_assoc($result);
+
+            if(is_array($row) && !empty($row)){
+                $_SESSION['valid'] = $row['Email'];
+                $_SESSION['user_id'] = $row['id'];
+                $_SESSION['firstname'] = $row['Firstname'];
+
                 
-                if(mysqli_num_rows($verify_query) != 0){
-                    // Email already exists, show error
-                    echo "<div class= 'errormessage'>
-                            <p>This email is already registered. Please use a different email.</p>
-                        </div> <br>";
-                    echo "<a href='javascript:self.history.back()'><button class='btn'>Go back</button></a>";
-                }
-                else{
-
-                    $insert_query = "INSERT INTO users (Firstname, Lastname, Email, Password) VALUES ('$fname', '$lname', '$email', '$password')";
-                    $result = mysqli_query($conn, $insert_query);
-                    
-
-                    if($result){
-                        echo "<div class= 'successmessage'>
-                            <p>Registration Successfully!.</p>
-                            </div> <br>";
-                        echo "<a href='login.php'><button class='btn'>Login now</button></a>";
-                    }else{
-                        echo "<div class= 'errormessage'>
-                            <p>This email is already registered. Please use a different email.</p>
-                            </div> <br>";
-                        echo "<a href='javascript:self.history.back()'><button class='btn'>Go back</button></a>";
-                    }
-
-                    
-                }
+                
             }else{
+                // if user details doesn't exists, show error
+                echo "<div class= 'errormessage'>
+                        <p> Wrong Username or Password</p>
+                    </div> <br>";
+                echo "<a href='login.php'><button class='btn'>Go back</button></a>";
+                
+            }
+
+            if(isset($_SESSION['valid'])){
+                header("Location: homepage.html");
+            }
 
             
 
-            ?>
-            <h3>Create Account</h3>
+
+        }else{
+        
+        
+        ?>
+            <h3>Login</h3>
             <form action="" method="post">
                 <div class="field input">
-                    <label for="fname">First Name</label>
-                    <input type="text" name="fname" id="fname"  required>
-                </div>
-
-                <div class="field input">
-                    <label for="lname">Last Name</label>
-                    <input type="text" name="lname" id="lname" required>
-                </div>
-                
-                <div class="field input">
                     <label for="email">Email</label>
-                    <input type="email" name="email" id="email" autocomplete="off" required>
+                    <input type="email" name="email" id="email" placeholder="Email" autocomplete="off" required>
                 </div>
 
                 <div class="field input">
@@ -135,19 +120,19 @@
                 </div>
 
                 <div class="field">
-                    <input class="btn" type="submit" name="submit" value="Create" required>
+                    <input class="btn" type="submit" name="submit" value="Login" required>
                 </div>
 
                 <div class="link">
-                    <p>Already have an account? <a href="login.php"> Login</a></p>
+                    <p> <a href="register.php">Create new account</a></p>
                 </div>
             </form>
         </div>
         <?php } ?>
     </div>
 
-    
- 
+
+
 
     <!-- Footer Section -->
     <footer>
@@ -194,9 +179,8 @@
 
     
     
-   
 
 
-    <script src="./Homepage.js"></script>
+    <script src="./script/home.js"></script>
 </body>
 </html>
