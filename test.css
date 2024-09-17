@@ -360,6 +360,7 @@ footer {
     height: 900px; 
     width: 1900px;
     position: relative; 
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .quote-image {
@@ -369,6 +370,7 @@ footer {
     height: auto;
     width: 100%; 
     object-fit: cover;
+   
 }
 
 .quote-detail {
