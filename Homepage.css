@@ -1,5 +1,5 @@
 html{
-    background-color: #ECDFCC ;
+    background-color: #fff6e9 ;
 
 }
 
@@ -314,8 +314,27 @@ header {
     margin-right: 300px;
 }
 
+
+.banner-contact-button{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    transition: 0.2s ease;
+    cursor: pointer;
+    border: none;
+    background-color: #697565;
+    color: #ECDFCC;
+    font-size: 20px;
+    width: 200px;
+    height: 40px;
+}
+
+.banner-contact-button:hover{
+    width: 205px;
+    height: 45px;
+}
+
+
 /* Quote Section */
-.quote-section {
+.quote-section { 
     display: flex;
     justify-content: space-around;
     padding: 40px 20px;
@@ -360,8 +379,8 @@ header {
     align-items: center;
     width: 100%;
     overflow: hidden;
-    height: 35rem; 
-    width: 60rem;
+    height: 1000px; 
+    width: 1900px;
     position: relative; 
 }
 
@@ -377,6 +396,7 @@ header {
 .quote-detail {
     margin: 80px;
 }
+
 
 
 
