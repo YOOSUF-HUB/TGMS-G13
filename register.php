@@ -150,6 +150,6 @@
     
 
 
-    <script src="./script/home.js"></script>
+    <script src="./Homepage.js"></script>
 </body>
 </html>
