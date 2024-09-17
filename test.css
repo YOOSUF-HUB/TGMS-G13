@@ -423,3 +423,18 @@ footer {
     color: #333;
 }
 
+.quote-detail {
+    margin-left: 80px;
+}
+
+.quote-detail-2 {
+    margin-right: 80px;
+}
+
+.quote-detail h1{
+    font-size: 50px;
+}
+
+.quote-detail-2 h1{
+    font-size: 40px;
+}
