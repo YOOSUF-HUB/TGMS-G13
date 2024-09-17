@@ -131,6 +131,52 @@
         <?php } ?>
     </div>
 
+
+
+
+    <!-- Footer Section -->
+    <footer>
+        
+        <div class="footer-links">
+            <div class="social-media">
+                <p>---logo---</p>
+                <ul style="list-style-type: none; display: flex; padding: 0; font-size: 30px;">
+                    <li><a href="#" class="fa fa-facebook"></a></li>
+                    <li><a href="#" class="fa fa-twitter"></a></li>
+                    <li><a href="#" class="fa fa-instagram"></a></li>
+                </ul>
+            </div>
+            <div class="footer-left">
+                <ul>
+                    <li style="font-weight: bolder; font-size: 1.5rem;">[Company Name]</li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms and Conditions</a></li>
+                    <li><a href="#">Sampling</a></li>
+                </ul>
+            </div>
+            <div class="footer-middle">
+                <ul>
+                    <li style="font-weight: bolder; font-size: 1.2rem;">Our service</li>
+                    <li><a href="#">Manufacturing</a></li>
+                    <li><a href="#">Consultancy</a></li>
+                    <li><a href="#">Sampling</a></li>
+                </ul>
+            </div>
+            <div class="footer-right">
+                <ul>
+                    <li style="font-weight: bolder; font-size: 1.2rem;">Useful Links</li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>    
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; [Company Name] 2024</p>
+        </div>
+    </footer>
+
     
     
 

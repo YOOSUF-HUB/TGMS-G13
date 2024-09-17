@@ -238,6 +238,72 @@ header {
 
 
 
+
+
+/* FOOTER */
+/* FOOTER */
+
+/* Footer Section */
+footer {
+    background-color: #697565;
+    color: white;
+    padding: 40px 20px;
+}
+
+.social-media{
+    margin-right: 100px;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    color: #ECDFCC;
+  }
+
+.footer-links {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.footer-links ul {
+    margin: 10px;
+    list-style-type: none;
+}
+
+.footer-links ul a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-links ul a:hover {
+    color: #ECDFCC;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 10px;
+}
+
+
+/* END OF FOOTER */
+/* END OF FOOTER */
+
+
+
+
+
+
+
+
 /* LOGIN PAGE + CREATE ACCOUNT PAGE*/
 /* LOGIN PAGE + CREATE ACCOUNT PAGE*/
 /* LOGIN PAGE + CREATE ACCOUNT PAGE*/
