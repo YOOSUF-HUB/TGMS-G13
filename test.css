@@ -49,6 +49,9 @@ header {
 
 
 .sidenav {
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 90%;
+    backdrop-filter: blur(100px);
     height: 100%; 
     width: 0;  /* Initially hidden with 0 width */
     position: fixed; /* Fixed in place while scrolling */
