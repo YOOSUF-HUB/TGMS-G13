@@ -375,8 +375,16 @@ footer {
     margin: 80px;
 }
 
-.quote-detail h2 {
-    font-size: 2rem;
+.quote-detail h1 {
+    text-align: left;
+    line-height: 1.2;
+}
+
+.quote-detail p {
+    width: 700px;
+    text-align: justify;
+    font-size: 16px;
+    line-height: 2;
 }
 
 .quote-detail .quote-btn1{
