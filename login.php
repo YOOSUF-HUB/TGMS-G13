@@ -88,7 +88,7 @@
                 
                 
             }else{
-                // user details doesn't exists, show error
+                // if user details doesn't exists, show error
                 echo "<div class= 'errormessage'>
                         <p> Wrong Username or Password</p>
                     </div> <br>";
@@ -97,7 +97,7 @@
             }
 
             if(isset($_SESSION['valid'])){
-                header("Location: home.php");
+                header("Location: homepage.html");
             }
 
             
