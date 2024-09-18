@@ -4,7 +4,7 @@ html{
 
 /* General Styles */
 body {
-   font-family: Arial, sans-serif; 
+    font-family: Arial, sans-serif; 
     margin: 0;
     padding: 0;
 }
@@ -16,6 +16,13 @@ header {
     justify-content: space-between;
     align-items: center;
 }
+
+button{
+    font-family: questrial, sans-serif;
+}
+
+
+
 
 
 /* HEADER */
@@ -332,6 +339,7 @@ footer {
 }
 
 #banner-text p {
+    font-family: questrial, sans-serif;
     font-size: 18px;
     margin: 20px;
     margin-left: 300px;
@@ -340,7 +348,7 @@ footer {
 
 .banner-contact-button{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    transition: 0.2s ease;
+    transition: transform 0.2s ease;
     cursor: pointer;
     border: none;
     background-color: #697565;
@@ -348,12 +356,14 @@ footer {
     font-size: 20px;
     width: 200px;
     height: 40px;
+    position: relative; /* Make sure it's positioned relative to its normal position */
+    z-index: 10; /* Bring it above other content */
 }
 
 .banner-contact-button:hover{
-    width: 205px;
-    height: 45px;
+    transform: scale(1.1);
 }
+
 
 
 
@@ -405,9 +415,10 @@ footer {
 }
 
 .quote-detail p {
+    font-family: questrial, sans-serif;
     width: 700px;
     text-align: justify;
-    font-size: 16px;
+    font-size: 19px;
     line-height: 2;
 }
 
@@ -423,10 +434,11 @@ footer {
 
 .quote-detail .quote-btn1:hover{
     transition: 0.5s ease;
-    background-color:  white;
+    background-color: #ebe9e9;
     color: #333;
 }
 
 .quote-detail {
     margin-left: 80px;
 }
+
