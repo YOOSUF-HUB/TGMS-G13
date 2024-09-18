@@ -1,6 +1,5 @@
 html{
-    background-color: #fff6e9 ;
-
+    background-color: #ECDFCC ;
 }
 
 /* General Styles */
@@ -11,7 +10,6 @@ body {
 }
 
 header {
-    height: 50px;
     background-color: #697565;
     padding: 20px;
     display: flex;
@@ -19,6 +17,9 @@ header {
     align-items: center;
 }
 
+
+/* HEADER */
+/* HEADER */
 
 /* Container for centering the logo */
 .logo {
@@ -34,28 +35,32 @@ header {
 }
 
 
-/* Styling for the side navigation menu */
-.navbar {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%; /* Make sure the navbar takes up the full width */
+
+
+#menuIcon{
+    margin-bottom: 3px;
+}
+
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 20px; /* Space between menu icon and search bar */
 }
 
 
 .sidenav {
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
     opacity: 90%;
-    backdrop-filter: blur(20px);
-    height: 100%; /* Full height to cover the entire screen */
-    width: 0; /* Initially hidden with 0 width */
+    backdrop-filter: blur(100px);
+    height: 100%; 
+    width: 0;  /* Initially hidden with 0 width */
     position: fixed; /* Fixed in place while scrolling */
     z-index: 1; /* Places the sidenav above other content */
-    top: 0; /* Aligns to the top of the page */
-    left: 0; /* Aligns to the left of the page */
-    background-color: #ffffff; /* Black background color */
+    top: 0; 
+    left: 0; 
+    background-color:  #ffffff;
     overflow-x: hidden; /* Prevents horizontal scrolling */
-    transition: 0.5s; /* Smooth transition for opening and closing */
+    transition: 0.6s; /* Smooth transition for opening and closing */
     padding-top: 60px; /* Adds padding to the top of the sidenav */
 }
 
@@ -64,45 +69,31 @@ header {
     margin-top: 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 8px 8px 8px 32px; /* Padding inside links */
-    text-decoration: none; /* Removes underline from links */
-    font-size: 15px; /* Increases font size */
-    color: #000000; /* Light gray color for links */
-    display: block; /* Makes links take up the full width */
-    transition: 0.3s; /* Smooth transition for hover effect */
+    text-decoration: none; 
+    font-size: 1rem; 
+    color: #000000; 
+    display: block; 
+    transition: 0.3s; /* Smooth transition for hover */
 }
 
 /* Changes link color when hovered */
 .sidenav a:hover {
-    color: #ECDFCC; /* Lighter gray when hovered */
+    color: #ECDFCC; 
     background-color: #697565;
 }
 
 /* Close button inside the side navigation */
 .sidenav .closebtn {
     position: absolute; /* Positions the close button relative to the sidenav */
-    top: 0; /* Aligns it to the top */
-    right: 25px; /* 25px from the right edge of the sidenav */
-    font-size: 36px; /* Increases font size */
-    margin-left: 50px; /* Adds left margin for spacing */
-}
-
-/* Open button for side navigation*/
-.openbtn {
-    font-size: 30px; /* Increases font size */
-    cursor: pointer; /* Pointer cursor when hovered */
-    background-color: #111; /* Black background for the button */
-    color: white; /* White text color */
-    padding: 10px 15px; /* Padding inside the button */
-    border: none; /* Removes border */
-}
-
-.closebtn{
-
+    top: 0; 
+    right: 25px; 
+    font-size: 36px; 
+    margin-left: 50px;
     margin-top: 20px;
     cursor: pointer;
 }
 
-.closebtn :hover{
+.sidenav .closebtn :hover{
     
     color: #f1f1f1;
 }
@@ -116,104 +107,68 @@ header {
 
 /* When the side navigation is active (open) */
 .sidenav.active {
-    width: 200px ; /* Expands the sidenav width to 250px */
-}
-
-#menuIcon{
-    margin-bottom: 3px;
-}
-
-.menu-icon {
-    font-size: 24px;
-    cursor: pointer;
-    margin-right: 20px; /* Space between menu icon and search bar */
+    width: 250px; 
 }
 
 
 
-/*Search Bar Section*/
+
 #searchIcon{
     margin-left: 40px;
 }
 
-/* Search Bar container styling */
+/* Search Bar*/
 #searchBarContainer {
-    height: 30px;
+
     border-radius: 10px;
-    position: absolute; /* Absolute positioning to align next to the search icon */
-    top: -60%; /* Align to the top of the section */
-    left: 120%; /* Start right after the search icon */
-    width: 0; /* Initial width of 0 to hide completely */
+    position: absolute; /* Align next to the search icon */
+    top: -55%; 
+    left: 120%;
     overflow: hidden; /* Hide overflow content */
-    transition: 0.3s ease; /* Smooth transition for transform, opacity, and visibility */    background-color: #f9f9f9; /* Background color */
-    padding: 10px; /* Padding around the search bar */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-    display: flex; /* Flexbox for horizontal layout */
+    transition: 0.3s; 
+    background-color: #f9f9f9; 
+    padding: 10px; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow  */
+    display: flex; 
     justify-content: center;
-    align-items: center; /* Center items vertically */
-    opacity: 0; /* Hide the search bar initially */
-    visibility: hidden; /* Ensure the search bar is not interactable */
+    align-items: center; 
     margin-top: 10px;
+    width: 0; 
+    opacity: 0; 
+    visibility: hidden; /* Ensure the search bar is not interactable */
 }
 
 /* Search input field styling */
 #searchInput {
-    height: 15px;
     width:200px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 8px;
     font-size: 10px;
     margin-right: 10px;
-    border: 1px solid #ccc; /* Border for input field */
+    border: 1px solid #ccc; 
     border-radius: 10px;
 }
 
 /* Search button styling */
 #searchBarContainer button {
-    transition: 0.5s ease;
-    font-weight: 600;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     border-radius: 10px;
     padding: 8px 16px;
     font-size: 10px;
     cursor: pointer;
-    border: none; /* Remove default border */
-    background-color: #ECDFCC; /* Button background color */
-    color: #697565; /* Button text color */
-}
-
-/* Search button styling */
-#searchBarContainer button:hover {
-    transition: 0.5s ease;
-    color: #ECDFCC;
-    background-color: #697565;
-    
+    border: none; 
+    background-color: #333; 
+    color: white; 
 }
 
 /* Active class for showing the search bar */
 #searchBarContainer.active {
-    
-    width: 300px; /* Width when active */
-    opacity: 1; /* Make the search bar fully visible */
-    visibility: visible; /* Make the search bar interactable */
+    width: 300px; 
+    opacity: 1; 
+    visibility: visible; 
 }
 
 
-
-
-
-/* Profile container */
-.profile-container {
-    z-index: 2;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    opacity: 90%;
-    position: relative; /* Position the dropdown relative to this container */
-    display: inline-block; /* Keeps the profile container only as wide as its contents */
-}
-
-.profile-container a{
-    font-size: 15px;
-}
 
 
 /* Profile image icon styling */
@@ -224,25 +179,36 @@ header {
     cursor: pointer;
 }
 
+/* Profile container */
+.profile-container {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: relative; /* Position the dropdown relative to this container */
+    display: inline-block; /* Keeps the profile container only as wide as its contents */
+    font-size: 1rem;
+}
+
+
+
+
 
 /* Dropdown menu styling */
 .dropdown-content {
-    position: absolute; /* Position dropdown absolutely relative to profile-container */
-    right: 0; /* Align the dropdown to the right */
-    top: 100%; /* Position it just below the profile container */
-    background-color: rgb(255, 255, 255);
+    position: absolute; 
+    right: 0; 
+    top: 100%; 
+    background-color: black;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-
-    transform: translateY(-20px); /* Start with the dropdown moved up */
-    opacity: 0; /* Start with an opacity of 0 */
-    visibility: hidden; /* Hidden by default */
+    z-index: 1;
+    transform: translateY(-20px); 
+    opacity: 0; 
+    visibility: hidden; 
     transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition for transform, opacity, and visibility */
 }
 
 /* Styling for links inside the dropdown */
 .dropdown-content a {
-    color: rgb(0, 0, 0);
+    color: white;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -250,34 +216,91 @@ header {
 
 /* Changes background color of dropdown links when hovered */
 .dropdown-content a:hover {
-    background-color:#ECDFCC ;
-    color: #000000;
+    background-color: #697565;
     transition: 0.3s;
 }
 
-
 /* Show dropdown when active */
 .dropdown-content.show {
-    transform: translateY(0); /* Move the dropdown to its original position */
-    opacity: 1; /* Fade in */
-    visibility: visible; /* Make visible */
+    transform: translateY(0); /* Move the dropdown */
+    opacity: 1; 
+    visibility: visible; 
 }
+
+/* END OF HEADER */
+/* END OF HEADER */
+
+/* FOOTER */
+/* FOOTER */
+
+/* Footer Section */
+footer {
+    background-color: #697565;
+    color: white;
+    padding: 40px 20px;
+}
+
+.social-media{
+    margin-right: 100px;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    color: #ECDFCC;
+  }
+
+.footer-links {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.footer-links ul {
+    margin: 10px;
+    list-style-type: none;
+}
+
+.footer-links ul a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-links ul a:hover {
+    color: #ECDFCC;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 10px;
+}
+
+
+/* END OF FOOTER */
+/* END OF FOOTER */
+
+
 
 
 
 /* Banner Section */
 .banner {
-    z-index: 1;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 0rem;
     background-color: #ddd;
-    height: 700px;
+    height: 800px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
-
 
 .banner-content {
     position: relative; /* To ensure the image is positioned relative to the banner */
@@ -303,7 +326,8 @@ header {
 }
 
 #banner-text h1 {
-    font-size: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 36px;
     margin-top:5rem;
 }
 
@@ -313,7 +337,6 @@ header {
     margin-left: 300px;
     margin-right: 300px;
 }
-
 
 .banner-contact-button{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -333,39 +356,16 @@ header {
 }
 
 
-/* Quote Section */
-.quote-section { 
-    display: flex;
-    justify-content: space-around;
-    padding: 40px 20px;
-}
-
-.quote-box {
-    width: 30%;
-    background-color: #eee;
-    padding: 20px;
-    text-align: center;
-    
-}
-
-.quote-img {
-    background-color: #bbb;
-    height: 500px;
-    margin-bottom: 20px;
-
-}
-
-.quote-btn {
-    border:none;
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
-    cursor: pointer;
-
-}
 
 
-/* New Quote Section */
+
+
+
+
+
+
+
+/*  Quote Section */
 .quote {
     display: flex;
     justify-content: center;
@@ -379,18 +379,50 @@ header {
     align-items: center;
     width: 100%;
     overflow: hidden;
-    height: 1000px; 
+    height: 850px; 
     width: 1900px;
     position: relative; 
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .quote-image {
     position: absolute; 
-    top: -50px; 
     left: 0; 
     height: auto;
     width: 100%; 
     object-fit: cover;
+}
+
+.quote-detail {
+    margin: 80px;
+}
+
+.quote-detail h1 {
+    text-align: left;
+    line-height: 1.2;
+}
+
+.quote-detail p {
+    width: 700px;
+    text-align: justify;
+    font-size: 16px;
+    line-height: 2;
+}
+
+.quote-detail .quote-btn1{
+    transition: 0.5s ease;
+    padding: 8px 16px;
+    font-size: 20px;
+    border: none;
+    background-color: #697565;
+    color: #fff;
+    cursor: pointer;
+}
+
+.quote-detail .quote-btn1:hover{
+    transition: 0.5s ease;
+    background-color:  white;
+    color: #333;
 }
 
 .quote-detail {
@@ -407,60 +439,4 @@ header {
 
 .quote-detail-2 h1{
     font-size: 40px;
-}
-
-
-
-
-
-/* Footer Section */
-footer {
-    background-color: #697565;
-    color: white;
-    padding: 40px 20px;
-}
-
-.social-media{
-    margin-right: 100px;
-}
-
-.fa {
-    padding: 20px;
-    font-size: 30px;
-    width: 30px;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 50%;
-    color: #ECDFCC;
-}
-
-.footer-links {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
-}
-
-.footer-links ul {
-    margin: 10px;
-    list-style-type: none;
-}
-
-.footer-links ul a {
-    color: #fff;
-    text-decoration: none;
-}
-
-
-
-.footer-links ul a:hover {
-    color: #ECDFCC;
-}
-
-.footer-links li {
-    margin-bottom: 0.5rem;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 10px;
 }

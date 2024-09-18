@@ -1,0 +1,466 @@
+html{
+    background-color: #fff6e9 ;
+
+}
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    height: 50px;
+    background-color: #697565;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* Container for centering the logo */
+.logo {
+    text-align: center;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    width: 100vw; /* Full viewport width to center horizontally */
+}
+
+.logo-content p{
+    margin-right: 55px;
+}
+
+
+/* Styling for the side navigation menu */
+.navbar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%; /* Make sure the navbar takes up the full width */
+}
+
+
+.sidenav {
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    opacity: 90%;
+    backdrop-filter: blur(20px);
+    height: 100%; /* Full height to cover the entire screen */
+    width: 0; /* Initially hidden with 0 width */
+    position: fixed; /* Fixed in place while scrolling */
+    z-index: 1; /* Places the sidenav above other content */
+    top: 0; /* Aligns to the top of the page */
+    left: 0; /* Aligns to the left of the page */
+    background-color: #ffffff; /* Black background color */
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+    transition: 0.5s; /* Smooth transition for opening and closing */
+    padding-top: 60px; /* Adds padding to the top of the sidenav */
+}
+
+/* Styling for links inside the sidenav */
+.sidenav a {
+    margin-top: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 8px 8px 8px 32px; /* Padding inside links */
+    text-decoration: none; /* Removes underline from links */
+    font-size: 15px; /* Increases font size */
+    color: #000000; /* Light gray color for links */
+    display: block; /* Makes links take up the full width */
+    transition: 0.3s; /* Smooth transition for hover effect */
+}
+
+/* Changes link color when hovered */
+.sidenav a:hover {
+    color: #ECDFCC; /* Lighter gray when hovered */
+    background-color: #697565;
+}
+
+/* Close button inside the side navigation */
+.sidenav .closebtn {
+    position: absolute; /* Positions the close button relative to the sidenav */
+    top: 0; /* Aligns it to the top */
+    right: 25px; /* 25px from the right edge of the sidenav */
+    font-size: 36px; /* Increases font size */
+    margin-left: 50px; /* Adds left margin for spacing */
+}
+
+/* Open button for side navigation*/
+.openbtn {
+    font-size: 30px; /* Increases font size */
+    cursor: pointer; /* Pointer cursor when hovered */
+    background-color: #111; /* Black background for the button */
+    color: white; /* White text color */
+    padding: 10px 15px; /* Padding inside the button */
+    border: none; /* Removes border */
+}
+
+.closebtn{
+
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.closebtn :hover{
+    
+    color: #f1f1f1;
+}
+
+#mySidenav .closebtn{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+/* When the side navigation is active (open) */
+.sidenav.active {
+    width: 200px ; /* Expands the sidenav width to 250px */
+}
+
+#menuIcon{
+    margin-bottom: 3px;
+}
+
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 20px; /* Space between menu icon and search bar */
+}
+
+
+
+/*Search Bar Section*/
+#searchIcon{
+    margin-left: 40px;
+}
+
+/* Search Bar container styling */
+#searchBarContainer {
+    height: 30px;
+    border-radius: 10px;
+    position: absolute; /* Absolute positioning to align next to the search icon */
+    top: -60%; /* Align to the top of the section */
+    left: 120%; /* Start right after the search icon */
+    width: 0; /* Initial width of 0 to hide completely */
+    overflow: hidden; /* Hide overflow content */
+    transition: 0.3s ease; /* Smooth transition for transform, opacity, and visibility */    background-color: #f9f9f9; /* Background color */
+    padding: 10px; /* Padding around the search bar */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    display: flex; /* Flexbox for horizontal layout */
+    justify-content: center;
+    align-items: center; /* Center items vertically */
+    opacity: 0; /* Hide the search bar initially */
+    visibility: hidden; /* Ensure the search bar is not interactable */
+    margin-top: 10px;
+}
+
+/* Search input field styling */
+#searchInput {
+    height: 15px;
+    width:200px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 8px;
+    font-size: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc; /* Border for input field */
+    border-radius: 10px;
+}
+
+/* Search button styling */
+#searchBarContainer button {
+    transition: 0.5s ease;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 10px;
+    padding: 8px 16px;
+    font-size: 10px;
+    cursor: pointer;
+    border: none; /* Remove default border */
+    background-color: #ECDFCC; /* Button background color */
+    color: #697565; /* Button text color */
+}
+
+/* Search button styling */
+#searchBarContainer button:hover {
+    transition: 0.5s ease;
+    color: #ECDFCC;
+    background-color: #697565;
+    
+}
+
+/* Active class for showing the search bar */
+#searchBarContainer.active {
+    
+    width: 300px; /* Width when active */
+    opacity: 1; /* Make the search bar fully visible */
+    visibility: visible; /* Make the search bar interactable */
+}
+
+
+
+
+
+/* Profile container */
+.profile-container {
+    z-index: 2;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    opacity: 90%;
+    position: relative; /* Position the dropdown relative to this container */
+    display: inline-block; /* Keeps the profile container only as wide as its contents */
+}
+
+.profile-container a{
+    font-size: 15px;
+}
+
+
+/* Profile image icon styling */
+.profile-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+/* Dropdown menu styling */
+.dropdown-content {
+    position: absolute; /* Position dropdown absolutely relative to profile-container */
+    right: 0; /* Align the dropdown to the right */
+    top: 100%; /* Position it just below the profile container */
+    background-color: rgb(255, 255, 255);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+
+    transform: translateY(-20px); /* Start with the dropdown moved up */
+    opacity: 0; /* Start with an opacity of 0 */
+    visibility: hidden; /* Hidden by default */
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition for transform, opacity, and visibility */
+}
+
+/* Styling for links inside the dropdown */
+.dropdown-content a {
+    color: rgb(0, 0, 0);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Changes background color of dropdown links when hovered */
+.dropdown-content a:hover {
+    background-color:#ECDFCC ;
+    color: #000000;
+    transition: 0.3s;
+}
+
+
+/* Show dropdown when active */
+.dropdown-content.show {
+    transform: translateY(0); /* Move the dropdown to its original position */
+    opacity: 1; /* Fade in */
+    visibility: visible; /* Make visible */
+}
+
+
+
+/* Banner Section */
+.banner {
+    z-index: 1;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    background-color: #ddd;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+.banner-content {
+    position: relative; /* To ensure the image is positioned relative to the banner */
+    overflow: hidden; /* This will clip any overflow of the image */
+    height: 100%;
+    width: 100%;
+}
+
+.banner-content img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the container without stretching */
+    z-index: 0; /* Keep the image behind the text */
+}
+
+#banner-text{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#banner-text h1 {
+    font-size: 25px;
+    margin-top:5rem;
+}
+
+#banner-text p {
+    font-size: 18px;
+    margin: 20px;
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+
+.banner-contact-button{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    transition: 0.2s ease;
+    cursor: pointer;
+    border: none;
+    background-color: #697565;
+    color: #ECDFCC;
+    font-size: 20px;
+    width: 200px;
+    height: 40px;
+}
+
+.banner-contact-button:hover{
+    width: 205px;
+    height: 45px;
+}
+
+
+/* Quote Section */
+.quote-section { 
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 20px;
+}
+
+.quote-box {
+    width: 30%;
+    background-color: #eee;
+    padding: 20px;
+    text-align: center;
+    
+}
+
+.quote-img {
+    background-color: #bbb;
+    height: 500px;
+    margin-bottom: 20px;
+
+}
+
+.quote-btn {
+    border:none;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+
+}
+
+
+/* New Quote Section */
+.quote {
+    display: flex;
+    justify-content: center;
+    /* background-color: #bbb; */
+    margin: 100px;
+}
+
+.quote-image-container {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    height: 1000px; 
+    width: 1900px;
+    position: relative; 
+}
+
+.quote-image {
+    position: absolute; 
+    top: -50px; 
+    left: 0; 
+    height: auto;
+    width: 100%; 
+    object-fit: cover;
+}
+
+.quote-detail {
+    margin-left: 80px;
+}
+
+.quote-detail-2 {
+    margin-right: 80px;
+}
+
+.quote-detail h1{
+    font-size: 50px;
+}
+
+.quote-detail-2 h1{
+    font-size: 40px;
+}
+
+
+
+
+
+/* Footer Section */
+footer {
+    background-color: #697565;
+    color: white;
+    padding: 40px 20px;
+}
+
+.social-media{
+    margin-right: 100px;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    color: #ECDFCC;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.footer-links ul {
+    margin: 10px;
+    list-style-type: none;
+}
+
+.footer-links ul a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+
+.footer-links ul a:hover {
+    color: #ECDFCC;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 10px;
+}
