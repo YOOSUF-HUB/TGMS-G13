@@ -14,11 +14,11 @@
             <img onclick="closeNav()" src="images/close-google.svg" class="closebtn" style="width: 30px;">
             
             <!-- Navigation links -->
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Contact</a>
-            <a href="#">Terms of Services</a>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.php">Contact</a>
+            <a href="terms.html">Terms of Services</a>
         </div>
         <!-- Menu icon (with open function)-->
         <img src="images/menu-google.svg" id="menuIcon" style="width:30px;cursor:pointer" onclick="openNav()">
