@@ -327,7 +327,7 @@ footer {
 
 #banner-text h1 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 36px;
+    font-size: 38px;
     margin-top:5rem;
 }
 
@@ -398,8 +398,10 @@ footer {
 }
 
 .quote-detail h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: left;
-    line-height: 1.2;
+    line-height: 1.5;
+    font-size: 40px;
 }
 
 .quote-detail p {
@@ -427,16 +429,4 @@ footer {
 
 .quote-detail {
     margin-left: 80px;
-}
-
-.quote-detail-2 {
-    margin-right: 80px;
-}
-
-.quote-detail h1{
-    font-size: 50px;
-}
-
-.quote-detail-2 h1{
-    font-size: 40px;
 }
