@@ -6,7 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="./styles/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- social media icons -->
-    
+
 </head>
 <body>
     <header>
@@ -117,23 +117,23 @@
             <h3>Create Account</h3>
             <form action="" method="post">
                 <div class="field input">
-                    <label for="fname">First Name</label>
-                    <input type="text" name="fname" id="fname"  required>
+                    <!-- <label for="fname">First Name</label> -->
+                    <input type="text" name="fname" id="fname" placeholder="First Name" required>
                 </div>
 
                 <div class="field input">
-                    <label for="lname">Last Name</label>
-                    <input type="text" name="lname" id="lname" required>
+                    <!-- <label for="lname">Last Name</label> -->
+                    <input type="text" name="lname" id="lname" placeholder="Last Name" required>
                 </div>
                 
                 <div class="field input">
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id="email" autocomplete="off" required>
+                    <!-- <label for="email">Email</label> -->
+                    <input type="email" name="email" id="email" placeholder="Email" autocomplete="off" required>
                 </div>
 
                 <div class="field input">
-                    <label for="password">Password</label>
-                    <input type="password" name="password" id="password" autocomplete="off" required>
+                    <!-- <label for="password">Password</label> -->
+                    <input type="password" name="password" id="password" placeholder="Password" autocomplete="off" required>
                 </div>
 
                 <div class="field">
