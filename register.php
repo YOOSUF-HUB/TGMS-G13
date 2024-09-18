@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./styles/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- social media icons -->
+    
 </head>
 <body>
     <header>
@@ -152,43 +154,42 @@
     <!-- Footer Section -->
     <footer>
         
-        <div class="footer-links">
+    <div class="footer-links">
             <div class="social-media">
-                <p>---logo---</p>
+                <a href="Index.html"> <img src="./images/Versori.png" alt="logo" style="height: 90px; padding-left: 20px; "> </a>
                 <ul style="list-style-type: none; display: flex; padding: 0; font-size: 30px;">
-                    <li><a href="#" class="fa fa-facebook"></a></li>
+                    <li style="margin-left: 20px;"><a href="#" class="fa fa-facebook"></a></li>
                     <li><a href="#" class="fa fa-twitter"></a></li>
                     <li><a href="#" class="fa fa-instagram"></a></li>
                 </ul>
             </div>
             <div class="footer-left">
                 <ul>
-                    <li style="font-weight: bolder; font-size: 1.5rem;">[Company Name]</li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms and Conditions</a></li>
-                    <li><a href="#">Sampling</a></li>
+                    <li style="font-weight: bolder; font-size: 1.5rem;">Versori</li>
+                    <li><a href="policy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms and Conditions</a></li>
                 </ul>
             </div>
             <div class="footer-middle">
                 <ul>
                     <li style="font-weight: bolder; font-size: 1.2rem;">Our service</li>
-                    <li><a href="#">Manufacturing</a></li>
-                    <li><a href="#">Consultancy</a></li>
-                    <li><a href="#">Sampling</a></li>
+                    <li><a href="manufacturing.html">Manufacturing</a></li>
+                    <li><a href="consultancy.php">Consultancy</a></li>
+                    <li><a href="sampling.html">Sampling</a></li>
                 </ul>
             </div>
             <div class="footer-right">
                 <ul>
                     <li style="font-weight: bolder; font-size: 1.2rem;">Useful Links</li>
-                    <li><a href="#">About us</a></li>
-                    <li><a href="#">Contact us</a></li>
-                    <li><a href="#">Products</a></li>
-                    <li><a href="#">FAQ</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="contact.php">Contact us</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
                 </ul>    
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; [Company Name] 2024</p>
+            <p>&copy; Versori 2024</p>
         </div>
     </footer>
 
