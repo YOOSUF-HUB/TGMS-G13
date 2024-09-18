@@ -259,9 +259,10 @@ footer {
     text-decoration: none;
     border-radius: 50%;
     color: #ECDFCC;
-  }
+}
 
 .footer-links {
+    font-family: questrial, sans-serif;
     display: flex;
     justify-content: space-around;
     margin-bottom: 20px;
@@ -347,7 +348,6 @@ footer {
 }
 
 .banner-contact-button{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     transition: transform 0.2s ease;
     cursor: pointer;
     border: none;
