@@ -91,7 +91,7 @@
                 }
                 else{
 
-                    $insert_query = "INSERT INTO users (firstname, lastname, email, password) VALUES ('$fname', '$lname', '$email', '$password')";
+                    $insert_query = "INSERT INTO customer (firstname, lastname, email, password) VALUES ('$fname', '$lname', '$email', '$password')";
                     $result = mysqli_query($conn, $insert_query);
                     
 
