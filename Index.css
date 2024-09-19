@@ -442,3 +442,9 @@ footer {
     margin-left: 80px;
 }
 
+@media (max-width: 768px) {
+    .quote {
+        flex-direction: column;
+    }
+    /* Adjust other styles for smaller screens */
+}

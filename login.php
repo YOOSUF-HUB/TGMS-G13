@@ -11,7 +11,7 @@
 <body>
     <header>
         <!-- Side Navigation Menu -->
-        <div id="mySidenav" class="sidenav">
+        <nav id="mySidenav" class="sidenav">
             <!-- Close button -->
             <img onclick="closeNav()" src="images/close-google.svg" class="closebtn" style="width: 30px;">
             
@@ -21,7 +21,7 @@
             <a href="services.html">Services</a>
             <a href="contact.php">Contact</a>
             <a href="terms.html">Terms of Services</a>
-        </div>
+        </nav>
         <!-- Menu icon (with open function)-->
         <img src="images/menu-google.svg" id="menuIcon" style="width:30px;cursor:pointer" onclick="openNav()">
 
@@ -79,7 +79,7 @@
 
             // Query to check the email and password
             $login_query = "SELECT * FROM users WHERE Email='$email' AND Password='$password'";
-            $result = mysqli_query($conn, $login_query);
+            $result = mysqli_query($conn, $login_query); //excute query
             $row = mysqli_fetch_assoc($result);
 
             if(is_array($row) && !empty($row)){
