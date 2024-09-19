@@ -182,6 +182,6 @@
     
 
 
-    <script src="./script/home.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
