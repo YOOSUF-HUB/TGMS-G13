@@ -43,7 +43,7 @@
         <section class="logo">
 
             <div class="logo-content">
-                <p>Logo</p>
+                <a href="Index.html"> <img src="./images/Versori.png" alt="logo" style="height: 50px; padding-right: 90px;"> </a>
             </div>
     
         </section>
@@ -80,7 +80,7 @@
                 $password = $_POST['password'];
 
                 //verifying the unique email
-                $verify_query = mysqli_query ($conn, "SELECT Email FROM users WHERE Email='$email'");
+                $verify_query = mysqli_query ($conn, "SELECT email FROM customer WHERE email='$email'");
                 
                 if(mysqli_num_rows($verify_query) != 0){
                     // Email already exists, show error
@@ -91,7 +91,7 @@
                 }
                 else{
 
-                    $insert_query = "INSERT INTO users (Firstname, Lastname, Email, Password) VALUES ('$fname', '$lname', '$email', '$password')";
+                    $insert_query = "INSERT INTO users (firstname, lastname, email, password) VALUES ('$fname', '$lname', '$email', '$password')";
                     $result = mysqli_query($conn, $insert_query);
                     
 

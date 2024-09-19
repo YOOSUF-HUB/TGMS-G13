@@ -9,3 +9,9 @@ CREATE TABLE customer (
     dob DATE,
     date_created DATE DEFAULT CURRENT_DATE
 );
+
+
+
+
+-- to change name of thr column
+ALTER TABLE customer CHANGE customer_id_num customer_id INT AUTO_INCREMENT;

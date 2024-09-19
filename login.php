@@ -43,7 +43,7 @@
         <section class="logo">
 
             <div class="logo-content">
-                <p>Logo</p>
+                <a href="Index.html"> <img src="./images/Versori.png" alt="logo" style="height: 50px; padding-right: 90px;"> </a>
             </div>
     
         </section>
@@ -78,14 +78,14 @@
             $password = mysqli_real_escape_string($conn, $_POST['password']);
 
             // Query to check the email and password
-            $login_query = "SELECT * FROM users WHERE Email='$email' AND Password='$password'";
+            $login_query = "SELECT * FROM customer WHERE email='$email' AND password='$password'";
             $result = mysqli_query($conn, $login_query); //excute query
             $row = mysqli_fetch_assoc($result);
 
-            if(is_array($row) && !empty($row)){
-                $_SESSION['valid'] = $row['Email'];
-                $_SESSION['user_id'] = $row['id'];
-                $_SESSION['firstname'] = $row['Firstname'];
+            if(is_array($row) && !empty($row)){ 
+                $_SESSION['valid'] = $row['email'];
+                $_SESSION['user_id'] = $row['customer_id'];
+                $_SESSION['lastname'] = $row['lastname'];
 
                 
                 
