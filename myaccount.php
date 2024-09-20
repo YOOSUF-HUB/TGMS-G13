@@ -34,7 +34,7 @@ if (isset($_POST['save'])) {
     $address = mysqli_real_escape_string($conn, $_POST['address']);
 
     $update_query = "UPDATE Customer_account 
-                     SET First_name = '$fname', Last_name = '$lname', Email = '$email'
+                     SET First_name = '$fname', Last_name = '$lname', Email = '$email', Phone_no = '$phone_no', Dob = '$dob', Address = '$address'
                      WHERE Customer_ID = '$user_id'";
 
     if (mysqli_query($conn, $update_query)) {
@@ -164,7 +164,7 @@ mysqli_close($conn);
                         </ul>
                         <ul>
                             <li>
-                                <label for="phoneno">Contact Number</label> <?php echo htmlspecialchars($user['Phone_no']); ?>
+                                <label for="phoneno">Contact Number</label> 
                                 <input type="text" id="phoneno" name="phoneno" value="<?php echo htmlspecialchars($user['Phone_no']); ?>" >
                             </li>
                             <li>
