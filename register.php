@@ -79,6 +79,19 @@
                 $email = $_POST['email'];
                 $password = $_POST['password'];
 
+                // Query to get the last Customer_ID
+                $find = mysqli_query($conn, "SELECT MAX(Customer_ID) AS max_id FROM Customer_account");
+                $row = mysqli_fetch_assoc($find);
+                //assigning customer id
+                if ($row['max_id']) {
+                    $last_id = $row['max_id'];
+                    $num = intval(substr($last_id, 1)) + 1; 
+                    
+                    $customerid = 'C' . str_pad($num, 4, '0', STR_PAD_LEFT); 
+                } else {
+                    $customerid = 'C1001'; 
+                }
+
                 //verifying the unique email
                 $verify_query = mysqli_query ($conn, "SELECT Email FROM Customer_account WHERE Email='$email'");
                 
