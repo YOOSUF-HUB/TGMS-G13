@@ -1,5 +1,5 @@
 
-
+-- Customer Table
 CREATE TABLE Customer_account (
     Customer_ID varchar(255) NOT NULL PRIMARY KEY,
     First_name varchar(255),
@@ -11,6 +11,16 @@ CREATE TABLE Customer_account (
     Dob DATE,
     Date_created DATE DEFAULT CURRENT_DATE
 );
+
+-- Staff Table
+CREATE TABLE Staff_account (
+    Staff_ID varchar(255) NOT NULL PRIMARY KEY,
+    First_name varchar(255),
+    Last_name varchar(255) NOT NULL,
+    Email varchar(255) NOT NULL,
+    Password varchar(255) NOT NULL,
+    Date_created DATE DEFAULT CURRENT_DATE
+)
 
 
 
