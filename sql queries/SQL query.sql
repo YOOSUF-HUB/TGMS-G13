@@ -11,6 +11,18 @@ CREATE TABLE customer (
     date_created DATE DEFAULT CURRENT_DATE
 );
 
+CREATE TABLE Customer_account (
+    Customer_ID varchar(255) NOT NULL PRIMARY KEY,
+    First_name varchar(255),
+    Last_name varchar(255) NOT NULL,
+    Email varchar(255) NOT NULL,
+    Password varchar(255) NOT NULL,
+    Address varchar(255),
+    Phone_no varchar(255),
+    Dob DATE,
+    Date_created DATE DEFAULT CURRENT_DATE
+);
+
 
 
 
