@@ -22,6 +22,9 @@ CREATE TABLE Staff_account (
     Date_created DATE DEFAULT CURRENT_DATE
 )
 
+-- Manually inserting data into table using MYSQL
+-- INSERT INTO `Staff_account` (`Staff_ID`, `First_name`, `Last_name`, `Email`, `Password`, `Date_created`) 
+-- VALUES (001, 'John', 'Smith', 'js@gmail.com', '123', CURRENT_DATE);
 
 
 
