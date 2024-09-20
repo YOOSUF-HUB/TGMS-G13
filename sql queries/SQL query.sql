@@ -1,3 +1,4 @@
+-- CUSTOMER TABLE
 CREATE TABLE customer (
     customer_id_num INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     firstname varchar(255),
