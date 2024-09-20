@@ -54,3 +54,5 @@ function cancelEdit() {
     document.getElementById('editMode').style.display = 'none';
     document.getElementById('viewMode').style.display = 'block';
 }
+
+// Additional JavaScript functions
