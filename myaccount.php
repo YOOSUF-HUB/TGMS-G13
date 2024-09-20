@@ -154,11 +154,11 @@ mysqli_close($conn);
                     <form action="" method="POST">
                         <ul>
                             <li>
-                                <label for="fname">First Name</label> 
+                                <label for="fname">First Name:</label>
                                 <input type="text" id="fname" name="fname" value="<?php echo htmlspecialchars($user['First_name']); ?>" required>
                             </li>
                             <li>
-                                <label for="lname">Last Name</label> <?php echo htmlspecialchars($user['Last_name']); ?>
+                                <label for="lname">Last Name:</label>
                                 <input type="text" id="lname" name="lname" value="<?php echo htmlspecialchars($user['Last_name']); ?>" required>
                             </li>
                         </ul>
@@ -167,12 +167,15 @@ mysqli_close($conn);
                                 <label for="phoneno">Contact Number</label> <?php echo htmlspecialchars($user['Phone_no']); ?>
                                 <input type="text" id="phoneno" name="phoneno" value="<?php echo htmlspecialchars($user['Phone_no']); ?>" >
                             </li>
-                            <li><label for="dob">Date of Birth</label> <?php echo htmlspecialchars($user['Dob']); ?></li>
+                            <li>
+                                <label for="dob">Date of Birth:</label>
+                                <input type="date" id="dob" name="dob" value="<?php echo htmlspecialchars($user['Dob']); ?>" >
+                            </li>
                         </ul>
                         <ul>
                             <li>
-                                <label for="email">Email</label> <?php echo htmlspecialchars($user['Email']); ?>
-                                <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($user['Email']); ?>" required>
+                                <label for="email">Email:</label>
+                                 <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($user['Email']); ?>" required>
                             </li>
                         </ul>
                         <ul>
@@ -181,17 +184,17 @@ mysqli_close($conn);
                             </li>
                         </ul>
 
-                        <label for="fname">First Name:</label>
+                        <!-- <label for="fname">First Name:</label>
                         <input type="text" id="fname" name="fname" value="<?php echo htmlspecialchars($user['First_name']); ?>" required>
             
                         <label for="lname">Last Name:</label>
                         <input type="text" id="lname" name="lname" value="<?php echo htmlspecialchars($user['Last_name']); ?>" required>
             
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($user['Email']); ?>" required>
+                        <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($user['Email']); ?>" required> -->
             
                         <button type="submit" name="save">Save Changes</button>
-                        <button type="button" onclick="cancelEdit()">Cancel</button> <!-- Cancel button to switch back to view mode -->
+                        <button type="button" onclick="cancelEdit()">Cancel</button>  <!-- Cancel button to switch back to view mode  -->
                     </form>
                 </div>
             </div>
