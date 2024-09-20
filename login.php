@@ -1,3 +1,6 @@
+<?php
+    session_start(); // Make sure this is the first line
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,14 +81,14 @@
             $password = mysqli_real_escape_string($conn, $_POST['password']);
 
             // Query to check the email and password
-            $login_query = "SELECT * FROM customer WHERE email='$email' AND password='$password'";
+            $login_query = "SELECT * FROM Customer_account WHERE email='$email' AND password='$password'";
             $result = mysqli_query($conn, $login_query); //excute query
             $row = mysqli_fetch_assoc($result);
 
             if(is_array($row) && !empty($row)){ 
-                $_SESSION['valid'] = $row['email'];
-                $_SESSION['user_id'] = $row['customer_id'];
-                $_SESSION['lastname'] = $row['lastname'];
+                $_SESSION['valid'] = $row['Email'];
+                $_SESSION['user_id'] = $row['Customer_ID'];
+                $_SESSION['lastname'] = $row['Last_name'];
 
                 
                 
@@ -99,7 +102,7 @@
             }
 
             if(isset($_SESSION['valid'])){
-                header("Location: index.html");
+                header("Location: myaccount.php");
             }
 
             

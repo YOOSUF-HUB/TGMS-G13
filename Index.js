@@ -41,3 +41,16 @@ window.onclick = function(event) {
         }
     }
 }
+
+
+
+// JavaScript to toggle between view and edit mode
+function showEditForm() {
+    document.getElementById('viewMode').style.display = 'none';
+    document.getElementById('editMode').style.display = 'block';
+}
+
+function cancelEdit() {
+    document.getElementById('editMode').style.display = 'none';
+    document.getElementById('viewMode').style.display = 'block';
+}
