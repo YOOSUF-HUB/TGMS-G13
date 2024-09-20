@@ -80,7 +80,7 @@
                 $password = $_POST['password'];
 
                 //verifying the unique email
-                $verify_query = mysqli_query ($conn, "SELECT email FROM customer WHERE email='$email'");
+                $verify_query = mysqli_query ($conn, "SELECT Email FROM Customer_account WHERE Email='$email'");
                 
                 if(mysqli_num_rows($verify_query) != 0){
                     // Email already exists, show error
@@ -91,7 +91,7 @@
                 }
                 else{
 
-                    $insert_query = "INSERT INTO customer (firstname, lastname, email, password) VALUES ('$fname', '$lname', '$email', '$password')";
+                    $insert_query = "INSERT INTO customer_account (Customer_ID, First_name, Last_name, Email, Password, Date_created) VALUES ('$customerid','$fname', '$lname', '$email', '$password', DEFAULT)";
                     $result = mysqli_query($conn, $insert_query);
                     
 
