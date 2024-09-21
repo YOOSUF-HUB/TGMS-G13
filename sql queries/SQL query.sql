@@ -35,7 +35,7 @@ CREATE TABLE Orders (
 
 -- Consultation Table
 CREATE TABLE Consultation (
-    Consultation_ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    Consultation_ID VARCHAR(255) NOT NULL PRIMARY KEY,
     Consultation_Date VARCHAR(255) NOT NULL,
     Full_name VARCHAR(255) NOT NULL,
     Email VARCHAR(255) NOT NULL,
