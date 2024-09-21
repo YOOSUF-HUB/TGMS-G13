@@ -130,40 +130,40 @@
                 } else {
                 ?>
                     <h3>Book a Consultancy</h3>
-                    <p style="font-family:Questrial,san-serif; text-align:center;color: white">We will respond within 24 Hours</p>
+                    <p style="font-family:Questrial,san-serif; text-align:center;color: #697565; font-size: 20px;">We will respond within 24 Hours</p>
 
 
                     <form action="" method="post">
                         <div class="field input">
-                            <input type="text" name="full_name" placeholder="Full Name*" required>
+                            <input type="text" name="full_name" placeholder="Full Name*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
                         </div>
 
                         <div class="field input">
-                            <input type="email" name="email" placeholder="Email*" required>
+                            <input type="email" name="email" placeholder="Email*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
                         </div>
 
                         <div class="field input">
-                            <input type="text" name="telephone" placeholder="Telephone*" required>
+                            <input type="text" name="telephone" placeholder="Telephone*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
                         </div>
 
                         <div class="field input">
-                            <input type="text" name="company_name" placeholder="Company Name*" required>
+                            <input type="text" name="company_name" placeholder="Company Name*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
                         </div>
 
                         <div class="field input">
-                            <input type="url" name="company_website" placeholder="Company Website URL">
+                            <input type="url" name="company_website" placeholder="Company Website URL" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;">
                         </div>
 
                         <div class="field input">
-                            <input type="text" name="company_scale" placeholder="Company Scale">
+                            <input type="text" name="company_scale" placeholder="Company Scale" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;">
                         </div>
 
                         <div class="field input">
-                            <textarea name="brand_overview" placeholder="Brand Overview*" rows="4" required></textarea>
+                            <textarea name="brand_overview" placeholder=" Brand Overview*" rows="4" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required></textarea>
                         </div>
 
                         <div class="field input">
-                            <textarea name="other_comments" placeholder="Other" rows="4"></textarea>
+                            <textarea name="other_comments" placeholder=" Other" rows="8" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;"></textarea>
                         </div>
 
                         <div class="field">
@@ -174,7 +174,7 @@
 
                 <?php } ?>
 
-                
+
             </div>
 
 
