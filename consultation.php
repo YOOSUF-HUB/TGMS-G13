@@ -81,7 +81,8 @@
         <h1 style="margin-top: 2rem;">BOOK A BRAND CONSULTATION</h1>
 
         <p>At Versori, we provide a comprehensive system designed to manage every stage of your textile and garment production, from raw materials to the final product. Our platform offers personalized support, streamlining your operations and tailoring solutions to the specific needs of your business. Whether you're a small boutique or a large-scale manufacturer, Versori adapts to your requirements, helping you achieve operational excellence. We welcome businesses of all sizes within the textile and garment industry to experience our cutting-edge tools and expertise.Versori is built on decades of expertise in the textile and garment industry: Our system offers comprehensive: tools for managing every aspect of your textile and garment production process, To your final product deliver with our platform, you'll have access to personalized support, ensuring that your operations are streamlined and tailored to the unique needs of your business. Whether you're a small boutique or a large-scale manufacturer, our system adapts to your needs and helps you achieve operational excellence. All levels of the textile and garment industry are welcome.</p>
-
+        <br>
+        <br>
     </div>
 
     <div class="brand-consultancy-image-container">
@@ -114,13 +115,30 @@
                     $brand_overview = mysqli_real_escape_string($conn, $_POST['brand_overview']);
                     $other_comments = mysqli_real_escape_string($conn, $_POST['other_comments']);
 
+
+                    // Query to get the last Consultation_ID
+                    $find = mysqli_query($conn, "SELECT MAX(Consultation_ID) AS max_id FROM Consultation");
+                    $row = mysqli_fetch_assoc($find);
+
+                    // Assigning customer ID
+                    if ($row['max_id']) {
+                        $last_id = $row['max_id'];
+                        $num = intval($last_id) + 1; // Increment the numeric ID directly
+                        
+                    // Generate new customer ID with 'CONSULT_' prefix
+                        $customerid = 'CONSULT_' . str_pad($num, 4, '0', STR_PAD_LEFT); 
+                    } else {
+                        $customerid = 'CONSULT_0001'; // Use the correct prefix here
+                    }
+
+
                     // Insert form data into the database
                     $query = "INSERT INTO Consultation (Consultation_Date, Full_name, Email, Phone_no, Company_name, Company_website_URL, Company_scale, Brand_overview, Other)
                             VALUES (NOW(), '$full_name', '$email', '$telephone', '$company_name', '$company_website', '$company_scale', '$brand_overview', '$other_comments')";
 
                     if (mysqli_query($conn, $query)) {
                         echo "<div class='successmessage'>
-                                <p style='font-family:Questrial,san-serif; text-align:center; font-size: 40px'>Thank you! Your consultation request has been received.</p>
+                                <p style='font-family:Questrial,san-serif; text-align:center; font-size: 40px'>Thank you! Your consultation request has been received. We will get back to you shortly.</p>
                             </div>";
                     } else {
                         echo "<div class='errormessage'>
