@@ -139,6 +139,7 @@
                     if (mysqli_query($conn, $query)) {
                         echo "<div class='successmessage'>
                                 <p style='font-family:Questrial,san-serif; text-align:center; font-size: 40px'>Thank you! Your consultation request has been received. We will get back to you shortly.</p>
+                                <a href='consultation.php' class='go-back-btn'>Go Back</a>
                             </div>";
                     } else {
                         echo "<div class='errormessage'>
