@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consulation Booking</title>
-    <meta charset="UTF-8">
     <link rel="stylesheet" href="./styles/consultation.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- social media icons -->
     <!-- Questrial Font-->
@@ -120,16 +119,20 @@
                     $find = mysqli_query($conn, "SELECT MAX(Consultation_ID) AS max_id FROM Consultation");
                     $row = mysqli_fetch_assoc($find);
 
-                    // Assigning customer ID
+                    //Assigning customer ID
                     if ($row['max_id']) {
                         $last_id = $row['max_id'];
-                        $num = intval($last_id) + 1; // Increment the numeric ID directly
+                        // Extract numeric part from last ID
+                        $last_num = (int)preg_replace("/[^0-9]/", "", $last_id);
+                        $num = $last_num + 1; // Increment the numeric part
                         
                     // Generate new customer ID with 'CONSULT_' prefix
                         $customerid = 'CONSULT_' . str_pad($num, 4, '0', STR_PAD_LEFT); 
                     } else {
                         $customerid = 'CONSULT_0001'; // Use the correct prefix here
                     }
+
+                
 
 
                     // Insert form data into the database
@@ -141,6 +144,7 @@
                                 <p style='font-family:Questrial,san-serif; text-align:center; font-size: 40px'>Thank you! Your consultation request has been received. We will get back to you shortly.</p>
                                 <button onclick='goBack()' style='font-family:Questrial,san-serif; font-size: 20px; padding: 10px 20px; background-color: #697565; color: white; border: none; border-radius: 5px; cursor: pointer;'>Go Back</button>
                             </div>";
+                            
                     } else {
                         echo "<div class='errormessage'>
                                 <p>Error: " . mysqli_error($conn) . "</p>
@@ -188,7 +192,7 @@
                         </div>
 
                         <div class="field">
-                            <input class="btn" type="submit" name="submit" value="Submit" required>
+                            <input class="btn" type="submit" name="submit" value="Submit" >
                         </div>
                     </form>
 
