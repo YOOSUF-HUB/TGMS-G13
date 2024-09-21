@@ -1,3 +1,48 @@
+/* Additional CSS styles */
+#externalContainer{
+    z-index: 1; display: flex; justify-content: center; align-items: center; min-height: 90vh; flex-direction: column; 
+}
+#myaccountContainer{
+     padding: 120px 180px; padding-left:0px;
+}
+.myaccount{
+    font-family: Questrial, sans-serif;
+}
+.accountDetails{
+    line-height: 4rem;
+}
+.list{
+    list-style-type: none;
+    padding: 0;
+    margin: 0; 
+    margin-left: 20px;
+}
+.list li{
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 15px;
+    align-items: center;
+}
+.accLabel{
+    font-family: Questrial, sans-serif;
+    font-size: 1.2rem;
+    width: 150px;
+    font-weight: bold;
+}
+.accBox{
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px #000000 solid;
+    font-size: 1rem;
+    font-family: Arial, sans-serif;
+    width: 300px;
+}
+input[readonly] {
+    cursor:default;
+    background-color: transparent;          
+    pointer-events: none;
+}
+
 html{
     background-color: #ECDFCC ;
 }
@@ -449,5 +494,4 @@ footer {
     /* Adjust other styles for smaller screens */
 }
 
-/* Additional CSS styles */
 

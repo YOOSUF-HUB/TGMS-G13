@@ -129,43 +129,27 @@ mysqli_close($conn);
 
     <main>
         <!-- My Account Details with edit option-->
-        <div id="externalContainer">
-            <div id="myaccountContainer" >
-                <div class="myaccount">
+        <div class="externalContainer" style="z-index: 1; display: flex; justify-content: center; align-items: center; min-height: 90vh; flex-direction: column; ">
+            <div class="myaccountContainer" style="background-color:white; padding: 120px 180px; padding-left:0px;">
+                <div class="myaccount" style="font-family: Questrial, sans-serif;">
                     <h1>My Account</h1>
                     <hr>
                 </div>
                 <div>
                     <div id="viewMode" class="accountDetails">
-                        <ul class="list">
-                            <li >
-                                <label class="accLabel" for="fname">First Name</label>
-                                <input class="accBox"  type="text" id="fname" name="fname" value="<?php echo htmlspecialchars($user['First_name']); ?>" readonly>
-                            </li>
-                            <li>
-                                <label class="accLabel" for="lname">Last Name</label>
-                                <input class="accBox" type="text" id="lname" name="lname" value="<?php echo htmlspecialchars($user['Last_name']); ?>" readonly>
-                            </li>
-                        
-                            <li>
-                                <label class="accLabel" for="phoneno">Contact Number</label> 
-                                <input class="accBox"  type="text" id="phoneno" name="phoneno" value="<?php echo htmlspecialchars($user['Phone_no']); ?>" readonly>
-                            </li>
-                            <li>
-                                <label class="accLabel" for="dob">Date of Birth:</label>
-                                <input class="accBox"  type="date" id="dob" name="dob" value="<?php echo htmlspecialchars($user['Dob']); ?>" readonly>
-                            </li>
-                        
-                        
-                            <li>
-                                <label class="accLabel" for="email">Email:</label>
-                                <input class="accBox"  type="email" id="email" name="email" value="<?php echo htmlspecialchars($user['Email']); ?>" readonly>
-                            </li>
-                        
-                        
-                            <li><label class="accLabel" for="address">Address</label> 
-                                <input class="accBox"  type="text" id="address" name="address" value="<?php echo htmlspecialchars($user['Address']); ?>" readonly>
-                            </li>
+                        <ul style="margin: 0; list-style-type: none;">
+                            <li><label for="fname" style="font-weight: bold";>First Name</label> <label for="fname1" style="color:brown";><?php echo htmlspecialchars($user['First_name']); ?></label></li>
+                            <li><label for="lname">Last Name</label> <?php echo htmlspecialchars($user['Last_name']); ?></li>
+                        </ul>
+                        <ul style="margin: 0;">
+                            <li><label for="phoneno">Contact Number</label> <?php echo htmlspecialchars($user['Phone_no']); ?></li>
+                            <li><label for="dob">Date of Birth</label> <?php echo htmlspecialchars($user['Dob']); ?></li>
+                        </ul>
+                        <ul style="margin: 0;">
+                            <li><label for="email">Email</label> <?php echo htmlspecialchars($user['Email']); ?></li>
+                        </ul>
+                        <ul style="margin: 0;">
+                            <li><label for="address">Address</label> <?php echo htmlspecialchars($user['Address']); ?></li>
                         </ul>
                         <button onclick="showEditForm()">Edit</button>
                     </div>
@@ -173,35 +157,35 @@ mysqli_close($conn);
                     <!-- Account details edit form -->
                     <div id="editMode" style="display: none;" class="accountDetails">
                         <form action="" method="POST">
-                            <ul class="list">
+                            <ul>
                                 <li>
-                                    <label class="accLabel" for="fname">First Name</label>
-                                    <input class="accBox" type="text" id="fname" name="fname" value="<?php echo htmlspecialchars($user['First_name']); ?>" required>
+                                    <label for="fname">First Name</label>
+                                    <input type="text" id="fname" name="fname" value="<?php echo htmlspecialchars($user['First_name']); ?>" required>
                                 </li>
                                 <li>
-                                    <label class="accLabel" for="lname">Last Name</label>
-                                    <input class="accBox" type="text" id="lname" name="lname" value="<?php echo htmlspecialchars($user['Last_name']); ?>" required>
-                                </li>
-                            </ul>
-                            <ul class="list">
-                                <li>
-                                    <label class="accLabel" for="phoneno">Contact Number</label> 
-                                    <input class="accBox" type="text" id="phoneno" name="phoneno" value="<?php echo htmlspecialchars($user['Phone_no']); ?>" >
-                                </li>
-                                <li>
-                                    <label class="accLabel" for="dob">Date of Birth:</label>
-                                    <input class="accBox" type="date" id="dob" name="dob" value="<?php echo htmlspecialchars($user['Dob']); ?>" >
+                                    <label for="lname">Last Name</label>
+                                    <input type="text" id="lname" name="lname" value="<?php echo htmlspecialchars($user['Last_name']); ?>" required>
                                 </li>
                             </ul>
-                            <ul class="list">
+                            <ul>
                                 <li>
-                                    <label class="accLabel" for="email">Email:</label>
-                                    <input class="accBox" type="email" id="email" name="email" value="<?php echo htmlspecialchars($user['Email']); ?>" required>
+                                    <label for="phoneno">Contact Number</label> 
+                                    <input type="text" id="phoneno" name="phoneno" value="<?php echo htmlspecialchars($user['Phone_no']); ?>" >
+                                </li>
+                                <li>
+                                    <label for="dob">Date of Birth:</label>
+                                    <input type="date" id="dob" name="dob" value="<?php echo htmlspecialchars($user['Dob']); ?>" >
                                 </li>
                             </ul>
-                            <ul class="list">
-                                <li><label class="accLabel" for="address">Address</label> 
-                                <input class="accBox" type="text" id="address" name="address" value="<?php echo htmlspecialchars($user['Address']); ?>" >
+                            <ul>
+                                <li>
+                                    <label for="email">Email:</label>
+                                    <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($user['Email']); ?>" required>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li><label for="address">Address</label> 
+                                <input type="text" id="address" name="address" value="<?php echo htmlspecialchars($user['Address']); ?>" >
                                 </li>
                             </ul>
 
