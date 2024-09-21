@@ -133,8 +133,8 @@
 
 
                     // Insert form data into the database
-                    $query = "INSERT INTO Consultation (Consultation_Date, Full_name, Email, Phone_no, Company_name, Company_website_URL, Company_scale, Brand_overview, Other)
-                            VALUES (NOW(), '$full_name', '$email', '$telephone', '$company_name', '$company_website', '$company_scale', '$brand_overview', '$other_comments')";
+                    $query = "INSERT INTO Consultation (Consultation_ID, Consultation_Date, Full_name, Email, Phone_no, Company_name, Company_website_URL, Company_scale, Brand_overview, Other)
+                            VALUES ('$customerid', NOW(), '$full_name', '$email', '$telephone', '$company_name', '$company_website', '$company_scale', '$brand_overview', '$other_comments')";
 
                     if (mysqli_query($conn, $query)) {
                         echo "<div class='successmessage'>
