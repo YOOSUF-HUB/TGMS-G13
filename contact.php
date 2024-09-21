@@ -85,7 +85,7 @@
     </main>
 
     <!-- Footer Section -->
-    <footer style="width: 100%; position: fixed; bottom: 0; left: 0;">
+    <footer>
         
         <div class="footer-links">
             <div class="social-media">
