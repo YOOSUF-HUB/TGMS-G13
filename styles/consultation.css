@@ -401,15 +401,4 @@ footer {
     color: #000000;
 }
 
-.go-back-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff; /* Change to your desired color */
-    color: white;
-    text-align: center;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none; /* Remove underline */
-    font-family: Questrial, sans-serif; /* Match font */
-    margin-top: 20px; /* Space above the button */
-}
+
