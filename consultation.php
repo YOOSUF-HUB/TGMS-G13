@@ -71,6 +71,11 @@
 
     </header>
 
+
+
+
+
+
     <div class="first-head">
 
         <h1 style="margin-top: 2rem;">BOOK A BRAND CONSULTATION</h1>
@@ -79,8 +84,9 @@
 
     </div>
 
-
-    <img src="images/brand-consultancy-2.jpg " id="brand-consultancy-2">
+    <div class="brand-consultancy-image-container">
+        <img src="images/brand-consultancy-2.jpg" id="brand-consultancy-2">
+    </div>
 
     <div class="first-head">
 
@@ -89,6 +95,80 @@
         <p>A strong, well-defined brand is essential in today’s competitive marketplace. Brand consultation offers expert guidance to refine your brand’s identity, positioning, and strategy. Whether you are launching a new brand, rebranding, or enhancing an existing one, professional consultation ensures your brand resonates with your target audience and stands out in the market. Investing in brand consultation is a strategic step towards building lasting brand loyalty and achieving long-term success.</p>
 
     </div>
+
+    <div class="container"></div>
+        <div class="form-box">
+
+        <?php
+
+        include("./php/config.php");
+        if(isset($_POST['submit'])){
+            $email = mysqli_real_escape_string($conn, $_POST['email']);
+            $password = mysqli_real_escape_string($conn, $_POST['password']);
+
+            // Query to check the email and password
+            $login_query = "SELECT * FROM Customer_account WHERE email='$email' AND password='$password'";
+            $result = mysqli_query($conn, $login_query); //excute query
+            $row = mysqli_fetch_assoc($result);
+
+            if(is_array($row) && !empty($row)){ 
+                $_SESSION['valid'] = $row['Email'];
+                $_SESSION['user_id'] = $row['Customer_ID'];
+                $_SESSION['lastname'] = $row['Last_name'];
+
+                
+                
+            }else{
+                // if user details doesn't exists, show error
+                echo "<div class= 'errormessage'>
+                        <p> Wrong Username or Password</p>
+                    </div> <br>";
+                echo "<a href='login.php'><button class='btn'>Go back</button></a>";
+                
+            }
+
+            if(isset($_SESSION['valid'])){
+                header("Location: myaccount.php");
+            }
+
+            
+
+
+        }else{
+        
+        
+        ?>
+            <h3>Login</h3>
+            <form action="" method="post">
+                <div class="field input">
+                    <!-- <label for="email">Email</label> -->
+                    <input type="email" name="email" id="email" placeholder="Email" autocomplete="off" required>
+                </div>
+
+                <div class="field input">
+                    <!-- <label for="password">Password</label> -->
+                    <input type="password" name="password" id="password" placeholder="Password" autocomplete="off" required>
+                </div>
+
+                <div class="link">
+                    <p> <a href="forgotpassword.php">Forgot password</a></p>
+                </div>
+
+                <div class="field">
+                    <input class="btn" type="submit" name="submit" value="Login" required>
+                </div>
+
+                <div class="link">
+                    <p> <a href="register.php">Create new account</a></p>
+                </div>
+            </form>
+        </div>
+        <?php } ?>
+    </div>
+
+
+
+
 
 
 
