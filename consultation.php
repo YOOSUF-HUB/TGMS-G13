@@ -98,73 +98,79 @@
 
     <div class="container"></div>
         <div class="form-box">
+            <?php
 
-        <?php
-
-        include("./php/config.php");
-        if(isset($_POST['submit'])){
-            $email = mysqli_real_escape_string($conn, $_POST['email']);
-            $password = mysqli_real_escape_string($conn, $_POST['password']);
-
-            // Query to check the email and password
-            $login_query = "SELECT * FROM Customer_account WHERE email='$email' AND password='$password'";
-            $result = mysqli_query($conn, $login_query); //excute query
-            $row = mysqli_fetch_assoc($result);
-
-            if(is_array($row) && !empty($row)){ 
-                $_SESSION['valid'] = $row['Email'];
-                $_SESSION['user_id'] = $row['Customer_ID'];
-                $_SESSION['lastname'] = $row['Last_name'];
-
-                
-                
-            }else{
-                // if user details doesn't exists, show error
-                echo "<div class= 'errormessage'>
-                        <p> Wrong Username or Password</p>
-                    </div> <br>";
-                echo "<a href='login.php'><button class='btn'>Go back</button></a>";
-                
-            }
-
-            if(isset($_SESSION['valid'])){
-                header("Location: myaccount.php");
-            }
-
+            include("./php/config.php");
             
+            if (isset($_POST['submit'])) {
+                // Collect form data
+                $full_name = mysqli_real_escape_string($conn, $_POST['full_name']);
+                $email = mysqli_real_escape_string($conn, $_POST['email']);
+                $telephone = mysqli_real_escape_string($conn, $_POST['telephone']);
+                $company_name = mysqli_real_escape_string($conn, $_POST['company_name']);
+                $company_website = mysqli_real_escape_string($conn, $_POST['company_website']);
+                $company_scale = mysqli_real_escape_string($conn, $_POST['company_scale']);
+                $brand_overview = mysqli_real_escape_string($conn, $_POST['brand_overview']);
+                $other_comments = mysqli_real_escape_string($conn, $_POST['other_comments']);
+
+                // Insert form data into the database
+                $query = "INSERT INTO Consultation (Consultation_Date, Full_name, Email, Phone_no, Company_name, Company_website_URL, Company_scale, Brand_overview, Other)
+                        VALUES (NOW(), '$full_name', '$email', '$telephone', '$company_name', '$company_website', '$company_scale', '$brand_overview', '$other_comments')";
+
+                if (mysqli_query($conn, $query)) {
+                    echo "<div class='successmessage'>
+                            <p>Thank you! Your consultation request has been received.</p>
+                        </div>";
+                } else {
+                    echo "<div class='errormessage'>
+                            <p>Error: " . mysqli_error($conn) . "</p>
+                        </div>";
+                }
+            } else {
+            ?>
+                <h3>Book a Consultancy</h3>
+                <p>We will respond within 24 Hours</p>
+                <form action="" method="post">
+                    <div class="field input">
+                        <input type="text" name="full_name" placeholder="Full Name*" required>
+                    </div>
+
+                    <div class="field input">
+                        <input type="email" name="email" placeholder="Email*" required>
+                    </div>
+
+                    <div class="field input">
+                        <input type="text" name="telephone" placeholder="Telephone*" required>
+                    </div>
+
+                    <div class="field input">
+                        <input type="text" name="company_name" placeholder="Company Name*" required>
+                    </div>
+
+                    <div class="field input">
+                        <input type="url" name="company_website" placeholder="Company Website URL">
+                    </div>
+
+                    <div class="field input">
+                        <input type="text" name="company_scale" placeholder="Company Scale">
+                    </div>
+
+                    <div class="field input">
+                        <textarea name="brand_overview" placeholder="Brand Overview*" rows="4" required></textarea>
+                    </div>
+
+                    <div class="field input">
+                        <textarea name="other_comments" placeholder="Other" rows="4"></textarea>
+                    </div>
+
+                    <div class="field">
+                        <input class="btn" type="submit" name="submit" value="Submit" required>
+                    </div>
+                </form>
+            <?php } ?>
+</div>
 
 
-        }else{
-        
-        
-        ?>
-            <h3>Login</h3>
-            <form action="" method="post">
-                <div class="field input">
-                    <!-- <label for="email">Email</label> -->
-                    <input type="email" name="email" id="email" placeholder="Email" autocomplete="off" required>
-                </div>
-
-                <div class="field input">
-                    <!-- <label for="password">Password</label> -->
-                    <input type="password" name="password" id="password" placeholder="Password" autocomplete="off" required>
-                </div>
-
-                <div class="link">
-                    <p> <a href="forgotpassword.php">Forgot password</a></p>
-                </div>
-
-                <div class="field">
-                    <input class="btn" type="submit" name="submit" value="Login" required>
-                </div>
-
-                <div class="link">
-                    <p> <a href="register.php">Create new account</a></p>
-                </div>
-            </form>
-        </div>
-        <?php } ?>
-    </div>
 
 
 

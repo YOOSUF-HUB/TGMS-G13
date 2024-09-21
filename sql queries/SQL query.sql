@@ -32,6 +32,22 @@ CREATE TABLE Orders (
     Total_amount varchar(255) NOT NULL,
 )
 
+
+-- Consultation Table
+CREATE TABLE Consultation (
+    Consultation_ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    Consultation_Date VARCHAR(255) NOT NULL,
+    Full_name VARCHAR(255) NOT NULL,
+    Email VARCHAR(255) NOT NULL,
+    Phone_no VARCHAR(255) NOT NULL,
+    Company_name VARCHAR(255),
+    Company_website_URL VARCHAR(255),
+    Company_scale VARCHAR(255),
+    Brand_overview VARCHAR(255) NOT NULL,
+    Other VARCHAR(255)
+);
+
+
 -- Manually inserting data into table using MYSQL
 -- INSERT INTO `Staff_account` (`Staff_ID`, `First_name`, `Last_name`, `Email`, `Password`, `Date_created`) 
 -- VALUES (001, 'John', 'Smith', 'js@gmail.com', '123', CURRENT_DATE);

@@ -346,60 +346,107 @@ footer {
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: flex-start; /* Aligns the form from the top */
-    min-height: 10vh; /* Ensures the container takes up the full height of the viewport */
+    min-height: 100vh; /* Ensures the container takes up the full height of the viewport */
     padding-top: 50px; /* Adjust the padding-top for space above the form for images */
 }
 
-
 .form-box {
-
     background-color: #ECDFCC;
     display: flex;
     flex-direction: column;
     padding: 30px 50px;
     border-radius: 10px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.3);
-    width: 350px;
+    width: 700px; /* Widen the form to match the image */
 }
 
-.form-box h3{
-    font-size: 2rem; 
+.form-box h3 {
+    font-size: 1.5rem; 
     margin-top: 0;
+    text-align: center; /* Center the form heading */
+    letter-spacing: 1px; /* Add slight spacing between characters */
+}
 
+.form-box p {
+    text-align: center;
+    margin-top: 5px;
+    font-size: 0.9rem;
+    color: #333;
 }
 
 .form-box .field {
     display: flex;
     flex-direction: column;
-    margin-bottom: 10px;
+    margin-bottom: 15px; /* Add more space between fields */
 }
 
-.form-box .input input{
-    height: 2rem;
+.form-box .input {
+    display: flex;
+    gap: 20px; /* Space between email and phone fields */
+}
+
+.form-box .input input,
+.form-box textarea {
+    height: 2.5rem;
     width: 100%;
     font-size: 1rem;
     border-radius: 5px;
     border: 1px solid #ccc;
-    outline: none ;
+    padding: 0 10px; /* Add padding inside the input */
+    outline: none;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 100px; /* Larger height for the textarea */
 }
 
 .btn {
-    height: 2.3rem;
+    height: 2.5rem;
     width: 100%;
     font-size: 1rem;
-    color: #f1f1f1;
+    color: #fff;
     background-color: #697565;
     border-radius: 5px;
-    border: 0;
+    border: none;
     cursor: pointer;
     transition: all 0.3s;
-    margin-top: 10px;
+    margin-top: 20px;
+    text-transform: uppercase;
 }
 
 .btn:hover {
     opacity: 0.9;
 }
 
-.form-box .link a{
-    color: #000000;
+.form-box .link a {
+    color: #000;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.form-box .link a:hover {
+    text-decoration: underline;
+}
+
+/* Two-column layout for email and telephone fields */
+.two-column {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.two-column input {
+    width: 100%;
+}
+
+/* Adjust for screen size */
+@media (max-width: 768px) {
+    .form-box {
+        width: 100%; /* Make form responsive on smaller screens */
+    }
+
+    .two-column {
+        flex-direction: column; /* Stack fields vertically on smaller screens */
+    }
 }
