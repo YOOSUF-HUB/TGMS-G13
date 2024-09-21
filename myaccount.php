@@ -128,12 +128,13 @@ mysqli_close($conn);
 
 
     <main>
-        <div class="profile-container">
+        <!-- My Account Details with edit option-->
+        <div class="myaccountContainer" style="z-index: 1; display: flex; justify-content: center; align-items: center; min-height: 90vh; flex-direction: column;">
             <div class="myaccount">
                 <h1>My Account</h1>
             </div>
             <div>
-                <div id="viewMode">
+                <div id="viewMode" class="accountDetails">
                     <ul>
                         <li><label for="fname">First Name</label> <?php echo htmlspecialchars($user['First_name']); ?></li>
                         <li><label for="lname">Last Name</label> <?php echo htmlspecialchars($user['Last_name']); ?></li>
@@ -150,15 +151,17 @@ mysqli_close($conn);
                     </ul>
                     <button onclick="showEditForm()">Edit</button>
                 </div>
-                <div id="editMode" style="display: none;">
+
+                <!-- Account details edit form -->
+                <div id="editMode" style="display: none;" class="accountDetails">
                     <form action="" method="POST">
                         <ul>
                             <li>
-                                <label for="fname">First Name:</label>
+                                <label for="fname">First Name</label>
                                 <input type="text" id="fname" name="fname" value="<?php echo htmlspecialchars($user['First_name']); ?>" required>
                             </li>
                             <li>
-                                <label for="lname">Last Name:</label>
+                                <label for="lname">Last Name</label>
                                 <input type="text" id="lname" name="lname" value="<?php echo htmlspecialchars($user['Last_name']); ?>" required>
                             </li>
                         </ul>
@@ -193,7 +196,7 @@ mysqli_close($conn);
                         <label for="email">Email:</label>
                         <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($user['Email']); ?>" required> -->
             
-                        <button type="submit" name="save">Save Changes</button>
+                        <button type="submit" name="save">Save Changes</button> <!-- Save button to save details and switch back to view mode  -->
                         <button type="button" onclick="cancelEdit()">Cancel</button>  <!-- Cancel button to switch back to view mode  -->
                     </form>
                 </div>
