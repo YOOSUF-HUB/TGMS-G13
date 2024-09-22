@@ -3,7 +3,7 @@
     z-index: 1; display: flex; justify-content: center; align-items: center; min-height: 90vh; flex-direction: column; 
 }
 #myaccountContainer{
-     padding: 120px 180px; padding-left:0px;
+     padding: 120px 180px; padding-left:120px;
 }
 .myaccount{
     font-family: Questrial, sans-serif;
@@ -32,16 +32,34 @@
 .accBox{
     padding: 10px;
     border-radius: 10px;
-    border: 1px #000000 solid;
+    border: 1px #ffffff solid;
     font-size: 1rem;
     font-family: Arial, sans-serif;
-    width: 300px;
+    width: 400px;
 }
 input[readonly] {
     cursor:default;
     background-color: transparent;          
     pointer-events: none;
 }
+.accountDetails button{
+    transition: 0.5s ease;
+    padding: 8px 16px;
+    font-size: 20px;
+    border: none;
+    background-color: #697565;
+    color: #fff;
+    cursor: pointer;
+
+}
+.accountDetails button:hover{
+    transition: 0.5s ease;
+    background-color: #ebe9e9;
+    color: #333;
+}
+
+
+
 
 html{
     background-color: #ECDFCC ;
