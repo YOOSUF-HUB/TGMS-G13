@@ -60,7 +60,7 @@ if (!isset($_SESSION['username'])) {
     <main class="dashboard-container">
         <section class="im-page-links" >
             <ul>
-                <li class="im-page"><a href="inventorydashboard.html">Home</a></li>
+                <li class="im-page"><a href="inventorydashboard.php">Home</a></li>
                 <li class="im-page"><a href="inventory" >Inventory</a></li>
                 <li class="im-page"><a href="production.html">Production</a></li>
                 <li class="im-page"><a href="order.html">Orders</a></li>
