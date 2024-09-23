@@ -105,21 +105,16 @@
             <!--Inquiry Submit Form-->
             <div class="container">
 
-
-                <form class="form-box">
-
-
-
                     <?php
 
-                    include("./php/config.php");
+                    include("php/config.php");
                     
                     if (isset($_POST['submit'])) {
                         // Collect form data
                         $First_name = mysqli_real_escape_string($conn, $_POST['First_name']);
                         $Last_name = mysqli_real_escape_string($conn, $_POST['Last_name']);
-                        $email = mysqli_real_escape_string($conn, $_POST['email']);
                         $telephone = mysqli_real_escape_string($conn, $_POST['telephone']);
+                        $email = mysqli_real_escape_string($conn, $_POST['email']);
                         $subject = mysqli_real_escape_string($conn, $_POST['subject']);
                         $other_comments = mysqli_real_escape_string($conn, $_POST['other_comments']);
     
@@ -145,8 +140,8 @@
     
     
                         // Insert form data into the database
-                        $query = "INSERT INTO Consultation (Inquiry_ID, Inquiry_Date, First_name, Last_name, Phone_no, Email, Other)
-                                VALUES ('$customerid', NOW(), '$First_name', '$Last_name', '$telephone', '$email', '$other_comments')";
+                        $query = "INSERT INTO Inquiries (Inquiry_ID, Inquiry_Date, First_name, Last_name, Phone_no, Subject, Email, Other)
+                                VALUES ('$customerid', NOW(), '$First_name', '$Last_name', '$telephone', '$email', $subject, '$other_comments')";
     
                         if (mysqli_query($conn, $query)) {
                             echo "<div class='successmessage'>
@@ -175,11 +170,11 @@
                         </div>
 
                         <div class="field input">
-                            <input type="email" name="email" placeholder="Email*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
+                            <input type="text" name="telephone" placeholder="Telephone*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
                         </div>
 
                         <div class="field input">
-                            <input type="text" name="telephone" placeholder="Telephone*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
+                            <input type="email" name="email" placeholder="Email*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
                         </div>
 
                         <div class="field input">
@@ -196,9 +191,6 @@
                     </form>
 
                     <?php}>
-
-                </form>
-
 
             </div>
 

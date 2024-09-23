@@ -55,7 +55,8 @@ CREATE TABLE Inquiries (
     Last_name VARCHAR(255) NOT NULL,
     Phone_no VARCHAR(255) NOT NULL,
     Email VARCHAR(255) NOT NULL,
-    Other VARCHAR(255)
+    Subject VARCHAR(255) NOT NULL,
+    Other VARCHAR(1000)
 );
 
 -- Manually inserting data into table using MYSQL
