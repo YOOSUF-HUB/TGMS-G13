@@ -522,7 +522,7 @@ footer {
 
 
 .container {
-    margin-bottom: 100px;
+    margin-bottom: 30px;
     display: flex;
     justify-content: center; /* Center horizontally */
     margin-top: 10px; 
@@ -604,3 +604,75 @@ footer {
 .form-box .link a{
     color: #000000;
 }
+
+
+#faq-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+#faq{
+    border:none;
+    color: #697565;
+    background-color: #ffffff;
+    font-family: Questrial, sans-serif;
+    font-size: 20px;
+    width: 300px;
+    height: 50px;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+#faq:hover{
+    transform: scale(1.01);
+}
+
+
+
+/* Centers the card in the middle and adds space below */
+.container-1 {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+/* Styles the card layout and look */
+.card {
+    width: 1000px; /* Sets the width of the card */
+    height: 300px; /* Sets the height of the card */
+    display: grid; /* Use grid to arrange items inside the card */
+    grid-template-columns: repeat(2, 1fr); /* Create 4 equal columns */
+    gap: 20px; /* Adds space between the columns */
+    padding: 20px; /* Adds space inside the card */
+    border-radius: 10px; /* Rounds the card corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a soft shadow */
+    background-color: #697565; /* Sets the card background color */
+}
+
+/* Arranges each icon and text label */
+.icon-item {
+    display: flex; /* Use flexbox to arrange icon and text */
+    flex-direction: column; /* Stack icon and text vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    text-align: center; /* Center the text below the icon */
+}
+
+/* Styles the icon */
+.icon-item .icon {
+    height: 70px; /* Sets the size of the icon */
+    margin-bottom: 10px; /* Adds space between icon and text */
+}
+
+/* Styles the text under each icon */
+.icon-item span {
+    font-family: Questrial, sans-serif; /* Sets the font style */
+    font-size: 16px; /* Sets the text size */
+    font-weight: 500; /* Makes the text slightly bold */
+    color: white; /* Sets the text color to white */
+}
+
+
