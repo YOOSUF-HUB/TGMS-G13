@@ -1,0 +1,252 @@
+html{
+    background-color: #ECDFCC ;
+}
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif; 
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #697565;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+}
+
+button{
+    font-family: questrial, sans-serif;
+}
+
+
+
+/* HEADER */
+/* HEADER */
+ .top-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+ }
+ .logo-notification {
+    display: flex;
+ }
+ .logo-notification .logo-content img{
+    height: 80px;
+    padding-left: 5px;
+ }
+ .logo-notification .notification {
+    padding-right: 0;
+ }
+ .title {
+    color: #ECDFCC
+ }
+ .profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+ .profile-container i{
+    font-size:36px;
+    padding-bottom: 10px;
+ }
+ .profile-container p{
+    margin-top: 0px; color: #ECDFCC;
+ }
+
+
+
+
+
+
+
+
+/* END OF HEADER */
+/* END OF HEADER */
+
+/* FOOTER */
+/* FOOTER */
+
+/* Footer Section */
+footer {
+    background-color: #697565;
+    color: white;
+    padding: 40px 20px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.social-media{
+    margin-right: 100px;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    color: #ECDFCC;
+}
+
+.footer-links {
+    font-family: questrial, sans-serif;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.footer-links ul {
+    margin: 10px;
+    list-style-type: none;
+}
+
+.footer-links ul a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-links ul a:hover {
+    color: #ECDFCC;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 10px;
+}
+
+
+/* END OF FOOTER */
+/* END OF FOOTER */
+
+
+
+/* MAIN CONTENT  */
+/* MAIN CONTENT  */
+/* MAIN CONTENT  */
+
+
+
+
+
+
+
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Navigation Bar */
+.im-page-links{
+    width: 250px;
+    background-color: #2c3e50;
+    padding-top: 40px;
+}
+.im-page-links ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 0;
+    padding: 0px;
+}
+.im-page-links li {
+    padding: 10px;
+    text-align: left;
+}
+.im-page a{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 10px 8px 10px 32px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    color: #e0e0e0;
+    display: block;
+    transition: 0.3s;
+}
+.im-page-links li a:hover {
+    background-color: #34495e;
+    padding-left: 20px;
+    transition: 0.3s;
+}
+
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+.sales-target-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.progress-bar-container {
+    width: 100%;
+    background-color: #e0e0e0;
+    height: 30px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background-color: #4caf50;
+    border-radius: 5px;
+    transition: width 0.5s;
+}
+.sales-target-container .text{
+    display: flex;
+    justify-content: space-between;
+}
+#target-amount, #completed-percentage {
+    font-weight: bold;
+}
+
+.table-container {
+    margin-top: 40px;
+}
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.table th{
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 12px;
+}
+.table td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 12px;
+}
+.table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+.table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+.table tr:nth-child(odd) {
+    background-color: #e6e6e6;
+}
+/* special css for orders table */
+.product-table .orders{
+    display: flex;
+    flex-direction: column;
+}
+.product-table .orders span{
+    font-size: 12px;
+}
