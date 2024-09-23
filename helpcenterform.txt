@@ -89,3 +89,35 @@
                     <?php}>
 
             </div>
+
+
+
+<form action="" method="post" class="form-box">
+                                        <div class="field input">
+                                            <input type="text" name="First_name" placeholder="First Name*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
+                                        </div>
+
+                                        <div class="field input">
+                                            <input type="text" name="Last_name" placeholder="Last Name*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
+                                        </div>
+
+                                        <div class="field input">
+                                            <input type="email" name="email" placeholder="Email*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
+                                        </div>
+
+                                        <div class="field input">
+                                            <input type="text" name="telephone" placeholder="Telephone*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
+                                        </div>
+
+                                        <div class="field input">
+                                            <input type="text" name="topic" placeholder="Subject*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
+                                        </div>
+
+                                        <div class="field input">
+                                            <textarea name="other_comments" placeholder="Please State your problem" rows="8" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;"></textarea>
+                                        </div>
+
+                                        <div class="field">
+                                            <input class="btn" type="submit" name="submit" value="Submit" >
+                                        </div>
+</form>
