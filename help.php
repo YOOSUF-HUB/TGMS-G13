@@ -146,13 +146,11 @@
             if (mysqli_query($conn, $query)) {
                 echo "<div class='successmessage'>
                         <p style='font-family:Questrial,san-serif; text-align:center; font-size: 40px'>Thank you! Your consultation request has been received. We will get back to you shortly.</p>
-                        <button onclick='goBack()' style='font-family:Questrial,san-serif; font-size: 20px; padding: 10px 20px; background-color: #697565; color: white; border: none; border-radius: 5px; cursor: pointer;'>Go Back</button>
                     </div>";
                     
             } else {
                 echo "<div class='errormessage'>
                         <p>Error: " . mysqli_error($conn) . "</p>
-                        <button onclick='goBack()' style='font-family:Questrial,san-serif; font-size: 20px; padding: 10px 20px; background-color: #697565; color: white; border: none; border-radius: 5px; cursor: pointer;'>Go Back</button>
                     </div>";
             }
 
@@ -254,15 +252,13 @@
             <div class="footer-bottom">
                 <p>&copy; Versori 2024</p>
             </div>
-    <script>
 
-        function goBack() {
-            window.history.back(); // This takes the user back to the form page
-        }
+        </footer>
 
-    </script>
+        <script src="index.js">
 
-        <script src="index.js"></script>
+
+        </script>
     
 </body>
 </html>
