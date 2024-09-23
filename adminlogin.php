@@ -26,10 +26,7 @@ if (isset($_POST['login'])) {
 
     } else {
         // If login fails, display error message
-        echo "<div class='errormessage'>
-                <p> Wrong Username or Password</p>
-            </div> <br>";
-        echo "<a href='login.html'><button class='btn'>Go back</button></a>";
+        $error_message = "Wrong Username or Password";
     }
 
     if(isset($_SESSION['valid'])){
