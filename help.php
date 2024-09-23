@@ -258,12 +258,13 @@
         </footer>
 
 
-        <script src="index.js">
-            function goBack() {
-                window.history.back(); // This takes the user back to the form page
-            }
+<script src="index.js"></script>
+<script>
+    function goBack() {
+        window.history.back(); // This takes the user back to the form page
+    }
+</script>
 
-        </script>
     
 </body>
 </html>
