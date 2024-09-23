@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Help Centre Page</title>
-    <link rel="stylesheet" href="/styles/helpcentre.css">
+    <link rel="stylesheet" href="styles/helpcentre.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- social media icons -->
 
     <!-- Questrial Font-->
@@ -84,11 +84,11 @@
             <div class="container-1">
                 <div class="card">
                     <div class="icon-item">
-                        <img src="/images/manage-order.svg" alt="Manage Orders Icon" class="icon">
+                        <img src="images/manage-order.svg" alt="Manage Orders Icon" class="icon">
                         <span>Manage Orders</span>
                     </div>
                     <div class="icon-item">
-                        <img src="/images/edit profile.svg" alt="Edit Profile Icon" class="icon">
+                        <img src="images/edit profile.svg" alt="Edit Profile Icon" class="icon">
                         <span>Edit Profile</span>
                     </div>
 
@@ -254,8 +254,13 @@
             <div class="footer-bottom">
                 <p>&copy; Versori 2024</p>
             </div>
-        </footer>
+    <script>
 
+        function goBack() {
+            window.history.back(); // This takes the user back to the form page
+        }
+
+    </script>
 
         <script src="index.js"></script>
     
