@@ -47,6 +47,16 @@ CREATE TABLE Consultation (
     Other VARCHAR(255)
 );
 
+-- Inquiry Table
+CREATE TABLE Inquiries (
+    Inquiry_ID VARCHAR(255) NOT NULL PRIMARY KEY,
+    Inquiry_Date VARCHAR(255) NOT NULL,
+    First_name VARCHAR(255) NOT NULL,
+    Last_name VARCHAR(255) NOT NULL,
+    Phone_no VARCHAR(255) NOT NULL,
+    Email VARCHAR(255) NOT NULL,
+    Other VARCHAR(255)
+);
 
 -- Manually inserting data into table using MYSQL
 -- INSERT INTO `Staff_account` (`Staff_ID`, `First_name`, `Last_name`, `Email`, `Password`, `Date_created`) 
