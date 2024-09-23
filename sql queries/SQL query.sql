@@ -49,11 +49,11 @@ CREATE TABLE Consultation (
 
 -- Inquiry Table
 CREATE TABLE Inquiries (
-    Inquiry_ID VARCHAR(255) NOT NULL PRIMARY KEY,
-    Inquiry_Date VARCHAR(255) NOT NULL,
+    Inquiry_ID VARCHAR(50) NOT NULL PRIMARY KEY,
+    Inquiry_Date DATETIME NOT NULL,
     First_name VARCHAR(255) NOT NULL,
     Last_name VARCHAR(255) NOT NULL,
-    Phone_no VARCHAR(255) NOT NULL,
+    Phone_no VARCHAR(20) NOT NULL,
     Email VARCHAR(255) NOT NULL,
     Subject VARCHAR(255) NOT NULL,
     Other VARCHAR(1000)
