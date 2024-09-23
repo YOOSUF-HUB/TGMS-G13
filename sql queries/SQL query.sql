@@ -55,7 +55,7 @@ CREATE TABLE Inquiries (
     Last_name VARCHAR(255) NOT NULL,
     Phone_no VARCHAR(20) NOT NULL,
     Email VARCHAR(255) NOT NULL,
-    Subject VARCHAR(255) NOT NULL,
+    Topic VARCHAR(255) NOT NULL,
     Other VARCHAR(1000)
 );
 

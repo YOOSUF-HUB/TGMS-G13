@@ -106,36 +106,88 @@
             <div class="container">
 
 
-                    <form action="" method="post" class="form-box">
-                        <div class="field input">
-                            <input type="text" name="First_name" placeholder="First Name*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
-                        </div>
+                <?php
 
-                        <div class="field input">
-                            <input type="text" name="Last_name" placeholder="Last Name*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
-                        </div>
+                    include("php/config.php");
 
-                        <div class="field input">
-                            <input type="email" name="email" placeholder="Email*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
-                        </div>
+                    if (isset($_POST['submit'])) {
+                        //collect form data
 
-                        <div class="field input">
-                            <input type="text" name="telephone" placeholder="Telephone*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
-                        </div>
+                        $First_name = mysqli_real_escape_string($conn, $_POST['First_name']);
+                        $Last_name = mysqli_real_escape_string($conn, $_POST['Last_name']);
+                        $telephone = mysqli_real_escape_string($conn, $_POST['telephone']);
+                        $email = mysqli_real_escape_string($conn, $_POST['email']);
+                        $topic = mysqli_real_escape_string($conn, $_POST['topic']);
+                        $other_comments = mysqli_real_escape_string($conn, $_POST['other_comments']);
 
-                        <div class="field input">
-                            <input type="text" name="subject" placeholder="Subject*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
-                        </div>
+                        //Query to get the last Inquiry ID
+                        $find = mysqli_query($conn, "SELECT MAX(Inquiry_ID) AS max_id FROM Inquiries");
+                        $row = mysqli_fetch_assoc($find);
 
-                        <div class="field input">
-                            <textarea name="other_comments" placeholder="Please State your problem" rows="8" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;"></textarea>
-                        </div>
+                        //Assingin customer ID
+                        if ($row['max_id']) {
+                            $last_id = $row['max_id'];
+                            // Extract numeric part from last ID
+                            $last_num = (int)preg_replace("/[^0-9]/", "", $last_id);
+                            $num = $last_num + 1; // Increment the numeric part
 
-                        <div class="field">
-                            <input class="btn" type="submit" name="submit" value="Submit" >
-                        </div>
-                    </form>
+                            // Generate new customer ID with 'CONSULT_' prefix
+                            $customerid = 'INQUIRY_' . str_pad($num, 4, '0', STR_PAD_LEFT);
+                        } else {
+                            $customerid = 'INQUIRY_0001';
+                        }
+                        
+                        //Insert form data into the database
+                        $query = "INSERT INTO Inquiries (Inquiry_ID, First_name, Last_name, Phone_no, Email, Topic, Other_comments)
+                                VALUES ('$customerid', '$First_name', '$Last_name', '$telephone', '$email', '$topic', '$other_comments')";
 
+                        if (mysqli_query($conn, $query)) {
+                            echo "<div class='successmessage'>
+                                    <p style='font-family:Questrial,san-serif; text-align:center; font-size: 40px'>Thank you! Your consultation request has been received. We will get back to you shortly.</p>
+                                    <button onclick='goBack()' style='font-family:Questrial,san-serif; font-size: 20px; padding: 10px 20px; background-color: #697565; color: white; border: none; border-radius: 5px; cursor: pointer;'>Go Back</button>
+                                </div>";                   } else {
+                            echo "<div class="errormessage">
+                                    <p>Error: " . mysqli_error($conn) . "</p>
+                                    <button onclick='goBack()' style='font-family:Questrial,san-serif; font-size: 20px; padding: 10px 20px; background-color: #697565; color: white; border: none; border-radius: 5px; cursor: pointer;'>Go Back</button>
+                                </div>";
+                        }
+                   
+                    }else{
+
+                        ?>
+
+                            <form action="" method="post" class="form-box">
+                                        <div class="field input">
+                                            <input type="text" name="First_name" placeholder="First Name*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
+                                        </div>
+
+                                        <div class="field input">
+                                            <input type="text" name="Last_name" placeholder="Last Name*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
+                                        </div>
+
+                                        <div class="field input">
+                                            <input type="email" name="email" placeholder="Email*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
+                                        </div>
+
+                                        <div class="field input">
+                                            <input type="text" name="telephone" placeholder="Telephone*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
+                                        </div>
+
+                                        <div class="field input">
+                                            <input type="text" name="topic" placeholder="Subject*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
+                                        </div>
+
+                                        <div class="field input">
+                                            <textarea name="other_comments" placeholder="Please State your problem" rows="8" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;"></textarea>
+                                        </div>
+
+                                        <div class="field">
+                                            <input class="btn" type="submit" name="submit" value="Submit" >
+                                        </div>
+                            </form>
+
+
+                    <?php}>
 
 
             </div>
