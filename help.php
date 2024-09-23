@@ -112,8 +112,8 @@
         
         if (isset($_POST['submit'])) {
             // Collect form data
-            $First_name = mysqli_real_escape_string($conn, $_POST['First_name']);
-            $Last_name = mysqli_real_escape_string($conn, $_POST['Last_name']);
+            $first_name = mysqli_real_escape_string($conn, $_POST['first_name']);
+            $last_name = mysqli_real_escape_string($conn, $_POST['last_name']);
             $email = mysqli_real_escape_string($conn, $_POST['email']);
             $telephone = mysqli_real_escape_string($conn, $_POST['telephone']);
             $topic = mysqli_real_escape_string($conn, $_POST['topic']);
@@ -141,16 +141,18 @@
 
             // Insert form data into the database
             $query = "INSERT INTO Inquiries (Inquiry_ID, Inquiry_Date, First_name, Last_name, Email, Phone_no, Topic, Other)
-                    VALUES ('$customerid', NOW(), '$First_name', '$Last_name', '$Email', '$company_name', '$telephone', '$topic', '$other_comments')";
+                    VALUES ('$customerid', NOW(), '$first_name', '$last_name', '$email', '$telephone', '$topic', '$other_comments')";
 
             if (mysqli_query($conn, $query)) {
                 echo "<div class='successmessage'>
                         <p style='font-family:Questrial,san-serif; text-align:center; font-size: 40px'>Thank you! Your consultation request has been received. We will get back to you shortly.</p>
+                        <button onclick='goBack()' style='font-family:Questrial,san-serif; font-size: 20px; padding: 10px 20px; background-color: #697565; color: white; border: none; border-radius: 5px; cursor: pointer;'>Go Back</button>
                     </div>";
                     
             } else {
                 echo "<div class='errormessage'>
                         <p>Error: " . mysqli_error($conn) . "</p>
+                        <button onclick='goBack()' style='font-family:Questrial,san-serif; font-size: 20px; padding: 10px 20px; background-color: #697565; color: white; border: none; border-radius: 5px; cursor: pointer;'>Go Back</button>
                     </div>";
             }
 
@@ -160,11 +162,11 @@
 
             <form action="" method="post" class="form-box">
                     <div class="field input">
-                        <input type="text" name="First_name" placeholder="First Name*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
+                        <input type="text" name="first_name" placeholder="First Name*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
                     </div>
 
                     <div class="field input">
-                        <input type="text" name="Last_name" placeholder="Last Name*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
+                        <input type="text" name="last_name" placeholder="Last Name*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
                     </div>
 
                     <div class="field input">
@@ -255,8 +257,11 @@
 
         </footer>
 
-        <script src="index.js">
 
+        <script src="index.js">
+            function goBack() {
+                window.history.back(); // This takes the user back to the form page
+            }
 
         </script>
     
