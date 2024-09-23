@@ -101,7 +101,7 @@
 
 
 
-            <p style="text-align: center; font-family: Questrial, sans-serif; font-size: 15px;">Please fill in the form below and we will get back to you as soon as possible.</p>
+            <p style="text-align: center; font-family: Questrial, sans-serif; font-size: 15px;">We truly appreciate your interest in our services, and a member of our team will contact you shortly to assist with your request.</p>
             <!--Inquiry Submit Form-->
             <div class="container">
 
