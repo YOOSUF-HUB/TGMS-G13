@@ -59,6 +59,15 @@ CREATE TABLE Inquiries (
     Other VARCHAR(1000)
 );
 
+--sample user table for admin
+CREATE TABLE users (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL
+    role varchar(255) NOT NULL
+);
+
+
 -- Manually inserting data into table using MYSQL
 -- INSERT INTO `Staff_account` (`Staff_ID`, `First_name`, `Last_name`, `Email`, `Password`, `Date_created`) 
 -- VALUES (001, 'John', 'Smith', 'js@gmail.com', '123', CURRENT_DATE);
