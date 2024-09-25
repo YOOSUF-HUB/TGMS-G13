@@ -354,6 +354,7 @@ main{
 }
 
 .checkout-container {
+    font-family: Questrial, sans-serif;
     display: flex;
     justify-content: space-between;
 
@@ -410,6 +411,7 @@ h2 {
 /* Order Summary Code*/
 
 .order-summary {
+    font-family: Questrial, sans-serif;
     text-align: center;
 }
 
@@ -451,4 +453,11 @@ h2 {
     cursor: pointer;
 }
 
-
+.payment-methods label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.payment-methods img {
+    margin-right: 5px; /* Space between icons and text */
+}

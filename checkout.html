@@ -11,6 +11,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 
 
 
@@ -151,7 +153,13 @@
                         <h2>Payment Methods</h2>
                         <label>
                             <input type="radio" name="payment_method" value="credit_card" required>
-                            Credit or Debit Card
+                            <span>
+                                Credit or Debit Card
+                                <img src="https://example.com/visa.png" alt="Visa" width="20px">
+                                <img src="https://example.com/mastercard.png" alt="MasterCard" width="20px">
+                                <img src="https://example.com/amex.png" alt="American Express" width="20px">
+                                
+                            </span>
                         </label>
                         <label>
                             <input type="radio" name="payment_method" value="other">
@@ -195,7 +203,7 @@
             const subtotal = localStorage.getItem("subtotal");
         
             if (subtotal) {
-                const shippingFee = subtotal * 0.10;  // 10% of subtotal
+                const shippingFee = subtotal * 0.10;  // we have impelemented 10% of subtotal will be the shipping fee
                 const total = parseFloat(subtotal) + shippingFee;
         
                 // Update the HTML elements
