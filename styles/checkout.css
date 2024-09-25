@@ -340,12 +340,23 @@ footer {
 /* Form styling */
 /* Form styling */
 
+main{
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 60px;
+}
 
+#checkout{
+    font-family: Questrial, sans-serif;
+    text-align: center;
+    font-size: 30px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
 
 .checkout-container {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+
 }
 
 .shipping-address, .order-summary {
