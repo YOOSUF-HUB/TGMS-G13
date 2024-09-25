@@ -180,6 +180,9 @@
                 <div class="place-order-btn">
                     <input class="btn" type="submit" name="submit" value="Submit" >
                 </div>
+
+                <!-- Error message will be displayed here -->
+                <div id="error-message" style="color: red; margin-top: 10px; font-family: Questrial,sans-serif;"></div>
             </div>
         </div>
 
@@ -200,7 +203,8 @@
                 document.getElementById("shipping").innerText = "Rs. " + shippingFee.toLocaleString();
                 document.getElementById("total").innerText = "Rs. " + total.toLocaleString();
             } else {
-                alert("Subtotal not available!");
+                // Display error message under the submit button
+                document.getElementById("error-message").innerText = "Subtotal not available!";
             }
         }
         
