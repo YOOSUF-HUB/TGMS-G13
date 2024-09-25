@@ -297,16 +297,37 @@ footer {
 
 main{
     font-family: Questrial, sans-serif;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 300px;
+    margin-right: 300px;
 }
 
 #tc{
+    margin-top: 30px;
     font-size: 50px;
     text-align: center;
+    padding: 0;
 }
 
 
 main h6{
     font-size: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+#terms-end{
+    margin: 40px;
+    text-align: center;
+    font-size: 20px;
+}
+
+#contact-terms{
+    text-decoration: none;
+    color: black;
+    font-size: 21px;
+    transition: 0.5s ease;
+}
+
+#contact-terms:hover{
+    font-size: 21.5px;
 }
