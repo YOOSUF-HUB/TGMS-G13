@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textile and Garment Management System</title>
+    <link rel="stylesheet" href="terms.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- social media icons -->
+
+    <!-- Questrial Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+
+    <!-- Navigation Bar Section-->
+    <header style="padding: 8px 20px;">
+        <!-- Side Navigation Menu -->
+        <nav id="mySidenav" class="sidenav">
+            <!-- Close button -->
+            <img onclick="closeNav()" src="images/close-google.svg" class="closebtn" style="width: 30px;">
+            
+            <!-- Navigation links -->
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.php">Contact</a>
+            <a href="terms.html">Terms of Services</a>
+        </nav>
+        <!-- Menu icon (with open function)-->
+        <img src="images/menu-google.svg" id="menuIcon" style="width:30px;cursor:pointer" onclick="openNav()">
+
+
+        <!-- Search Bar section -->
+        <section id="searchBar" style="position: relative;">
+            <img src="images/search-google.svg" id="searchIcon" style="width: 30px;cursor: pointer;" onclick="opensearchBar()">
+            
+            <!-- Search bar container -->
+            <div id="searchBarContainer">
+                <input type="text" id="searchInput" placeholder="Search...">
+                <button onclick="performSearch()">Search</button>
+            </div>
+        </section>
+
+
+
+        <!-- Logo Section -->
+        <section class="logo">
+
+            <div class="logo-content">
+                <a href="Index.html"> <img src="./images/Versori.png" alt="logo" style="height: 50px; padding-right: 90px;"> </a>
+            </div>
+    
+        </section>
+
+        <!-- Profile and Dropdown -->
+        <div class="profile-container">
+            <!-- Profile Image Icon; clicking on this toggles the dropdown -->
+            <img src="images/profile-google.svg" alt="Profile Icon" class="profile-icon" onclick="toggleDropdown()">
+            
+            <!-- Dropdown Menu content; links for Login, Logout, and My Orders -->
+            <div id="myDropdown" class="dropdown-content">
+                <a href="#">Profile</a>
+                <a href="#">Login</a>
+                <a href="#">My Orders</a>
+                <a href="#">Logout</a>
+            </div>
+        </div>
+
+
+    </header>
+
+
+
+    <main>
+
+        <h2>Privacy Policy</h2>
+
+        <p>At Versori, we are committed to protecting your privacy and ensuring that your personal information is handled in a safe and responsible manner. This Privacy Policy outlines how we collect, use, and protect your personal information when you use our Textile and Garment Management System.</p>
+       
+        <ol>
+            <li>
+                <h6>Information We Collect</h6>
+                <p>We collect the following types of information when you use the System:</p>
+                <ul>
+                    <li>
+                        <p>Personal Information: Name, email address, phone number, and other contact details when you create an account.</p>
+                    </li>
+                    <li>
+                        <p>Transactional Data: Information related to your purchases, orders, and inquiries.</p>
+                    </li>
+                    <li>
+                        <p>Technical Data: IP address, browser type, and device information collected automatically when you interact with our System.</p>
+                    </li>
+                </ul>
+            </li>        
+
+            <li>
+                <h6>How We Use Your Information</h6>
+                <p>We use the information collected to :</p>
+                <ul>
+                    <li>
+                        <p>Provide and maintain the System</p>
+                    </li>
+                    <li>
+                        <p>Process your orders and manage your account.</p>
+                    </li>
+                    <li>
+                        <p>Respond to inquiries and provide customer support</p>
+                    </li>
+                    <li>
+                        <p>Improve our services, website, and user experience</p>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <h6>Sharing Your Information</h6>
+                <p>We do not sell, trade, or rent your personal information. We may share information with third parties only for:</p>
+                <ul>
+                    <li>
+                        <p>Processing payments and completing orders.</p>
+                    </li>
+                    <li>
+                        <p>Complying with legal obligations.</p>
+                        
+                    </li>
+                    <li>
+                        <p>Protecting the rights and safety of our users.</p>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <h6>Data Security</h6>
+                <p>We implement strict security measures to protect your personal information from unauthorized access, alteration, or disclosure. However, no data transmission over the internet can be guaranteed to be completely secure</p>
+            
+            <li>
+                <h6>Your Rights</h6>
+                <p>You have the right to: </p>
+                <ul>
+                    <li>
+                        <p>Ownership: All content, including but not limited to text, graphics, logos, icons, and software on the Versori platform, are the exclusive property of Versori or its licensors.</p>
+                    </li>
+                    <li>
+                        <p>Restrictions: You may not copy, modify, distribute, sell, or lease any part of our services or software without explicit permission from Versori.</p>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <h6>Orders and Transactions</h6>
+                <ul>
+                    <li>
+                        <p>Order Processing: All orders placed through Versori are subject to acceptance and availability. We reserve the right to cancel or refuse orders if there is a technical issue or pricing error.</p>
+                    </li>
+                    <li>
+                        <p>Payments: You agree to provide valid and accurate payment information for transactions made on our platform. All payments are processed through secure third-party gateways, and we are not responsible for any issues arising from these external services.</p>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <h6>Data Protection</h6>
+                <ul>
+                        <p>Your personal data is collected and processed in accordance with our Privacy Policy. We are committed to ensuring that your information is secure and will not share it with third parties except as outlined in the Privacy Policy.</p>
+                </ul>
+            </li>
+
+            <li>
+                <h6>Service Availability</h6>
+                <ul>
+                    <li>
+                        <p>Service Interruptions: While we strive to provide continuous access to Versori services, there may be occasional downtime for maintenance, updates, or technical issues. Versori is not liable for any losses caused by such interruptions</p>
+                    </li>
+                    <li>
+                        <p>Modifications: Versori reserves the right to modify or discontinue any of its services or features at any time without prior notice</p>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <h6>Limitation of Liability</h6>
+                <p>To the maximum extent permitted by law:</p>
+                <ul>
+                    <li>
+                        <p>Versori is not liable for any indirect, incidental, special, or consequential damages arising from your use of our services.</p>
+                    </li>
+                    <li>
+                        <p>We do not guarantee that our services will be error-free, secure, or free from harmful components.</p>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <h6>Indemnification</h6>
+                    <p>You agree to indemnify and hold harmless Versori, its affiliates, employees, and agents from any claims, liabilities, damages, and expenses arising out of your violation of these Terms or misuse of our services.</p>
+            </li>
+
+            <li>
+                <h6>Termination of Access</h6>
+                    <p>We reserve the right to suspend or terminate your access to Versori's services at our sole discretion for any breach of these Terms and Conditions. Upon termination, your right to use the services will cease immediately.</p>
+            </li>
+
+            <li>
+                <h6>Governing Law</h6>
+                    <p>These Terms and Conditions are governed by and construed in accordance with the laws of [Insert Jurisdiction], without regard to its conflict of law principles. You agree to submit to the exclusive jurisdiction of the courts of Sri Lanka.</p>
+            </li>
+
+            <li>
+                <h6>Amendments</h6>
+                    <p>Versori reserves the right to modify these Terms and Conditions at any time. Changes will be posted on our website and will take effect upon posting. Your continued use of our services constitutes acceptance of the modified terms.</p>
+            </li>
+
+            <li>
+                <h6>Contact Us</h6>
+                    <p>If you have any questions or concerns about these Terms and Conditions, please contact us</p>
+            </li>
+
+
+        </ol>
+
+    </main>
+   
+    <!-- Footer Section -->
+    <footer>
+        
+        <div class="footer-links">
+            <div class="social-media">
+                <a href="Index.html"> <img src="./images/Versori.png" alt="logo" style="height: 90px; padding-left: 20px; "> </a>
+                <ul style="list-style-type: none; display: flex; padding: 0; font-size: 30px;">
+                    <li style="margin-left: 20px;"><a href="#" class="fa fa-facebook"></a></li>
+                    <li><a href="#" class="fa fa-twitter"></a></li>
+                    <li><a href="#" class="fa fa-instagram"></a></li>
+                </ul>
+            </div>
+            <div class="footer-left">
+                <ul>
+                    <li style="font-weight: bolder; font-size: 1.5rem; letter-spacing: 0.04rem;">Versori</li>
+                    <li><a href="policy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms and Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-middle">
+                <ul>
+                    <li style="font-weight: bolder; font-size: 1.2rem;">Our service</li>
+                    <li><a href="manufacturing.html">Manufacturing</a></li>
+                    <li><a href="consultancy.php">Consultancy</a></li>
+                    <li><a href="sampling.html">Sampling</a></li>
+                </ul>
+            </div>
+            <div class="footer-right">
+                <ul>
+                    <li style="font-weight: bolder; font-size: 1.2rem;">Useful Links</li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="contact.php">Contact us</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>    
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; Versori 2024</p>
+        </div>
+    </footer>
+
+
+    <script src="index.js"></script>
+</body>
+</html>
