@@ -72,9 +72,11 @@ if (!isset($_SESSION['username'])) {
         <section class="content" >
             <div class="sales-target-container">
                 <h2>Monthly Sales Target</h2>
+
                 <div class="progress-bar-container">
                     <div class="progress-bar" id="progress-bar"></div>
                 </div>
+                
                 <div class="text">
                     <p>Target: <span id="target-amount">$5000</span></p>
                     <p>Completed: <span id="completed-percentage">0%</span></p>

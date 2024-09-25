@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout Page</title>
-    <link rel="stylesheet" href="styles/checkout.css">
+    <link rel="stylesheet" href="styles/Orderpage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- social media icons -->
 
     <!-- Questrial Font-->
@@ -161,53 +161,31 @@
                 </form>
             </div>
     
-            <!-- Order Summary Page -->
+            <!-- Order Summary -->
             <div class="order-summary">
                 <h2>Order Summary</h2>
                 <div class="summary-item">
                     <span>Sub total</span>
-                    <span id="subtotal">Rs. 0</span> <!-- Subtotal will be updated dynamically -->
+                    <span>Rs. 60,000</span>
                 </div>
                 <div class="summary-item">
                     <span>Shipping fee</span>
-                    <span id="shipping">Rs. 0</span>
+                    <span>Rs. 5,000</span>
                 </div>
                 <div class="summary-item">
                     <span>Total</span>
-                    <span id="total">Rs. 0</span>
+                    <span>Rs. 65,000</span>
                 </div>
-
+    
                 <div class="place-order-btn">
                     <input class="btn" type="submit" name="submit" value="Submit" >
                 </div>
             </div>
         </div>
+    
 
     </main>
-
-    <script>
-        // Function to calculate and update shipping fee and total
-        function calculateOrder() {
-            // Retrieve the subtotal from localStorage
-            const subtotal = localStorage.getItem("subtotal");
-        
-            if (subtotal) {
-                const shippingFee = subtotal * 0.10;  // 10% of subtotal
-                const total = parseFloat(subtotal) + shippingFee;
-        
-                // Update the HTML elements
-                document.getElementById("subtotal").innerText = "Rs. " + parseFloat(subtotal).toLocaleString();
-                document.getElementById("shipping").innerText = "Rs. " + shippingFee.toLocaleString();
-                document.getElementById("total").innerText = "Rs. " + total.toLocaleString();
-            } else {
-                alert("Subtotal not available!");
-            }
-        }
-        
-        // Call the function to calculate when the page loads
-        calculateOrder();
-        </script>
-
+   
     <!-- Footer Section -->
     <footer>
         
