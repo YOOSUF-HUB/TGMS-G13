@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrator Dashboard</title>
-    <link rel="stylesheet" href="styles/Admin_dashboard.css"></lin>
+    <link rel="stylesheet" href="styles/Admin_dashboard.css"></link>
+    <!-- Questrial Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- social media icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
 <body>
@@ -28,11 +32,9 @@
             </div>
 
             <div class="profile-container" >
-            <img src="images/profile-google.svg" alt="Profile Icon" class="fa fa-user-circle-o profile-icon" onclick="toggleDropdown()">
-
-                
-                <p>System Administrator</p>
-                <button id="logout-btn" ><a href="logout.php" >Logout</a></button>
+                <img src="images/profile-google.svg" alt="Profile Icon" class="fa fa-user-circle-o profile-icon" onclick="toggleDropdown()">
+                <p style="font-family: 'Questrial', sans-serif;">System Administrator</p>
+                <a href="logout.php"><button id="logout-btn" >Logout</button></a>
             </div>
 
             
