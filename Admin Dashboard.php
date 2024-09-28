@@ -32,7 +32,7 @@
             <div class="profile-container" >
                 <i class="fa fa-user-circle-o profile-icon" onclick="toggleDropdown()"></i>
                 
-                <p>Nivin Pauly</p>
+                <p>System Administrator</p>
                 <button><a href="logout.php">Logout</a></button>
             </div>
 
@@ -43,14 +43,14 @@
         </div>
     </header>
 
-    <?php
-// Include the database connection file here
-include 'php/config.php'; // Assuming you save the connection file as db_connect.php
+        <?php
+        // Include the database connection file here
+        include 'php/config.php'; // Assuming you save the connection file as db_connect.php
 
-// SQL query to fetch data
-$sql = "SELECT Customer_ID, First_name, Last_name, Email, Password, Address, Phone_no, Dob, Date_created FROM Customer_account";
-$result = $conn->query($sql);
-?>
+        // SQL query to fetch data
+        $sql = "SELECT Customer_ID, First_name, Last_name, Email, Password, Address, Phone_no, Dob, Date_created FROM Customer_account";
+        $result = $conn->query($sql);
+        ?>
 
     <main class="dashboard-container">
 
