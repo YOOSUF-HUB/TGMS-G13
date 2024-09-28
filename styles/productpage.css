@@ -367,12 +367,20 @@ main{
     background: #ECDFCC; /* Light beige background color */
     margin-top: 30px; /* Space at the top */
     margin-bottom: 30px; /* Space at the bottom */
+    margin-right: 20px;
+    margin-left: 20px;
     border: 1px solid #ECDFCC; /* Border with the same color as background to make it subtle */
     display: flex; /* Flexbox layout to arrange items side by side */
     flex-wrap: wrap; /* Ensure the items wrap when screen size is smaller */
     justify-content: space-between; /* Space out items evenly within the container */
     padding: 20px; /* Padding inside the container for space */
+    transition: 0.5s ease; /* Smooth transition for hover effect */
+}
 
+.container:hover{
+    background-color: #e7d3b5;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+    transition: 0.5s ease;
 }
 
 /* Styles for both item1 (image) and item2 (product details), giving them flexible width */
@@ -415,9 +423,10 @@ main{
 
 /* Styling for the fieldset containing product details */
 fieldset {
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Light shadow for depth */
+
     padding: 20px; /* Padding inside the fieldset */
     font-family: Questrial, sans-serif; /* Set the font for product details */
+    border: none;
 }
 
 /* General image styling for all product images */
