@@ -1,0 +1,41 @@
+.container{
+    background:#ECDFCC;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 10px solid #ECDFCC;
+    display: flex;
+    height: 500px;
+}
+
+.item1{
+
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.item2{
+    display: flex;
+}
+
+.add{
+    background-color: #697565;
+    height: 50px;
+    width: 160px;
+    cursor: pointer;
+    transition: 0.5s ease;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    border: none;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+.add:hover{
+    transition: 0.5s ease;
+    opacity: 80%;
+}
+
+fieldset{
+    height: 500px;
+}
+
+
+img{
+    height: 500px;
+}

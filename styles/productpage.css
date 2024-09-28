@@ -1,0 +1,435 @@
+/* Additional CSS styles */
+#externalContainer{
+    z-index: 1; display: flex; justify-content: center; align-items: center; min-height: 90vh; flex-direction: column; 
+}
+#myaccountContainer{
+     padding: 120px 180px; padding-left:120px;
+}
+.myaccount{
+    font-family: Questrial, sans-serif;
+}
+.accountDetails{
+    line-height: 4rem;
+}
+.list{
+    list-style-type: none;
+    padding: 0;
+    margin: 0; 
+    margin-left: 20px;
+}
+.list li{
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 15px;
+    align-items: center;
+}
+.accLabel{
+    font-family: Questrial, sans-serif;
+    font-size: 1.2rem;
+    width: 150px;
+    font-weight: bold;
+}
+.accBox{
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px #ffffff solid;
+    font-size: 1rem;
+    font-family: Arial, sans-serif;
+    width: 400px;
+}
+input[readonly] {
+    cursor:default;
+    background-color: transparent;          
+    pointer-events: none;
+}
+.accountDetails button{
+    transition: 0.5s ease;
+    padding: 8px 16px;
+    font-size: 20px;
+    border: none;
+    background-color: #697565;
+    color: #fff;
+    cursor: pointer;
+
+}
+.accountDetails button:hover{
+    transition: 0.5s ease;
+    background-color: #ebe9e9;
+    color: #333;
+}
+
+
+
+
+html{
+    background-color: #ECDFCC ;
+}
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif; 
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #697565;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button{
+    font-family: questrial, sans-serif;
+}
+
+
+
+
+
+/* HEADER */
+/* HEADER */
+
+/* Container for centering the logo */
+.logo {
+    text-align: center;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    width: 100vw; /* Full viewport width to center horizontally */
+}
+
+.logo-content p{
+    margin-right: 55px;
+}
+
+
+
+
+#menuIcon{
+    margin-bottom: 3px;
+}
+
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 20px; /* Space between menu icon and search bar */
+}
+
+
+.sidenav {
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 90%;
+    backdrop-filter: blur(100px);
+    height: 100%; 
+    width: 0;  /* Initially hidden with 0 width */
+    position: fixed; /* Fixed in place while scrolling */
+    z-index: 1; /* Places the sidenav above other content */
+    top: 0; 
+    left: 0; 
+    background-color:  #ffffff;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+    transition: 0.6s; /* Smooth transition for opening and closing */
+    padding-top: 60px; /* Adds padding to the top of the sidenav */
+}
+
+/* Styling for links inside the sidenav */
+.sidenav a {
+    margin-top: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 8px 8px 8px 32px; /* Padding inside links */
+    text-decoration: none; 
+    font-size: 1rem; 
+    color: #000000; 
+    display: block; 
+    transition: 0.3s; /* Smooth transition for hover */
+}
+
+/* Changes link color when hovered */
+.sidenav a:hover {
+    color: #ECDFCC; 
+    background-color: #697565;
+}
+
+/* Close button inside the side navigation */
+.sidenav .closebtn {
+    position: absolute; /* Positions the close button relative to the sidenav */
+    top: 0; 
+    right: 25px; 
+    font-size: 36px; 
+    margin-left: 50px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.sidenav .closebtn :hover{
+    
+    color: #f1f1f1;
+}
+
+#mySidenav .closebtn{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+/* When the side navigation is active (open) */
+.sidenav.active {
+    width: 250px; 
+}
+
+
+
+
+#searchIcon{
+    margin-left: 40px;
+}
+
+/* Search Bar*/
+#searchBarContainer {
+
+    border-radius: 10px;
+    position: absolute; /* Align next to the search icon */
+    top: -55%; 
+    left: 120%;
+    overflow: hidden; /* Hide overflow content */
+    transition: 0.3s; 
+    background-color: #f9f9f9; 
+    padding: 10px; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow  */
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    margin-top: 10px;
+    width: 0; 
+    opacity: 0; 
+    visibility: hidden; /* Ensure the search bar is not interactable */
+}
+
+/* Search input field styling */
+#searchInput {
+    width:200px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 8px;
+    font-size: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc; 
+    border-radius: 10px;
+}
+
+/* Search button styling */
+#searchBarContainer button {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 10px;
+    padding: 8px 16px;
+    font-size: 10px;
+    cursor: pointer;
+    border: none; 
+    background-color: #333; 
+    color: white; 
+}
+
+/* Active class for showing the search bar */
+#searchBarContainer.active {
+    width: 300px; 
+    opacity: 1; 
+    visibility: visible; 
+}
+
+
+
+
+/* Profile image icon styling */
+.profile-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Profile container */
+.profile-container {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: relative; /* Position the dropdown relative to this container */
+    display: inline-block; /* Keeps the profile container only as wide as its contents */
+    font-size: 1rem;
+}
+
+
+
+
+
+/* Dropdown menu styling */
+.dropdown-content {
+    position: absolute; 
+    right: 0; 
+    top: 100%; 
+    background-color: black;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    transform: translateY(-20px); 
+    opacity: 0; 
+    visibility: hidden; 
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition for transform, opacity, and visibility */
+}
+
+/* Styling for links inside the dropdown */
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Changes background color of dropdown links when hovered */
+.dropdown-content a:hover {
+    background-color: #697565;
+    transition: 0.3s;
+}
+
+/* Show dropdown when active */
+.dropdown-content.show {
+    transform: translateY(0); /* Move the dropdown */
+    opacity: 1; 
+    visibility: visible; 
+}
+
+/* END OF HEADER */
+/* END OF HEADER */
+
+/* FOOTER */
+/* FOOTER */
+
+/* Footer Section */
+footer {
+    background-color: #697565;
+    color: white;
+    padding: 40px 20px;
+}
+
+.social-media{
+    margin-right: 100px;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    color: #ECDFCC;
+}
+
+.footer-links {
+    font-family: questrial, sans-serif;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.footer-links ul {
+    margin: 10px;
+    list-style-type: none;
+}
+
+.footer-links ul a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-links ul a:hover {
+    color: #ECDFCC;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 10px;
+}
+
+
+/* END OF FOOTER */
+/* END OF FOOTER */
+
+main{
+    margin-right: 60px;
+    margin-left: 60px;
+}
+/* Container for each product, providing spacing, background, border, and a subtle box-shadow */
+.container {
+    background: #ECDFCC; /* Light beige background color */
+    margin-top: 30px; /* Space at the top */
+    margin-bottom: 30px; /* Space at the bottom */
+    border: 1px solid #ECDFCC; /* Border with the same color as background to make it subtle */
+    display: flex; /* Flexbox layout to arrange items side by side */
+    flex-wrap: wrap; /* Ensure the items wrap when screen size is smaller */
+    justify-content: space-between; /* Space out items evenly within the container */
+    padding: 20px; /* Padding inside the container for space */
+
+}
+
+/* Styles for both item1 (image) and item2 (product details), giving them flexible width */
+.item1, .item2 {
+    flex: 1; /* Flexbox property to allow both items to grow equally */
+    min-width: 300px; /* Minimum width for responsive design */
+    padding: 10px; /* Space around the content */
+}
+
+/* Specific styling for the image inside item1 */
+.item1 img {
+    width: 100%; /* Make the image take full width of its container */
+    max-height: 500px; /* Set a maximum height for the image */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+}
+
+/* Reverse layout for alternating product arrangements */
+.reverse {
+    flex-direction: row-reverse; /* Reverse the flex direction to swap the order of the items */
+}
+
+/* Style for the "Buy Now" button */
+.add {
+    background-color: #697565; /* Dark olive green background */
+    height: 50px; /* Button height */
+    width: 160px; /* Button width */
+    cursor: pointer; /* Show a pointer when hovering over the button */
+    transition: 0.5s ease; /* Smooth transition for hover effect */
+    border-radius: 10px; /* Rounded corners for the button */
+    color: #fff; /* White text color */
+    border: none; /* Remove default button border */
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for a raised look */
+    font-size: 16px; /* Button text size */
+}
+
+/* Hover effect for the "Buy Now" button */
+.add:hover {
+    opacity: 0.8; /* Reduce opacity slightly on hover */
+}
+
+/* Styling for the fieldset containing product details */
+fieldset {
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Light shadow for depth */
+    padding: 20px; /* Padding inside the fieldset */
+    font-family: Questrial, sans-serif; /* Set the font for product details */
+}
+
+/* General image styling for all product images */
+.product-img {
+    width: 100%; /* Full width of the container */
+    max-height: 500px; /* Set a maximum height */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4); /* Subtle shadow for a raised look */
+}
+
+
+
+
+
+
