@@ -32,7 +32,7 @@
 
                 
                 <p>System Administrator</p>
-                <button><a href="logout.php">Logout</a></button>
+                <button id="logout-btn" ><a href="logout.php" >Logout</a></button>
             </div>
 
             

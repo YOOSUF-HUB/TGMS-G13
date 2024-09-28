@@ -19,9 +19,6 @@ header {
     height: 100px;
 }
 
-button{
-    font-family: questrial, sans-serif;
-}
 
 
 
@@ -64,6 +61,14 @@ button{
 
 .profile-container p{
     margin-top: 0px; color: #ECDFCC;
+}
+
+#logout-btn{
+    border: none;
+    height: 40px;
+    width: 100px;
+    background-color: #ECDFCC;
+
 }
 
 
