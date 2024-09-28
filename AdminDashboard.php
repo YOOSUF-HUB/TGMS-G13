@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrator Dashboard</title>
     <link rel="stylesheet" href="styles/Admin_dashboard.css"></lin>
-    <style>
 
-    </style>
 </head>
 <body>
 
@@ -30,7 +28,8 @@
             </div>
 
             <div class="profile-container" >
-                <i class="fa fa-user-circle-o profile-icon" onclick="toggleDropdown()"></i>
+            <img src="images/profile-google.svg" alt="Profile Icon" class="fa fa-user-circle-o profile-icon" onclick="toggleDropdown()">
+
                 
                 <p>System Administrator</p>
                 <button><a href="logout.php">Logout</a></button>
@@ -116,6 +115,8 @@
 
     </main>
 
+
+    <script src="Index.js"></script>
 
 </body>
 </html>

@@ -27,37 +27,44 @@ button{
 
 /* HEADER */
 /* HEADER */
- .top-container{
+.top-container{
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
- }
- .logo-notification {
+}
+
+.logo-notification {
     display: flex;
- }
- .logo-notification .logo-content img{
+}
+
+.logo-notification .logo-content img{
     height: 80px;
     padding-left: 5px;
- }
- .logo-notification .notification {
+}
+
+.logo-notification .notification {
     padding-right: 0;
- }
- .title {
+}
+
+.title {
     color: #ECDFCC
- }
- .profile-container {
+}
+
+.profile-container {
     display: flex;
     flex-direction: column;
     align-items: center;
- }
- .profile-container i{
+}
+
+.profile-container i{
     font-size:36px;
     padding-bottom: 10px;
- }
- .profile-container p{
+}
+
+.profile-container p{
     margin-top: 0px; color: #ECDFCC;
- }
+}
 
 
 

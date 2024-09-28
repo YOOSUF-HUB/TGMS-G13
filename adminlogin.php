@@ -33,7 +33,7 @@ if (isset($_POST['login'])) {
         // Redirect based on role
         switch ($row['role']) {
             case 'admin':
-                header("Location: admindashboard.php");
+                header("Location: AdminDashboard.php");
                 break;
             case 'inventory':
                 header("Location: inventorydashboard.php");
