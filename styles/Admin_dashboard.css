@@ -225,17 +225,3 @@ p {
     margin-top: 20px;
 }
 
-/* Responsive design for smaller screens */
-@media (max-width: 768px) {
-    table {
-        font-size: 14px;
-    }
-    
-    th, td {
-        padding: 8px;
-    }
-    
-    p {
-        font-size: 16px;
-    }
-}

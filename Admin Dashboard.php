@@ -55,53 +55,61 @@ $result = $conn->query($sql);
 
         <section class="im-page-links" >
                 <ul>
-                    <li class="im-page"><a href="inventorydashboard.php">Home</a></li>
-                    <li class="im-page"><a href="inventory" >Inventory</a></li>
-                    <li class="im-page"><a href="production.html">Production</a></li>
-                    <li class="im-page"><a href="order.html">Orders</a></li>
-                    <li class="im-page"><a href="supplier.html">Suppliers</a></li>
-                    <li class="im-page"><a href="inventoryreport.html">Report</a></li>
+                    <li class="im-page"><a href="Admin Dashboard.php">Home</a></li>
+                    <li class="im-page"><a href="#">ADD TEXT</a></li>
+
                 </ul>
             </section>
 
 
+        <div>
 
-        <h1>Customer Accounts</h1>
+
+            <h1 style="text-align:center">Customer Accounts</h1>
+
+            <table class="customer_table" style="justify-content:center">
+
+                <?php if ($result->num_rows > 0): ?>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Customer ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Address</th>
+                            <th>Phone No</th>
+                            <th>Date of Birth</th>
+                            <th>Date Created</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php while($row = $result->fetch_assoc()): ?>
+                        <tr>
+                            <td><?php echo $row["Customer_ID"]; ?></td>
+                            <td><?php echo $row["First_name"]; ?></td>
+                            <td><?php echo $row["Last_name"]; ?></td>
+                            <td><?php echo $row["Email"]; ?></td>
+                            <td><?php echo $row["Address"]; ?></td>
+                            <td><?php echo $row["Phone_no"]; ?></td>
+                            <td><?php echo $row["Dob"]; ?></td>
+                            <td><?php echo $row["Date_created"]; ?></td>
+                        </tr>
+                        <?php endwhile; ?>
+                    </tbody>
+                </table>
+                <?php else: ?>
+                    <p>No customer records found.</p>
+                <?php endif; ?>
+
+                <?php $conn->close(); // Close the connection ?>
+
+            </table>
+
+        </div>
+
         
-        <?php if ($result->num_rows > 0): ?>
-        <table>
-            <thead>
-                <tr>
-                    <th>Customer ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Address</th>
-                    <th>Phone No</th>
-                    <th>Date of Birth</th>
-                    <th>Date Created</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php while($row = $result->fetch_assoc()): ?>
-                <tr>
-                    <td><?php echo $row["Customer_ID"]; ?></td>
-                    <td><?php echo $row["First_name"]; ?></td>
-                    <td><?php echo $row["Last_name"]; ?></td>
-                    <td><?php echo $row["Email"]; ?></td>
-                    <td><?php echo $row["Address"]; ?></td>
-                    <td><?php echo $row["Phone_no"]; ?></td>
-                    <td><?php echo $row["Dob"]; ?></td>
-                    <td><?php echo $row["Date_created"]; ?></td>
-                </tr>
-                <?php endwhile; ?>
-            </tbody>
-        </table>
-        <?php else: ?>
-            <p>No customer records found.</p>
-        <?php endif; ?>
 
-        <?php $conn->close(); // Close the connection ?>
 
     </main>
 
