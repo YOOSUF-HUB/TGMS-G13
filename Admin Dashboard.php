@@ -1,11 +1,3 @@
-<?php
-// Include the database connection file here
-include 'php/config.php'; // Assuming you save the connection file as db_connect.php
-
-// SQL query to fetch data
-$sql = "SELECT Customer_ID, First_name, Last_name, Email, Address, Phone_no, Dob, Date_created FROM Customer_account";
-$result = $conn->query($sql);
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -51,6 +43,15 @@ $result = $conn->query($sql);
         </div>
     </header>
 
+    <?php
+// Include the database connection file here
+include 'php/config.php'; // Assuming you save the connection file as db_connect.php
+
+// SQL query to fetch data
+$sql = "SELECT Customer_ID, First_name, Last_name, Email, Password, Address, Phone_no, Dob, Date_created FROM Customer_account";
+$result = $conn->query($sql);
+?>
+
     <main class="dashboard-container">
 
         <section class="im-page-links" >
@@ -77,6 +78,7 @@ $result = $conn->query($sql);
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Email</th>
+                            <th>Password</th>
                             <th>Address</th>
                             <th>Phone No</th>
                             <th>Date of Birth</th>
@@ -90,6 +92,7 @@ $result = $conn->query($sql);
                             <td><?php echo $row["First_name"]; ?></td>
                             <td><?php echo $row["Last_name"]; ?></td>
                             <td><?php echo $row["Email"]; ?></td>
+                            <td><?php echo $row["Password"]; ?></td>
                             <td><?php echo $row["Address"]; ?></td>
                             <td><?php echo $row["Phone_no"]; ?></td>
                             <td><?php echo $row["Dob"]; ?></td>
