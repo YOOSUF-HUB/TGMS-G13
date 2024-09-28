@@ -363,11 +363,12 @@ footer {
     margin: 50px;
     text-align: center;
     font-family: Questrial, sans-serif;
+    margin-bottom: 100px;
 }
 
 .head h1{
     font-size: 60px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); */
     transition: 0.3s ease;
 
 }
@@ -377,6 +378,7 @@ footer {
     font-size: 19px;
     margin-right: 30px;
     margin-left: 30px;
+    
 }
 
 
@@ -397,14 +399,14 @@ main{
     flex-wrap: wrap; /* Ensure the items wrap when screen size is smaller */
     justify-content: space-between; /* Space out items evenly within the container */
     padding: 20px; /* Padding inside the container for space */
-    transition: 0.5s ease; /* Smooth transition for hover effect */
+    transition: transform 0.3s ease;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .container:hover{
     background-color: wheat;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
-    transition: 0.5s ease;
+    transform: scale(1.03);
 }
 
 /* Styles for both item1 (image) and item2 (product details), giving them flexible width */
@@ -432,7 +434,7 @@ main{
     height: 70px; /* Button height */
     width: 160px; /* Button width */
     cursor: pointer; /* Show a pointer when hovering over the button */
-    transition: 0.5s ease; /* Smooth transition for hover effect */
+    transition: transform 0.3s ease;
     border-radius: 10px; /* Rounded corners for the button */
     color: #fff; /* White text color */
     border: none; /* Remove default button border */
@@ -445,7 +447,7 @@ main{
     opacity: 0.8; /* Reduce opacity slightly on hover */
     background-color: #ffffff;
     color: #ff5e00;
-    transition: 0.2s ease;
+    transform: scale(1.05);
 }
 
 /* Styling for the fieldset containing product details */
@@ -464,35 +466,46 @@ fieldset {
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4); /* Subtle shadow for a raised look */
 }
 
+.product-title{
+    font-size: 70px;
 
-
-
-/* <img src="/images/hoodie-product.jpg" class="product-img" alt="img"> */
-/* Style for the navigation buttons with image icons */
-.nav-arrow {
-    width: 30px; /* Set the width of the arrow icons */
-    height: auto; /* Keep the aspect ratio */
 }
 
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none; /* Remove background from buttons */
+.consultation-Booking{
+    text-align: center;
+    margin: 50px;
+}
+
+.consultation-Booking h2{
+    font-size: 100px;
+    margin: 0;
+    padding: 0;
+    font-family: Questrial, sans-serif;
+
+}
+
+.consultation-Booking p{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+    font-family: Questrial, sans-serif;
+
+}
+
+#book-consultation{
+    background-color: #ff6200; /* Dark olive green background */
+    height: 100px; /* Button height */
+    width: 260px; /* Button width */
+    cursor: pointer; /* Show a pointer when hovering over the button */
+    transition: transform 0.3s ease;
+    border-radius: 10px; /* Rounded corners for the button */
+    color: #fff; /* White text color */
     border: none; /* Remove default button border */
-    padding: 0; /* Remove padding */
-    cursor: pointer; /* Show pointer when hovering */
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for a raised look */
+    font-size: 2px; /* Button text size */
 }
-
-.prev {
-    left: 0; /* Position the left arrow */
-}
-
-.next {
-    right: 0; /* Position the right arrow */
-}
-
-
 
 
 
