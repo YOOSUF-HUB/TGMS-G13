@@ -495,16 +495,21 @@ fieldset {
 }
 
 #book-consultation{
+    padding: 30px;
     background-color: #ff6200; /* Dark olive green background */
     height: 100px; /* Button height */
-    width: 260px; /* Button width */
+    width: 460px; /* Button width */
     cursor: pointer; /* Show a pointer when hovering over the button */
     transition: transform 0.3s ease;
     border-radius: 10px; /* Rounded corners for the button */
     color: #fff; /* White text color */
     border: none; /* Remove default button border */
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for a raised look */
-    font-size: 2px; /* Button text size */
+    font-size: 20px; /* Button text size */
+}
+
+#book-consultation:hover {
+    transform: scale(1.05);
 }
 
 
