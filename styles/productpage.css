@@ -359,8 +359,8 @@ footer {
 /* END OF FOOTER */
 
 main{
-    margin-right: 60px;
-    margin-left: 60px;
+    margin-right: 100px;
+    margin-left: 100px;
 }
 /* Container for each product, providing spacing, background, border, and a subtle box-shadow */
 .container {
@@ -375,6 +375,7 @@ main{
     justify-content: space-between; /* Space out items evenly within the container */
     padding: 20px; /* Padding inside the container for space */
     transition: 0.5s ease; /* Smooth transition for hover effect */
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .container:hover{
@@ -436,6 +437,35 @@ fieldset {
     object-fit: cover; /* Ensure the image covers the area without distortion */
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4); /* Subtle shadow for a raised look */
 }
+
+
+
+
+/* <img src="/images/hoodie-product.jpg" class="product-img" alt="img"> */
+/* Style for the navigation buttons with image icons */
+.nav-arrow {
+    width: 30px; /* Set the width of the arrow icons */
+    height: auto; /* Keep the aspect ratio */
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none; /* Remove background from buttons */
+    border: none; /* Remove default button border */
+    padding: 0; /* Remove padding */
+    cursor: pointer; /* Show pointer when hovering */
+}
+
+.prev {
+    left: 0; /* Position the left arrow */
+}
+
+.next {
+    right: 0; /* Position the right arrow */
+}
+
 
 
 
