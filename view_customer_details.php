@@ -1,6 +1,6 @@
 <?php
 // Include the database connection file here
-include 'db_connect.php'; // Assuming you save the connection file as db_connect.php
+include 'php/config.php'; // Assuming you save the connection file as db_connect.php
 
 // SQL query to fetch data
 $sql = "SELECT Customer_ID, First_name, Last_name, Email, Address, Phone_no, Dob, Date_created FROM Customer_account";
@@ -13,21 +13,46 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customer Accounts</title>
+    <link rel="stylesheet" href="styles/Admin_dashboard.css"></lin>
     <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        table, th, td {
-            border: 1px solid black;
-        }
-        th, td {
-            padding: 10px;
-            text-align: left;
-        }
+
     </style>
 </head>
 <body>
+
+
+    <header>
+        <div class="top-container">
+            <div class="logo-notification" >
+                <div class="logo-content">
+                    <a href="Index.html"> <img src="./images/versori 2.png" alt="logo" > </a>
+                </div>
+            
+                <div class="notification">
+                    <i class="fa fa-bell" style="font-size:30px"></i>
+                </div>
+            </div>
+
+            <div class="title">
+                <h1>Inventory Manager Dashboard</h1>
+            </div>
+
+            <div class="profile-container" >
+                <i class="fa fa-user-circle-o profile-icon" onclick="toggleDropdown()"></i>
+                
+                <p>Nivin Pauly</p>
+                <button><a href="logout.php">Logout</a></button>
+            </div>
+
+            
+
+
+            
+        </div>
+    </header>
+
+
+
     <h1>Customer Accounts</h1>
     
     <?php if ($result->num_rows > 0): ?>

@@ -1,0 +1,52 @@
+/* HEADER */
+/* HEADER */
+.top-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+ }
+ .logo-notification {
+    display: flex;
+ }
+ .logo-notification .logo-content img{
+    height: 80px;
+    padding-left: 5px;
+ }
+ .logo-notification .notification {
+    padding-right: 0;
+ }
+ .title {
+    color: #ECDFCC
+ }
+ .profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+ .profile-container i{
+    font-size:36px;
+    padding-bottom: 10px;
+ }
+ .profile-container p{
+    margin-top: 0px; color: #ECDFCC;
+ }
+
+
+
+
+
+
+
+
+table {
+    width: 70%;
+    border-collapse: collapse;
+}
+table, th, td {
+    border: 1px solid black;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+}
