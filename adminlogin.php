@@ -9,7 +9,7 @@ if (isset($_POST['login'])) {
     $input_password = mysqli_real_escape_string($conn, $_POST['password']);
     
     // Query to check the email and password
-    $login_query = "SELECT * FROM users WHERE username='$input_username' AND password='$input_password'";
+    $login_query = "SELECT * FROM Staff_account WHERE username='$input_username' AND Password='$input_password'";
     $result = mysqli_query($conn, $login_query); //excute query
     $row = mysqli_fetch_assoc($result);
 
@@ -111,7 +111,6 @@ if (isset($_POST['login'])) {
 
                 <div class="field">
                     <input class="btn" type="submit" name="login" value="Login" required>
-                    <!-- <button type="submit" name="login">Login</button> -->
                 </div>
 
                 
