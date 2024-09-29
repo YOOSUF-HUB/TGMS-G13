@@ -80,6 +80,7 @@ if (!isset($_SESSION['username'])) {
         <section class="content" >
             <div style="float:right;">
                 <button>Add Inventory</button>
+                <button onclick="showEditForm()">Manage Inventory</button>
             </div>
 
             <div id="viewMode" class="table-container">
@@ -111,7 +112,34 @@ if (!isset($_SESSION['username'])) {
             </div>
 
             <div id="editMode" style="display: none;" class="accountDetails">
-
+            <h2>Manage Inventory</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Product ID</th>
+                            <th>Product Name</th>
+                            <th>Colour</th>
+                            <th>Size</th>
+                            <th>Type</th>
+                            <th>Inventory</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php while($row = $result->fetch_assoc()): ?>
+                        <tr>
+                            <td><?php echo $row["Product_ID"]; ?></td>
+                            <td><?php echo $row["Name"]; ?></td>
+                            <td><?php echo $row["Colour"]; ?></td>
+                            <td><?php echo $row["Size"]; ?></td>
+                            <td><?php echo $row["Type"]; ?></td>
+                            <td><?php echo $row["Quantity"]; ?></td>
+                            <td></td>
+                        </tr>
+                        <?php endwhile; ?>
+                    </tbody>
+                    <button type="submit" name="save">Save Changes</button> <!-- Save button to save details and switch back to view mode  -->
+                    <button type="button" onclick="cancelEdit()">Cancel</button>
+                </table>
             </div>
 
             
@@ -170,7 +198,18 @@ if (!isset($_SESSION['username'])) {
 
 
 
+    <script>
+    // JavaScript to toggle between view and edit mode
+    function showEditForm() {
+        document.getElementById('viewMode').style.display = 'none';
+        document.getElementById('editMode').style.display = 'block';
+    }
 
+    function cancelEdit() {
+        document.getElementById('editMode').style.display = 'none';
+        document.getElementById('viewMode').style.display = 'block';
+    }
+    </script>
     
     <script src="index.js"></script>
 </body>
