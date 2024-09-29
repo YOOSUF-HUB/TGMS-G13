@@ -71,11 +71,11 @@ CREATE TABLE Staff_account (
     Staff_ID varchar(255) NOT NULL PRIMARY KEY, 
     Full_name varchar(255) NOT NULL, 
     username varchar(255) NOT NULL, 
-    role varchar(255) NOT NULL,
+    staff_role varchar(255) NOT NULL,
     Email varchar(255) NOT NULL, 
     Password varchar(255) NOT NULL 
 );
-INSERT INTO Staff_account (Staff_ID, Full_name, username, role, Email, password) VALUES ('S001', 'Nivin Pauly', 'nivin12', 'inventory', 'nivin@versori.com', 'nivin123');
+INSERT INTO Staff_account (Staff_ID, Full_name, username, staff_role, Email, password) VALUES ('S001', 'Nivin Pauly', 'nivin12', 'inventory', 'nivin@versori.com', 'nivin123');
 
 
 -- Manually inserting data into table using MYSQL

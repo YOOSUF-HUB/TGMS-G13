@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Create Staff Account</title>
     <link rel="stylesheet" href="./styles/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- social media icons -->
 
@@ -72,11 +72,11 @@
 
             <?php
 
-            include("./php/config.php");
+            include("php/config.php");
             if(isset($_POST['submit'])){
                 $fname = $_POST['fname'];
                 $username = $_POST['username'];
-                $role = $_POST['role'];
+                $role = $_POST['staff_role'];
                 $email = $_POST['email'];
                 $password = $_POST['password'];
 
@@ -105,7 +105,7 @@
                 }
                 else{
 
-                    $insert_query = "INSERT INTO Staff_account (Staff_ID, Full_name, username, role, Email, Password) VALUES ('$customerid','$fname', '$username', '$role' , '$email', '$password')";
+                    $insert_query = "INSERT INTO Staff_account (Staff_ID, Full_name, username, staff_role, Email, Password) VALUES ('$customerid','$fname', '$username', '$staff_role' , '$email', '$password')";
                     $result = mysqli_query($conn, $insert_query);
                     
 
@@ -147,7 +147,7 @@
 
                 <div class="field input">
                     <!-- <label for="email">Email</label> -->
-                    <input type="text" name="role" id="role" placeholder="Permission" autocomplete="off" required>
+                    <input type="text" name="staff_role" id="staff_role" placeholder="Permission" autocomplete="off" required>
                 </div>
 
                 <div class="field input">
@@ -214,6 +214,6 @@
    
 
 
-    <script src="./index.js"></script>
+    <script src="Index.js"></script>
 </body>
 </html>
