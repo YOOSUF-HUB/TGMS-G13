@@ -10,7 +10,7 @@ if (!isset($_SESSION['username'])) {
     include 'php/config.php';
 
     // SQL query to fetch data
-    $sql = "SELECT Name, Quantity FROM Inventory";
+    $sql = "SELECT `Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity` FROM Inventory";
     $result = $conn->query($sql);
     ?>
 
@@ -82,25 +82,36 @@ if (!isset($_SESSION['username'])) {
                 <button>Add Inventory</button>
             </div>
 
-            <div class="table-container">
+            <div id="viewMode" class="table-container">
                 <h2>Inventory</h2>
                 <table class="table">
                     <thead>
                         <tr>
+                            <th>Product ID</th>
                             <th>Product Name</th>
+                            <th>Colour</th>
+                            <th>Size</th>
+                            <th>Type</th>
                             <th>Inventory</th>
                         </tr>
                     </thead>
                     <tbody>
                     <?php while($row = $result->fetch_assoc()): ?>
                         <tr>
+                            <td><?php echo $row["Product_ID"]; ?></td>
                             <td><?php echo $row["Name"]; ?></td>
+                            <td><?php echo $row["Colour"]; ?></td>
+                            <td><?php echo $row["Size"]; ?></td>
+                            <td><?php echo $row["Type"]; ?></td>
                             <td><?php echo $row["Quantity"]; ?></td>
-                        
                         </tr>
                         <?php endwhile; ?>
                     </tbody>
                 </table>
+            </div>
+
+            <div id="editMode" style="display: none;" class="accountDetails">
+
             </div>
 
             
