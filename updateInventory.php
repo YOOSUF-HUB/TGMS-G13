@@ -38,8 +38,8 @@ if (isset($_POST['save'])) {
 
     // Execute the query and check if successful
     if (mysqli_query($conn, $sql)) {
-        header("Location: AdminDashboard.php"); // Redirect to dashboard
-        exit(); // Ensure script ends after redirect
+        header("Location: inventoryPage.php"); 
+        exit();
     } else {
         echo "<p style='color: red; text-align: center;'>Failed to Update: " . mysqli_error($conn) . "</p>";
     }
@@ -78,17 +78,21 @@ if (isset($_POST['save'])) {
         width: 500px;
         display: flex;
         flex-direction: column;
-        
+        padding: 20px 50px ;
     }
 
     .field {
         margin-bottom: 15px;
         width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 10px;
     }
 
     .input input,
     .input select {
-        width: 480px;
+        width: 350px;
         padding: 10px;
         border: 1px solid #ccc;
         border-radius: 4px;
@@ -118,7 +122,7 @@ if (isset($_POST['save'])) {
 
     #cancelBtn {
         background-color: #B43F3F;
-        margin-top: 5px;
+        margin-left: 5px;
     }
     #cancelBtn:hover {
         background-color: #B8001F;
@@ -150,23 +154,27 @@ if (isset($_POST['save'])) {
         <h2>Product ID: <?php echo $Product_ID; ?></h2>
     </div>
     <div class="field input">
-        <label for="fname">First Name:</label>
+        <label for="fname">Name:</label>
         <input type="text" name="productName" placeholder="Product Name" value="<?php echo $row["Name"]; ?>" required>
     </div>
 
     <div class="field input">
+        <label for="fname">Colour:</label>
         <input type="text" name="productColour" placeholder="Product Colour" value="<?php echo $row["Colour"]; ?>" required>
     </div>
 
     <div class="field input">
+        <label for="fname">Size:</label>
         <input type="email" name="productSize" id="email" placeholder="Product Size" value="<?php echo $row["Size"]; ?>" required>
     </div>
 
     <div class="field input">
+        <label for="fname">Type:</label>
         <input type="text" name="productType" id="address" placeholder="Product Type" value="<?php echo $row["Type"]; ?>">
     </div>
 
     <div class="field input">
+        <label for="fname">Quantity:</label>
         <input type="text" name="productQuantity" id="phone" placeholder="Product Quantity" value="<?php echo $row["Quantity"]; ?>">
     </div>
 
