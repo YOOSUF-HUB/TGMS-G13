@@ -12,6 +12,7 @@ if (isset($_GET['deleteid'])) {
     // Execute the query
     if (mysqli_query($conn, $sql)) {
         echo "<p style='color: green; text-align: center;'>Successfully Deleted</p>";
+        header("Location: AdminDashboard.php");
     } else {
         echo "<p style='color: red; text-align: center;'>Failed to Delete: " . mysqli_error($conn) . "</p>";
     }
