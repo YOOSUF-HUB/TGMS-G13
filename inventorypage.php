@@ -79,8 +79,9 @@ if (!isset($_SESSION['username'])) {
 
         <section class="content" >
             <div style="float:right;">
-                <button>Add Inventory</button>
-                <button onclick="showEditForm()">Manage Inventory</button>
+                <button id="addInventoryBtn">Add Inventory</button>
+                <button id="manageInventoryBtn" onclick="manageInventory()" >Manage Inventory</button>
+                <button id="cancelBtn" style="display: none;" onclick="cancelInventory()"  >Cancel Manage Inventory</button>
             </div>
 
             <div id="viewMode" class="table-container">
@@ -209,15 +210,26 @@ if (!isset($_SESSION['username'])) {
 
 
     <script>
-    // JavaScript to toggle between view and edit mode
-    function showEditForm() {
+    
+    // JavaScript to toggle between view and manage mode
+    function manageInventory() {
+        document.getElementById('addInventoryBtn').style.display = 'none'; 
+        document.getElementById('manageInventoryBtn').style.display = 'none'; 
+        document.getElementById('cancelBtn').style.display = 'block'; 
+
         document.getElementById('viewMode').style.display = 'none';
         document.getElementById('editMode').style.display = 'block';
+        
     }
 
-    function cancelEdit() {
+    function cancelInventory() {
+        document.getElementById('addInventoryBtn').style.display = 'inline-block'; 
+        document.getElementById('manageInventoryBtn').style.display = 'inline-block'; 
+        document.getElementById('cancelBtn').style.display = 'none'; 
+        
         document.getElementById('editMode').style.display = 'none';
         document.getElementById('viewMode').style.display = 'block';
+        
     }
     </script>
     
