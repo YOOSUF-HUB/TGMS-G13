@@ -140,7 +140,7 @@ if (isset($_POST['submit'])) {
     </div>
     <div class="field input">
         <label for="productID">Product ID:</label>
-        <input type="text" name="productID" placeholder="Product ID"  required>
+        <input type="text" name="productID" placeholder="Product ID(VERXXX)"  required>
     </div>
     <div class="field input">
         <label for="productName">Name:</label>
