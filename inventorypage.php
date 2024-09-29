@@ -124,7 +124,7 @@ if (!isset($_SESSION['username'])) {
                             <th>Size</th>
                             <th>Type</th>
                             <th>Inventory</th>
-                            <th>Manage</th> //new column will appear to manage inventory
+                            <th>Manage</th> <!--  new column will appear to manage inventory -->
                         </tr>
                     </thead>
                     <tbody>
