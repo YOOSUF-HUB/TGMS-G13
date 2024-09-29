@@ -111,8 +111,10 @@ if (!isset($_SESSION['username'])) {
                 </table>
             </div>
 
-            <div id="editMode" style="display: none;" class="accountDetails">
-            <h2>Manage Inventory</h2>
+            <!-- Manage inventory -->
+            <div id="editMode" style="display: none;" class="table-container">
+                <h2>Manage Inventory</h2>
+                <form action="" method="POST">
                 <table class="table">
                     <thead>
                         <tr>
@@ -122,10 +124,14 @@ if (!isset($_SESSION['username'])) {
                             <th>Size</th>
                             <th>Type</th>
                             <th>Inventory</th>
+                            <th>Manage</th> //new column will appear to manage inventory
                         </tr>
                     </thead>
                     <tbody>
-                    <?php while($row = $result->fetch_assoc()): ?>
+                    <?php 
+                    
+                    $result->data_seek(0); // Reset the result pointer to reuse the data for the duplicated table
+                    while($row = $result->fetch_assoc()): ?>
                         <tr>
                             <td><?php echo $row["Product_ID"]; ?></td>
                             <td><?php echo $row["Name"]; ?></td>
@@ -133,14 +139,18 @@ if (!isset($_SESSION['username'])) {
                             <td><?php echo $row["Size"]; ?></td>
                             <td><?php echo $row["Type"]; ?></td>
                             <td><?php echo $row["Quantity"]; ?></td>
-                            <td></td>
+                            <td>
+                                <button style="background-color: blue; border-radius: 5px; border: none; padding: 5px;"><a href="update_customer.php?updateid=<?php echo $row['Customer_ID']; ?>" style="text-decoration: none; color: white;">Update</a></button>
+                                <button style="background-color: red; border-radius: 5px; border: none; padding: 5px;"><a href="delete_customer.php?deleteid=<?php echo $row['Customer_ID']; ?>" style="text-decoration: none; color: white;">Delete</a></button>
+                            </td>
                         </tr>
-                        <?php endwhile; ?>
+                    <?php endwhile; ?>
                     </tbody>
-                    <button type="submit" name="save">Save Changes</button> <!-- Save button to save details and switch back to view mode  -->
-                    <button type="button" onclick="cancelEdit()">Cancel</button>
                 </table>
+                </form>
             </div>
+
+            
 
             
         </section>
