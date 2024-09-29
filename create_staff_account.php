@@ -121,6 +121,7 @@
                             <p>Registration Successfully!.</p>
                             </div> <br>";
                         echo "<a href='adminlogin.php'><button class='btn'>Login now</button></a>";
+                        echo "<a href='AdminDashboard.php'><button class='btn'>Return to Dashboard</button></a>";
                     }else{
                         echo "<div class= 'errormessage'>
                             <p>This email is already registered. Please use a different email.</p>

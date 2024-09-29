@@ -6,7 +6,6 @@ if (!isset($_SESSION['username'])) {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +13,6 @@ if (!isset($_SESSION['username'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrator Dashboard</title>
     <link rel="stylesheet" href="styles/Admin_dashboard.css">
-    <!-- Questrial Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- social media icons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -48,11 +46,14 @@ if (!isset($_SESSION['username'])) {
     // Include the database connection file here
     include 'php/config.php';
 
-    // SQL query to fetch data
-    $sql = "SELECT Customer_ID, First_name, Last_name, Email, Password, Address, Phone_no, Dob, Date_created FROM Customer_account";
-    $result = $conn->query($sql);
-    ?>
+    // SQL query to fetch data from customer account table
+    $customer_sql = "SELECT Customer_ID, First_name, Last_name, Email, Password, Address, Phone_no, Dob, Date_created FROM Customer_account";
+    $customer_result = $conn->query($customer_sql);
 
+    // SQL query to fetch data from Staff account table
+    $staff_sql = "SELECT Staff_ID, Full_name, username, Staff_role, Email, Password FROM Staff_account";
+    $staff_result = $conn->query($staff_sql);
+    ?>
 
     <main class="dashboard-container">
         <section class="im-page-links">
@@ -63,9 +64,10 @@ if (!isset($_SESSION['username'])) {
         </section>
 
         <div>
+            <!-- Customer Accounts Section -->
             <h1 style="text-align:center">Customer Accounts</h1>
 
-            <?php if ($result->num_rows > 0): ?>
+            <?php if ($customer_result->num_rows > 0): ?>
                 <table class="customer_table" style="justify-content:center">
                     <thead>
                         <tr>
@@ -78,11 +80,11 @@ if (!isset($_SESSION['username'])) {
                             <th>Phone No</th>
                             <th>Date of Birth</th>
                             <th>Date Created</th>
-                            <th>Action</th> <!-- New column for the Update button -->
+                            <th>Action</th> <!-- column for the Update & Delete button -->
                         </tr>
                     </thead>
                     <tbody>
-                        <?php while($row = $result->fetch_assoc()): ?>
+                        <?php while($row = $customer_result->fetch_assoc()): ?>
                         <tr>
                             <td><?php echo $row["Customer_ID"]; ?></td>
                             <td><?php echo $row["First_name"]; ?></td>
@@ -101,10 +103,46 @@ if (!isset($_SESSION['username'])) {
                         <?php endwhile; ?>
                     </tbody>
                 </table>
-
-
             <?php else: ?>
                 <p>No customer records found.</p>
+            <?php endif; ?>
+
+            <!-- Staff Accounts Section -->
+            <h1 style="text-align:center">Staff Accounts</h1>
+            <button style="background-color: green; border-radius: 5px; border: none; padding: 10px; margin-left: 50px; height: 40px"><a href="create_staff_account.php" style="text-decoration: none; color: white;">Create Staff Account</a></button>
+
+            <?php if ($staff_result->num_rows > 0): ?>
+                <table class="customer_table" style="justify-content:center">
+                    <thead>
+                        <tr>
+                            <th>Staff ID</th>
+                            <th>Full Name</th>
+                            <th>Username</th>
+                            <th>Staff Role</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Action</th> <!-- column for the Update & Delete button -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php while($row = $staff_result->fetch_assoc()): ?>
+                        <tr>
+                            <td><?php echo $row["Staff_ID"]; ?></td>
+                            <td><?php echo $row["Full_name"]; ?></td>
+                            <td><?php echo $row["username"]; ?></td>
+                            <td><?php echo $row["Staff_role"]; ?></td>
+                            <td><?php echo $row["Email"]; ?></td>
+                            <td><?php echo $row["Password"]; ?></td>
+                            <td>
+                                <button style="background-color: blue; border-radius: 5px; border: none; padding: 5px;"><a href="update_staff.php?updateid=<?php echo $row['Staff_ID']; ?>" style="text-decoration: none; color: white;">Update</a></button>
+                                <button style="background-color: red; border-radius: 5px; border: none; padding: 5px;"><a href="delete_staff.php?deleteid=<?php echo $row['Staff_ID']; ?>" style="text-decoration: none; color: white;">Delete</a></button>
+                            </td>
+                        </tr>
+                        <?php endwhile; ?>
+                    </tbody>
+                </table>
+            <?php else: ?>
+                <p>No staff records found.</p>
             <?php endif; ?>
 
             <?php $conn->close(); // Close the connection ?>
