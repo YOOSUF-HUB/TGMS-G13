@@ -84,6 +84,10 @@
                             <td><?php echo $row["Phone_no"]; ?></td>
                             <td><?php echo $row["Dob"]; ?></td>
                             <td><?php echo $row["Date_created"]; ?></td>
+                            <td>
+                                <button style="background-color: blue; border-radius: 5px; border: none; padding: 5px;"><a href="update_customer.php?updateid=<?php echo $row['Customer_ID']; ?>" style="text-decoration: none; color: white;">Update</a></button>
+                                <button style="background-color: red; border-radius: 5px; border: none; padding: 5px;"><a href="delete_customer.php?deleteid=<?php echo $row['Customer_ID']; ?>" style="text-decoration: none; color: white;">Delete</a></button>
+                            </td>
                         </tr>
                         <?php endwhile; ?>
                     </tbody>
