@@ -19,7 +19,47 @@ header {
     height: 120px;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px;
+    font-size: 15px;
+    text-align: left;
+}
 
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+thead {
+    background-color: #f2f2f2;
+}
+
+tbody tr{
+    background-color: white;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+th {
+    background-color: #3672ae;
+    color: white;
+}
+
+tbody td {
+    vertical-align: middle;
+}
+
+p {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
 
 
 /* HEADER */
@@ -198,9 +238,9 @@ footer {
 
 
 table {
-    width: 1400px;
+    width: 100%;
     border-collapse: collapse;
-    margin: 20px 0;
+    margin: 20px;
     font-size: 15px;
     text-align: left;
 }
@@ -224,7 +264,7 @@ tbody tr:hover {
 }
 
 th {
-    background-color: #4CAF50;
+    background-color: #3672ae;
     color: white;
 }
 
