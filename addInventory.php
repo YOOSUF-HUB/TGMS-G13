@@ -136,10 +136,10 @@ if (isset($_POST['submit'])) {
 
     <form action="" method="post">
     <div>
-        <h2>Product ID: <?php echo $Product_ID; ?></h2>
+        <h2>Add Product: <?php echo $Product_ID; ?></h2>
     </div>
     <div class="field input">
-        <label for="productID">Name:</label>
+        <label for="productID">Product ID:</label>
         <input type="text" name="productID" placeholder="Product ID"  required>
     </div>
     <div class="field input">
