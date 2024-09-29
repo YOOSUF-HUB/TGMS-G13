@@ -11,7 +11,7 @@ body {
 
 header {
     background-color: #697565;
-    padding: 20px;
+    padding: 20px 0px;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -32,6 +32,7 @@ header {
  }
  .logo-notification {
     display: flex;
+    padding-left: 20px;
  }
  .logo-notification .logo-content img{
     height: 80px;
@@ -47,6 +48,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-right: 20px;
  }
  .profile-container i{
     font-size:36px;
@@ -87,7 +89,7 @@ header {
 footer {
     background-color: #697565;
     color: white;
-    padding: 40px 20px;
+    padding: 40px 0px;
     bottom: 0;
     left: 0;
     width: 100%;
