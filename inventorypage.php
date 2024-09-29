@@ -81,7 +81,7 @@ if (!isset($_SESSION['username'])) {
             <div style="float:right;">
                 <button id="addInventoryBtn">Add Inventory</button>
                 <button id="manageInventoryBtn" onclick="manageInventory()" >Manage Inventory</button>
-                <button id="cancelBtn" style="display: none;" onclick="cancelInventory()"  >Cancel Manage Inventory</button>
+                <button id="cancelBtn" style="display: none;" onclick="cancelInventory()"  >Cancel Manage</button>
             </div>
 
             <div id="viewMode" class="table-container">
@@ -226,7 +226,7 @@ if (!isset($_SESSION['username'])) {
         document.getElementById('addInventoryBtn').style.display = 'inline-block'; 
         document.getElementById('manageInventoryBtn').style.display = 'inline-block'; 
         document.getElementById('cancelBtn').style.display = 'none'; 
-        
+
         document.getElementById('editMode').style.display = 'none';
         document.getElementById('viewMode').style.display = 'block';
         
