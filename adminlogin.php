@@ -33,13 +33,13 @@ if (isset($_POST['login'])) {
     if(isset($_SESSION['valid'])){
         // Redirect based on role
         switch ($row['staff_role']) {
-            case 'admin':
+            case 'Admin':
                 header("Location: AdminDashboard.php");
                 break;
-            case 'inventory':
+            case 'Inventory':
                 header("Location: inventorydashboard.php");
                 break;
-            case 'support':
+            case 'Support':
                 header("Location: customerdashboard.php");
                 break;
             

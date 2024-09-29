@@ -154,9 +154,14 @@
                 </div>
 
                 <div class="field input">
-                    <!-- <label for="email">Email</label> -->
-                    <input type="text" name="staff_role" id="staff_role" placeholder="Permission" autocomplete="off" required>
+                    <select name="staff_role" id="staff_role" required>
+                        <option value="" disabled selected hidden>Permission</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Inventory">Inventory</option>
+                        <option value="Support">Support</option>
+                    </select>
                 </div>
+
 
                 <div class="field input">
                     <!-- <label for="password">Password</label> -->
