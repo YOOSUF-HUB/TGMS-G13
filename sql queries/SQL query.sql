@@ -71,6 +71,7 @@ CREATE TABLE Staff_account (
     Staff_ID varchar(255) NOT NULL PRIMARY KEY, 
     Full_name varchar(255) NOT NULL, 
     username varchar(255) NOT NULL, 
+    role varchar(255) NOT NULL,
     Email varchar(255) NOT NULL, 
     Password varchar(255) NOT NULL 
 );
