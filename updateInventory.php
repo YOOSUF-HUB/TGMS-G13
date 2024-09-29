@@ -29,8 +29,7 @@ if (isset($_POST['save'])) {
                 `Quantity` = '$productQuantity'
         WHERE `Product_ID` = '$Product_ID'";
 
-    // Print the query to debug
-    // echo $sql;
+
 
     // Execute the query and check if successful
     if (mysqli_query($conn, $sql)) {
