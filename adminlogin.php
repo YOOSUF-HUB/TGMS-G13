@@ -21,7 +21,7 @@ if (isset($_POST['login'])) {
     if (is_array($row) && !empty($row)) {
         $_SESSION['valid'] = $row['username'];
         $_SESSION['username'] = $row['username'];
-        $_SESSION['role'] = $row['role']; 
+        $_SESSION['staff_role'] = $row['staff_role']; 
 
 
     } else {
@@ -31,7 +31,7 @@ if (isset($_POST['login'])) {
 
     if(isset($_SESSION['valid'])){
         // Redirect based on role
-        switch ($row['role']) {
+        switch ($row['staff_role']) {
             case 'admin':
                 header("Location: AdminDashboard.php");
                 break;
@@ -55,7 +55,7 @@ if (isset($_POST['login'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventory Login</title>
+    <title>Admin Login</title>
     <link rel="stylesheet" href="styles/companyside.css">
     
 </head>

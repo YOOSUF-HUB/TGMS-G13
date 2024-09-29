@@ -72,6 +72,11 @@
 
             <?php
 
+            // Enable error reporting for debugging
+            ini_set('display_errors', 1);
+            ini_set('display_startup_errors', 1);
+            error_reporting(E_ALL);
+
             include("php/config.php");
             if(isset($_POST['submit'])){
                 $fname = $_POST['fname'];
@@ -83,13 +88,15 @@
                 // Query to get the last Customer_ID
                 $find = mysqli_query($conn, "SELECT MAX(Staff_ID) AS max_id FROM Staff_account");
                 $row = mysqli_fetch_assoc($find);
-                //assigning customer id
+
+                    // Assigning new Staff_ID
                 if ($row['max_id']) {
+                    // Extract the numeric part of the last Staff_ID and increment it
                     $last_id = $row['max_id'];
-                    $num = intval(substr($last_id, 1)) + 1; 
-                    
-                    $staffid = 'STF' . str_pad($num, 4, '0', STR_PAD_LEFT); 
+                    $num = intval(substr($last_id, 3)) + 1;  // Strip 'STF' and convert the rest to an integer
+                    $staffid = 'STF' . str_pad($num, 4, '0', STR_PAD_LEFT); // STF + incremented number, padded to 4 digits
                 } else {
+                    // If there is no existing Staff_ID, start with STF0001
                     $staffid = 'STF0001'; 
                 }
 
