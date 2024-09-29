@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="/contact.css">
+    <link rel="stylesheet" href="contact.css">
 
 
 </head>
@@ -81,9 +81,10 @@
     <main>
         <h1>Get in touch with us</h1>
         <p id="intro">We'd love to hear from you! Feel free to get in touch by email at[Email] or via our contact form below and we will be happy to help. You can also find answers to some of our most <u>Frequently Asked Questions</u> here.</p>
+        <div class="faq">
+            <button id="button-1">Frequently Asked Questions</button>
+        </div>
 
-        <button id="button-1">Frequently Asked Questions</button>
-        
         <div class="container">
         <div class="email">
             <button>
@@ -127,12 +128,14 @@
                 </div>
             </div>
 
-            <div>
+            <div class="three">
                 <textarea name="message" cols="104" raws="100" placeholder="Message"></textarea>
             </div>
 
-            <button id="submit">Submit</button>
-
+            <div class="submit">
+                <button id="submit">Submit</button>
+            </div>
+            
         </form>
 
     </main>
