@@ -77,6 +77,16 @@ CREATE TABLE Staff_account (
 );
 INSERT INTO Staff_account (Staff_ID, Full_name, username, staff_role, Email, password) VALUES ('S001', 'Nivin Pauly', 'nivin12', 'inventory', 'nivin@versori.com', 'nivin123');
 
+-- Inventory Table
+CREATE TABLE Inventory (
+    Product_ID varchar(255) NOT NULL PRIMARY KEY,
+    Name varchar(255) NOT NULL,
+    Colour varchar(255) NOT NULL,
+    Size varchar(255) NOT NULL,
+    Type varchar(255) NOT NULL,
+    Quantity varchar(255)
+);
+
 
 -- Manually inserting data into table using MYSQL
 -- INSERT INTO `Staff_account` (`Staff_ID`, `First_name`, `Last_name`, `Email`, `Password`, `Date_created`) 

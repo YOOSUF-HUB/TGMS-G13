@@ -10,7 +10,7 @@ if (!isset($_SESSION['username'])) {
     include 'php/config.php';
 
     // SQL query to fetch data
-    $sql = "SELECT item_name, quantity FROM inventory";
+    $sql = "SELECT Name, Quantity FROM Inventory";
     $result = $conn->query($sql);
     ?>
 
@@ -103,8 +103,8 @@ if (!isset($_SESSION['username'])) {
                     <tbody>
                     <?php while($row = $result->fetch_assoc()): ?>
                         <tr>
-                            <td><?php echo $row["item_name"]; ?></td>
-                            <td><?php echo $row["quantity"]; ?></td>
+                            <td><?php echo $row["Name"]; ?></td>
+                            <td><?php echo $row["Quantity"]; ?></td>
                         
                         </tr>
                         <?php endwhile; ?>
