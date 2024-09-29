@@ -75,25 +75,25 @@
             include("./php/config.php");
             if(isset($_POST['submit'])){
                 $fname = $_POST['fname'];
-                $lname = $_POST['lname'];
+                $username = $_POST['username'];
                 $email = $_POST['email'];
                 $password = $_POST['password'];
 
                 // Query to get the last Customer_ID
-                $find = mysqli_query($conn, "SELECT MAX(Customer_ID) AS max_id FROM Customer_account");
+                $find = mysqli_query($conn, "SELECT MAX(Staff_ID) AS max_id FROM Staff_account");
                 $row = mysqli_fetch_assoc($find);
                 //assigning customer id
                 if ($row['max_id']) {
                     $last_id = $row['max_id'];
                     $num = intval(substr($last_id, 1)) + 1; 
                     
-                    $customerid = 'C' . str_pad($num, 4, '0', STR_PAD_LEFT); 
+                    $customerid = 'STF' . str_pad($num, 4, '0', STR_PAD_LEFT); 
                 } else {
-                    $customerid = 'C1001'; 
+                    $customerid = 'STF0001'; 
                 }
 
                 //verifying the unique email
-                $verify_query = mysqli_query ($conn, "SELECT Email FROM Customer_account WHERE Email='$email'");
+                $verify_query = mysqli_query ($conn, "SELECT Email FROM Staff_account WHERE Email='$email'");
                 
                 if(mysqli_num_rows($verify_query) != 0){
                     // Email already exists, show error
@@ -104,7 +104,7 @@
                 }
                 else{
 
-                    $insert_query = "INSERT INTO customer_account (Customer_ID, First_name, Last_name, Email, Password, Date_created) VALUES ('$customerid','$fname', '$lname', '$email', '$password', DEFAULT)";
+                    $insert_query = "INSERT INTO Staff_account (Staff_ID, Full_name, username, Email, Password) VALUES ('$customerid','$fname', '$username', '$email', '$password')";
                     $result = mysqli_query($conn, $insert_query);
                     
 
@@ -112,7 +112,7 @@
                         echo "<div class= 'successmessage'>
                             <p>Registration Successfully!.</p>
                             </div> <br>";
-                        echo "<a href='login.php'><button class='btn'>Login now</button></a>";
+                        echo "<a href='adminlogin.php'><button class='btn'>Login now</button></a>";
                     }else{
                         echo "<div class= 'errormessage'>
                             <p>This email is already registered. Please use a different email.</p>
@@ -136,7 +136,7 @@
 
                 <div class="field input">
                     <!-- <label for="lname">Last Name</label> -->
-                    <input type="text" name="lname" id="lname" placeholder="Last Name" required>
+                    <input type="text" name="username" id="username" placeholder="User Name" required>
                 </div>
                 
                 <div class="field input">
@@ -154,7 +154,7 @@
                 </div>
 
                 <div class="link">
-                    <p>Already have an account? <a href="login.php"> Login</a></p>
+                    <p>Already have an account? <a href="adminlogin.php"> Login</a></p>
                 </div>
             </form>
         </div>
