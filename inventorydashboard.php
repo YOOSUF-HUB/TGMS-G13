@@ -5,6 +5,14 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 ?>
+<?php
+    // Include the database connection file here
+    include 'php/config.php';
+
+    // SQL query to fetch data
+    $sql = "SELECT item_name, quantity FROM inventory";
+    $result = $conn->query($sql);
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +54,7 @@ if (!isset($_SESSION['username'])) {
             <div class="profile-container" >
                 <i class="fa fa-user-circle-o profile-icon" onclick="toggleDropdown()"></i>
                 
-                <p>Nivin Pauly</p>
+                <p><?php $_SESSION['username']?></p>
                 <button id="logout-btn" ><a href="logout.php">Logout</a></button>
             </div>
 
@@ -93,22 +101,13 @@ if (!isset($_SESSION['username'])) {
                         </tr>
                     </thead>
                     <tbody>
+                    <?php while($row = $result->fetch_assoc()): ?>
                         <tr>
-                            <td>Product A</td>
-                            <td>150</td>
+                            <td><?php echo $row["item_name"]; ?></td>
+                            <td><?php echo $row["quantity"]; ?></td>
+                        
                         </tr>
-                        <tr>
-                            <td>Product B</td>
-                            <td>200</td>
-                        </tr>
-                        <tr>
-                            <td>Product C</td>
-                            <td>75</td>
-                        </tr>
-                        <tr>
-                            <td>Product D</td>
-                            <td>50</td>
-                        </tr>
+                        <?php endwhile; ?>
                     </tbody>
                 </table>
             </div>
