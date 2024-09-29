@@ -79,7 +79,10 @@ if (!isset($_SESSION['username'])) {
 
         <section class="content" >
             <div class="sales-target-container">
-                <h2>Monthly Sales Target</h2>
+                <div style="display: flex; justify-content: space-between;">
+                    <h2>Monthly Sales Target</h2>
+                    <input type="button" value="Set-Target">
+                </div>
 
                 <div class="progress-bar-container">
                     <div class="progress-bar" id="progress-bar"></div>
