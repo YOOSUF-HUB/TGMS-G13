@@ -103,50 +103,7 @@ if (!isset($_SESSION['username'])) {
                 </table>
             </div>
 
-            <div class="table-container">
-                <h2>Orders</h2>
-                <table class="table product-table">
-                    <thead>
-                        <tr>
-                            <th>Product</th>
-                            <th>Order ID</th>
-                            <th>Quantity</th>
-                            <th>Expected Delivery</th>
-                            <th>Order Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="orders">Product A <span>Color,Size</span></td>
-                            <td class="orderid">#O12134</td>
-                            <td class="qty">40</td>
-                            <td class="delivery">10/02/2024</td>
-                            <td class="status">In-Progress</td>
-                        </tr>
-                        <tr>
-                            <td class="orders">Product A <span>Color,Size</span></td>
-                            <td class="orderid">#O12134</td>
-                            <td class="qty">40</td>
-                            <td class="delivery">10/02/2024</td>
-                            <td class="status">In-Progress</td>
-                        </tr>
-                        <tr>
-                            <td class="orders">Product A <span>Color,Size</span></td>
-                            <td class="orderid">#O12134</td>
-                            <td class="qty">40</td>
-                            <td class="delivery">10/02/2024</td>
-                            <td class="status">In-Progress</td>
-                        </tr>
-                        <tr>
-                            <td class="orders">Product A <span>Color,Size</span></td>
-                            <td class="orderid">#O12134</td>
-                            <td class="qty">40</td>
-                            <td class="delivery">10/02/2024</td>
-                            <td class="status">In-Progress</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            
         </section>
 
         
@@ -203,28 +160,7 @@ if (!isset($_SESSION['username'])) {
 
 
 
-    <script>
-        // Define target and completed sales
-        const targetAmount = 5000;  // Sales target amount
-        const completedSales = 1900;  // Sales completed so far
-
-        // Calculate the percentage completed
-        const completedPercentage = (completedSales / targetAmount) * 100;
-
-        // Update the progress bar and percentage displayed
-        document.addEventListener("DOMContentLoaded", () => {
-            const progressBar = document.getElementById('progress-bar');
-            const completedPercentageElement = document.getElementById('completed-percentage');
-
-            // Set the width of the progress bar based on percentage
-            progressBar.style.width = `${completedPercentage}%`;
-
-            // Update the displayed completed percentage
-            completedPercentageElement.textContent = `${Math.round(completedPercentage)}%`;
-        });
-    </script>
-
-
+    
     <script src="index.js"></script>
 </body>
 </html>
