@@ -38,7 +38,7 @@ if (isset($_POST['save'])) {
                         Last_name = '$lname', 
                         Email = '$email', 
                         Address = " . (!empty($address) ? "'$address'" : "NULL") . ", 
-                        Phone_no = " . (!empty($phone) ? "'$phone'" : "NULL") . ", 
+                        Phone_no = " . (!empty($phone_no) ? "'$phone_no'" : "NULL") . ", 
                         Dob = " . (!empty($dob) ? "'$dob'" : "NULL") . " 
                      WHERE Customer_ID = '$user_id'";
 
