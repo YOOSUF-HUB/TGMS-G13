@@ -170,10 +170,16 @@ if (isset($_POST['submit'])) {
 
     <div class="field">
         <input class="btn" type="submit" name="submit" value="Create">
-        <input class="btn" id="cancelBtn" type="button" value="Cancel">
+        <input class="btn" id="cancelBtn" type="button" value="Cancel" onclick="goBack()">
     </div>
 </form>
    
-   
+<script>
+    //redirect to previous page
+    function goBack() {
+        window.history.back(); 
+    }
+</script>
+
 </body>
 </html>
