@@ -9,9 +9,13 @@ if (!isset($_SESSION['username'])) {
     // Include the database connection file here
     include 'php/config.php';
 
+    // SQL query to group by product Name and sum the quantities
+    $group_query = "SELECT `Name`, SUM(`Quantity`) AS TotalQuantity FROM `Inventory` GROUP BY `Name`";
+    $result = mysqli_query($conn, $group_query);
+
     // SQL query to fetch data
-    $sql = "SELECT Name, Quantity FROM Inventory";
-    $result = $conn->query($sql);
+    // $sql = "SELECT Name, Quantity FROM Inventory";
+    // $result = $conn->query($sql);
     ?>
 
 <!DOCTYPE html>
@@ -107,7 +111,7 @@ if (!isset($_SESSION['username'])) {
                     <?php while($row = $result->fetch_assoc()): ?>
                         <tr>
                             <td><?php echo $row["Name"]; ?></td>
-                            <td><?php echo $row["Quantity"]; ?></td>
+                            <td><?php echo $row["TotalQuantity"]; ?></td>
                         
                         </tr>
                         <?php endwhile; ?>
