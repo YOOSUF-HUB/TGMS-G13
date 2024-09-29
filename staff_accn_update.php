@@ -51,7 +51,13 @@ if (isset($_POST['submit'])) {
 </head>
 <body>
 
+<link rel="stylesheet" href="styles/update_admin.css">
+
 <form action="" method="post">
+
+    <div>
+        <h2>Staff ID: <?php echo $row['Staff_ID']; ?></h2>
+    </div>
     <div class="field input">
         <input type="text" name="fname" id="fname" placeholder="First Name" value="<?php echo htmlspecialchars($row['Full_name']); ?>" required>
     </div>
