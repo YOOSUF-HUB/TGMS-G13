@@ -77,6 +77,21 @@ CREATE TABLE Staff_account (
 );
 INSERT INTO Staff_account (Staff_ID, Full_name, username, staff_role, Email, password) VALUES ('S001', 'Nivin Pauly', 'nivin12', 'inventory', 'nivin@versori.com', 'nivin123');
 
+-- Inventory Table
+CREATE TABLE Inventory (
+    Product_ID varchar(255) NOT NULL PRIMARY KEY,
+    Name varchar(255) NOT NULL,
+    Colour varchar(255) NOT NULL,
+    Size varchar(255) NOT NULL,
+    Type varchar(255) NOT NULL,
+    Quantity varchar(255)
+);
+-- Sample Data for invntory
+INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER001','HOODIES','Yellow','Large','Pullover','250');
+INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER002','T-Shirt','White','Large','Crewneck T-shirt','500');
+INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER003','JOGGERS','Black','Large','Elastic Waistband Trousers','350');
+INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER004','TANK TOP','Black','Extra Large','Tops','150');
+
 
 -- Manually inserting data into table using MYSQL
 -- INSERT INTO `Staff_account` (`Staff_ID`, `First_name`, `Last_name`, `Email`, `Password`, `Date_created`) 
