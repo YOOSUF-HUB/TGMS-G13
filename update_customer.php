@@ -43,6 +43,7 @@ if (isset($_POST['submit'])) {
     $row = mysqli_fetch_assoc($result);
 }
 ?>
+<html>
 
 <link rel="stylesheet" href="styles/update_admin.css">
 
@@ -82,3 +83,8 @@ if (isset($_POST['submit'])) {
         <input class="btn" type="submit" name="submit" value="Update">
     </div>
 </form>
+
+
+
+</html>
+

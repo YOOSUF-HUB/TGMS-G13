@@ -36,8 +36,8 @@ if (!isset($_SESSION['username'])) {
 
             <div class="profile-container">
                 <img src="images/profile-google.svg" alt="Profile Icon" class="fa fa-user-circle-o profile-icon" onclick="toggleDropdown()">
-                <p style="font-family: 'Questrial', sans-serif;">System Administrator</p>
-                <a href="logout.php"><button id="logout-btn">Logout</button></a>
+                <p style="font-family: 'Questrial', sans-serif;"><?php echo$_SESSION['name']?></p>
+                <a href="adminlogout.php"><button id="logout-btn">Logout</button></a>
             </div>
         </div>
     </header>
