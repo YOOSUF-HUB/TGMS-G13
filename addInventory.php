@@ -20,12 +20,12 @@ if (isset($_POST['submit'])) {
     $productType = $_POST['productType'];
     $productQuantity = $_POST['productQuantity'];
 
-    // Prepare the SQL update query
+    // insert query
     $newproduct = "INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) 
                 VALUES ('$productID','$productName','$productColour','$productSize','$productType','$productQuantity')";
 
 
-    // Execute the query and check if successful
+    // execute the query and check if successful
     if (mysqli_query($conn, $newproduct)) {
         header("Location: inventoryPage.php"); 
         exit();
