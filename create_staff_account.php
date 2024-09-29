@@ -88,9 +88,9 @@
                     $last_id = $row['max_id'];
                     $num = intval(substr($last_id, 1)) + 1; 
                     
-                    $customerid = 'STF' . str_pad($num, 4, '0', STR_PAD_LEFT); 
+                    $staffid = 'STF' . str_pad($num, 4, '0', STR_PAD_LEFT); 
                 } else {
-                    $customerid = 'STF0001'; 
+                    $staffid = 'STF0001'; 
                 }
 
                 //verifying the unique email
@@ -105,7 +105,7 @@
                 }
                 else{
 
-                    $insert_query = "INSERT INTO Staff_account (Staff_ID, Full_name, username, staff_role, Email, Password) VALUES ('$customerid','$fname', '$username', '$staff_role' , '$email', '$password')";
+                    $insert_query = "INSERT INTO Staff_account (Staff_ID, Full_name, username, staff_role, Email, Password) VALUES ('$staffid','$fname', '$username', '$staff_role' , '$email', '$password')";
                     $result = mysqli_query($conn, $insert_query);
                     
 
