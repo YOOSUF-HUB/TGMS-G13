@@ -26,12 +26,12 @@ if ($result && mysqli_num_rows($result) > 0) {
 
 // If the user has clicked the save button, update the data
 if (isset($_POST['save'])) {
-    $fname = mysqli_real_escape_string($conn, $_POST['fname']);
-    $lname = mysqli_real_escape_string($conn, $_POST['lname']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $phone_no = mysqli_real_escape_string($conn, $_POST['phoneno']);
-    $dob = mysqli_real_escape_string($conn, $_POST['dob']);
-    $address = mysqli_real_escape_string($conn, $_POST['address']);
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $email = $_POST['email'];
+    $phone_no = $_POST['phoneno'];
+    $dob = $_POST['dob'];
+    $address = $_POST['address'];
 
     $update_query = "UPDATE Customer_account 
                      SET First_name = '$fname', 
