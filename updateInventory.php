@@ -150,28 +150,28 @@ if (isset($_POST['save'])) {
         <h2>Product ID: <?php echo $Product_ID; ?></h2>
     </div>
     <div class="field input">
-        <label for="fname">Name:</label>
+        <label for="productName">Name:</label>
         <input type="text" name="productName" placeholder="Product Name" value="<?php echo $row["Name"]; ?>" required>
     </div>
 
     <div class="field input">
-        <label for="fname">Colour:</label>
+        <label for="productColour">Colour:</label>
         <input type="text" name="productColour" placeholder="Product Colour" value="<?php echo $row["Colour"]; ?>" required>
     </div>
 
     <div class="field input">
-        <label for="fname">Size:</label>
-        <input type="text" name="productSize" id="email" placeholder="Product Size" value="<?php echo $row["Size"]; ?>" required>
+        <label for="productSize">Size:</label>
+        <input type="text" name="productSize" placeholder="Product Size" value="<?php echo $row["Size"]; ?>" required>
     </div>
 
     <div class="field input">
-        <label for="fname">Type:</label>
-        <input type="text" name="productType" id="address" placeholder="Product Type" value="<?php echo $row["Type"]; ?>">
+        <label for="productType">Type:</label>
+        <input type="text" name="productType"  placeholder="Product Type" value="<?php echo $row["Type"]; ?>">
     </div>
 
     <div class="field input">
-        <label for="fname">Quantity:</label>
-        <input type="text" name="productQuantity" id="phone" placeholder="Product Quantity" value="<?php echo $row["Quantity"]; ?>">
+        <label for="productQuantity">Quantity:</label>
+        <input type="text" name="productQuantity" placeholder="Product Quantity" value="<?php echo $row["Quantity"]; ?>">
     </div>
 
 

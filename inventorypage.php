@@ -79,7 +79,7 @@ if (!isset($_SESSION['username'])) {
 
         <section class="content" >
             <div style="float:right;">
-                <button id="addInventoryBtn">Add Inventory</button>
+                <button id="addInventoryBtn"><a href="addInventory.php?>" style="text-decoration: none; color: white;">Add Inventory</a></button>
                 <button id="manageInventoryBtn" onclick="manageInventory()" >Manage Inventory</button>
                 <button id="cancelBtn" style="display: none;" onclick="cancelInventory()"  >Cancel Manage</button>
             </div>
