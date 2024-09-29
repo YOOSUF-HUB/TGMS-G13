@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['username'])) {
-    header("Location: homepage.php");
+    header("Location: adminlogin.php");
     exit();
 }
 ?>
@@ -39,7 +39,7 @@ if (!isset($_SESSION['username'])) {
         <div class="top-container">
             <div class="logo-notification" >
                 <div class="logo-content">
-                    <a href="Index.html"> <img src="./images/versori 2.png" alt="logo" > </a>
+                    <a href="homepage.php"> <img src="./images/versori 2.png" alt="logo" > </a>
                 </div>
             
                 <div class="notification">
