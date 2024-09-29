@@ -44,10 +44,6 @@
     $result = $conn->query($sql);
     ?>
 
-    <!-- Display message after deletion -->
-    <?php if (isset($_GET['message'])): ?>
-        <p style="color: green; text-align:center;"><?php echo $_GET['message']; ?></p>
-    <?php endif; ?>
 
     <main class="dashboard-container">
         <section class="im-page-links">
@@ -88,13 +84,6 @@
                             <td><?php echo $row["Phone_no"]; ?></td>
                             <td><?php echo $row["Dob"]; ?></td>
                             <td><?php echo $row["Date_created"]; ?></td>
-                            <!-- Add Update button -->
-                            <td>
-                                <form method="POST" action="update_customer.php">
-                                    <input type="hidden" name="Customer_ID" value="<?php echo $row['Customer_ID']; ?>">
-                                    <button type="submit" style="background-color:blue; color:white; border:none; padding:5px 10px; cursor:pointer;">Update</button>
-                                </form>
-                            </td>
                         </tr>
                         <?php endwhile; ?>
                     </tbody>
