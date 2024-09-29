@@ -79,9 +79,9 @@ if (!isset($_SESSION['username'])) {
 
         <section class="content" >
             <div style="float:right;">
-                <button id="addInventoryBtn"><a href="addInventory.php?>" style="text-decoration: none; color: white;">Add Inventory</a></button>
-                <button id="manageInventoryBtn" onclick="manageInventory()" >Manage Inventory</button>
-                <button id="cancelBtn" style="display: none;" onclick="cancelInventory()"  >Cancel Manage</button>
+                <button class="btn1" id="addInventoryBtn"><a href="addInventory.php?>" >Add Inventory</a></button>
+                <button class="btn1" id="manageInventoryBtn" onclick="manageInventory()" >Manage Inventory</button>
+                <button class="btn1" id="cancelBtn" style="display: none;" onclick="cancelInventory()"  >Cancel Manage</button>
             </div>
 
             <div id="viewMode" class="table-container">
