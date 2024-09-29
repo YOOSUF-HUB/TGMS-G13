@@ -68,7 +68,7 @@ if (!isset($_SESSION['username'])) {
             <h1 style="text-align:center">Customer Accounts</h1>
 
             <?php if ($customer_result->num_rows > 0): ?>
-                <table class="customer_table" style="justify-content:center">
+                <table class="customer_table" style="justify-content:center; width: 100%;">
                     <thead>
                         <tr>
                             <th>Customer ID</th>
