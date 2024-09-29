@@ -22,14 +22,20 @@ h2{
 }
 
 #button-1{
-    margin: 30px 500px 10px 500px;
     font-family: Arial, sans-serif;
     font-size: 18px;
-    padding: 10px;
+    padding: 12px;
     background-color: rgb(219, 13, 92);
     color: white;
     border-color: white;
     cursor: pointer;
+}
+
+.faq{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 }
 
 .email img {
@@ -40,9 +46,6 @@ h2{
 .email button{
     height: 210px;
     width: 200px;
-    margin-top: 50px;
-    margin-left: 300px;
-    margin-bottom: 50px;
     padding: 10px;
     cursor: pointer;
 }
@@ -55,15 +58,15 @@ h2{
 .contact button{
     height: 210px;
     width: 200px;
-    margin-top: 50px;
-    margin-left: 300px;
-    margin-bottom: 50px;
     padding: 10px;
     cursor: pointer;
 }
 
 .container {
     display: flex;
+    padding: 50px;
+    align-items: center;
+    justify-content: center;
 }
 
 .email {
@@ -88,22 +91,25 @@ form textarea{
 }
 
 .one, .two{
+    
     display: flex;
     gap: 40px;
-    margin-left: 130px;
-    margin-bottom: 10px;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+    
 }
 
-form textarea{
-    margin-left: 130px;
+.three{
+   
     display: flex;
     height: 150px;
+    padding: 5px;
+    justify-content: center;
+    
 }
 
 #submit{
-    margin-left: 130px;
-    margin-top: 10px;
-    margin-bottom: 20px;
     font-family: Arial, sans-serif;
     font-size: 18px;
     padding: 10px;
@@ -112,6 +118,13 @@ form textarea{
     border-color: rgba(255, 0, 0, 0.774);
     cursor: pointer;
 
+}
+
+.submit{
+    
+    padding: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 
