@@ -285,6 +285,8 @@ footer {
 .btn1 a {
     text-decoration: none;
     color: white;
+    padding: 8px;
+
 }
  .btn1:hover {
     background-color: #34495e;
