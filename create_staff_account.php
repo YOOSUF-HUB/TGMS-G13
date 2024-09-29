@@ -76,6 +76,7 @@
             if(isset($_POST['submit'])){
                 $fname = $_POST['fname'];
                 $username = $_POST['username'];
+                $role = $_POST['role'];
                 $email = $_POST['email'];
                 $password = $_POST['password'];
 
@@ -104,7 +105,7 @@
                 }
                 else{
 
-                    $insert_query = "INSERT INTO Staff_account (Staff_ID, Full_name, username, Email, Password) VALUES ('$customerid','$fname', '$username', '$email', '$password')";
+                    $insert_query = "INSERT INTO Staff_account (Staff_ID, Full_name, username,role, Email, Password) VALUES ('$customerid','$fname', '$username', $role, '$email', '$password')";
                     $result = mysqli_query($conn, $insert_query);
                     
 
@@ -142,6 +143,11 @@
                 <div class="field input">
                     <!-- <label for="email">Email</label> -->
                     <input type="email" name="email" id="email" placeholder="Email" autocomplete="off" required>
+                </div>
+
+                <div class="field input">
+                    <!-- <label for="email">Email</label> -->
+                    <input type="text" name="role" id="role" placeholder="Permission" autocomplete="off" required>
                 </div>
 
                 <div class="field input">
