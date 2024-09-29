@@ -1,0 +1,121 @@
+h1{
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 100px 500px 20px 400px;
+    color: black;
+}
+
+h2{
+    text-align: center;
+}
+
+#txt{
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+#intro{
+    text-align: center;
+    margin: auto 100px;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+}
+
+#button-1{
+    margin: 30px 500px 10px 500px;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    padding: 10px;
+    background-color: rgb(219, 13, 92);
+    color: white;
+    border-color: white;
+    cursor: pointer;
+}
+
+.email img {
+    height: 70px;
+    width: 70px;
+}
+
+.email button{
+    height: 210px;
+    width: 200px;
+    margin-top: 50px;
+    margin-left: 300px;
+    margin-bottom: 50px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.contact img{
+    height: 70px;
+    width: 70px;
+}
+
+.contact button{
+    height: 210px;
+    width: 200px;
+    margin-top: 50px;
+    margin-left: 300px;
+    margin-bottom: 50px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+}
+
+.email {
+    width: 200px;
+    margin-bottom: 0px;
+    margin-left: 120px;
+    margin-right: 60px;
+}
+
+.contact {
+    width: 200px;   
+}
+
+form input{
+    font-size: 18px;
+    height: 40px;
+    width: 500px;
+}
+
+form textarea{
+    font-size: 18px;
+}
+
+.one, .two{
+    display: flex;
+    gap: 40px;
+    margin-left: 130px;
+    margin-bottom: 10px;
+}
+
+form textarea{
+    margin-left: 130px;
+    display: flex;
+    height: 150px;
+}
+
+#submit{
+    margin-left: 130px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    padding: 10px;
+    background-color: rgba(255, 0, 0, 0.781);
+    color: white;
+    border-color: rgba(255, 0, 0, 0.774);
+    cursor: pointer;
+
+}
+
+
+
+
+
+
