@@ -76,7 +76,7 @@
             if(isset($_POST['submit'])){
                 $fname = $_POST['fname'];
                 $username = $_POST['username'];
-                $role = $_POST['staff_role'];
+                $staff_role = $_POST['staff_role'];
                 $email = $_POST['email'];
                 $password = $_POST['password'];
 
