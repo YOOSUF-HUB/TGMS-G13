@@ -86,6 +86,11 @@ CREATE TABLE Inventory (
     Type varchar(255) NOT NULL,
     Quantity varchar(255)
 );
+-- Sample Data for invntory
+INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER001','HOODIES','Yellow','Large','Pullover','250');
+INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER002','T-Shirt','White','Large','Crewneck T-shirt','500');
+INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER003','JOGGERS','Black','Large','Elastic Waistband Trousers','350');
+INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER004','TANK TOP','Black','Extra Large','Tops','150');
 
 
 -- Manually inserting data into table using MYSQL
