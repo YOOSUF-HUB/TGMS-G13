@@ -1,5 +1,5 @@
 <?php
-    session_start(); // Make sure this is the first line
+    session_start(); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
