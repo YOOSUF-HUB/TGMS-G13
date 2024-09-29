@@ -22,6 +22,7 @@ if (isset($_POST['login'])) {
         $_SESSION['valid'] = $row['username'];
         $_SESSION['username'] = $row['username'];
         $_SESSION['staff_role'] = $row['staff_role']; 
+        $_SESSION['name'] = $row['Full_name'];
 
 
     } else {

@@ -54,7 +54,7 @@ if (!isset($_SESSION['username'])) {
             <div class="profile-container" >
                 <i class="fa fa-user-circle-o profile-icon" onclick="toggleDropdown()"></i>
                 
-                <p><?php echo $_SESSION['username']?></p>
+                <p><?php echo$_SESSION['name']?></p>
                 <button id="logout-btn" ><a href="logout.php">Logout</a></button>
             </div>
 
