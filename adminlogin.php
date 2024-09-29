@@ -19,6 +19,7 @@ if (isset($_POST['login'])) {
 
     // Check if user exists and verify password
     if (is_array($row) && !empty($row)) {
+
         $_SESSION['valid'] = $row['username'];
         $_SESSION['username'] = $row['username'];
         $_SESSION['staff_role'] = $row['staff_role']; 
@@ -32,14 +33,14 @@ if (isset($_POST['login'])) {
 
     if(isset($_SESSION['valid'])){
         // Redirect based on role
-        switch ($row['staff_role']) {
-            case 'Admin':
+        switch ($_SESSION['staff_role']) {
+            case 'admin':
                 header("Location: AdminDashboard.php");
                 break;
-            case 'Inventory':
+            case 'inventory':
                 header("Location: inventorydashboard.php");
                 break;
-            case 'Support':
+            case 'support':
                 header("Location: customerdashboard.php");
                 break;
             
