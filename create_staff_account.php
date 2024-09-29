@@ -105,7 +105,7 @@
                 }
                 else{
 
-                    $insert_query = "INSERT INTO Staff_account (Staff_ID, Full_name, username,role, Email, Password) VALUES ('$customerid','$fname', '$username', $role, '$email', '$password')";
+                    $insert_query = "INSERT INTO Staff_account (Staff_ID, Full_name, username, role, Email, Password) VALUES ('$customerid','$fname', '$username', '$role' , '$email', '$password')";
                     $result = mysqli_query($conn, $insert_query);
                     
 
@@ -159,9 +159,6 @@
                     <input class="btn" type="submit" name="submit" value="Create" required>
                 </div>
 
-                <div class="link">
-                    <p>Already have an account? <a href="adminlogin.php"> Login</a></p>
-                </div>
             </form>
         </div>
         <?php } ?>
