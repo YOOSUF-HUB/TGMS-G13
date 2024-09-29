@@ -14,27 +14,23 @@ $Product_ID = $_GET['updateid'];
 // Check if the form is submitted
 if (isset($_POST['save'])) {
     // Collect form data
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $address = $_POST['address'];
-    $phone = $_POST['phone'];
-    $dob = $_POST['dob'];
+    $productName = $_POST['productName'];
+    $productColour = $_POST['productColour'];
+    $productSize = $_POST['productSize'];
+    $productType = $_POST['productType'];
+    $productQuantity = $_POST['productQuantity'];
 
     // Prepare the SQL update query
-    $sql = "UPDATE Customer_account 
-            SET First_name = '$fname', 
-                Last_name = '$lname', 
-                Email = '$email', 
-                Password = '$password', 
-                Address = " . (!empty($address) ? "'$address'" : "NULL") . ", 
-                Phone_no = " . (!empty($phone) ? "'$phone'" : "NULL") . ", 
-                Dob = " . (!empty($dob) ? "'$dob'" : "NULL") . " 
-            WHERE Customer_ID = '$Customer_ID'";
+    $sql = "UPDATE Inventory 
+            SET `Name` = '$productName', 
+                `Colour` = '$productColour', 
+                `Size` = '$productSize', 
+                `Type` = '$productType', 
+                `Quantity` = '$productQuantity'
+        WHERE `Product_ID` = '$Product_ID'";
 
     // Print the query to debug
-    echo $sql;
+    // echo $sql;
 
     // Execute the query and check if successful
     if (mysqli_query($conn, $sql)) {
@@ -165,7 +161,7 @@ if (isset($_POST['save'])) {
 
     <div class="field input">
         <label for="fname">Size:</label>
-        <input type="email" name="productSize" id="email" placeholder="Product Size" value="<?php echo $row["Size"]; ?>" required>
+        <input type="text" name="productSize" id="email" placeholder="Product Size" value="<?php echo $row["Size"]; ?>" required>
     </div>
 
     <div class="field input">
