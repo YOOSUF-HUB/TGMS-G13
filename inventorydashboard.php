@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['username'])) {
-    header("Location: homepage.php");
+    header("Location: adminlogin.php");
     exit();
 }
 ?>
@@ -39,7 +39,7 @@ if (!isset($_SESSION['username'])) {
         <div class="top-container">
             <div class="logo-notification" >
                 <div class="logo-content">
-                    <a href="Index.html"> <img src="./images/versori 2.png" alt="logo" > </a>
+                    <a href="homepage.php"> <img src="./images/versori 2.png" alt="logo" > </a>
                 </div>
             
                 <div class="notification">
@@ -55,7 +55,7 @@ if (!isset($_SESSION['username'])) {
                 <i class="fa fa-user-circle-o profile-icon" onclick="toggleDropdown()"></i>
                 
                 <p><?php echo$_SESSION['name']?></p>
-                <button id="logout-btn" ><a href="logout.php">Logout</a></button>
+                <button id="logout-btn" ><a href="adminlogout.php">Logout</a></button>
             </div>
 
             
