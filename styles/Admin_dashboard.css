@@ -249,3 +249,14 @@ p {
     text-align: center;
     margin-top: 20px;
 }
+
+.overview_buttons{
+    background-color: white;
+    width: 1400px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}

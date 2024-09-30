@@ -108,6 +108,15 @@ if($_SESSION['staff_role']!=='Admin'){ //condition make sure admin user redirect
                         </tr>
                     </tbody>
                 </table>
+
+            <div class="overview_buttons">
+                <button class="overview_buttons"><?php echo $staff_count; ?></button>
+                <button class="overview_buttons"><?php echo $customer_count; ?></button>
+            </div>
+
+
+
+
             </div>
 
 
