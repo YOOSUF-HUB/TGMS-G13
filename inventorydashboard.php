@@ -1,6 +1,10 @@
 <?php
 session_start();
-if (!isset($_SESSION['username'])) {
+if (!isset($_SESSION['username'])) { 
+    header("Location: adminlogin.php");
+    exit();
+}
+if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redirect to correct page
     header("Location: adminlogin.php");
     exit();
 }

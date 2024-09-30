@@ -4,6 +4,10 @@ if (!isset($_SESSION['username'])) {
     header("Location: adminlogin.php");
     exit();
 }
+if($_SESSION['staff_role']!=='Admin'){ //condition make sure admin user redirect to correct page
+    header("Location: adminlogin.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
