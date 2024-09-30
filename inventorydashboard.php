@@ -105,9 +105,9 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                 <h2>Inventory</h2>
                 <table class="table">
                     <thead>
-                        <tr>
+                        <tr style="height: 1rem;">
                             <th>Product Name</th>
-                            <th>Inventory</th>
+                            <th><h5 style="margin: 0; font-size:1rem;">Inventory</h5><h6 style="font-size:0.6rem; line-height:0.3rem; margin:0;">All sizes and colours</h6></th>
                         </tr>
                     </thead>
                     <tbody>
