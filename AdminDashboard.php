@@ -16,6 +16,8 @@ if (!isset($_SESSION['username'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- social media icons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 <body>
 
@@ -53,9 +55,24 @@ if (!isset($_SESSION['username'])) {
     // SQL query to fetch data from Staff account table
     $staff_sql = "SELECT Staff_ID, Full_name, username, Staff_role, Email, Password, Date_created FROM Staff_account";
     $staff_result = $conn->query($staff_sql);
+
+    // SQL query to count customer accounts
+    $customer_count_sql = "SELECT COUNT(*) as customer_count FROM Customer_account";
+    $customer_count_result = $conn->query($customer_count_sql);
+    $customer_count_row = $customer_count_result->fetch_assoc();
+    $customer_count = $customer_count_row['customer_count'];
+
+    // SQL query to count staff accounts
+    $staff_count_sql = "SELECT COUNT(*) as staff_count FROM Staff_account";
+    $staff_count_result = $conn->query($staff_count_sql);
+    $staff_count_row = $staff_count_result->fetch_assoc();
+    $staff_count = $staff_count_row['staff_count'];
     ?>
 
     <main class="dashboard-container">
+
+
+
         <section class="im-page-links">
             <ul>
                 <li class="im-page"><a href="AdminDashboard.php">Home</a></li>
@@ -65,6 +82,38 @@ if (!isset($_SESSION['username'])) {
         </section>
 
         <div>
+
+            <div id="overviewContainer">
+                <h1 style="text-align:center">Admin Dashboard Overview</h1>
+                
+                <table class="overview_table" style="width: 50%; margin: 0 auto; text-align: center; border-collapse: collapse;">
+                    <thead>
+                        <tr>
+                            <th style="border: 1px solid black; padding: 10px;">Account Type</th>
+                            <th style="border: 1px solid black; padding: 10px;">Total Count</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="border: 1px solid black; padding: 10px;">Customer Accounts</td>
+                            <td style="border: 1px solid black; padding: 10px;"><?php echo $customer_count; ?></td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black; padding: 10px;">Staff Accounts</td>
+                            <td style="border: 1px solid black; padding: 10px;"><?php echo $staff_count; ?></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <!-- Account Creation Chart -->
+            <div id="chartContainer">
+                <h1 style="text-align:center">Account Creation Overview</h1>
+                <canvas id="accountCreationChart" width="400" height="100" style="margin-right: 30px; margin-left: 30px;"></canvas>
+            </div>
+
+
             <!-- Customer Accounts Section -->
             <h1 style="text-align:center">Customer Accounts</h1>
 
@@ -153,6 +202,44 @@ if (!isset($_SESSION['username'])) {
     </main>
 
     <script src="Index.js"></script>
+    
+    <script>
+        // Prepare the data
+        const customerCount = <?php echo $customer_count; ?>;
+        const staffCount = <?php echo $staff_count; ?>;
+
+        // Get the canvas element
+        const ctx = document.getElementById('accountCreationChart').getContext('2d');
+
+        // Create the chart
+        const accountCreationChart = new Chart(ctx, {
+            type: 'bar', // Change to 'line', 'pie', etc. for different chart types
+            data: {
+                labels: ['Customer Accounts', 'Staff Accounts'],
+                datasets: [{
+                    label: 'Total Accounts Created',
+                    data: [customerCount, staffCount],
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)', // Color for customer accounts
+                        'rgba(153, 102, 255, 0.2)' // Color for staff accounts
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true // Start the y-axis at zero
+                    }
+                }
+            }
+        });
+    </script>
+
 
 </body>
 </html>
