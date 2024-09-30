@@ -67,7 +67,7 @@ if($_SESSION['staff_role']!=='Admin'){ //condition make sure admin user redirect
         <div>
 
             <!-- Staff Accounts Section -->
-            <h1 style="text-align:center; margin-top: 40px">Staff Accounts</h1>
+            <h1 style="text-align:left; margin-left:25px;">Staff Accounts</h1>
 
             <div style="float:right; margin-bottom: 10px;">
                 <button class="btn1" id="addInventoryBtn"><a href="create_staff_account.php?>" >Add Staff Account</a></button>
@@ -106,6 +106,7 @@ if($_SESSION['staff_role']!=='Admin'){ //condition make sure admin user redirect
                     </tbody>
                 </table>
 
+
             </div>
 
             <?php
@@ -137,8 +138,8 @@ if($_SESSION['staff_role']!=='Admin'){ //condition make sure admin user redirect
                                 <td><?php echo $row["Password"]; ?></td>
                                 <td><?php echo $row["Date_created"]; ?></td>
                                 <td>
-                                    <button style="background-color: blue; border-radius: 5px; border: none; padding: 5px;"><a href="staff_accn_update.php?updateid=<?php echo $row['Staff_ID']; ?>" style="text-decoration: none; color: white;">Update</a></button>
-                                    <button style="background-color: red; border-radius: 5px; border: none; padding: 5px;"><a href="delete_staff_accn.php?deleteid=<?php echo $row['Staff_ID']; ?>" style="text-decoration: none; color: white;">Delete</a></button>
+                                    <button style="background-color: #0B2F9F; border-radius: 5px; border: none; padding: 5px;"><a href="staff_accn_update.php?updateid=<?php echo $row['Staff_ID']; ?>" style="text-decoration: none; color: white;">Update</a></button>
+                                    <button style="background-color: #B8001F; border-radius: 5px; border: none; padding: 5px;"><a href="delete_staff_accn.php?deleteid=<?php echo $row['Staff_ID']; ?>" style="text-decoration: none; color: white;">Delete</a></button>
                                 </td>
                             </tr>
                             <?php endwhile; ?>

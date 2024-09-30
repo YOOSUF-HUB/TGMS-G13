@@ -66,10 +66,68 @@ if($_SESSION['staff_role']!=='Admin'){ //condition make sure admin user redirect
 
         <div>
             <!-- Customer Accounts Section -->
-            <h1 style="text-align:center">Customer Accounts</h1>
+            <h1 style="text-align:left; margin-left:25px;">Customer Accounts</h1>
+            <div style="float:right; margin-bottom: 10px;">
+                <button class="btn1" id="addInventoryBtn"><a href="create_staff_account.php?>" >Add Customer Account</a></button>
+                <button class="btn1" id="manageInventoryBtn" onclick="manageInventory()" >Manage Customer Account</button>
+                <button class="btn1" id="cancelBtn" style="display: none;" onclick="cancelInventory()"  >Cancel Manage</button>
+            </div>
 
-            <?php if ($customer_result->num_rows > 0): ?>
-                <table class="customer_table" style="justify-content:center;height: 10vh; overflow:auto; ">
+            <div id="viewMode" class="table-container">
+
+                    <?php if ($customer_result->num_rows > 0): ?>
+                        <table class="customer_table" style="justify-content:center;height: 10vh; overflow:auto; ">
+                            <thead>
+                                <tr>
+                                    <th>Customer ID</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Email</th>
+                                    <th>Password</th>
+                                    <th>Address</th>
+                                    <th>Phone No</th>
+                                    <th>Date of Birth</th>
+                                    <th>Date Created</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php while($row = $customer_result->fetch_assoc()): ?>
+                                <tr>
+                                    <td><?php echo $row["Customer_ID"]; ?></td>
+                                    <td><?php echo $row["First_name"]; ?></td>
+                                    <td><?php echo $row["Last_name"]; ?></td>
+                                    <td><?php echo $row["Email"]; ?></td>
+                                    <td><?php echo $row["Password"]; ?></td>
+                                    <td><?php echo $row["Address"]; ?></td>
+                                    <td><?php echo $row["Phone_no"]; ?></td>
+                                    <td><?php echo $row["Dob"]; ?></td>
+                                    <td><?php echo $row["Date_created"]; ?></td>
+                                </tr>
+                                <?php endwhile; ?>
+                            </tbody>
+                        </table>
+                    <?php else: ?>
+                        <p>No customer records found.</p>
+                    <?php endif; ?>
+
+
+            </div>
+
+
+
+
+
+
+
+            <div class="table-container" id="editMode" style="display: none;">
+
+            <?php
+            // SQL query to fetch data from customer account table
+            $customer_sql = "SELECT Customer_ID, First_name, Last_name, Email, Password, Address, Phone_no, Dob, Date_created FROM Customer_account";
+            $customer_result = $conn->query($customer_sql);
+            ?>
+
+            <table class="customer_table" style="justify-content:center;height: 10vh; overflow:auto; ">
                     <thead>
                         <tr>
                             <th>Customer ID</th>
@@ -97,22 +155,44 @@ if($_SESSION['staff_role']!=='Admin'){ //condition make sure admin user redirect
                             <td><?php echo $row["Dob"]; ?></td>
                             <td><?php echo $row["Date_created"]; ?></td>
                             <td>
-                                <button style="background-color: blue; border-radius: 5px; border: none; padding: 5px;"><a href="update_customer.php?updateid=<?php echo $row['Customer_ID']; ?>" style="text-decoration: none; color: white;">Update</a></button>
-                                <button style="background-color: red; border-radius: 5px; border: none; padding: 5px;"><a href="delete_customer.php?deleteid=<?php echo $row['Customer_ID']; ?>" style="text-decoration: none; color: white;">Delete</a></button>
+                                <button style="background-color: #0B2F9F; border-radius: 5px; border: none; padding: 5px;"><a href="update_customer.php?updateid=<?php echo $row['Customer_ID']; ?>" style="text-decoration: none; color: white;">Update</a></button>
+                                <button style="background-color: #B8001F; border-radius: 5px; border: none; padding: 5px;"><a href="delete_customer.php?deleteid=<?php echo $row['Customer_ID']; ?>" style="text-decoration: none; color: white;">Delete</a></button>
                             </td>
                         </tr>
                         <?php endwhile; ?>
                     </tbody>
                 </table>
-            <?php else: ?>
-                <p>No customer records found.</p>
-            <?php endif; ?>
+
+            </div>
 
             <?php $conn->close(); // Close the connection ?>
         </div>
     </main>
 
     <script src="Index.js"></script>
+    <script>
+    
+    // JavaScript to toggle between view and manage mode
+    function manageInventory() {
+        document.getElementById('addInventoryBtn').style.display = 'none'; 
+        document.getElementById('manageInventoryBtn').style.display = 'none'; 
+        document.getElementById('cancelBtn').style.display = 'block'; 
+
+        document.getElementById('viewMode').style.display = 'none';
+        document.getElementById('editMode').style.display = 'block';
+        
+    }
+
+    function cancelInventory() {
+        document.getElementById('addInventoryBtn').style.display = 'inline-block'; 
+        document.getElementById('manageInventoryBtn').style.display = 'inline-block'; 
+        document.getElementById('cancelBtn').style.display = 'none'; 
+
+        document.getElementById('editMode').style.display = 'none';
+        document.getElementById('viewMode').style.display = 'block';
+        
+    }
+    </script>
 
 </body>
 </html>
