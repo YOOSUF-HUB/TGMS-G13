@@ -112,7 +112,7 @@
                 }
                 else{
 
-                    $insert_query = "INSERT INTO Staff_account (Staff_ID, Full_name, username, staff_role, Email, Password) VALUES ('$staffid','$fname', '$username', '$staff_role' , '$email', '$password')";
+                    $insert_query = "INSERT INTO Staff_account (Staff_ID, Full_name, username, staff_role, Email, Password, Date_created) VALUES ('$staffid','$fname', '$username', '$staff_role' , '$email', '$password', DEFAULT)";
                     $result = mysqli_query($conn, $insert_query);
                     
 

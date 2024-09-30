@@ -12,7 +12,7 @@ if (!isset($_SESSION['username'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrator Dashboard</title>
-    <link rel="stylesheet" href="styles/Admin_dashboard.css">
+    <link rel="stylesheet" href="styles/Admin_Dashboard.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- social media icons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -51,7 +51,7 @@ if (!isset($_SESSION['username'])) {
     $customer_result = $conn->query($customer_sql);
 
     // SQL query to fetch data from Staff account table
-    $staff_sql = "SELECT Staff_ID, Full_name, username, Staff_role, Email, Password FROM Staff_account";
+    $staff_sql = "SELECT Staff_ID, Full_name, username, Staff_role, Email, Password, Date_created FROM Staff_account";
     $staff_result = $conn->query($staff_sql);
     ?>
 
@@ -68,7 +68,7 @@ if (!isset($_SESSION['username'])) {
             <h1 style="text-align:center">Customer Accounts</h1>
 
             <?php if ($customer_result->num_rows > 0): ?>
-                <table class="customer_table" style="justify-content:center; width: 100%;">
+                <table class="customer_table" style="justify-content:center;height: 10vh; overflow:auto; ">
                     <thead>
                         <tr>
                             <th>Customer ID</th>
@@ -108,11 +108,11 @@ if (!isset($_SESSION['username'])) {
             <?php endif; ?>
 
             <!-- Staff Accounts Section -->
-            <h1 style="text-align:center">Staff Accounts</h1>
-            <button style="background-color: green; border-radius: 5px; border: none; padding: 10px; margin-left: 50px; height: 40px; margin: bottom 20px;;"><a href="create_staff_account.php" style="text-decoration: none; color: white;">Create Staff Account</a></button>
+            <h1 style="text-align:center; margin-top: 40px">Staff Accounts</h1>
+            <button style="background-color: green; border-radius: 5px; border: none; padding: 10px; margin-left: 50px; height: 40px; margin-bottom: 20px;"><a href="create_staff_account.php" style="text-decoration: none; color: white;">Create Staff Account</a></button>
 
             <?php if ($staff_result->num_rows > 0): ?>
-                <table class="customer_table" style="justify-content:center">
+                <table class="staff_table" style="justify-content:center">
                     <thead>
                         <tr>
                             <th>Staff ID</th>
@@ -121,6 +121,7 @@ if (!isset($_SESSION['username'])) {
                             <th>Staff Role</th>
                             <th>Email</th>
                             <th>Password</th>
+                            <th>Date Created</th>
                             <th>Action</th> <!-- column for the Update & Delete button -->
                         </tr>
                     </thead>
@@ -133,6 +134,7 @@ if (!isset($_SESSION['username'])) {
                             <td><?php echo $row["Staff_role"]; ?></td>
                             <td><?php echo $row["Email"]; ?></td>
                             <td><?php echo $row["Password"]; ?></td>
+                            <td><?php echo $row["Date_created"]; ?></td>
                             <td>
                                 <button style="background-color: blue; border-radius: 5px; border: none; padding: 5px;"><a href="staff_accn_update.php?updateid=<?php echo $row['Staff_ID']; ?>" style="text-decoration: none; color: white;">Update</a></button>
                                 <button style="background-color: red; border-radius: 5px; border: none; padding: 5px;"><a href="delete_staff_accn.php?deleteid=<?php echo $row['Staff_ID']; ?>" style="text-decoration: none; color: white;">Delete</a></button>
