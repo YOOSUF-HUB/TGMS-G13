@@ -84,9 +84,10 @@ if (!isset($_SESSION['username'])) {
                 <button class="btn1" id="cancelBtn" style="display: none;" onclick="cancelInventory()"  >Cancel Manage</button>
             </div>
 
-            <div id="viewMode" class="table-container">
+            <div id="viewMode" class="table-container" >
                 <h2>Inventory</h2>
-                <table class="table">
+                <div class="inner-table-container" style="height: 85vh; overflow:auto; "> 
+                <table class="table" >
                     <thead>
                         <tr>
                             <th>Product ID</th>
@@ -110,11 +111,13 @@ if (!isset($_SESSION['username'])) {
                         <?php endwhile; ?>
                     </tbody>
                 </table>
+                </div>
             </div>
 
             <!-- Manage inventory -->
             <div id="editMode" style="display: none;" class="table-container">
                 <h2>Manage Inventory</h2>
+                <div class="inner-table-container" style="height: 85vh; overflow:auto; ">
                 <form action="" method="POST">
                 <table class="table">
                     <thead>
@@ -149,6 +152,7 @@ if (!isset($_SESSION['username'])) {
                     </tbody>
                 </table>
                 </form>
+                </div>
             </div>
 
             
