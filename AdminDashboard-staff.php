@@ -68,8 +68,15 @@ if($_SESSION['staff_role']!=='Admin'){ //condition make sure admin user redirect
 
             <!-- Staff Accounts Section -->
             <h1 style="text-align:center; margin-top: 40px">Staff Accounts</h1>
-            <a href="create_staff_account.php" style="text-decoration: none; color: white;"> <button style="cursor:pointer;text-decoration: none; color: white;background-color: green; border-radius: 5px; border: none; padding: 10px; margin-left: 20px; height: 40px; margin-bottom: 20px;">Create Staff Account</button></a>
 
+            <div style="float:right; margin-bottom: 10px;">
+                <button class="btn1" id="addInventoryBtn"><a href="create_staff_account.php?>" >Add Staff Account</a></button>
+                <button class="btn1" id="manageInventoryBtn" onclick="manageInventory()" >Manage Staff Account</button>
+                <button class="btn1" id="cancelBtn" style="display: none;" onclick="cancelInventory()"  >Cancel Manage</button>
+            </div>
+
+
+            <div id="viewMode" class="table-container" >
             <?php if ($staff_result->num_rows > 0): ?>
                 <table class="staff_table" style="justify-content:center">
                     <thead>
@@ -81,7 +88,6 @@ if($_SESSION['staff_role']!=='Admin'){ //condition make sure admin user redirect
                             <th>Email</th>
                             <th>Password</th>
                             <th>Date Created</th>
-                            <th>Action</th> <!-- column for the Update & Delete button -->
                         </tr>
                     </thead>
                     <tbody>
@@ -94,14 +100,54 @@ if($_SESSION['staff_role']!=='Admin'){ //condition make sure admin user redirect
                             <td><?php echo $row["Email"]; ?></td>
                             <td><?php echo $row["Password"]; ?></td>
                             <td><?php echo $row["Date_created"]; ?></td>
-                            <td>
-                                <button style="background-color: blue; border-radius: 5px; border: none; padding: 5px;"><a href="staff_accn_update.php?updateid=<?php echo $row['Staff_ID']; ?>" style="text-decoration: none; color: white;">Update</a></button>
-                                <button style="background-color: red; border-radius: 5px; border: none; padding: 5px;"><a href="delete_staff_accn.php?deleteid=<?php echo $row['Staff_ID']; ?>" style="text-decoration: none; color: white;">Delete</a></button>
-                            </td>
+
                         </tr>
                         <?php endwhile; ?>
                     </tbody>
                 </table>
+
+            </div>
+
+            <?php
+            $staff_sql = "SELECT Staff_ID, Full_name, username, Staff_role, Email, Password, Date_created FROM Staff_account";
+            $staff_result = $conn->query($staff_sql);
+            ?>
+            <div class="table-container" id="editMode" style="display: none;">
+            <table class="staff_table" style="justify-content:center" >
+                    <thead>
+                        <tr>
+                            <th>Staff ID</th>
+                            <th>Full Name</th>
+                            <th>Username</th>
+                            <th>Staff Role</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Date Created</th>
+                            <th>Manage</th> <!-- column for the Update & Delete button -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php while($row = $staff_result->fetch_assoc()): ?>
+                            <tr>
+                                <td><?php echo $row["Staff_ID"]; ?></td>
+                                <td><?php echo $row["Full_name"]; ?></td>
+                                <td><?php echo $row["username"]; ?></td>
+                                <td><?php echo $row["Staff_role"]; ?></td>
+                                <td><?php echo $row["Email"]; ?></td>
+                                <td><?php echo $row["Password"]; ?></td>
+                                <td><?php echo $row["Date_created"]; ?></td>
+                                <td>
+                                    <button style="background-color: blue; border-radius: 5px; border: none; padding: 5px;"><a href="staff_accn_update.php?updateid=<?php echo $row['Staff_ID']; ?>" style="text-decoration: none; color: white;">Update</a></button>
+                                    <button style="background-color: red; border-radius: 5px; border: none; padding: 5px;"><a href="delete_staff_accn.php?deleteid=<?php echo $row['Staff_ID']; ?>" style="text-decoration: none; color: white;">Delete</a></button>
+                                </td>
+                            </tr>
+                            <?php endwhile; ?>
+                    
+                    </tbody>
+                </table>
+
+            </div>
+
             <?php else: ?>
                 <p>No staff records found.</p>
             <?php endif; ?>
@@ -111,6 +157,30 @@ if($_SESSION['staff_role']!=='Admin'){ //condition make sure admin user redirect
     </main>
 
     <script src="Index.js"></script>
+
+    <script>
+    
+    // JavaScript to toggle between view and manage mode
+    function manageInventory() {
+        document.getElementById('addInventoryBtn').style.display = 'none'; 
+        document.getElementById('manageInventoryBtn').style.display = 'none'; 
+        document.getElementById('cancelBtn').style.display = 'block'; 
+
+        document.getElementById('viewMode').style.display = 'none';
+        document.getElementById('editMode').style.display = 'block';
+        
+    }
+
+    function cancelInventory() {
+        document.getElementById('addInventoryBtn').style.display = 'inline-block'; 
+        document.getElementById('manageInventoryBtn').style.display = 'inline-block'; 
+        document.getElementById('cancelBtn').style.display = 'none'; 
+
+        document.getElementById('editMode').style.display = 'none';
+        document.getElementById('viewMode').style.display = 'block';
+        
+    }
+    </script>
 
 </body>
 </html>

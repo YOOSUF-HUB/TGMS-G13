@@ -89,34 +89,12 @@ if($_SESSION['staff_role']!=='Admin'){ //condition make sure admin user redirect
 
             <div id="overviewContainer">
                 <h1 style="text-align:center">Admin Dashboard Overview</h1>
-                
-                <table class="overview_table" style="width: 80%; margin: 0 auto; text-align: center; border-collapse: collapse;">
-                    <thead>
-                        <tr>
-                            <th style="border: 1px solid black; padding: 10px;">Account Type</th>
-                            <th style="border: 1px solid black; padding: 10px;">Total Count</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td style="border: 1px solid black; padding: 10px;">Customer Accounts</td>
-                            <td style="border: 1px solid black; padding: 10px;"><?php echo $customer_count; ?></td>
-                        </tr>
-                        <tr>
-                            <td style="border: 1px solid black; padding: 10px;">Staff Accounts</td>
-                            <td style="border: 1px solid black; padding: 10px;"><?php echo $staff_count; ?></td>
-                        </tr>
-                    </tbody>
-                </table>
 
-            <div class="overview_buttons">
-                <button class="overview_buttons"><?php echo $staff_count; ?></button>
-                <button class="overview_buttons"><?php echo $customer_count; ?></button>
             </div>
 
-
-
-
+            <div class="overview_buttons">
+                <button><text style="font-size: 30px;">Staff Accounts</text><br><br><?php echo $staff_count; ?></button>
+                <button><text style="font-size: 30px;">Customer Accounts</text><br><br><?php echo $customer_count; ?></button>
             </div>
 
 
@@ -149,16 +127,10 @@ if($_SESSION['staff_role']!=='Admin'){ //condition make sure admin user redirect
                     label: 'Total Accounts Created',
                     data: [customerCount, staffCount, totalCount],
                     backgroundColor: [
-                        'rgba(75, 192, 192, 0.2)', // Color for customer accounts
-                        'rgba(153, 102, 255, 0.2)', // Color for staff accounts
-                        'rgba(3, 144, 252, 0.2)' //COLOR FOR TOTAL ACCOUNTS
-                    ],
-                    borderColor: [
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(75, 192, 192, 1)'
-                    ],
-                    borderWidth: 3
+                        'rgba(0, 36, 64, 1)', // Color for customer accounts
+                        'rgba(150, 102, 123, 1)', // Color for staff accounts
+                        'rgba(100, 163, 150, 1)' //COLOR FOR TOTAL ACCOUNTS
+                    ]
                 }]
             },
             options: {
@@ -166,7 +138,6 @@ if($_SESSION['staff_role']!=='Admin'){ //condition make sure admin user redirect
                     y: {
                         beginAtZero: true, // Start the y-axis at zero
                         ticks: {stepSize: 1} //y axis increases in increments of 1
-                        
                     }
                 }
             }
