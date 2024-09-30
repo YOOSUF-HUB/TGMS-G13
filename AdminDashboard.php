@@ -81,12 +81,12 @@ if (!isset($_SESSION['username'])) {
             </ul>
         </section>
 
-        <div>
+        <div style="width:100%;">
 
             <div id="overviewContainer">
                 <h1 style="text-align:center">Admin Dashboard Overview</h1>
                 
-                <table class="overview_table" style="width: 50%; margin: 0 auto; text-align: center; border-collapse: collapse;">
+                <table class="overview_table" style="width: 80%; margin: 0 auto; text-align: center; border-collapse: collapse;">
                     <thead>
                         <tr>
                             <th style="border: 1px solid black; padding: 10px;">Account Type</th>
@@ -112,90 +112,6 @@ if (!isset($_SESSION['username'])) {
                 <h1 style="text-align:center">Account Creation Overview</h1>
                 <canvas id="accountCreationChart" width="100" height="25" style="margin-right: 30px; margin-left: 30px;"></canvas>
             </div>
-
-
-            <!-- Customer Accounts Section -->
-            <h1 style="text-align:center">Customer Accounts</h1>
-
-            <?php if ($customer_result->num_rows > 0): ?>
-                <table class="customer_table" style="justify-content:center;height: 10vh; overflow:auto; ">
-                    <thead>
-                        <tr>
-                            <th>Customer ID</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Email</th>
-                            <th>Password</th>
-                            <th>Address</th>
-                            <th>Phone No</th>
-                            <th>Date of Birth</th>
-                            <th>Date Created</th>
-                            <th>Action</th> <!-- column for the Update & Delete button -->
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php while($row = $customer_result->fetch_assoc()): ?>
-                        <tr>
-                            <td><?php echo $row["Customer_ID"]; ?></td>
-                            <td><?php echo $row["First_name"]; ?></td>
-                            <td><?php echo $row["Last_name"]; ?></td>
-                            <td><?php echo $row["Email"]; ?></td>
-                            <td><?php echo $row["Password"]; ?></td>
-                            <td><?php echo $row["Address"]; ?></td>
-                            <td><?php echo $row["Phone_no"]; ?></td>
-                            <td><?php echo $row["Dob"]; ?></td>
-                            <td><?php echo $row["Date_created"]; ?></td>
-                            <td>
-                                <button style="background-color: blue; border-radius: 5px; border: none; padding: 5px;"><a href="update_customer.php?updateid=<?php echo $row['Customer_ID']; ?>" style="text-decoration: none; color: white;">Update</a></button>
-                                <button style="background-color: red; border-radius: 5px; border: none; padding: 5px;"><a href="delete_customer.php?deleteid=<?php echo $row['Customer_ID']; ?>" style="text-decoration: none; color: white;">Delete</a></button>
-                            </td>
-                        </tr>
-                        <?php endwhile; ?>
-                    </tbody>
-                </table>
-            <?php else: ?>
-                <p>No customer records found.</p>
-            <?php endif; ?>
-
-            <!-- Staff Accounts Section -->
-            <h1 style="text-align:center; margin-top: 40px">Staff Accounts</h1>
-            <a href="create_staff_account.php" style="text-decoration: none; color: white;"> <button style="cursor:pointer;text-decoration: none; color: white;background-color: green; border-radius: 5px; border: none; padding: 10px; margin-left: 20px; height: 40px; margin-bottom: 20px;">Create Staff Account</button></a>
-
-            <?php if ($staff_result->num_rows > 0): ?>
-                <table class="staff_table" style="justify-content:center">
-                    <thead>
-                        <tr>
-                            <th>Staff ID</th>
-                            <th>Full Name</th>
-                            <th>Username</th>
-                            <th>Staff Role</th>
-                            <th>Email</th>
-                            <th>Password</th>
-                            <th>Date Created</th>
-                            <th>Action</th> <!-- column for the Update & Delete button -->
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php while($row = $staff_result->fetch_assoc()): ?>
-                        <tr>
-                            <td><?php echo $row["Staff_ID"]; ?></td>
-                            <td><?php echo $row["Full_name"]; ?></td>
-                            <td><?php echo $row["username"]; ?></td>
-                            <td><?php echo $row["Staff_role"]; ?></td>
-                            <td><?php echo $row["Email"]; ?></td>
-                            <td><?php echo $row["Password"]; ?></td>
-                            <td><?php echo $row["Date_created"]; ?></td>
-                            <td>
-                                <button style="background-color: blue; border-radius: 5px; border: none; padding: 5px;"><a href="staff_accn_update.php?updateid=<?php echo $row['Staff_ID']; ?>" style="text-decoration: none; color: white;">Update</a></button>
-                                <button style="background-color: red; border-radius: 5px; border: none; padding: 5px;"><a href="delete_staff_accn.php?deleteid=<?php echo $row['Staff_ID']; ?>" style="text-decoration: none; color: white;">Delete</a></button>
-                            </td>
-                        </tr>
-                        <?php endwhile; ?>
-                    </tbody>
-                </table>
-            <?php else: ?>
-                <p>No staff records found.</p>
-            <?php endif; ?>
 
             <?php $conn->close(); // Close the connection ?>
         </div>
@@ -235,7 +151,9 @@ if (!isset($_SESSION['username'])) {
             options: {
                 scales: {
                     y: {
-                        beginAtZero: true // Start the y-axis at zero
+                        beginAtZero: true, // Start the y-axis at zero
+                        ticks: {stepSize: 1} //y axis increases in increments of 1
+                        
                     }
                 }
             }
