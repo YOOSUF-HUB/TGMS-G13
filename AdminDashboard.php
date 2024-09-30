@@ -110,7 +110,7 @@ if (!isset($_SESSION['username'])) {
             <!-- Account Creation Chart -->
             <div id="chartContainer">
                 <h1 style="text-align:center">Account Creation Overview</h1>
-                <canvas id="accountCreationChart" width="400" height="100" style="margin-right: 30px; margin-left: 30px;"></canvas>
+                <canvas id="accountCreationChart" width="100" height="25" style="margin-right: 30px; margin-left: 30px;"></canvas>
             </div>
 
 
@@ -204,30 +204,32 @@ if (!isset($_SESSION['username'])) {
     <script src="Index.js"></script>
     
     <script>
-        // Prepare the data
+        // declaring variables
         const customerCount = <?php echo $customer_count; ?>;
         const staffCount = <?php echo $staff_count; ?>;
+        const totalCount = customerCount + staffCount;
 
-        // Get the canvas element
         const ctx = document.getElementById('accountCreationChart').getContext('2d');
 
         // Create the chart
         const accountCreationChart = new Chart(ctx, {
-            type: 'bar', // Change to 'line', 'pie', etc. for different chart types
+            type: 'bar', 
             data: {
-                labels: ['Customer Accounts', 'Staff Accounts'],
+                labels: ['Customer Accounts', 'Staff Accounts','Total Accounts'],
                 datasets: [{
                     label: 'Total Accounts Created',
-                    data: [customerCount, staffCount],
+                    data: [customerCount, staffCount, totalCount],
                     backgroundColor: [
                         'rgba(75, 192, 192, 0.2)', // Color for customer accounts
-                        'rgba(153, 102, 255, 0.2)' // Color for staff accounts
+                        'rgba(153, 102, 255, 0.2)', // Color for staff accounts
+                        'rgba(3, 144, 252, 0.2)' //COLOR FOR TOTAL ACCOUNTS
                     ],
                     borderColor: [
                         'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)'
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(75, 192, 192, 1)'
                     ],
-                    borderWidth: 1
+                    borderWidth: 3
                 }]
             },
             options: {
