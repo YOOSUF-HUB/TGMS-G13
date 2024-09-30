@@ -91,14 +91,13 @@ session_start();
 
 
 
-
-
-
     <!-- Banner Section -->
     <section class="banner">
-        <div class="banner-content">
-            <h1>Image XXXXX</h1>
-            <img id="banner-img" src="./images/rubens-nguyen-Fy7RX0gHZRM-unsplash.jpg" alt="banner image">
+        <div class="banner-content" style="background-image: url('./images/rubens-nguyen-Fy7RX0gHZRM-unsplash.jpg'); background-size: cover; background-position: center; ">
+            <!-- <div class="home-title" style="position:absolute; bottom:6rem;">
+                <h1 style="font-size: 5rem;">Unraveling Complexity,<br> Thread by Thread</h1>
+            </div>
+            <img id="banner-img" src="" alt="banner image"> -->
             
         </div>
         
