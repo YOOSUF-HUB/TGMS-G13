@@ -9,11 +9,9 @@ if (!isset($_SESSION['username'])) {
     // Include the database connection file here
     include 'php/config.php';
 
-    // SQL query to group by product name and sum the quantities to display total quatity on dashboard
-    $group_query = "SELECT `Name`, SUM(`Quantity`) AS TotalQuantity 
-    FROM `Inventory` 
-    WHERE `Name`='HOODIES' || `Name`='JOGGERS' || `Name`='T-Shirt' || `Name`='TANK TOP' --specified only our main products to show in dashboard
-    GROUP BY `Name`";
+    // SQL query to group by product Name and sum the quantities(Only our main 4 products will be displayed)
+    $group_query = "SELECT `Name`, SUM(`Quantity`) AS TotalQuantity FROM `Inventory` 
+    WHERE `Name`='HOODIES' || `Name`='JOGGERS' || `Name`='T-Shirt' || `Name`='TANK TOP' GROUP BY `Name`";
     $result = mysqli_query($conn, $group_query);
 
     
