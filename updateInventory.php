@@ -25,7 +25,7 @@ if (isset($_POST['save'])) {
     $productQuantity = $_POST['productQuantity'];
 
     // Prepare the SQL update query
-    $sql = "UPDATE Inventory 
+    $updateQuery = "UPDATE Inventory 
             SET `Name` = '$productName', 
                 `Colour` = '$productColour', 
                 `Size` = '$productSize', 
@@ -36,7 +36,7 @@ if (isset($_POST['save'])) {
 
 
     // Execute the query and check if successful
-    if (mysqli_query($conn, $sql)) {
+    if (mysqli_query($conn, $updateQuery)) {
         header("Location: inventoryPage.php"); 
         exit();
     } else {
@@ -180,10 +180,16 @@ if (isset($_POST['save'])) {
 
     <div class="field">
         <input class="btn" type="submit" name="save" value="Update">
-        <input class="btn" id="cancelBtn" type="button" value="Cancel">
+        <input class="btn" id="cancelBtn" type="button" value="Cancel" onclick="goBack()">
     </div>
 </form>
    
-   
+<script>
+    //redirect to previous page
+    function goBack() {
+        window.history.back(); 
+    }
+</script>
+
 </body>
 </html>
