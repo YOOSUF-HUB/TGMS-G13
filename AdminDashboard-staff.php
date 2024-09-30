@@ -46,10 +46,6 @@ if (!isset($_SESSION['username'])) {
     // Include the database connection file here
     include 'php/config.php';
 
-    // SQL query to fetch data from customer account table
-    $customer_sql = "SELECT Customer_ID, First_name, Last_name, Email, Password, Address, Phone_no, Dob, Date_created FROM Customer_account";
-    $customer_result = $conn->query($customer_sql);
-
     // SQL query to fetch data from Staff account table
     $staff_sql = "SELECT Staff_ID, Full_name, username, Staff_role, Email, Password, Date_created FROM Staff_account";
     $staff_result = $conn->query($staff_sql);
@@ -65,48 +61,6 @@ if (!isset($_SESSION['username'])) {
         </section>
 
         <div>
-            <!-- Customer Accounts Section -->
-            <h1 style="text-align:center">Customer Accounts</h1>
-
-            <?php if ($customer_result->num_rows > 0): ?>
-                <table class="customer_table" style="justify-content:center;height: 10vh; overflow:auto; ">
-                    <thead>
-                        <tr>
-                            <th>Customer ID</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Email</th>
-                            <th>Password</th>
-                            <th>Address</th>
-                            <th>Phone No</th>
-                            <th>Date of Birth</th>
-                            <th>Date Created</th>
-                            <th>Action</th> <!-- column for the Update & Delete button -->
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php while($row = $customer_result->fetch_assoc()): ?>
-                        <tr>
-                            <td><?php echo $row["Customer_ID"]; ?></td>
-                            <td><?php echo $row["First_name"]; ?></td>
-                            <td><?php echo $row["Last_name"]; ?></td>
-                            <td><?php echo $row["Email"]; ?></td>
-                            <td><?php echo $row["Password"]; ?></td>
-                            <td><?php echo $row["Address"]; ?></td>
-                            <td><?php echo $row["Phone_no"]; ?></td>
-                            <td><?php echo $row["Dob"]; ?></td>
-                            <td><?php echo $row["Date_created"]; ?></td>
-                            <td>
-                                <button style="background-color: blue; border-radius: 5px; border: none; padding: 5px;"><a href="update_customer.php?updateid=<?php echo $row['Customer_ID']; ?>" style="text-decoration: none; color: white;">Update</a></button>
-                                <button style="background-color: red; border-radius: 5px; border: none; padding: 5px;"><a href="delete_customer.php?deleteid=<?php echo $row['Customer_ID']; ?>" style="text-decoration: none; color: white;">Delete</a></button>
-                            </td>
-                        </tr>
-                        <?php endwhile; ?>
-                    </tbody>
-                </table>
-            <?php else: ?>
-                <p>No customer records found.</p>
-            <?php endif; ?>
 
             <!-- Staff Accounts Section -->
             <h1 style="text-align:center; margin-top: 40px">Staff Accounts</h1>

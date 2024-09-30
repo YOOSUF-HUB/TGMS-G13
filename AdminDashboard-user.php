@@ -49,10 +49,6 @@ if (!isset($_SESSION['username'])) {
     // SQL query to fetch data from customer account table
     $customer_sql = "SELECT Customer_ID, First_name, Last_name, Email, Password, Address, Phone_no, Dob, Date_created FROM Customer_account";
     $customer_result = $conn->query($customer_sql);
-
-    // SQL query to fetch data from Staff account table
-    $staff_sql = "SELECT Staff_ID, Full_name, username, Staff_role, Email, Password, Date_created FROM Staff_account";
-    $staff_result = $conn->query($staff_sql);
     ?>
 
     <main class="dashboard-container">
@@ -106,46 +102,6 @@ if (!isset($_SESSION['username'])) {
                 </table>
             <?php else: ?>
                 <p>No customer records found.</p>
-            <?php endif; ?>
-
-            <!-- Staff Accounts Section -->
-            <h1 style="text-align:center; margin-top: 40px">Staff Accounts</h1>
-            <a href="create_staff_account.php" style="text-decoration: none; color: white;"> <button style="cursor:pointer;text-decoration: none; color: white;background-color: green; border-radius: 5px; border: none; padding: 10px; margin-left: 20px; height: 40px; margin-bottom: 20px;">Create Staff Account</button></a>
-
-            <?php if ($staff_result->num_rows > 0): ?>
-                <table class="staff_table" style="justify-content:center">
-                    <thead>
-                        <tr>
-                            <th>Staff ID</th>
-                            <th>Full Name</th>
-                            <th>Username</th>
-                            <th>Staff Role</th>
-                            <th>Email</th>
-                            <th>Password</th>
-                            <th>Date Created</th>
-                            <th>Action</th> <!-- column for the Update & Delete button -->
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php while($row = $staff_result->fetch_assoc()): ?>
-                        <tr>
-                            <td><?php echo $row["Staff_ID"]; ?></td>
-                            <td><?php echo $row["Full_name"]; ?></td>
-                            <td><?php echo $row["username"]; ?></td>
-                            <td><?php echo $row["Staff_role"]; ?></td>
-                            <td><?php echo $row["Email"]; ?></td>
-                            <td><?php echo $row["Password"]; ?></td>
-                            <td><?php echo $row["Date_created"]; ?></td>
-                            <td>
-                                <button style="background-color: blue; border-radius: 5px; border: none; padding: 5px;"><a href="staff_accn_update.php?updateid=<?php echo $row['Staff_ID']; ?>" style="text-decoration: none; color: white;">Update</a></button>
-                                <button style="background-color: red; border-radius: 5px; border: none; padding: 5px;"><a href="delete_staff_accn.php?deleteid=<?php echo $row['Staff_ID']; ?>" style="text-decoration: none; color: white;">Delete</a></button>
-                            </td>
-                        </tr>
-                        <?php endwhile; ?>
-                    </tbody>
-                </table>
-            <?php else: ?>
-                <p>No staff records found.</p>
             <?php endif; ?>
 
             <?php $conn->close(); // Close the connection ?>
