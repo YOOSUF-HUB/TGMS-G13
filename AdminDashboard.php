@@ -109,7 +109,7 @@ if (!isset($_SESSION['username'])) {
 
             <!-- Staff Accounts Section -->
             <h1 style="text-align:center; margin-top: 40px">Staff Accounts</h1>
-            <button style="background-color: green; border-radius: 5px; border: none; padding: 10px; margin-left: 50px; height: 40px; margin-bottom: 20px;"><a href="create_staff_account.php" style="text-decoration: none; color: white;">Create Staff Account</a></button>
+            <a href="create_staff_account.php" style="text-decoration: none; color: white;"> <button style="cursor:pointer;text-decoration: none; color: white;background-color: green; border-radius: 5px; border: none; padding: 10px; margin-left: 20px; height: 40px; margin-bottom: 20px;">Create Staff Account</button></a>
 
             <?php if ($staff_result->num_rows > 0): ?>
                 <table class="staff_table" style="justify-content:center">
