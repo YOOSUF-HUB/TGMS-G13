@@ -106,40 +106,39 @@ ALTER TABLE customer CHANGE customer_id_num customer_id INT AUTO_INCREMENT;
 
 
 
--- sample data for inventory
-INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER001','HOODIES','Yellow','Large','Pullover','250');
+INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER-1-001','HOODIES','Yellow','Large','Pullover','250');
 INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES
-('VER002','T-Shirt','Yellow','Large','Crewneck T-shirt','233');
-INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER003','JOGGERS','Black','Large','Elastic Waistband Trousers','350');
+('VER-2-001','T-Shirt','Yellow','Large','Crewneck T-shirt','233');
+INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER-3-001','JOGGERS','Black','Large','Elastic Waistband Trousers','350');
 INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES 
-('VER004','TANK TOP','Black','Large','Tops','353');
-INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER005','HOODIES','Yellow','Medium','Pullover','833');
+('VER-4-001','TANK TOP','Black','Large','Tops','353');
+INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER-1-002','HOODIES','Yellow','Medium','Pullover','833');
 INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES
-('VER006','T-Shirt','Yellow','Medium','Crewneck T-shirt','324');
-INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER007','JOGGERS','Black','Medium','Elastic Waistband Trousers','123');
+('VER-2-002','T-Shirt','Yellow','Medium','Crewneck T-shirt','324');
+INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER-3-002','JOGGERS','Black','Medium','Elastic Waistband Trousers','123');
 INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES 
-('VER008','TANK TOP','Black','Medium','Tops','433');
-INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER009','HOODIES','Yellow','Small','Pullover','122');
+('VER-4-002','TANK TOP','Black','Medium','Tops','433');
+INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER-1-003','HOODIES','Yellow','Small','Pullover','122');
 INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES
-('VER010','T-Shirt','Yellow','Small','Crewneck T-shirt','123');
-INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER011','JOGGERS','Black','Small','Elastic Waistband Trousers','113');
+('VER-2-003','T-Shirt','Yellow','Small','Crewneck T-shirt','123');
+INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER-3-003','JOGGERS','Black','Small','Elastic Waistband Trousers','113');
 INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES 
-('VER012','TANK TOP','Black','Small','Tops','432');
-INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER013','HOODIES','White','Large','Pullover','250');
+('VER-4-003','TANK TOP','Black','Small','Tops','432');
+INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER-1-004','HOODIES','White','Large','Pullover','250');
 INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES
-('VER014','T-Shirt','White','Large','Crewneck T-shirt','500');
-INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER015','JOGGERS','Blue','Large','Elastic Waistband Trousers','324');
+('VER-2-004','T-Shirt','White','Large','Crewneck T-shirt','500');
+INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER-3-004','JOGGERS','Blue','Large','Elastic Waistband Trousers','324');
 INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES 
-('VER016','TANK TOP','Blue','Large','Tops','150');
-INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER0017','HOODIES','White','Medium','Pullover','250');
+('VER-4-004','TANK TOP','Blue','Large','Tops','150');
+INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER-1-005','HOODIES','White','Medium','Pullover','250');
 INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES
-('VER018','T-Shirt','White','Medium','Crewneck T-shirt','500');
-INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER019','JOGGERS','Blue','Medium','Elastic Waistband Trousers','350');
+('VER-2-005','T-Shirt','White','Medium','Crewneck T-shirt','500');
+INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER-3-005','JOGGERS','Blue','Medium','Elastic Waistband Trousers','350');
 INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES 
-('VER020','TANK TOP','Blue','Medium','Tops','150');
-INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER021','HOODIES','White','Small','Pullover','250');
+('VER-4-005','TANK TOP','Blue','Medium','Tops','150');
+INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER-1-006','HOODIES','White','Small','Pullover','250');
 INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES
-('VER022','T-Shirt','White','Small','Crewneck T-shirt','234');
-INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER023','JOGGERS','Blue','Small','Elastic Waistband Trousers','230');
+('VER-2-006','T-Shirt','White','Small','Crewneck T-shirt','234');
+INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER-3-006','JOGGERS','Blue','Small','Elastic Waistband Trousers','230');
 INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES 
-('VER024','TANK TOP','Blue','Small','Tops','490');
+('VER-4-006','TANK TOP','Blue','Small','Tops','490');
