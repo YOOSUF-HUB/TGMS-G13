@@ -1,0 +1,248 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+main {
+    max-width: 80%;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 100px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Heading */
+h1 {
+    font-size: 2.8em;
+    text-align: center;
+    color: #444;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: zoomIn 0.8s ease-in-out;
+}
+
+/* Zoom in animation for heading */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+/* Discount Section */
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.item {
+    background: linear-gradient(to bottom right, #4CAF50, #66BB6A);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+button#button {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button#button:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* Product Image Section */
+.product-images {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.main-image {
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.main-image:hover {
+    transform: scale(1.01);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.thumbnail-images {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.thumbnail {
+    width: 100px;
+    height: auto;
+    cursor: pointer;
+    transition: border 0.3s ease, transform 0.3s ease;
+}
+
+.thumbnail:hover {
+    border-color: #4CAF50;
+    transform: scale(1.1);
+}
+
+/* Product Options */
+.product-options {
+    margin-left: 40px;
+    max-width: 300px;
+}
+
+.product-options label {
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin: 20px 0 10px;
+    font-size: 1.2em;
+}
+
+select, input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+select:focus, input[type="number"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.quantity-selector button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quantity-selector button:hover {
+    background-color: #388E3C;
+}
+
+input#quantity {
+    width: 60px;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+/* Description */
+.product-options label b {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #555;
+    display: block;
+    margin-top: 20px;
+    letter-spacing: 0.5px;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.buy-now, .add-to-cart {
+    width: 48%;
+    padding: 15px;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.buy-now {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+}
+
+.add-to-cart {
+    background-color: #FF9800;
+    color: white;
+    border: none;
+}
+
+.buy-now:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.add-to-cart:hover {
+    background-color: #E65100;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .product-images {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .product-options {
+        margin-left: 0;
+        max-width: 100%;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+}
