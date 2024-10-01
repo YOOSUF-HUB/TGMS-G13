@@ -128,8 +128,8 @@ button#button:hover {
 
 /* Product Options */
 .product-options {
-    margin-left: 40px;
-    max-width: 300px;
+    margin-left: 90px;
+
 }
 
 .product-options label {
@@ -154,6 +154,8 @@ select:focus, input[type="number"]:focus {
 }
 
 .quantity-selector {
+    margin-top: 20px;
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -176,9 +178,11 @@ select:focus, input[type="number"]:focus {
 }
 
 input#quantity {
-    width: 60px;
+    width: 70px;
+    height: 30px;
     text-align: center;
     font-size: 1.2em;
+    border-radius: 10px;
 }
 
 /* Description */
