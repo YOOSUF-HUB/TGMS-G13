@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            product detail
+        </title>
+        <link rel="stylesheet" href=pdetail3.css>
+    </head>
+    <body>
+    <div class="page">
+        
+        <!--discount section-->
+        <div class="container">
+
+            <div class="item">
+                
+                <b>50 - 999 pieces</b><br>
+                <label><b><button id="button">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10%</button></b></label>
+
+            </div>
+            <div class="item">
+                <b>1000 - 9999 pieces</b><br>
+                <label><b><button id="button">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15%</button></b></label>
+
+            </div>
+            <div class="item">
+                <b>More than 10000 pieces</b><br>
+                <label><b><button id="button">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20%</button></b></label>
+
+            </div>
+            
+        </div>
+        <!--image-->
+        <h1><b>Arm-cut skinny</b></h1><br>
+        <div class="product-images">
+            <div >
+                <img src="armcut.jpg" alt="Product Image" class="main-image">
+                <div class="thumbnail-images">
+                    <img src="black armcut.png" alt="Thumbnail">
+                    <img src="white armcut.png" alt="Thumbnail">
+                    <img src="red armcut.png" alt="Thumbnail">
+                    <img src="blue armcut.png" alt="Thumbnail">
+                </div>
+
+            </div>
+            
+               <!-- Select Options -->
+         <div class="product-options">
+            <label for="colour"><b>Colour</b></label>
+            <select id="colour">
+                
+                <option value="black">Black</option>
+                <option value="red">red</option>
+                <option value="white">white</option>
+                <option value="blue">blue</option>
+            </select>
+
+            <label for="material"><b>Material</b></label>
+            <select id="material">
+                <option value="cotton">Cotton</option>
+                <option value="polyester">Polyester</option>
+            </select>
+
+            <label for="size"><b>Size</b></label>
+            <select id="size">
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+            </select>
+
+            <div class="quantity-selector">
+                <button id="decrease">-</button>
+                <input type="number" id="quantity" value="1">
+                <button id="increase">+</button><br><br>
+            </div>
+            <label><b> this design feature involves precise fabric cutting and stitching to achieve a close,<br>
+                 streamlined fit. The system monitors important details such as fabric elasticity, size variations,<br>
+                  production methods, and quality checks to ensure that the garment maintains its desired shape and comfort.</b></label>
+            
+            
+            <!-- Buy and Add to Cart Buttons -->
+            <div class="action-buttons">
+                <div>
+                    <button class="buy-now">Buy Now</button>
+                </div>
+                <div>
+                    <br><button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            
+        </div>
+
+        
+    </div>
+
+    </body>
+    
+</html>
