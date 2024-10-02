@@ -1,3 +1,9 @@
+
+
+
+
+
+
 /* General Styles */
 body {
     font-family: 'Roboto', sans-serif;
@@ -11,12 +17,15 @@ body {
 main {
     max-width: 80%;
     margin: 20px auto;
-    background-color: #fff;
+    background-color: white;
     border-radius: 10px;
     padding: 100px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     animation: fadeIn 1s ease-in-out;
 }
+
+
+
 
 
 
@@ -240,3 +249,9 @@ input#quantity {
         flex-direction: column;
     }
 }
+
+
+
+
+
+
