@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Detail</title>
     <link rel="stylesheet" href="styles/ProductDetails.css">
+    <link rel="stylesheet" href="Index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- social media icons -->
 
     <!-- Questrial Font-->
@@ -14,180 +15,186 @@
 </head>
 <body>
 
-
-            <!-- Navigation Bar Section-->
-            <header style="padding: 8px 20px;">
-                <!-- Side Navigation Menu -->
-                <nav id="mySidenav" class="sidenav">
-                    <!-- Close button -->
-                    <img onclick="closeNav()" src="images/close-google.svg" class="closebtn" style="width: 30px;">
-                    
-                    <!-- Navigation links -->
-                    <a href="index.html">Home</a>
-                    <a href="about.html">About</a>
-                    <a href="services.html">Services</a>
-                    <a href="contact.php">Contact</a>
-                    <a href="terms.html">Terms of Services</a>
-                </nav>
-                <!-- Menu icon (with open function)-->
-                <img src="images/menu-google.svg" id="menuIcon" style="width:30px;cursor:pointer" onclick="openNav()">
-        
-        
-                <!-- Search Bar section -->
-                <section id="searchBar" style="position: relative;">
-                    <img src="images/search-google.svg" id="searchIcon" style="width: 30px;cursor: pointer;" onclick="opensearchBar()">
-                    
-                    <!-- Search bar container -->
-                    <div id="searchBarContainer">
-                        <input type="text" id="searchInput" placeholder="Search...">
-                        <button onclick="performSearch()">Search</button>
-                    </div>
-                </section>
-        
-        
-        
-                <!-- Logo Section -->
-                <section class="logo">
-        
-                    <div class="logo-content">
-                        <a href="Index.html"> <img src="./images/Versori.png" alt="logo" style="height: 50px; padding-right: 90px;"> </a>
-                    </div>
-            
-                </section>
-        
-                <!-- Profile and Dropdown -->
-                <div class="profile-container">
-                    <!-- Profile Image Icon; clicking on this toggles the dropdown -->
-                    <img src="images/profile-google.svg" alt="Profile Icon" class="profile-icon" onclick="toggleDropdown()">
-                    
-                    <!-- Dropdown Menu content; links for Login, Logout, and My Orders -->
-                    <div id="myDropdown" class="dropdown-content">
-                        <a href="#">Profile</a>
-                        <a href="#">Login</a>
-                        <a href="#">My Orders</a>
-                        <a href="#">Logout</a>
-                    </div>
+        <!-- Navigation Bar Section-->
+        <header style="padding: 8px 20px;">
+            <!-- Side Navigation Menu -->
+            <nav id="mySidenav" class="sidenav">
+                <!-- Close button -->
+                <img onclick="closeNav()" src="images/close-google.svg" class="closebtn" style="width: 30px;">
+                
+                <!-- Navigation links -->
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="contact.php">Contact</a>
+                <a href="terms.html">Terms of Services</a>
+            </nav>
+            <!-- Menu icon (with open function)-->
+            <img src="images/menu-google.svg" id="menuIcon" style="width:30px;cursor:pointer" onclick="openNav()">
+    
+    
+            <!-- Search Bar section -->
+            <section id="searchBar" style="position: relative;">
+                <img src="images/search-google.svg" id="searchIcon" style="width: 30px;cursor: pointer;" onclick="opensearchBar()">
+                
+                <!-- Search bar container -->
+                <div id="searchBarContainer">
+                    <input type="text" id="searchInput" placeholder="Search...">
+                    <button onclick="performSearch()">Search</button>
+                </div>
+            </section>
+    
+    
+    
+            <!-- Logo Section -->
+            <section class="logo">
+    
+                <div class="logo-content">
+                    <a href="Index.html"> <img src="./images/Versori.png" alt="logo" style="height: 50px; padding-right: 90px;"> </a>
                 </div>
         
-        
-            </header>
+            </section>
+    
+            <!-- Profile and Dropdown -->
+            <div class="profile-container">
+                <!-- Profile Image Icon; clicking on this toggles the dropdown -->
+                <img src="images/profile-google.svg" alt="Profile Icon" class="profile-icon" onclick="toggleDropdown()">
+                
+                <!-- Dropdown Menu content; links for Login, Logout, and My Orders -->
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="#">Profile</a>
+                    <a href="#">Login</a>
+                    <a href="#">My Orders</a>
+                    <a href="#">Logout</a>
+                </div>
+            </div>
+    
+    
+        </header>
 
-    <div class="page">
-        <!-- Discount Section -->
-        <div class="container">
-            <div class="item">
-                <b>50 - 999 pieces</b><br>
-                <label><b><button id="button">10%</button></b></label>
+
+    <main>
+        <div class="page">
+            <!-- Discount Section -->
+            <div class="container">
+                <div class="item">
+                    <b>[50 - 999 pieces]</b><br>
+                    <label><b><button id="button">10%</button></b></label>
+                </div>
+                <div class="item">
+                    <b>[1000 - 9999 pieces]</b><br>
+                    <label><b><button id="button">15%</button></b></label>
+                </div>
+                <div class="item">
+                    <b>[More than 10000 pieces]</b><br>
+                    <label><b><button id="button">20%</button></b></label>
+                </div>
             </div>
-            <div class="item">
-                <b>1000 - 9999 pieces</b><br>
-                <label><b><button id="button">15%</button></b></label>
-            </div>
-            <div class="item">
-                <b>More than 10000 pieces</b><br>
-                <label><b><button id="button">20%</button></b></label>
+    
+            <!-- Product Image Section -->
+            <h1><b>JOGGERS</b></h1><br>
+            <div class="product-images">
+                <div>
+                    <img src="PRODUCT IMAGES/HOODIE/hoodie.jpg" alt="Product Image" class="main-image">
+                    <div class="thumbnail-images">
+                        <img src="PRODUCT IMAGES/HOODIE/yellow hoodie.png" alt="Yellow Hoodie" class="thumbnail">
+                        <img src="PRODUCT IMAGES/HOODIE/black hoodie.jpg" alt="Black Hoodie" class="thumbnail">
+                        <img src="PRODUCT IMAGES/HOODIE/red hoodie.jpg" alt="Red Hoodie" class="thumbnail">
+                        <img src="PRODUCT IMAGES/HOODIE/white hoodie.jpg" alt="White Hoodie" class="thumbnail">
+                    </div>
+                </div>
+    
+                <!-- Select Options -->
+                <div class="product-options">
+                    <label for="colour"><b>Colour</b></label>
+                    <select id="colour">
+                        <option value="yellow">Yellow</option>
+                        <option value="black">Black</option>
+                        <option value="red">Red</option>
+                        <option value="white">White</option>
+                    </select>
+    
+                    <label for="material"><b>Material</b></label>
+                    <select id="material">
+                        <option value="cotton">Cotton</option>
+                        <option value="polyester">Polyester</option>
+                    </select>
+    
+                    <label for="size"><b>Size</b></label>
+                    <select id="size">
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                    </select>
+    
+                    <div class="quantity-selector">
+                        <button id="decrease">-</button>
+                        <input type="number" id="quantity" value="1" min="1" aria-label="Quantity">
+                        <button id="increase">+</button><br><br>
+                    </div>
+    
+                    <label><b style="font-family: Questrial, sans-serif;">A hoodie is a versatile and casual garment featuring a hood,
+                        long sleeves, and a front pocket. Typically made from soft, comfortable
+                        fabrics such as cotton, polyester, or fleece, hoodies provide warmth. 
+                        They come in various styles, including pullover and zip-up designs, and
+                        are available in a wide range of colors, patterns, and sizes to suit 
+                        different preferences.</b></label>
+                    
+                    <!-- Buy and Add to Cart Buttons -->
+                    <div class="action-buttons">
+                        <button class="buy-now">Buy Now</button>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
             </div>
         </div>
+
+    </main>
+
+
+        <!-- Footer Section -->
+        <footer>
         
-        <!-- Product Image Section -->
-        <h1><b>Tshirts</b></h1><br>
-        <div class="product-images">
-            <div>
-                <img src="hoodie.jpg" alt="Product Image" class="main-image">
-                <div class="thumbnail-images">
-                    <img src="yellow hoodie.png" alt="Yellow Hoodie" class="thumbnail">
-                    <img src="black hoodie.jpg" alt="Black Hoodie" class="thumbnail">
-                    <img src="red hoodie.jpg" alt="Red Hoodie" class="thumbnail">
-                    <img src="white hoodie.jpg" alt="White Hoodie" class="thumbnail">
+            <div class="footer-links">
+                <div class="social-media">
+                    <a href="Index.html"> <img src="./images/Versori.png" alt="logo" style="height: 90px; padding-left: 20px; "> </a>
+                    <ul style="list-style-type: none; display: flex; padding: 0; font-size: 30px;">
+                        <li style="margin-left: 20px;"><a href="#" class="fa fa-facebook"></a></li>
+                        <li><a href="#" class="fa fa-twitter"></a></li>
+                        <li><a href="#" class="fa fa-instagram"></a></li>
+                    </ul>
+                </div>
+                <div class="footer-left">
+                    <ul>
+                        <li style="font-weight: bolder; font-size: 1.5rem; letter-spacing: 0.04rem;">Versori</li>
+                        <li><a href="policy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms and Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-middle">
+                    <ul>
+                        <li style="font-weight: bolder; font-size: 1.2rem;">Our service</li>
+                        <li><a href="manufacturing.html">Manufacturing</a></li>
+                        <li><a href="consultancy.php">Consultancy</a></li>
+                        <li><a href="sampling.html">Sampling</a></li>
+                    </ul>
+                </div>
+                <div class="footer-right">
+                    <ul>
+                        <li style="font-weight: bolder; font-size: 1.2rem;">Useful Links</li>
+                        <li><a href="about.html">About us</a></li>
+                        <li><a href="contact.php">Contact us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>    
                 </div>
             </div>
-
-            <!-- Select Options -->
-            <div class="product-options">
-                <label for="colour"><b>Colour</b></label>
-                <select id="colour">
-                    <option value="yellow">Yellow</option>
-                    <option value="black">Black</option>
-                    <option value="red">Red</option>
-                    <option value="white">White</option>
-                </select>
-
-                <label for="material"><b>Material</b></label>
-                <select id="material">
-                    <option value="cotton">Cotton</option>
-                    <option value="polyester">Polyester</option>
-                </select>
-
-                <label for="size"><b>Size</b></label>
-                <select id="size">
-                    <option value="small">Small</option>
-                    <option value="medium">Medium</option>
-                    <option value="large">Large</option>
-                </select>
-
-                <div class="quantity-selector">
-                    <button id="decrease">-</button>
-                    <input type="number" id="quantity" value="1" min="1" aria-label="Quantity">
-                    <button id="increase">+</button><br><br>
-                </div>
-
-                <label><b style="font-family: Questrial, sans-serif;">A hoodie is a versatile and casual garment featuring a hood,
-                    long sleeves, and a front pocket. Typically made from soft, comfortable
-                    fabrics such as cotton, polyester, or fleece, hoodies provide warmth. 
-                    They come in various styles, including pullover and zip-up designs, and
-                    are available in a wide range of colors, patterns, and sizes to suit 
-                    different preferences.</b></label>
-
-                <!-- Buy and Add to Cart Buttons -->
-                <div class="action-buttons">
-                    <button class="buy-now">Buy Now</button>
-                    <button class="add-to-cart">Add to Cart</button>
-                </div>
+            <div class="footer-bottom">
+                <p>&copy; Versori 2024</p>
             </div>
-        </div>
-    </div>
+        </footer>
 
-            <!-- Footer Section -->
-            <footer>
-        
-                <div class="footer-links">
-                    <div class="social-media">
-                        <a href="Index.html"> <img src="./images/Versori.png" alt="logo" style="height: 90px; padding-left: 20px; "> </a>
-                        <ul style="list-style-type: none; display: flex; padding: 0; font-size: 30px;">
-                            <li style="margin-left: 20px;"><a href="#" class="fa fa-facebook"></a></li>
-                            <li><a href="#" class="fa fa-twitter"></a></li>
-                            <li><a href="#" class="fa fa-instagram"></a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-left">
-                        <ul>
-                            <li style="font-weight: bolder; font-size: 1.5rem; letter-spacing: 0.04rem;">Versori</li>
-                            <li><a href="policy.html">Privacy Policy</a></li>
-                            <li><a href="terms.html">Terms and Conditions</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-middle">
-                        <ul>
-                            <li style="font-weight: bolder; font-size: 1.2rem;">Our service</li>
-                            <li><a href="manufacturing.html">Manufacturing</a></li>
-                            <li><a href="consultancy.php">Consultancy</a></li>
-                            <li><a href="sampling.html">Sampling</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-right">
-                        <ul>
-                            <li style="font-weight: bolder; font-size: 1.2rem;">Useful Links</li>
-                            <li><a href="about.html">About us</a></li>
-                            <li><a href="contact.php">Contact us</a></li>
-                            <li><a href="products.html">Products</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                        </ul>    
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <p>&copy; Versori 2024</p>
-                </div>
-            </footer>
+    <script src="Index.js"></script>
 
     <script>
         // Get elements
@@ -209,6 +216,6 @@
             quantityInput.value = currentValue + 1;
         });
     </script>
-
+    
 </body>
 </html>

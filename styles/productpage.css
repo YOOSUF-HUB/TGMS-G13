@@ -440,6 +440,7 @@ main{
     border: none; /* Remove default button border */
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for a raised look */
     font-size: 20px; /* Button text size */
+    margin-left: 40px;
 }
 
 /* Hover effect for the "Buy Now" button */
@@ -449,6 +450,20 @@ main{
     color: #ff5e00;
     transform: scale(1.05);
 }
+
+.price {
+    background-color: #697565; /* Dark olive green background */
+    height: 70px; /* Button height */
+    width: 260px; /* Button width */
+    transition: transform 0.3s ease;
+    border-radius: 10px; /* Rounded corners for the button */
+    color: #fff; /* White text color */
+    border: none; /* Remove default button border */
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for a raised look */
+    font-size: 20px; /* Button text size */
+}
+
+
 
 /* Styling for the fieldset containing product details */
 fieldset {

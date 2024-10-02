@@ -6,7 +6,7 @@
 
 /* General Styles */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: Questrial, sans-serif;
     background-color:#ECDFCC;
     margin: 0;
     padding: 0;
@@ -31,8 +31,9 @@ main {
 
 /* Heading */
 h1 {
-    font-size: 2.8em;
-    text-align: center;
+    font-size: 4em;
+    text-align: left;
+    font-family: Questrial, sans-serif;
     color: #444;
     margin-bottom: 20px;
     text-transform: uppercase;
@@ -59,13 +60,15 @@ h1 {
 }
 
 .item {
-    background: linear-gradient(to bottom right, #4CAF50, #66BB6A);
+    background-color: rgb(84, 130, 84);
     color: white;
     padding: 15px 25px;
     border-radius: 10px;
     text-align: center;
     transition: transform 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 60px;
+    width: 200px;
 }
 
 .item:hover {
@@ -157,7 +160,8 @@ select:focus, input[type="number"]:focus {
     margin-bottom: 20px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 50px;
 }
 
 .quantity-selector button {
@@ -177,10 +181,11 @@ select:focus, input[type="number"]:focus {
 }
 
 input#quantity {
-    width: 70px;
-    height: 30px;
+    width: 300px;
+    height: 40px;
     text-align: center;
     font-size: 1.2em;
+    border: 2px solid #ddd;
     border-radius: 10px;
 }
 
@@ -201,7 +206,7 @@ input#quantity {
     margin-top: 20px;
 }
 
-.buy-now, .add-to-cart {
+.buy-now, .add-cart {
     width: 48%;
     padding: 15px;
     font-size: 1.2em;
@@ -212,24 +217,28 @@ input#quantity {
 }
 
 .buy-now {
-    background-color: #007BFF;
+    background-color: #ff5e00;
     color: white;
-    border: none;
-}
-
-.add-to-cart {
-    background-color: #FF9800;
-    color: white;
-    border: none;
+    border: 0;
+    height: 60px;
 }
 
 .buy-now:hover {
-    background-color: #0056b3;
+    background-color: white;
+    color: #ff5e00;
     transform: scale(1.05);
+    box-shadow: 2px 2px 4px;
+    font-size: 1.6em;
 }
 
-.add-to-cart:hover {
-    background-color: #E65100;
+.add-cart {
+    background-color: #697569;
+    color: white;
+    border: none;
+    height: 60px;
+}
+
+.add-cart:hover {
     transform: scale(1.05);
 }
 
