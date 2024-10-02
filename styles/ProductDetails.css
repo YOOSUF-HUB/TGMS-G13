@@ -1,7 +1,7 @@
 /* General Styles */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f0f0f0;
+    background-color:#ECDFCC;
     margin: 0;
     padding: 0;
     color: #333;
@@ -18,17 +18,7 @@ main {
     animation: fadeIn 1s ease-in-out;
 }
 
-/* Fade in animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+
 
 /* Heading */
 h1 {
