@@ -80,7 +80,12 @@ CREATE Table Orders(
     CONSTRAINT Orders_FK3 FOREIGN KEY (Payment_ID) REFERENCES Payments(Payment_ID)
 );
 
-
+CREATE TABLE Price(
+    HOODIES INT(255) NOT NULL,
+    TSHIRT INT(255) NOT NULL,
+    JOGGERS INT(255) NOT NULL,
+    TANKTOP INT(255) NOT NULL
+);
 
 -- Consultation Table
 CREATE TABLE Consultation (

@@ -32,7 +32,6 @@
             <!-- Menu icon (with open function)-->
             <img src="images/menu-google.svg" id="menuIcon" style="width:30px;cursor:pointer" onclick="openNav()">
     
-    
             <!-- Search Bar section -->
             <section id="searchBar" style="position: relative;">
                 <img src="images/search-google.svg" id="searchIcon" style="width: 30px;cursor: pointer;" onclick="opensearchBar()">
@@ -44,15 +43,11 @@
                 </div>
             </section>
     
-    
-    
             <!-- Logo Section -->
             <section class="logo">
-    
                 <div class="logo-content">
                     <a href="Index.html"> <img src="./images/Versori.png" alt="logo" style="height: 50px; padding-right: 90px;"> </a>
                 </div>
-        
             </section>
     
             <!-- Profile and Dropdown -->
@@ -68,10 +63,7 @@
                     <a href="#">Logout</a>
                 </div>
             </div>
-    
-    
         </header>
-
 
     <main>
         <div class="page">
@@ -90,7 +82,7 @@
                     <label><b><button id="button">20%</button></b></label>
                 </div>
             </div>
-    
+
             <!-- Product Image Section -->
             <h1><b>HOODIES</b></h1><br>
             <div class="product-images">
@@ -103,6 +95,23 @@
                         <img src="PRODUCT IMAGES/HOODIE/white hoodie.jpg" alt="White Hoodie" class="thumbnail">
                     </div>
                 </div>
+
+                <?php
+                    // Include the database connection file here
+                    include 'php/config.php';
+
+                    // SQL query to fetch hoodie price from the Price table
+                    $price_sql = "SELECT HOODIES FROM Price";
+                    $price_result = $conn->query($price_sql);
+
+                    // Fetch the hoodie price
+                    if ($price_result->num_rows > 0) {
+                        $row = $price_result->fetch_assoc();
+                        $hoodie_price = $row['HOODIES'];
+                    } else {
+                        $hoodie_price = 0; // Fallback if no price is found
+                    }
+                ?>
     
                 <!-- Select Options -->
                 <div class="product-options">
@@ -138,12 +147,12 @@
                     
                     <div class="quantity-selector">
                         <label for="price"> Price (per unit):</label>
-                        <input id="price" value="1200.00" aria-label="price">
+                        <input id="price" value="<?php echo $hoodie_price; ?>" aria-label="price" readonly>
                     </div>
                     
                     <div class="quantity-selector">
                         <label for="final-price"> Final Price:</label>
-                        <span id="final-price" ></span>
+                        <span id="final-price"></span>
                     </div>
     
                     <label><b style="font-family: Questrial, sans-serif;">A hoodie is a versatile and casual garment featuring a hood,
@@ -161,13 +170,10 @@
                 </div>
             </div>
         </div>
-
     </main>
-
 
         <!-- Footer Section -->
         <footer>
-        
             <div class="footer-links">
                 <div class="social-media">
                     <a href="Index.html"> <img src="./images/Versori.png" alt="logo" style="height: 90px; padding-left: 20px; "> </a>
@@ -187,25 +193,14 @@
                 <div class="footer-middle">
                     <ul>
                         <li style="font-weight: bolder; font-size: 1.2rem;">Our service</li>
-                        <li><a href="manufacturing.html">Manufacturing</a></li>
-                        <li><a href="consultancy.php">Consultancy</a></li>
-                        <li><a href="sampling.html">Sampling</a></li>
+                        <li><a href="#">Shipping & Return Policy</a></li>
+                        <li><a href="#">Secure Payment</a></li>
+                        <li><a href="#">Track Your Order</a></li>
                     </ul>
                 </div>
-                <div class="footer-right">
-                    <ul>
-                        <li style="font-weight: bolder; font-size: 1.2rem;">Useful Links</li>
-                        <li><a href="about.html">About us</a></li>
-                        <li><a href="contact.php">Contact us</a></li>
-                        <li><a href="products.html">Products</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                    </ul>    
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; Versori 2024</p>
             </div>
         </footer>
+
 
     <script src="Index.js"></script>
 
@@ -229,43 +224,40 @@
             quantityInput.value = currentValue + 1;
         });
 
-// Get references to the price input fields, and final price display span
+        // Get references to the price input fields, and final price display span
+        const priceInput = document.getElementById('price');
+        const finalPriceSpan = document.getElementById('final-price');
 
-const priceInput = document.getElementById('price');
-const finalPriceSpan = document.getElementById('final-price');
+        // Function to calculate and display the final price
+        function calculateFinalPrice() {
+            // Multiply the quantity by the price and display the result, rounded to two decimal places
+            finalPriceSpan.textContent = (quantityInput.value * priceInput.value).toFixed(2);
+        }
 
-// Function to calculate and display the final price
-function calculateFinalPrice() {
-    // Multiply the quantity by the price and display the result, rounded to two decimal places
-    finalPriceSpan.textContent = (quantityInput.value * priceInput.value).toFixed(2);
-}
+        // Event listener for the 'increase' button
+        // When clicked, increment the quantity and recalculate the final price
+        document.getElementById('increase').addEventListener('click', () => {
+            quantityInput.value++;  // Increase quantity by 1
+            calculateFinalPrice();  // Recalculate final price
+        });
 
-// Event listener for the 'increase' button
-// When clicked, increment the quantity and recalculate the final price
-document.getElementById('increase').addEventListener('click', () => {
-    quantityInput.value++;  // Increase quantity by 1
-    calculateFinalPrice();  // Recalculate final price
-});
+        // Event listener for the 'decrease' button
+        // When clicked, decrement the quantity if it's greater than 50, and recalculate the final price
+        document.getElementById('decrease').addEventListener('click', () => {
+            if (quantityInput.value > 50) quantityInput.value--;  // Decrease quantity by 1 only if it's greater than 50
+            calculateFinalPrice();  // Recalculate final price
+        });
 
-// Event listener for the 'decrease' button
-// When clicked, decrement the quantity if it's greater than 50, and recalculate the final price
-document.getElementById('decrease').addEventListener('click', () => {
-    if (quantityInput.value > 50) quantityInput.value--;  // Decrease quantity by 1 only if it's greater than 50
-    calculateFinalPrice();  // Recalculate final price
-});
+        // Event listener for changes to the price input field
+        // When the price changes, recalculate the final price
+        priceInput.addEventListener('input', calculateFinalPrice);
 
-// Event listener for changes to the price input field
-// When the price changes, recalculate the final price
-priceInput.addEventListener('input', calculateFinalPrice);
+        // Event listener for changes to the quantity input field
+        // When the quantity changes, recalculate the final price
+        quantityInput.addEventListener('input', calculateFinalPrice);
 
-// Event listener for changes to the quantity input field
-// When the quantity changes, recalculate the final price
-quantityInput.addEventListener('input', calculateFinalPrice);
-
-// Perform the initial calculation when the page loads
-calculateFinalPrice();
-
-
+        // Perform the initial calculation when the page loads
+        calculateFinalPrice();
 
     </script>
     
