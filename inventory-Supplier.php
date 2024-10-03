@@ -14,7 +14,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
     include 'php/config.php';
 
     // SQL query to fetch data
-    $sql = "SELECT `Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity` FROM Inventory";
+    $sql = "SELECT `Supplier_ID`, `Supplier_name`, `Company_name`, `Category`, `Email`, `Phone_number`, `Supply` FROM Supplier";
     $result = $conn->query($sql);
     ?>
 
@@ -73,44 +73,46 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
         <section class="im-page-links" >
             <ul>
                 <li class="im-page"><a href="inventorydashboard.php">Home</a></li>
-                <li class="im-page"><a href="inventorypage.php" style="background-color: #34495e; padding-left: 20px;">Inventory</a></li>
+                <li class="im-page"><a href="inventorypage.php">Inventory</a></li>
                 <li class="im-page"><a href="production.html">Production</a></li>
                 <li class="im-page"><a href="order.html">Orders</a></li>
-                <li class="im-page"><a href="inventory-Supplier.php">Suppliers</a></li>
+                <li class="im-page"><a href="inventory-Supplier.php" style="background-color: #34495e; padding-left: 20px;">Suppliers</a></li>
                 <li class="im-page"><a href="inventoryreport.html">Report</a></li>
             </ul>
         </section>
 
         <section class="content" >
             <div style="float:right;">
-                <button class="btn1" id="addInventoryBtn"><a href="addInventory.php?>" >Add Inventory</a></button>
-                <button class="btn1" id="manageInventoryBtn" onclick="manageInventory()" >Manage Inventory</button>
-                <button class="btn1" id="cancelBtn" style="display: none;" onclick="cancelInventory()"  >Cancel Manage</button>
+                <button class="btn1" id="addSupplierBtn"><a href="inventory-addSupplier.php?>" >Add Supplier</a></button>
+                <button class="btn1" id="manageSupplierBtn" onclick="manageSupplier()" >Manage Supplier</button>
+                <button class="btn1" id="cancelBtn" style="display: none;" onclick="cancelSupplier()"  >Cancel Manage</button>
             </div>
 
             <div id="viewMode" class="table-container" >
-                <h2>Inventory</h2>
+                <h2>Suppliers</h2>
                 <div class="inner-table-container" style="height: 85vh; overflow:auto; "> 
                 <table class="table" >
                     <thead>
                         <tr>
-                            <th>Product ID</th>
-                            <th>Product Name</th>
-                            <th>Colour</th>
-                            <th>Size</th>
-                            <th>Type</th>
-                            <th>Inventory</th>
+                            <th>Supplier ID</th>
+                            <th>Supplier Name</th>
+                            <th>Company Name</th>
+                            <th>Category</th>
+                            <th>Email</th>
+                            <th>Phone_number</th>
+                            <th>Supply</th>
                         </tr>
                     </thead>
                     <tbody>
                     <?php while($row = $result->fetch_assoc()): ?>
                         <tr>
-                            <td><?php echo $row["Product_ID"]; ?></td>
-                            <td><?php echo $row["Name"]; ?></td>
-                            <td><?php echo $row["Colour"]; ?></td>
-                            <td><?php echo $row["Size"]; ?></td>
-                            <td><?php echo $row["Type"]; ?></td>
-                            <td><?php echo $row["Quantity"]; ?></td>
+                            <td><?php echo $row["Supplier_ID"]; ?></td>
+                            <td><?php echo $row["Supplier_name"]; ?></td>
+                            <td><?php echo $row["Company_name"]; ?></td>
+                            <td><?php echo $row["Category"]; ?></td>
+                            <td><?php echo $row["Email"]; ?></td>
+                            <td><?php echo $row["Phone_number"]; ?></td>
+                            <td><?php echo $row["Supply"]; ?></td>
                         </tr>
                         <?php endwhile; ?>
                     </tbody>
@@ -120,18 +122,19 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
 
             <!-- Manage inventory -->
             <div id="editMode" style="display: none;" class="table-container">
-                <h2>Manage Inventory</h2>
+                <h2>Manage Suppliers</h2>
                 <div class="inner-table-container" style="height: 85vh; overflow:auto; ">
                 <form action="" method="POST">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Product ID</th>
-                            <th>Product Name</th>
-                            <th>Colour</th>
-                            <th>Size</th>
-                            <th>Type</th>
-                            <th>Inventory</th>
+                            <th>Supplier ID</th>
+                            <th>Supplier Name</th>
+                            <th>Company Name</th>
+                            <th>Category</th>
+                            <th>Email</th>
+                            <th>Phone_number</th>
+                            <th>Supply</th>
                             <th>Manage</th> <!--  new column will appear to manage inventory -->
                         </tr>
                     </thead>
@@ -141,15 +144,16 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                     $result->data_seek(0); // Reset the result pointer to reuse the data for the duplicated table
                     while($row = $result->fetch_assoc()): ?>
                         <tr>
-                            <td><?php echo $row["Product_ID"]; ?></td>
-                            <td><?php echo $row["Name"]; ?></td>
-                            <td><?php echo $row["Colour"]; ?></td>
-                            <td><?php echo $row["Size"]; ?></td>
-                            <td><?php echo $row["Type"]; ?></td>
-                            <td><?php echo $row["Quantity"]; ?></td>
+                            <td><?php echo $row["Supplier_ID"]; ?></td>
+                            <td><?php echo $row["Supplier_name"]; ?></td>
+                            <td><?php echo $row["Company_name"]; ?></td>
+                            <td><?php echo $row["Category"]; ?></td>
+                            <td><?php echo $row["Email"]; ?></td>
+                            <td><?php echo $row["Phone_number"]; ?></td>
+                            <td><?php echo $row["Supply"]; ?></td>
                             <td>
-                                <button style="background-color: #0B2F9F; border-radius: 5px; border: none; padding: 5px;"><a href="updateInventory.php?updateid=<?php echo $row['Product_ID']; ?>" style="text-decoration: none; color: white;">Update</a></button>
-                                <button style="background-color: #B8001F; border-radius: 5px; border: none; padding: 5px;"><a href="deleteInventory.php?deleteid=<?php echo $row['Product_ID']; ?>" style="text-decoration: none; color: white;">Delete</a></button>
+                                <button style="background-color: #0B2F9F; border-radius: 5px; border: none; padding: 5px;"><a href="inventory-updateSupplier.php?updateid=<?php echo $row['Supplier_ID']; ?>" style="text-decoration: none; color: white;">Update</a></button>
+                                <button style="background-color: #B8001F; border-radius: 5px; border: none; padding: 5px;"><a href="inventory-deleteSupplier.php?deleteid=<?php echo $row['Supplier_ID']; ?>" style="text-decoration: none; color: white;">Delete</a></button>
                             </td>
                         </tr>
                     <?php endwhile; ?>
@@ -220,9 +224,9 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
     <script>
     
     // JavaScript to toggle between view and manage mode
-    function manageInventory() {
-        document.getElementById('addInventoryBtn').style.display = 'none'; 
-        document.getElementById('manageInventoryBtn').style.display = 'none'; 
+    function manageSupplier() {
+        document.getElementById('addSupplierBtn').style.display = 'none'; 
+        document.getElementById('manageSupplierBtn').style.display = 'none'; 
         document.getElementById('cancelBtn').style.display = 'block'; 
 
         document.getElementById('viewMode').style.display = 'none';
@@ -230,9 +234,9 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
         
     }
 
-    function cancelInventory() {
-        document.getElementById('addInventoryBtn').style.display = 'inline-block'; 
-        document.getElementById('manageInventoryBtn').style.display = 'inline-block'; 
+    function cancelSupplier() {
+        document.getElementById('addSupplierBtn').style.display = 'inline-block'; 
+        document.getElementById('manageSupplierBtn').style.display = 'inline-block'; 
         document.getElementById('cancelBtn').style.display = 'none'; 
 
         document.getElementById('editMode').style.display = 'none';
