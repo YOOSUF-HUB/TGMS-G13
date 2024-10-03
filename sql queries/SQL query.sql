@@ -31,6 +31,55 @@ CREATE TABLE Orders (
     Status varchar(255) NOT NULL,
     Total_amount varchar(255) NOT NULL,
 )
+CREATE Table Orders(
+    Order_ID varchar(255) NOT NULL PRIMARY KEY,
+    Customer_ID varchar(255) NOT NULL,
+    Product_ID varchar(255) NOT NULL,
+    Order_Date DATE NOT NULL,
+    Delivery_Date DATE,
+    Order_type varchar(255) NOT NULL,
+    Status ENUM('In-Progress', 'Out for delivery', 'Delivered', 'Cancelled') NOT NULL,
+    Total_amount varchar(255) NOT NULL,
+
+	CONSTRAINT Orders_FK FOREIGN KEY (Customer_ID) REFERENCES Customer_account(Customer_ID),
+    CONSTRAINT Orders_FK2 FOREIGN KEY (Product_ID) REFERENCES Inventory(Product_ID)
+);
+
+CREATE TABLE Payments (
+    Payment_ID varchar(255) NOT NULL PRIMARY KEY,
+    Order_ID varchar(255) NOT NULL,
+    Customer_ID varchar(255) NOT NULL,
+    Payment_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    Payment_amount DECIMAL(10, 2) NOT NULL,
+    Payment_method ENUM('Credit Card', 'Debit Card', 'Bank Transfer', 'Mobile Payment') NOT NULL,
+    Transaction_id VARCHAR(100) UNIQUE,
+
+    CONSTRAINT Payments_FK1 FOREIGN KEY (Order_ID) REFERENCES Orders(Order_ID),
+    CONSTRAINT Payments_FK2 FOREIGN KEY (Customer_ID) REFERENCES Customer_account(Customer_ID)
+);
+CREATE TABLE Payments (
+    Payment_ID varchar(255) NOT NULL PRIMARY KEY,
+    Payment_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    Payment_amount DECIMAL(10, 2) NOT NULL,
+    Payment_method varchar(255) NOT NULL,
+    Transaction_id VARCHAR(100) UNIQUE
+);
+
+CREATE Table Orders(
+    Order_ID varchar(255) NOT NULL PRIMARY KEY,
+    Customer_ID varchar(255) NOT NULL,
+    Product_ID varchar(255) NOT NULL,
+    Payment_ID varchar(255) NOT NULL,
+    Order_Date DATE NOT NULL,
+    Delivery_Date DATE,
+    Order_type varchar(255) NOT NULL,
+    Status varchar(255) NOT NULL,
+
+	CONSTRAINT Orders_FK FOREIGN KEY (Customer_ID) REFERENCES Customer_account(Customer_ID),
+    CONSTRAINT Orders_FK2 FOREIGN KEY (Product_ID) REFERENCES Inventory(Product_ID),
+    CONSTRAINT Orders_FK3 FOREIGN KEY (Payment_ID) REFERENCES Payments(Payment_ID)
+);
+
 
 
 -- Consultation Table
