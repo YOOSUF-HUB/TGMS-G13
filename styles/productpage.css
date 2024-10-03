@@ -441,13 +441,13 @@ main{
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for a raised look */
     font-size: 20px; /* Button text size */
     margin-left: 40px;
+    text-decoration: none;
 }
 
+
 /* Hover effect for the "Buy Now" button */
-.add:hover {
+.add-btn:hover {
     opacity: 0.8; /* Reduce opacity slightly on hover */
-    background-color: #ffffff;
-    color: #ff5e00;
     transform: scale(1.05);
 }
 

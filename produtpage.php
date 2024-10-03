@@ -25,7 +25,7 @@ if ($price_result->num_rows > 0) {
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Textile and Garment Management System</title>
+        <title>Product Page</title>
         <link rel="stylesheet" href="styles/productpage.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- social media icons -->
     
@@ -129,7 +129,7 @@ if ($price_result->num_rows > 0) {
                             <b style="font-size: 20px;">Size Range: </b> S, M, L (custom sizes may also be available).<br><br>
                             <b style="font-size: 20px;">Care Instructions: </b>Machine wash, tumble dry or air dry, based on fabric type.
                             <div style="margin-top: 30px;">
-                                <a href="Product-Hoodie.php"> <button class="price"><?php echo $hoodie_price; ?></button> </a>
+                                <button class="price"><a href="Product-Hoodie.php" style="text-decoration: none; color:white;"><?php echo $hoodie_price; ?>.00</a></button>
                                 <button class="add">Buy Now</button>
                             </div>
 
@@ -156,8 +156,9 @@ if ($price_result->num_rows > 0) {
                             <b style="font-size: 20px;">Size Range: </b> S, M, L (custom sizes may also be available).<br><br>
                             <b style="font-size: 20px;">Care Instructions: </b>Machine wash cold, tumble dry low or air dry. Avoid bleach or ironing on print.
                             <div style="margin-top: 30px;">
-                            <a href="Product_Hoodie.php"></a><button class="price"><?php echo $hoodie_price; ?></button>
-                                <button class="add">Buy Now</button>
+                            <button class="price"><a href="Product_Tshirt.php" style="text-decoration: none; color:white;"><?php echo $tshirt_price; ?>.00</a></button>
+                            <button class="add"><a class="add-btn" style="text-decoration: none;" href="Product_Tshirt.php">Buy Now</a></button>
+                                
                             </div>
                         </fieldset>
                     </form>
@@ -189,7 +190,7 @@ if ($price_result->num_rows > 0) {
                             <b style="font-size: 20px;">Size Range: </b>S, M, L (custom sizes may also be available).<br><br>
                             <b style="font-size: 20px;">Care Instructions: </b>Machine wash cold, tumble dry low or air dry. Avoid bleach or ironing.
                             <div style="margin-top: 30px;">
-                            <a href="Product_Hoodie.php"></a><button class="price"><?php echo $hoodie_price; ?></button>
+                            <button class="price"><a href="Product-Joggers.php" style="text-decoration: none; color:white;"><?php echo $jogger_price; ?>.00</a></button>
                                 <button class="add">Buy Now</button>
                             </div>
                         </fieldset>
@@ -211,7 +212,7 @@ if ($price_result->num_rows > 0) {
                             <b style="font-size: 20px;">Size Range: </b> S, M, L (custom sizes may also be available).<br><br>
                             <b style="font-size: 20px;">Care Instructions: Machine washable, tumble dry low or hang dry, avoid fabric softeners to maintain moisture-wicking properties.</b>
                             <div style="margin-top: 30px;">
-                            <a href="Product_Hoodie.php"></a><button class="price"><?php echo $hoodie_price; ?></button>
+                            <button class="price"><a href="Product-TankTop.php" style="text-decoration: none; color:white;"><?php echo $tanktop_price; ?>.00</a></button>
                                 <button class="add">Buy Now</button>
                             </div>
                         </fieldset>
