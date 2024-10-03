@@ -83,13 +83,13 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
 
         <section class="content" >
             <div style="float:right;">
-                <button class="btn1" id="addInventoryBtn"><a href="inventory-addSupplier.php?>" >Add Supplier</a></button>
-                <button class="btn1" id="manageInventoryBtn" onclick="manageInventory()" >Manage Supplier</button>
-                <button class="btn1" id="cancelBtn" style="display: none;" onclick="cancelInventory()"  >Cancel Manage</button>
+                <button class="btn1" id="addSupplierBtn"><a href="inventory-addSupplier.php?>" >Add Supplier</a></button>
+                <button class="btn1" id="manageSupplierBtn" onclick="manageSupplier()" >Manage Supplier</button>
+                <button class="btn1" id="cancelBtn" style="display: none;" onclick="cancelSupplier()"  >Cancel Manage</button>
             </div>
 
             <div id="viewMode" class="table-container" >
-                <h2>Inventory</h2>
+                <h2>Suppliers</h2>
                 <div class="inner-table-container" style="height: 85vh; overflow:auto; "> 
                 <table class="table" >
                     <thead>
@@ -122,7 +122,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
 
             <!-- Manage inventory -->
             <div id="editMode" style="display: none;" class="table-container">
-                <h2>Manage Inventory</h2>
+                <h2>Manage Suppliers</h2>
                 <div class="inner-table-container" style="height: 85vh; overflow:auto; ">
                 <form action="" method="POST">
                 <table class="table">
@@ -224,9 +224,9 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
     <script>
     
     // JavaScript to toggle between view and manage mode
-    function manageInventory() {
-        document.getElementById('addInventoryBtn').style.display = 'none'; 
-        document.getElementById('manageInventoryBtn').style.display = 'none'; 
+    function manageSupplier() {
+        document.getElementById('addSupplierBtn').style.display = 'none'; 
+        document.getElementById('manageSupplierBtn').style.display = 'none'; 
         document.getElementById('cancelBtn').style.display = 'block'; 
 
         document.getElementById('viewMode').style.display = 'none';
@@ -234,9 +234,9 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
         
     }
 
-    function cancelInventory() {
-        document.getElementById('addInventoryBtn').style.display = 'inline-block'; 
-        document.getElementById('manageInventoryBtn').style.display = 'inline-block'; 
+    function cancelSupplier() {
+        document.getElementById('addSupplierBtn').style.display = 'inline-block'; 
+        document.getElementById('manageSupplierBtn').style.display = 'inline-block'; 
         document.getElementById('cancelBtn').style.display = 'none'; 
 
         document.getElementById('editMode').style.display = 'none';

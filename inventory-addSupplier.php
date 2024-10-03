@@ -18,13 +18,26 @@ include('php/config.php');
 // Check if the form is submitted
 if (isset($_POST['submit'])) {
     // Collect form data
-    $supplierID = $_POST['supplierID'];
+    //$supplierID = $_POST['supplierID'];
     $supplierName = $_POST['supplierName'];
     $companyName = $_POST['companyName'];
     $category = $_POST['category'];
     $email = $_POST['email'];
     $phoneNumber = $_POST['phoneNumber'];
     $supply = $_POST['supply'];
+
+    
+    $findMax = mysqli_query($conn, "SELECT MAX(Supplier_ID) AS max_id FROM Supplier");
+    $row = mysqli_fetch_assoc($findMax);
+
+    // Assigning new supplierID
+    if ($row['max_id']) {
+        $last_id = $row['max_id'];
+        $num = intval(substr($last_id, 1)) + 1;  
+        $supplierID = 'S' . str_pad($num, 3, '0', STR_PAD_LEFT); 
+    } else {
+        $supplierID = 'S001'; 
+    }
 
     // insert query
     $newsupplier = "INSERT INTO `Supplier`(`Supplier_ID`, `Supplier_name`, `Company_name`, `Category`, `Email`, `Phone_number`, `Supply`)  
@@ -144,10 +157,10 @@ if (isset($_POST['submit'])) {
     <div>
         <h2>Add Supplier</h2>
     </div>
-    <div class="field input">
+    <!-- <div class="field input">
         <label for="supplierID">Supplier ID:</label>
         <input type="text" name="supplierID" placeholder="Supplier ID"  required>
-    </div>
+    </div> -->
     <div class="field input">
         <label for="supplierName">Supplier Name:</label>
         <input type="text" name="supplierName" placeholder="Supplier Name" required>
@@ -170,7 +183,7 @@ if (isset($_POST['submit'])) {
 
     <div class="field input">
         <label for="phoneNumber">Phone Number:</label>
-        <input type="number" name="phoneNumber" placeholder="Phone Number" required>
+        <input type="text" name="phoneNumber" placeholder="Phone Number" required>
     </div>
 
     <div class="field input">

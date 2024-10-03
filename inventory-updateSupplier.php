@@ -13,37 +13,39 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
 include('php/config.php');
 
 // Get the customer ID from the URL
-$Product_ID = $_GET['updateid'];
+$supplierID = $_GET['updateid'];
 
 // Check if the form is submitted
 if (isset($_POST['save'])) {
     // Collect form data
-    $productName = $_POST['productName'];
-    $productColour = $_POST['productColour'];
-    $productSize = $_POST['productSize'];
-    $productType = $_POST['productType'];
-    $productQuantity = $_POST['productQuantity'];
+    $supplierName = $_POST['supplierName'];
+    $companyName = $_POST['companyName'];
+    $category = $_POST['category'];
+    $email = $_POST['email'];
+    $phoneNumber = $_POST['phoneNumber'];
+    $supply = $_POST['supply'];
 
     // Prepare the SQL update query
-    $updateQuery = "UPDATE Inventory 
-            SET `Name` = '$productName', 
-                `Colour` = '$productColour', 
-                `Size` = '$productSize', 
-                `Type` = '$productType', 
-                `Quantity` = '$productQuantity'
-        WHERE `Product_ID` = '$Product_ID'";
+    $updateQuery = "UPDATE Supplier 
+            SET `Supplier_name` = '$supplierName', 
+                `Company_name` = '$companyName', 
+                `Category` = '$category', 
+                `Email` = '$email', 
+                `Phone_number` = '$phoneNumber',
+                `Supply` = '$supply'
+        WHERE `Supplier_ID` = '$supplierID'";
 
 
 
     // Execute the query and check if successful
     if (mysqli_query($conn, $updateQuery)) {
-        header("Location: inventoryPage.php"); 
+        header("Location: inventory-Supplier.php"); 
         exit();
     } else {
         echo "<p style='color: red; text-align: center;'>Failed to Update: " . mysqli_error($conn) . "</p>";
     }
 } else {
-    $sql = "SELECT * FROM Inventory WHERE Product_ID = '$Product_ID'";
+    $sql = "SELECT * FROM Supplier WHERE Supplier_ID = '$supplierID'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
 }
@@ -150,33 +152,37 @@ if (isset($_POST['save'])) {
 
     <form action="" method="post">
     <div>
-        <h2>Product ID: <?php echo $Product_ID; ?></h2>
+        <h2>Supplier ID: <?php echo $supplierID; ?></h2>
     </div>
     <div class="field input">
-        <label for="productName">Name:</label>
-        <input type="text" name="productName" placeholder="Product Name" value="<?php echo $row["Name"]; ?>" required>
+        <label for="supplierName">Supplier Name:</label>
+        <input type="text" name="supplierName" placeholder="Supplier Name" value="<?php echo $row["Supplier_name"]; ?>" required>
     </div>
 
     <div class="field input">
-        <label for="productColour">Colour:</label>
-        <input type="text" name="productColour" placeholder="Product Colour" value="<?php echo $row["Colour"]; ?>" required>
+        <label for="companyName">Colour:</label>
+        <input type="text" name="companyName" placeholder="Company Name" value="<?php echo $row["Company_name"]; ?>" required>
     </div>
 
     <div class="field input">
-        <label for="productSize">Size:</label>
-        <input type="text" name="productSize" placeholder="Product Size" value="<?php echo $row["Size"]; ?>" required>
+        <label for="category">Category:</label>
+        <input type="text" name="category" placeholder="Category" value="<?php echo $row["Category"]; ?>" required>
     </div>
 
     <div class="field input">
-        <label for="productType">Type:</label>
-        <input type="text" name="productType"  placeholder="Product Type" value="<?php echo $row["Type"]; ?>">
+        <label for="email">Email:</label>
+        <input type="text" name="email"  placeholder="Email" value="<?php echo $row["Email"]; ?>">
     </div>
 
     <div class="field input">
-        <label for="productQuantity">Quantity:</label>
-        <input type="text" name="productQuantity" placeholder="Product Quantity" value="<?php echo $row["Quantity"]; ?>">
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="text" name="phoneNumber" placeholder="Phone Number" value="<?php echo $row["Phone_number"]; ?>">
     </div>
 
+    <div class="field input">
+        <label for="supply">Supply:</label>
+        <input type="text" name="supply" placeholder="Supply" value="<?php echo $row["Supply"]; ?>">
+    </div>
 
     <div class="field">
         <input class="btn" type="submit" name="save" value="Update">
