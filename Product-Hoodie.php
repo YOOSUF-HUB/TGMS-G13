@@ -117,7 +117,7 @@
                 <div class="product-options">
                     <label for="colour"><b>Colour</b></label>
                     <select id="colour">
-                        <option selected>Select color</option>
+                        <option disabled selected>Select color</option>
                         <option value="yellow">Yellow</option>
                         <option value="black">Black</option>
                         <option value="red">Red</option>

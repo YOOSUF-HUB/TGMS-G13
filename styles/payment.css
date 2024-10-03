@@ -1,0 +1,71 @@
+h1{
+    text-align: center;
+}
+
+p{
+    font-size: 18px;
+    font-family: arial, sans-serif;
+}
+
+.card_details{
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 600px;
+    height: 500px;
+    padding: 10px 20px 10px 30px;
+    background-color: white;
+}
+
+.name input{
+    height: 30px;
+    width: 200px;
+    font-family: arial, sans-serif;
+    font-size: 18px;
+}
+
+.number input{
+    height: 30px;
+    width: 200px;
+    font-family: arial, sans-serif;
+    font-size: 18px;
+}
+
+.date input{
+    height: 30px;
+    width: 200px;
+    font-family: arial, sans-serif;
+    font-size: 18px;
+}
+
+.cvv input{
+    height: 30px;
+    width: 200px;
+    font-family: arial, sans-serif;
+    font-size: 18px;
+}
+
+button{
+    height: 40px;
+    width: 100px;
+    margin-top: 20px;
+    font-size: 18px;
+    font-family: arial, sans-serif;
+    color: white;
+    padding: 2px;
+    background-color: rgba(255, 0, 0, 0.651);
+    border: rgba(255, 0, 0, 0.671);
+}
+
+.order_details{
+    border: 1px solid black;
+    height: 200px;
+    width: 400px;
+    padding: 20px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px;
+}

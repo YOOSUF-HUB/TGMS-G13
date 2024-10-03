@@ -147,7 +147,7 @@
                     
                     <div>
                         <label for="price"> Price (per unit):</label>
-                        <input style="width: 300px;height: 45px;text-align: center;font-size: 1.2em;border: 2px solid #ff5e00;border-radius: 10px;" id="price" value="<?php echo $hoodie_price; ?>" aria-label="price" readonly>
+                        <input style="width: 300px;height: 45px;text-align: center;font-size: 1.2em;border: 2px solid #ff5e00;border-radius: 10px;" id="price" value="<?php echo $tshirt_price; ?>" aria-label="price" readonly>
                     </div>
                     
                     <label for="final-price"> Final Price:</label>
