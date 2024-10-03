@@ -67,13 +67,6 @@
             <!-- Profile Image Icon; clicking on this toggles the dropdown -->
             <img src="images/profile-google.svg" alt="Profile Icon" class="profile-icon" onclick="toggleDropdown()">
             
-            <!-- Dropdown Menu content; links for Login, Logout, and My Orders -->
-            <div id="myDropdown" class="dropdown-content">
-                <a href="#">Profile</a>
-                <a href="#">Login</a>
-                <a href="#">My Orders</a>
-                <a href="#">Logout</a>
-            </div>
         </div>
 
 
@@ -82,37 +75,38 @@
 
 
     <main>
-        <h1>Payment</h1>
+        <h1 style="font-family: Questrial, sans-serif;">Payment</h1>
 
         <div class="container">
         
-        <div class="card_details">
-            <h2>Card Details</h2>
-
-            <div class="name">
-                <p>Card holder's name:</p>
-                <input type="text"  name="name"  placeholder="Name on card" >
-            </div>  
-
-            <div class="number">
-                <p>Card Number:</p>
-                <input type="number"  name="card_number"  placeholder="Card Number">
-            </div>  
-
-            <div class="date">
-                <p>Expiry Date:</p>
-                <input type="date"  name="exp_date">
-            </div>  
-
-            <div class="cvv">
-                <p>CVV:</p>
-                <input type="number"  name="CVV"  placeholder="Code">
-            </div>  
-
-            <div class="button1">
-                <button>Pay now</button>
-            </div>
-        </div>
+            <form class="card_details-container" action="/your-payment-endpoint" method="POST">
+                <h2>Card Details</h2>
+            
+                <div class="card_details">
+                    <label for="crd_name">Card holder's name:</label><br><br>
+                    <input id="crd_name" type="text" name="name" placeholder="Name on card" required>
+                </div>
+            
+                <div class="card_details">
+                    <label for="crd_num">Card Number:</label><br><br>
+                    <input id="crd_num" type="text" name="card_number" placeholder="Card Number" required pattern="\d{16}" title="Please enter a valid 16-digit card number">
+                </div>
+            
+                <div class="card_details">
+                    <label for="exp_date">Expiry Date:</label><br><br>
+                    <input id="exp_date" type="month" name="exp_date" required>
+                </div>
+            
+                <div class="card_details">
+                    <label for="cvv">CVV:</label><br><br>
+                    <input id="cvv" type="text" name="CVV" placeholder="Code" required pattern="\d{3}" title="Please enter a valid 3-digit CVV">
+                </div>
+            
+                <div class="button1">
+                    <button type="submit">Pay now</button>
+                </div>
+            </form>
+            
 
         <div class="order_details">
             <h2>Order summary</h2>
@@ -172,22 +166,7 @@
     <script src="index.js"></script>
     <script>
 
-function calculateOrder() {
 
-let subtotal = 60000;  
-let shipping = 5000;   
-
-
-let total = subtotal + shipping;
-
-
-document.getElementById('subtotal').innerText = subtotal.toLocaleString(); 
-document.getElementById('shipping').innerText = shipping.toLocaleString(); 
-document.getElementById('total').innerText = total.toLocaleString();       
-}
-
-
-window.onload = calculateOrder; 
 
 
 </script>

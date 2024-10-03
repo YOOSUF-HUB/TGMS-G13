@@ -4,56 +4,45 @@ h1{
 
 p{
     font-size: 18px;
-    font-family: arial, sans-serif;
 }
 
-.card_details{
+.card_details-container{
+    font-family: Questrial, sans-serif;
     border: 1px solid black;
     border-radius: 10px;
-    width: 600px;
-    height: 500px;
+    width: 60%;
+    height: 800px;
     padding: 10px 20px 10px 30px;
     background-color: white;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    border: none;
+}
+.card_details{
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
-.name input{
-    height: 30px;
-    width: 200px;
-    font-family: arial, sans-serif;
+.card_details input{
+    height: 50px;
+    width: 300px;
+    font-family: Questrail, sans-serif;
     font-size: 18px;
+    border-radius: 5px;
+    border-color: black;
 }
 
-.number input{
-    height: 30px;
-    width: 200px;
-    font-family: arial, sans-serif;
-    font-size: 18px;
-}
-
-.date input{
-    height: 30px;
-    width: 200px;
-    font-family: arial, sans-serif;
-    font-size: 18px;
-}
-
-.cvv input{
-    height: 30px;
-    width: 200px;
-    font-family: arial, sans-serif;
-    font-size: 18px;
-}
 
 button{
-    height: 40px;
-    width: 100px;
+    height: 50px;
+    width: 200px;
     margin-top: 20px;
     font-size: 18px;
     font-family: arial, sans-serif;
     color: white;
     padding: 2px;
-    background-color: rgba(255, 0, 0, 0.651);
-    border: rgba(255, 0, 0, 0.671);
+    background-color: red;
+    border: none;
+    border-radius: 10px;
 }
 
 .order_details{
@@ -61,6 +50,13 @@ button{
     height: 200px;
     width: 400px;
     padding: 20px;
+    font-family: Questrial, sans-serif;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px 20px 10px 30px;
+    background-color: white;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    border: none;
 }
 
 .container{
