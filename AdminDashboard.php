@@ -85,6 +85,8 @@ if($_SESSION['staff_role']!=='Admin'){ //condition make sure admin user redirect
             </ul>
         </section>
 
+        <section class="content"></section>
+
         <div style="width:100%;">
 
             <div id="overviewContainer">

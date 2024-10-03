@@ -64,19 +64,24 @@ if($_SESSION['staff_role']!=='Admin'){ //condition make sure admin user redirect
             </ul>
         </section>
 
+        <section class="content">
         <div>
-            <!-- Customer Accounts Section -->
+                            <!-- Customer Accounts Section -->
             <h1 style="text-align:left; margin-left:25px;">Customer Accounts</h1>
             <div style="float:right; margin-bottom: 10px;">
-                <button class="btn1" id="addInventoryBtn"><a href="create_staff_account.php?>" >Add Customer Account</a></button>
                 <button class="btn1" id="manageInventoryBtn" onclick="manageInventory()" >Manage Customer Account</button>
                 <button class="btn1" id="cancelBtn" style="display: none;" onclick="cancelInventory()"  >Cancel Manage</button>
+
             </div>
 
+
+
+
             <div id="viewMode" class="table-container">
+                <div >
 
                     <?php if ($customer_result->num_rows > 0): ?>
-                        <table class="customer_table" style="justify-content:center;height: 10vh; overflow:auto; ">
+                        <table class="customer_table" style="justify-content:center; ">
                             <thead>
                                 <tr>
                                     <th>Customer ID</th>
@@ -110,6 +115,7 @@ if($_SESSION['staff_role']!=='Admin'){ //condition make sure admin user redirect
                         <p>No customer records found.</p>
                     <?php endif; ?>
 
+                </div>
 
             </div>
 
@@ -127,7 +133,7 @@ if($_SESSION['staff_role']!=='Admin'){ //condition make sure admin user redirect
             $customer_result = $conn->query($customer_sql);
             ?>
 
-            <table class="customer_table" style="justify-content:center;height: 10vh; overflow:auto; ">
+            <table class="customer_table" style="justify-content:center;">
                     <thead>
                         <tr>
                             <th>Customer ID</th>
@@ -167,6 +173,10 @@ if($_SESSION['staff_role']!=='Admin'){ //condition make sure admin user redirect
 
             <?php $conn->close(); // Close the connection ?>
         </div>
+
+        </section>
+
+
     </main>
 
     <script src="Index.js"></script>
@@ -174,7 +184,6 @@ if($_SESSION['staff_role']!=='Admin'){ //condition make sure admin user redirect
     
     // JavaScript to toggle between view and manage mode
     function manageInventory() {
-        document.getElementById('addInventoryBtn').style.display = 'none'; 
         document.getElementById('manageInventoryBtn').style.display = 'none'; 
         document.getElementById('cancelBtn').style.display = 'block'; 
 
@@ -184,7 +193,6 @@ if($_SESSION['staff_role']!=='Admin'){ //condition make sure admin user redirect
     }
 
     function cancelInventory() {
-        document.getElementById('addInventoryBtn').style.display = 'inline-block'; 
         document.getElementById('manageInventoryBtn').style.display = 'inline-block'; 
         document.getElementById('cancelBtn').style.display = 'none'; 
 
