@@ -83,7 +83,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
 
         <section class="content" >
             <div style="float:right;">
-                <button class="btn1" id="addInventoryBtn"><a href="addInventory.php?>" >Add Inventory</a></button>
+                <button class="btn1" id="addInventoryBtn"><a href="inventory-addSupplier.php?>" >Add Inventory</a></button>
                 <button class="btn1" id="manageInventoryBtn" onclick="manageInventory()" >Manage Inventory</button>
                 <button class="btn1" id="cancelBtn" style="display: none;" onclick="cancelInventory()"  >Cancel Manage</button>
             </div>
@@ -94,12 +94,13 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                 <table class="table" >
                     <thead>
                         <tr>
-                            <th>Product ID</th>
-                            <th>Product Name</th>
-                            <th>Colour</th>
-                            <th>Size</th>
-                            <th>Type</th>
-                            <th>Inventory</th>
+                            <th>Supplier ID</th>
+                            <th>Supplier Name</th>
+                            <th>Company Name</th>
+                            <th>Category</th>
+                            <th>Email</th>
+                            <th>Phone_number</th>
+                            <th>Supply</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -127,12 +128,13 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Product ID</th>
-                            <th>Product Name</th>
-                            <th>Colour</th>
-                            <th>Size</th>
-                            <th>Type</th>
-                            <th>Inventory</th>
+                            <th>Supplier ID</th>
+                            <th>Supplier Name</th>
+                            <th>Company Name</th>
+                            <th>Category</th>
+                            <th>Email</th>
+                            <th>Phone_number</th>
+                            <th>Supply</th>
                             <th>Manage</th> <!--  new column will appear to manage inventory -->
                         </tr>
                     </thead>
