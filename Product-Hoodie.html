@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Detail</title>
+    <title>Product Detail - Hoodie</title>
     <link rel="stylesheet" href="styles/ProductDetails.css">
     <link rel="stylesheet" href="Index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- social media icons -->
@@ -132,8 +132,18 @@
     
                     <div class="quantity-selector">
                         <button id="decrease">-</button>
-                        <input  id="quantity" value="50" min="50" aria-label="Quantity">
+                        <input id="quantity" value="50" min="50" aria-label="Quantity">
                         <button id="increase">+</button><br><br>
+                    </div>
+                    
+                    <div class="quantity-selector">
+                        <label for="price"> Price (per unit):</label>
+                        <input id="price" value="1200.00" aria-label="price">
+                    </div>
+                    
+                    <div class="quantity-selector">
+                        <label for="final-price"> Final Price:</label>
+                        <span id="final-price" ></span>
                     </div>
     
                     <label><b style="font-family: Questrial, sans-serif;">A hoodie is a versatile and casual garment featuring a hood,
@@ -208,7 +218,7 @@
         // Decrease quantity function
         decreaseButton.addEventListener('click', function() {
             let currentValue = parseInt(quantityInput.value);
-            if (currentValue > 50) { // Ensure quantity doesn't go below 1
+            if (currentValue > 50) { // Ensure quantity doesn't go below 50
                 quantityInput.value = currentValue - 1;
             }
         });
@@ -218,6 +228,45 @@
             let currentValue = parseInt(quantityInput.value);
             quantityInput.value = currentValue + 1;
         });
+
+// Get references to the price input fields, and final price display span
+
+const priceInput = document.getElementById('price');
+const finalPriceSpan = document.getElementById('final-price');
+
+// Function to calculate and display the final price
+function calculateFinalPrice() {
+    // Multiply the quantity by the price and display the result, rounded to two decimal places
+    finalPriceSpan.textContent = (quantityInput.value * priceInput.value).toFixed(2);
+}
+
+// Event listener for the 'increase' button
+// When clicked, increment the quantity and recalculate the final price
+document.getElementById('increase').addEventListener('click', () => {
+    quantityInput.value++;  // Increase quantity by 1
+    calculateFinalPrice();  // Recalculate final price
+});
+
+// Event listener for the 'decrease' button
+// When clicked, decrement the quantity if it's greater than 50, and recalculate the final price
+document.getElementById('decrease').addEventListener('click', () => {
+    if (quantityInput.value > 50) quantityInput.value--;  // Decrease quantity by 1 only if it's greater than 50
+    calculateFinalPrice();  // Recalculate final price
+});
+
+// Event listener for changes to the price input field
+// When the price changes, recalculate the final price
+priceInput.addEventListener('input', calculateFinalPrice);
+
+// Event listener for changes to the quantity input field
+// When the quantity changes, recalculate the final price
+quantityInput.addEventListener('input', calculateFinalPrice);
+
+// Perform the initial calculation when the page loads
+calculateFinalPrice();
+
+
+
     </script>
     
 </body>
