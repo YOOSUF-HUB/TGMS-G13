@@ -123,6 +123,7 @@ if ($price_result->num_rows > 0) {
                 </div>
                 <div class="item2">
                     <form>
+                        <a href="Product-Hoodie.php" style="text-decoration: none; color: black;">
                         <fieldset>
                             <b class="product-title">HOODIES</b><br><br>
                             <b style="font-size: 20px;">Category: </b>Casualwear<br><br>
@@ -137,11 +138,14 @@ if ($price_result->num_rows > 0) {
                             <b style="font-size: 20px;">Size Range: </b> S, M, L (custom sizes may also be available).<br><br>
                             <b style="font-size: 20px;">Care Instructions: </b>Machine wash, tumble dry or air dry, based on fabric type.
                             <div style="margin-top: 30px;">
-                                <button class="price"><a href="Product-Hoodie.php" style="text-decoration: none; color:white;"><?php echo $hoodie_price; ?>.00</a></button>
+                                <button class="price">Rs.<?php echo $hoodie_price; ?>.00</button>
                                 <button class="add">Buy Now</button>
                             </div>
 
                         </fieldset>
+
+                        </a>
+
                     </form>
                 </div>
             </div>   
@@ -150,6 +154,7 @@ if ($price_result->num_rows > 0) {
             <div class="container">
                 <div class="item2">
                     <form>
+                        <a href="Product_Tshirt.php" style="text-decoration: none; color: black;">
                         <fieldset>
                             <b class="product-title">T-Shirt</b><br><br>
                             <b style="font-size: 20px;">Category: </b>Casualwear<br><br>
@@ -164,11 +169,13 @@ if ($price_result->num_rows > 0) {
                             <b style="font-size: 20px;">Size Range: </b> S, M, L (custom sizes may also be available).<br><br>
                             <b style="font-size: 20px;">Care Instructions: </b>Machine wash cold, tumble dry low or air dry. Avoid bleach or ironing on print.
                             <div style="margin-top: 30px;">
-                            <button class="price"><a href="Product_Tshirt.php" style="text-decoration: none; color:white;"><?php echo $tshirt_price; ?>.00</a></button>
-                            <button class="add"><a class="add-btn" style="text-decoration: none;" href="Product_Tshirt.php">Buy Now</a></button>
+                            <button class="price">Rs.<?php echo $tshirt_price; ?>.00</button>
+                            <button class="add">Buy Now</button>
                                 
                             </div>
                         </fieldset>
+
+                        </a>
                     </form>
                 </div>
                 <div class="item1">
@@ -183,25 +190,29 @@ if ($price_result->num_rows > 0) {
                 </div>
                 <div class="item2">
                     <form>
-                        <fieldset>
-                            <b class="product-title">JOGGERS</b><br><br>
-                            <b style="font-size: 20px;">Category: </b>Casualwear<br><br>
-                            <b style="font-size: 20px;">Style: </b>Elastic Waistband Trousers<br><br>
-                            <b style="font-size: 20px;">Fabric: </b>Cotton, Polyester, or a Blend (with weight typically between 180 to 300 GSM for breathability and comfort)<br><br>
-                            <b style="font-size: 20px;">Features: </b><br><br>
-                            <b>Waistband: </b> Elastic waistband with adjustable drawstring for a custom fit.<br>
-                            <b>Pockets:</b> Side pockets and back patch pocket for convenience.<br>
-                            <b>Fit:</b>Regular or slim fit for everyday comfort.<br>
-                            <b>Hem:</b> Elasticated or straight hem options available.<br>
-                            <b>Leg Style:</b>Tapered or straight leg for a modern look.<br>
-                            <b>Lining:</b> May be lined with fleece for warmth or without for a lightweight feel.<br><br>
-                            <b style="font-size: 20px;">Size Range: </b>S, M, L (custom sizes may also be available).<br><br>
-                            <b style="font-size: 20px;">Care Instructions: </b>Machine wash cold, tumble dry low or air dry. Avoid bleach or ironing.
-                            <div style="margin-top: 30px;">
-                            <button class="price"><a href="Product-Joggers.php" style="text-decoration: none; color:white;"><?php echo $jogger_price; ?>.00</a></button>
-                                <button class="add">Buy Now</button>
-                            </div>
-                        </fieldset>
+                        <a href="Product-Joggers.php" style="text-decoration: none; color: black;">
+                            <fieldset>
+                                <b class="product-title">JOGGERS</b><br><br>
+                                <b style="font-size: 20px;">Category: </b>Casualwear<br><br>
+                                <b style="font-size: 20px;">Style: </b>Elastic Waistband Trousers<br><br>
+                                <b style="font-size: 20px;">Fabric: </b>Cotton, Polyester, or a Blend (with weight typically between 180 to 300 GSM for breathability and comfort)<br><br>
+                                <b style="font-size: 20px;">Features: </b><br><br>
+                                <b>Waistband: </b> Elastic waistband with adjustable drawstring for a custom fit.<br>
+                                <b>Pockets:</b> Side pockets and back patch pocket for convenience.<br>
+                                <b>Fit:</b>Regular or slim fit for everyday comfort.<br>
+                                <b>Hem:</b> Elasticated or straight hem options available.<br>
+                                <b>Leg Style:</b>Tapered or straight leg for a modern look.<br>
+                                <b>Lining:</b> May be lined with fleece for warmth or without for a lightweight feel.<br><br>
+                                <b style="font-size: 20px;">Size Range: </b>S, M, L (custom sizes may also be available).<br><br>
+                                <b style="font-size: 20px;">Care Instructions: </b>Machine wash cold, tumble dry low or air dry. Avoid bleach or ironing.
+                                <div style="margin-top: 30px;">
+                                <button class="price">Rs.<?php echo $jogger_price; ?>.00</button>
+                                    <button class="add">Buy Now</button>
+                                </div>
+                            </fieldset>
+
+                        </a>
+
                     </form>
                 </div>
             </div>   
@@ -210,6 +221,7 @@ if ($price_result->num_rows > 0) {
             <div class="container">
                 <div class="item2">
                     <form>
+                        <a href="Product-TankTop.php" style="text-decoration: none; color: black;">
                         <fieldset>
                             <b class="product-title">TANK TOP</b><br><br>
                             <b style="font-size: 20px;">Category: </b>Activewear, Sportswear<br><br>
@@ -220,10 +232,13 @@ if ($price_result->num_rows > 0) {
                             <b style="font-size: 20px;">Size Range: </b> S, M, L (custom sizes may also be available).<br><br>
                             <b style="font-size: 20px;">Care Instructions: Machine washable, tumble dry low or hang dry, avoid fabric softeners to maintain moisture-wicking properties.</b>
                             <div style="margin-top: 30px;">
-                            <button class="price"><a href="Product-TankTop.php" style="text-decoration: none; color:white;"><?php echo $tanktop_price; ?>.00</a></button>
+                            <button class="price">Rs.<?php echo $tanktop_price; ?>.00</button>
                                 <button class="add">Buy Now</button>
                             </div>
                         </fieldset>
+
+                        </a>
+
                     </form>
                 </div>
                 <div class="item1">
