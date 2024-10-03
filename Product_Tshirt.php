@@ -145,22 +145,25 @@
                         <button id="increase">+</button><br><br>
                     </div>
                     
-                    <div class="quantity-selector">
+                    <div>
                         <label for="price"> Price (per unit):</label>
-                        <input id="price" value="<?php echo $tshirt_price; ?>" aria-label="price" readonly>
+                        <input style="width: 300px;height: 45px;text-align: center;font-size: 1.2em;border: 2px solid #ff5e00;border-radius: 10px;" id="price" value="<?php echo $hoodie_price; ?>" aria-label="price" readonly>
                     </div>
                     
-                    <div class="quantity-selector">
-                        <label for="final-price"> Final Price:</label>
-                        <span id="final-price"></span>
+                    <label for="final-price"> Final Price:</label>
+                    <div style="width: 300px; height:45px;text-align: center;font-size: 1.2em;border: 2px solid #ff5e00;border-radius: 10px;">
+                        <span  id="final-price"></span>
                     </div>
     
-                    <label><b style="font-family: Questrial, sans-serif;">A hoodie is a versatile and casual garment featuring a hood,
+                    <label><b style="font-family: Questrial, sans-serif;">
+                        A hoodie is a versatile and casual garment featuring a hood,
                         long sleeves, and a front pocket. Typically made from soft, comfortable
                         fabrics such as cotton, polyester, or fleece, hoodies provide warmth. 
                         They come in various styles, including pullover and zip-up designs, and
                         are available in a wide range of colors, patterns, and sizes to suit 
-                        different preferences.</b></label>
+                        different preferences.
+                    
+                    </b></label>
                     
                     <!-- Buy and Add to Cart Buttons -->
                     <div class="action-buttons">

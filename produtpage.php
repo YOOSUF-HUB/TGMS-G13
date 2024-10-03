@@ -1,3 +1,24 @@
+<?php
+// Include the database connection file here
+include 'php/config.php';
+
+// SQL query to fetch all prices from the Price table
+$price_sql = "SELECT HOODIES, TSHIRT, JOGGERS, TANKTOP FROM Price";
+$price_result = $conn->query($price_sql);
+
+// Fetch prices and set default fallback
+$hoodie_price = $tshirt_price = $jogger_price = $tanktop_price = 0;
+
+if ($price_result->num_rows > 0) {
+    $row = $price_result->fetch_assoc();
+    $hoodie_price = $row['HOODIES'];
+    $tshirt_price = $row['TSHIRT'];
+    $jogger_price = $row['JOGGERS'];
+    $tanktop_price = $row['TANKTOP'];
+}
+?>
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -108,7 +129,7 @@
                             <b style="font-size: 20px;">Size Range: </b> S, M, L (custom sizes may also be available).<br><br>
                             <b style="font-size: 20px;">Care Instructions: </b>Machine wash, tumble dry or air dry, based on fabric type.
                             <div style="margin-top: 30px;">
-                                <button class="price">$$$</button>
+                                <a href="Product-Hoodie.php"> <button class="price"><?php echo $hoodie_price; ?></button> </a>
                                 <button class="add">Buy Now</button>
                             </div>
 
@@ -135,7 +156,7 @@
                             <b style="font-size: 20px;">Size Range: </b> S, M, L (custom sizes may also be available).<br><br>
                             <b style="font-size: 20px;">Care Instructions: </b>Machine wash cold, tumble dry low or air dry. Avoid bleach or ironing on print.
                             <div style="margin-top: 30px;">
-                                <button class="price">$$$</button>
+                            <a href="Product_Hoodie.php"></a><button class="price"><?php echo $hoodie_price; ?></button>
                                 <button class="add">Buy Now</button>
                             </div>
                         </fieldset>
@@ -168,7 +189,7 @@
                             <b style="font-size: 20px;">Size Range: </b>S, M, L (custom sizes may also be available).<br><br>
                             <b style="font-size: 20px;">Care Instructions: </b>Machine wash cold, tumble dry low or air dry. Avoid bleach or ironing.
                             <div style="margin-top: 30px;">
-                                <button class="price">$$$</button>
+                            <a href="Product_Hoodie.php"></a><button class="price"><?php echo $hoodie_price; ?></button>
                                 <button class="add">Buy Now</button>
                             </div>
                         </fieldset>
@@ -190,7 +211,7 @@
                             <b style="font-size: 20px;">Size Range: </b> S, M, L (custom sizes may also be available).<br><br>
                             <b style="font-size: 20px;">Care Instructions: Machine washable, tumble dry low or hang dry, avoid fabric softeners to maintain moisture-wicking properties.</b>
                             <div style="margin-top: 30px;">
-                                <button class="price">$$$</button>
+                            <a href="Product_Hoodie.php"></a><button class="price"><?php echo $hoodie_price; ?></button>
                                 <button class="add">Buy Now</button>
                             </div>
                         </fieldset>
