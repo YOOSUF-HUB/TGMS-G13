@@ -107,7 +107,7 @@ session_start();
         <div id="banner-text" >
             <h1>LOOKING FOR A CLOTHING MANUFACTURER?</h1>
             <p style="line-height: 2;">At Versori, we specialize in clothing design and manufacturing, having worked with a diverse range of brands from start-ups and SMEs to global fashion icons. With extensive expertise in the fashion industry, we provide comprehensive support including tech packs, pattern cutting, sampling, and clothing manufacture. Our deep understanding of the fashion brand lifecycle ensures that we can help you bring your vision to life with precision and excellence.</p>
-            <a href="#" id="banner-contact"><button class="banner-contact-button">Contact Us</button></a>
+            <a href="contact us page.php" id="banner-contact"><button class="banner-contact-button">Contact Us</button></a>
         </div>
 
     </div>

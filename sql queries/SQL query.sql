@@ -108,7 +108,27 @@ CREATE TABLE Consultation (
     Other VARCHAR(255)
 );
 
--- Inquiry Table
+
+CREATE TABLE Consultation (
+    Consultation_ID VARCHAR(255) NOT NULL PRIMARY KEY,
+    Consultation_Date VARCHAR(255) NOT NULL,
+    Full_name VARCHAR(255) NOT NULL,
+    Email VARCHAR(255) NOT NULL,
+    Phone_no VARCHAR(255) NOT NULL,
+    Company_name VARCHAR(255),
+    Company_website_URL VARCHAR(255),
+    Company_scale VARCHAR(255),
+    Brand_overview VARCHAR(255) NOT NULL,
+    Other VARCHAR(255),
+    Customer_ID VARCHAR(255),  -- Foreign key column
+    CONSTRAINT fk_consultation_customer
+        FOREIGN KEY (Customer_ID) REFERENCES Customer_account(Customer_ID)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+
+
 CREATE TABLE Inquiries (
     Inquiry_ID VARCHAR(50) NOT NULL PRIMARY KEY,
     Inquiry_Date DATETIME NOT NULL,
@@ -117,7 +137,10 @@ CREATE TABLE Inquiries (
     Email VARCHAR(255) NOT NULL,
     Phone_no VARCHAR(20) NOT NULL,
     Topic VARCHAR(255) NOT NULL,
-    Other VARCHAR(1000)
+    Other VARCHAR(1000),
+    Customer_ID VARCHAR(255),  -- Foreign key column
+    CONSTRAINT fk_customer FOREIGN KEY (Customer_ID) REFERENCES Customer_account(Customer_ID)
+
 );
 
 --sample user table for admin

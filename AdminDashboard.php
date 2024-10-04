@@ -101,7 +101,7 @@ if($_SESSION['staff_role']!=='Admin'){ //condition make sure admin user redirect
 
 
             <!-- Account Creation Chart -->
-            <div id="chartContainer" style="background-color: white; width:70vw; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); padding: 20px;">
+            <div id="chartContainer" style="background-color: white; width:70vw; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); padding: 20px;margin-left:7%;">
                <h1 style="text-align:center">Account Creation Overview</h1>
                 <canvas id="accountCreationChart" width="100" height="25" style="margin-right: 30px; margin-left: 30px;"></canvas>
             </div>

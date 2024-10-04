@@ -1,3 +1,7 @@
+<?php
+session_start();
+//echo $_SESSION['user_id'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,14 +69,23 @@
             <img src="images/profile-google.svg" alt="Profile Icon" class="profile-icon" onclick="toggleDropdown()">
             
             <!-- Dropdown Menu content; links for Login, Logout, and My Orders -->
-            <div id="myDropdown" class="dropdown-content">
-                <a href="#">Profile</a>
-                <a href="#">Login</a>
-                <a href="#">My Orders</a>
-                <a href="#">Logout</a>
-            </div>
-        </div>
+            <?php 
+            if (isset($_SESSION['user_id'])) {
+            ?>    
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="./myaccount.php">My Account</a>
+                    <a href="myorders.php">My Orders</a>
+                    <a href="./logout.php">Logout</a>
+                </div>
+            <?php }else{?>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="./login.php">Login</a>
+                    <a href="./register.php">Create Account</a>
+                </div>
 
+            <?php }?>
+            
+        </div>
 
     </header>
 

@@ -1,7 +1,3 @@
-<?php
-session_start();
-//echo $_SESSION['user_id'];
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,22 +59,12 @@ session_start();
             <img src="images/profile-google.svg" alt="Profile Icon" class="profile-icon" onclick="toggleDropdown()">
             
             <!-- Dropdown Menu content; links for Login, Logout, and My Orders -->
-            <?php 
-            if (isset($_SESSION['user_id'])) {
-            ?>    
-                <div id="myDropdown" class="dropdown-content">
-                    <a href="./myaccount.php">My Account</a>
-                    <a href="myorders.php">My Orders</a>
-                    <a href="./logout.php">Logout</a>
-                </div>
-            <?php }else{?>
-                <div id="myDropdown" class="dropdown-content">
-                    <a href="./login.php">Login</a>
-                    <a href="./register.php">Create Account</a>
-                </div>
-
-            <?php }?>
-            
+            <div id="myDropdown" class="dropdown-content">
+                <a href="#">Profile</a>
+                <a href="#">Login</a>
+                <a href="#">My Orders</a>
+                <a href="#">Logout</a>
+            </div>
         </div>
 
 
@@ -127,7 +113,7 @@ session_start();
                     $company_scale = mysqli_real_escape_string($conn, $_POST['company_scale']);
                     $brand_overview = mysqli_real_escape_string($conn, $_POST['brand_overview']);
                     $other_comments = mysqli_real_escape_string($conn, $_POST['other_comments']);
-                    $user_id = mysqli_real_escape_string($conn, $_SESSION['user_id']);
+
 
                     // Query to get the last Consultation_ID
                     $find = mysqli_query($conn, "SELECT MAX(Consultation_ID) AS max_id FROM Consultation");
@@ -150,8 +136,8 @@ session_start();
 
 
                     // Insert form data into the database
-                    $query = "INSERT INTO Consultation (Consultation_ID, Consultation_Date, Full_name, Email, Phone_no, Company_name, Company_website_URL, Company_scale, Brand_overview, Other, Customer_ID)
-                            VALUES ('$customerid', NOW(), '$full_name', '$email', '$telephone', '$company_name', '$company_website', '$company_scale', '$brand_overview', '$other_comments', '$user_id')";
+                    $query = "INSERT INTO Consultation (Consultation_ID, Consultation_Date, Full_name, Email, Phone_no, Company_name, Company_website_URL, Company_scale, Brand_overview, Other)
+                            VALUES ('$customerid', NOW(), '$full_name', '$email', '$telephone', '$company_name', '$company_website', '$company_scale', '$brand_overview', '$other_comments')";
 
                     if (mysqli_query($conn, $query)) {
                         echo "<div class='successmessage'>

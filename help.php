@@ -1,3 +1,7 @@
+<?php
+session_start();
+//echo $_SESSION['user_id'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,19 +59,29 @@
         
             </section>
     
-            <!-- Profile and Dropdown -->
-            <div class="profile-container">
-                <!-- Profile Image Icon; clicking on this toggles the dropdown -->
-                <img src="images/profile-google.svg" alt="Profile Icon" class="profile-icon" onclick="toggleDropdown()">
-                
-                <!-- Dropdown Menu content; links for Login, Logout, and My Orders -->
+        <!-- Profile and Dropdown -->
+        <div class="profile-container">
+            <!-- Profile Image Icon; clicking on this toggles the dropdown -->
+            <img src="images/profile-google.svg" alt="Profile Icon" class="profile-icon" onclick="toggleDropdown()">
+            
+            <!-- Dropdown Menu content; links for Login, Logout, and My Orders -->
+            <?php 
+            if (isset($_SESSION['user_id'])) {
+            ?>    
                 <div id="myDropdown" class="dropdown-content">
-                    <a href="#">Profile</a>
-                    <a href="#">Login</a>
-                    <a href="#">My Orders</a>
-                    <a href="#">Logout</a>
+                    <a href="./myaccount.php">My Account</a>
+                    <a href="myorders.php">My Orders</a>
+                    <a href="./logout.php">Logout</a>
                 </div>
-            </div>
+            <?php }else{?>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="./login.php">Login</a>
+                    <a href="./register.php">Create Account</a>
+                </div>
+
+            <?php }?>
+            
+        </div>
     
     
         </header>
@@ -89,7 +103,7 @@
                     </div>
                     <div class="icon-item">
                         <img src="images/edit profile.svg" alt="Edit Profile Icon" class="icon">
-                        <span>Edit Profile</span>
+                        <a href="myaccount.php"> <span>Edit Profile</span> </a>
                     </div>
 
                 </div>
@@ -118,6 +132,7 @@
             $telephone = mysqli_real_escape_string($conn, $_POST['telephone']);
             $topic = mysqli_real_escape_string($conn, $_POST['topic']);
             $other_comments = mysqli_real_escape_string($conn, $_POST['other_comments']);
+            $user_id = mysqli_real_escape_string($conn, $_SESSION['user_id']);
 
             // Query to get the last Consultation_ID
             $find = mysqli_query($conn, "SELECT MAX(Inquiry_ID) AS max_id FROM Inquiries");
@@ -130,7 +145,7 @@
                 $last_num = (int)preg_replace("/[^0-9]/", "", $last_id);
                 $num = $last_num + 1; // Increment the numeric part
                 
-            // Generate new customer ID with 'CONSULT_' prefix
+            // Generate new INQUIRY ID with 'CONSULT_' prefix
                 $customerid = 'INQUIRY_' . str_pad($num, 4, '0', STR_PAD_LEFT); 
             } else {
                 $customerid = 'INQUIRY_0001'; // Use the correct prefix here
@@ -140,8 +155,8 @@
 
 
             // Insert form data into the database
-            $query = "INSERT INTO Inquiries (Inquiry_ID, Inquiry_Date, First_name, Last_name, Email, Phone_no, Topic, Other)
-                    VALUES ('$customerid', NOW(), '$first_name', '$last_name', '$email', '$telephone', '$topic', '$other_comments')";
+            $query = "INSERT INTO Inquiries (Inquiry_ID, Inquiry_Date, First_name, Last_name, Email, Phone_no, Topic, Other, Customer_ID)
+                    VALUES ('$customerid', NOW(), '$first_name', '$last_name', '$email', '$telephone', '$topic', '$other_comments','$user_id')";
 
             if (mysqli_query($conn, $query)) {
                 echo "<div class='successmessage'>
