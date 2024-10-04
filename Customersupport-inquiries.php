@@ -78,33 +78,41 @@ if($_SESSION['staff_role']!=='Support'){ //condition make sure admin user redire
 
                 <div>
 
-                    <?php if ($customer_result->num_rows > 0): ?>
-                        <table class="customer_table" style="justify-content:center; ">
+                <?php if ($customer_result->num_rows > 0): ?>
+                        <table class="customer_table" style="margin:auto;">
                             <thead>
                                 <tr>
-                                    <th>Inquiry_ID</th>
-                                    <th>Inquiry_Date</th>
-                                    <th>First_name</th>
-                                    <th>Last_name</th>
+                                    <th>Inquiry ID</th>
+                                    <th>Inquiry Date</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
                                     <th>Email</th>
-                                    <th>Phone_no</th>
+                                    <th>Phone No</th>
                                     <th>Topic</th>
-                                    <th>Other</th>
-                                    <th>Customer_ID</th>
+                                    <th>Other Details</th>
+                                    <th>Customer ID</th>
+                                    <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php while($row = $customer_result->fetch_assoc()): ?>
                                 <tr>
-                                    <td><?php echo $row["Inquiry_ID"]; ?></td>
-                                    <td><?php echo $row["Inquiry_Date"]; ?></td>
-                                    <td><?php echo $row["First_name"]; ?></td>
-                                    <td><?php echo $row["Last_name"]; ?></td>
-                                    <td><?php echo $row["Email"]; ?></td>
-                                    <td><?php echo $row["Phone_no"]; ?></td>
-                                    <td><?php echo $row["Topic"]; ?></td>
-                                    <td><?php echo $row["Other"]; ?></td>
-                                    <td><?php echo $row["Customer_ID"]; ?></td>
+                                    <td><?php echo htmlspecialchars($row["Inquiry_ID"]); ?></td>
+                                    <td><?php echo htmlspecialchars($row["Inquiry_Date"]); ?></td>
+                                    <td><?php echo htmlspecialchars($row["First_name"]); ?></td>
+                                    <td><?php echo htmlspecialchars($row["Last_name"]); ?></td>
+                                    <td><?php echo htmlspecialchars($row["Email"]); ?></td>
+                                    <td><?php echo htmlspecialchars($row["Phone_no"]); ?></td>
+                                    <td><?php echo htmlspecialchars($row["Topic"]); ?></td>
+                                    <td><?php echo htmlspecialchars($row["Other"]); ?></td>
+                                    <td><?php echo htmlspecialchars($row["Customer_ID"]); ?></td>
+                                    <td>
+                                    <label for="Solved"><b>Solved</b></label>
+                                    <select style="width:100px; height:30px; border:none; border-radius:10px;" id="Solved" onchange="updateSelectColor(this)">
+                                        <option value="Active">Active</option>
+                                        <option value="Closed">Closed</option>
+                                    </select>
+                                    </td>
                                 </tr>
                                 <?php endwhile; ?>
                             </tbody>
@@ -112,6 +120,7 @@ if($_SESSION['staff_role']!=='Support'){ //condition make sure admin user redire
                     <?php else: ?>
                         <p>No records found.</p>
                     <?php endif; ?>
+
 
                 </div>
 
@@ -125,6 +134,23 @@ if($_SESSION['staff_role']!=='Support'){ //condition make sure admin user redire
     </main>
 
     <script src="Index.js"></script>
+
+        <script>
+            function updateSelectColor(selectElement) {
+                if (selectElement.value === "Active") {
+                    selectElement.style.backgroundColor = "rgb(255, 161, 161)";
+                } else if (selectElement.value === "Closed") {
+                    selectElement.style.backgroundColor = "rgb(76, 236, 148)";
+                }
+            }
+
+            // Set initial color based on default selected value
+            document.addEventListener('DOMContentLoaded', function() {
+                const selectElement = document.getElementById('Solved');
+                updateSelectColor(selectElement);
+            });
+        </script>
+
     
 
 
