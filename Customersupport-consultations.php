@@ -48,14 +48,16 @@ if($_SESSION['staff_role']!=='Support'){ //condition make sure admin user redire
         </div>
     </header>
 
+
     <?php
     // Include the database connection file here
     include 'php/config.php';
 
     // SQL query to fetch data from customer account table
-    $customer_sql = "SELECT Inquiry_ID, Inquiry_Date, First_name, Last_name, Email, Phone_no, Topic, Other, Customer_ID FROM Inquiries";
+    $customer_sql = "SELECT Consultation_ID, Consultation_Date, Full_name, Email, Phone_no, Company_name, Company_website_URL, Company_scale, Brand_overview,Other,Customer_ID FROM Consultation";
     $customer_result = $conn->query($customer_sql);
     ?>
+
 
     <main class="dashboard-container">
         <section class="im-page-links">
@@ -67,13 +69,13 @@ if($_SESSION['staff_role']!=='Support'){ //condition make sure admin user redire
         </section>
 
 
-        <section class="content">
+            <section class="content">
         <div>
 
             <div id="viewMode" class="table-container">
 
             <div id="overviewContainer">
-                <h1 style="text-align:center">Inquiries</h1>
+                <h1 style="text-align:center">Consultations</h1>
             </div>
 
                 <div>
@@ -82,13 +84,15 @@ if($_SESSION['staff_role']!=='Support'){ //condition make sure admin user redire
                         <table class="customer_table" style="justify-content:center; ">
                             <thead>
                                 <tr>
-                                    <th>Inquiry_ID</th>
-                                    <th>Inquiry_Date</th>
-                                    <th>First_name</th>
-                                    <th>Last_name</th>
+                                    <th>Consultation_ID</th>
+                                    <th>Consultation_Date</th>
+                                    <th>Full_name</th>
                                     <th>Email</th>
                                     <th>Phone_no</th>
-                                    <th>Topic</th>
+                                    <th>Company_name</th>
+                                    <th>Company_website_URL</th>
+                                    <th>Company_scale</th>
+                                    <th>Brand_overview</th>
                                     <th>Other</th>
                                     <th>Customer_ID</th>
                                 </tr>
@@ -96,13 +100,15 @@ if($_SESSION['staff_role']!=='Support'){ //condition make sure admin user redire
                             <tbody>
                                 <?php while($row = $customer_result->fetch_assoc()): ?>
                                 <tr>
-                                    <td><?php echo $row["Inquiry_ID"]; ?></td>
-                                    <td><?php echo $row["Inquiry_Date"]; ?></td>
-                                    <td><?php echo $row["First_name"]; ?></td>
-                                    <td><?php echo $row["Last_name"]; ?></td>
+                                    <td><?php echo $row["Consultation_ID"]; ?></td>
+                                    <td><?php echo $row["Consultation_Date"]; ?></td>
+                                    <td><?php echo $row["Full_name"]; ?></td>
                                     <td><?php echo $row["Email"]; ?></td>
                                     <td><?php echo $row["Phone_no"]; ?></td>
-                                    <td><?php echo $row["Topic"]; ?></td>
+                                    <td><?php echo $row["Company_name"]; ?></td>
+                                    <td><?php echo $row["Company_website_URL"]; ?></td>
+                                    <td><?php echo $row["Company_scale"]; ?></td>
+                                    <td><?php echo $row["Brand_overview"]; ?></td>
                                     <td><?php echo $row["Other"]; ?></td>
                                     <td><?php echo $row["Customer_ID"]; ?></td>
                                 </tr>

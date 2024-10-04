@@ -53,7 +53,7 @@ if($_SESSION['staff_role']!=='Support'){ //condition make sure admin user redire
             <ul>
                 <li class="im-page"><a href="CustomerSupportDashboard.php">Home</a></li>
                 <li class="im-page"><a href="Customersupport-inquiries.php">Inquiries</a></li>
-                <li class="im-page"><a href="#">Staff Management</a></li>
+                <li class="im-page"><a href="Customersupport-consultations.php">Consultations</a></li>
             </ul>
         </section>
 
