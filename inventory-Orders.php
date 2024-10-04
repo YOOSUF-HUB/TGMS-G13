@@ -18,6 +18,8 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
     $sql = "SELECT 
         O.Order_ID as oid,
         I.Name as pname,
+        I.Colour as pcolour,
+        I.Size as psize,
         C.Customer_ID as cid,
         O.Quantity as qty,
         O.Order_Date as odate,
@@ -175,7 +177,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                     <?php while($row = $result->fetch_assoc()): ?>
                         <tr>
                             <td><?php echo $row["oid"]; ?></td>
-                            <td><?php echo $row["pname"]; ?></td>
+                            <td><?php echo $row["pname"];?><br><p class="insideRow"><?php echo $row["pcolour"]; echo ", "; echo $row["psize"];?> </p></td>
                             <td><?php echo $row["cid"]; ?></td>
                             <td><?php echo $row["qty"]; ?></td>
                             <td><?php echo $row["odate"]; ?></td>

@@ -325,6 +325,11 @@ footer {
 .inner-table-container{
     height: 80vh; overflow:auto; 
 }
+.insideRow{
+    font-size: 0.8rem;
+    margin: 0;
+}
+
 
 /* ADMIN LOGIN PAGE CSS */
 

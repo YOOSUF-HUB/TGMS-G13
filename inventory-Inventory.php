@@ -83,7 +83,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
 
         <section class="content" >
             <div style="float:right;">
-                <button class="btn1" id="addInventoryBtn"><a href="addInventory.php?>" >Add Inventory</a></button>
+                <button class="btn1" id="addInventoryBtn"><a href="inventory-addInventory.php?>" >Add Inventory</a></button>
                 <button class="btn1" id="manageInventoryBtn" onclick="manageInventory()" >Manage Inventory</button>
                 <button class="btn1" id="cancelBtn" style="display: none;" onclick="cancelInventory()"  >Cancel Manage</button>
             </div>
@@ -148,8 +148,8 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                             <td><?php echo $row["Type"]; ?></td>
                             <td><?php echo $row["Quantity"]; ?></td>
                             <td>
-                                <button style="background-color: #0B2F9F; border-radius: 5px; border: none; padding: 5px;"><a href="updateInventory.php?updateid=<?php echo $row['Product_ID']; ?>" style="text-decoration: none; color: white;">Update</a></button>
-                                <button style="background-color: #B8001F; border-radius: 5px; border: none; padding: 5px;"><a href="deleteInventory.php?deleteid=<?php echo $row['Product_ID']; ?>" style="text-decoration: none; color: white;">Delete</a></button>
+                                <button style="background-color: #0B2F9F; border-radius: 5px; border: none; padding: 5px;"><a href="inventory-updateInventory.php.php?updateid=<?php echo $row['Product_ID']; ?>" style="text-decoration: none; color: white;">Update</a></button>
+                                <button style="background-color: #B8001F; border-radius: 5px; border: none; padding: 5px;"><a href="inventory-deleteInventory.php?deleteid=<?php echo $row['Product_ID']; ?>" style="text-decoration: none; color: white;">Delete</a></button>
                             </td>
                         </tr>
                     <?php endwhile; ?>
