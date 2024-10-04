@@ -1,4 +1,8 @@
 <?php
+session_start();
+//echo $_SESSION['user_id'];
+?>
+<?php
 // Include the database connection file here
 include 'php/config.php';
 
