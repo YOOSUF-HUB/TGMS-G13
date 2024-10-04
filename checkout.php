@@ -198,7 +198,7 @@ session_start();
                 </div>
 
                 <div class="place-order-btn">
-                    <input class="btn" type="submit" name="submit" value="Submit" >
+                    <input class="btn" type="submit" name="submit" value="Pay Now" >
                 </div>
 
                 <!-- Error message will be displayed here -->
@@ -254,13 +254,47 @@ session_start();
     <script src="index.js"></script>
 
     <script>
-        // Retrieve the stored final price from sessionStorage on the checkout page
-        const finalPrice = sessionStorage.getItem('finalPrice-payment'); // Get the price from sessionStorage
+        // Retrieve the final price from sessionStorage and display it
+        const finalPrice = sessionStorage.getItem('finalPrice'); // Get the final price from sessionStorage
+
+        // Assuming there is a span or input field for displaying the total price
         if (finalPrice) {
-            document.getElementById('totalPrice').textContent = totalPrice; // Display the price on the checkout page
+            document.getElementById('totalPrice').textContent = finalPrice; // Set the total price in the order summary
         } else {
-            console.log('No final price found.');
+            console.log('No final price found in sessionStorage.'); // Log if no price found
         }
+
+        // Function to update the subtotal and shipping fee
+        function updateOrderSummary() {
+            // Retrieve the total price from the totalPrice span
+            const totalPriceElement = document.getElementById('totalPrice');
+            const shippingElement = document.getElementById('shipping');
+            const subTotalElement = document.getElementById('sub-total');
+
+            if (totalPriceElement) {
+                // Get the total price value and remove the currency symbol
+                let totalPrice = parseFloat(totalPriceElement.innerText.replace(/[^\d.-]/g, '')) || 0; // Ensure it's a number
+
+                // Calculate the shipping fee (10% of totalPrice)
+                const shippingFee = totalPrice * 0.10;
+
+                // Update the shipping fee display
+                shippingElement.innerText = `Rs. ${shippingFee.toFixed(2)}`; // Format to two decimal places
+
+                // Calculate the subtotal (totalPrice + shippingFee)
+                const subTotal = totalPrice + shippingFee;
+
+                // Update the subtotal display
+                subTotalElement.innerText = `Rs. ${subTotal.toFixed(2)}`; // Format to two decimal places
+            } else {
+                console.log('Total price element not found.'); // Log if element not found
+            }
+        }
+
+        // Call the updateOrderSummary function to calculate and display values
+        updateOrderSummary();
+
+
     </script>
 
 

@@ -257,10 +257,11 @@
         calculateFinalPrice();
 
         function storeFinalPrice() {
-        const finalPrice = document.getElementById('final-price').textContent; // Get the final price from the page
-        sessionStorage.setItem('finalPrice', finalPrice); // Store the final price in sessionStorage
-        window.location.href = 'payment.php'; // Redirect to payment page
-}
+            const finalPrice = document.getElementById('final-price').textContent; // Get the final price from the page
+            sessionStorage.setItem('finalPrice', finalPrice); // Store the final price in sessionStorage
+            window.location.href = 'payment.php'; // Redirect to payment page
+        }
+
     </script>
     
 </body>

@@ -17,7 +17,79 @@ session_start();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
     
+    <style>
+        
 
+        h1{
+            text-align: center;
+        }
+
+        p{
+            font-size: 18px;
+        }
+
+        .card_details-container{
+            font-family: Questrial, sans-serif;
+            border: 1px solid black;
+            border-radius: 10px;
+            width: 50%;
+            height: 700px;
+            padding: 10px 20px 10px 30px;
+            background-color: white;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            border: none;
+        }
+        .card_details{
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .card_details input{
+            height: 50px;
+            width: 500px;
+            font-family: Questrail, sans-serif;
+            font-size: 18px;
+            border-radius: 5px;
+            border-color: black;
+        }
+
+
+        button{
+            height: 50px;
+            width: 200px;
+            margin-top: 20px;
+            font-size: 18px;
+            font-family: arial, sans-serif;
+            color: white;
+            padding: 2px;
+            background-color: red;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .order_details{
+            border: 1px solid black;
+            height: 200px;
+            width: 400px;
+            padding: 20px;
+            font-family: Questrial, sans-serif;
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 10px 20px 10px 30px;
+            background-color: white;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            border: none;
+        }
+
+
+        .container{
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px;
+        }
+
+    </style>
 
 
 
@@ -100,44 +172,40 @@ session_start();
         <h1 style="font-family: Questrial, sans-serif;">Payment</h1>
 
         <div class="container">
-        
-            <form class="card_details-container" action="" method="">
+        <form class="card_details-container" id="paymentForm" action="" method="POST" onsubmit="return storeFinalPrice()">
+
                 <h2>Card Details</h2>
-            
+
                 <div class="card_details">
                     <label for="crd_name">Card holder's name:</label><br><br>
                     <input id="crd_name" type="text" name="name" placeholder="Name on card" required>
                 </div>
-            
+
                 <div class="card_details">
                     <label for="crd_num">Card Number:</label><br><br>
                     <input id="crd_num" type="text" name="card_number" placeholder="Card Number" required pattern="\d{16}" title="Please enter a valid 16-digit card number">
                 </div>
-            
+
                 <div class="card_details">
                     <label for="exp_date">Expiry Date:</label><br><br>
                     <input id="exp_date" type="month" name="exp_date" required>
                 </div>
-            
+
                 <div class="card_details">
                     <label for="cvv">CVV:</label><br><br>
                     <input id="cvv" type="text" name="CVV" placeholder="Code" required pattern="\d{3}" title="Please enter a valid 3-digit CVV">
                 </div>
-            
-                <div class="button1">
-                <button class="buy-now" onclick="storeFinalPrice()" >Pay Now</button>
-                </div>
+
+                <button type="submit" style="margin-top: 10px; margin-bottom:30px; cursor:pointer;">Proceed to Checkout</button>
+
             </form>
-            
 
-        <div class="order_details">
-            <h2>Order summary</h2>
+            <div class="order_details">
+                <h2>Order summary</h2>
+                <p style="font-size:30px;">Sub total: Rs. <span id="totalPrice">0</span></p>
+            </div>
 
-            <p style="font-size:30px;">Sub total: Rs. <span id="total">0</span></p>
         </div>
-
-    </div>
-
     </main>
 
     <!-- Footer Section -->
@@ -186,20 +254,40 @@ session_start();
     <script src="index.js"></script>
 
     <script>
+
         // Retrieve the final price from sessionStorage and display it
-        const finalPrice = sessionStorage.getItem('finalPrice'); // Get the final price from sessionStorage
+        const finalPrice = sessionStorage.getItem('finalPrice'); // Corrected key to match what was used in storeFinalPrice
         // Assuming there is a span or input field for displaying the total price
         if (finalPrice) {
-            document.getElementById('total').textContent = finalPrice; // Set the total price in the order summary
+            document.getElementById('totalPrice').textContent = finalPrice; // Set the total price in the order summary
         } else {
             console.log('No final price found in sessionStorage.');
         }
 
         function storeFinalPrice() {
-            const finalPrice = document.getElementById('total').textContent; // Get the final price from the page
-            sessionStorage.setItem('finalPrice-payment', finalPrice-payment); // Store the final price in sessionStorage
-            window.location.href = 'checkout.php'; // Redirect to checkout page
+            let finalPriceElement = document.getElementById('totalPrice');
+
+            if (finalPriceElement) {
+                let finalPrice = finalPriceElement.innerText; 
+                finalPrice = finalPrice.replace(/[^\d.-]/g, ''); 
+
+                sessionStorage.setItem('finalPrice', finalPrice);
+
+                window.location.href = 'checkout.php'; 
+                return false; // Prevent default form submission
+            } else {
+                console.log('Total price element not found.'); 
+                return false; // Prevent default form submission
+            }
         }
+
+
+
+        // Example: Call this function when the payment method is selected or on button click
+        document.getElementById('paymentButton').addEventListener('click', storeFinalPrice); // Replace 'paymentButton' with the actual button ID
+
+
+
 
     </script>
 
