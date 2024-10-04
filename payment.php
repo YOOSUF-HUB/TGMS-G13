@@ -264,22 +264,22 @@ session_start();
             console.log('No final price found in sessionStorage.');
         }
 
-        function storeFinalPrice() {
-            let finalPriceElement = document.getElementById('totalPrice');
+        // function storeFinalPrice() {
+        //     let finalPriceElement = document.getElementById('totalPrice');
 
-            if (finalPriceElement) {
-                let finalPrice = finalPriceElement.innerText; 
-                finalPrice = finalPrice.replace(/[^\d.-]/g, ''); 
+        //     if (finalPriceElement) {
+        //         let finalPrice = finalPriceElement.innerText; 
+        //         finalPrice = finalPrice.replace(/[^\d.-]/g, ''); 
 
-                sessionStorage.setItem('finalPrice', finalPrice);
+        //         sessionStorage.setItem('finalPrice', finalPrice);
 
-                window.location.href = 'checkout.php'; 
-                return false; // Prevent default form submission
-            } else {
-                console.log('Total price element not found.'); 
-                return false; // Prevent default form submission
-            }
-        }
+        //         window.location.href = 'checkout.php'; 
+        //         return false; // Prevent default form submission
+        //     } else {
+        //         console.log('Total price element not found.'); 
+        //         return false; // Prevent default form submission
+        //     }
+        // }
 
 
 
