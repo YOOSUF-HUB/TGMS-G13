@@ -139,7 +139,10 @@ CREATE TABLE Inquiries (
     Topic VARCHAR(255) NOT NULL,
     Other VARCHAR(1000),
     Customer_ID VARCHAR(255),  -- Foreign key column
-    CONSTRAINT fk_customer FOREIGN KEY (Customer_ID) REFERENCES Customer_account(Customer_ID)
+    CONSTRAINT fk_customer
+        FOREIGN KEY (Customer_ID) REFERENCES Customer_account(Customer_ID) 
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 
 );
 

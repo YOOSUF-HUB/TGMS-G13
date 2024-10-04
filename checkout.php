@@ -185,11 +185,10 @@ session_start();
             <div class="order-summary">
                 <h2>Order Summary</h2>
                 <div id="checkout">
-                    <h1>Checkout</h1>
                     <p>Total Price: Rs. <span id="totalPrice">0</span></p>
                 </div>
                 <div class="summary-item">
-                    <span>Shipping fee</span>
+                    <span>Shipping fee ( 10% )</span>
                     <span id="shipping">Rs. 0</span>
                 </div>
                 <div class="summary-item">
@@ -264,6 +263,8 @@ session_start();
             console.log('No final price found in sessionStorage.'); // Log if no price found
         }
 
+
+        
         // Function to update the subtotal and shipping fee
         function updateOrderSummary() {
             // Retrieve the total price from the totalPrice span
