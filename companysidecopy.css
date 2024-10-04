@@ -295,13 +295,35 @@ footer {
 
 /* Orders */
 #tabs {
-    display: flex; list-style-type: none; padding: 0;
+    display: flex; 
+    list-style-type: none; 
+    padding: 0;
 }
 .tab1 {
-    background-color: #ECDFCC; border:0; border-bottom: #000000 2px solid;
+    background-color: #ECDFCC; 
+    border:0; 
+    border-bottom: #000000 2px solid;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.7rem;
+    padding-bottom: 0.6rem;
+    font-size: 1rem;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-bottom: 5px;
+
+}
+.tab1:hover{
+    border-bottom: #000000 4px solid;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 1ms;
+    margin-bottom: 0;
+}
+.tab1.active {
+    background-color: #000000;
 }
 .inner-table-container{
-    height: 85vh; overflow:auto; 
+    height: 80vh; overflow:auto; 
 }
 
 /* ADMIN LOGIN PAGE CSS */

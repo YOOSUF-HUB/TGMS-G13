@@ -83,7 +83,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventory Dashboard</title>
-    <link rel="stylesheet" href="companyside copy.css">
+    <link rel="stylesheet" href="companysidecopy.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- social media icons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     
