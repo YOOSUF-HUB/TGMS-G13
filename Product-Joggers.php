@@ -117,7 +117,7 @@
                 <div class="product-options">
                     <label for="colour"><b>Colour</b></label>
                     <select id="colour">
-                        <option selected>Select color</option>
+                        <option disabled selected>Select color</option>
                         <option value="yellow">Yellow</option>
                         <option value="black">Black</option>
                         <option value="red">Red</option>
@@ -147,24 +147,21 @@
                     
                     <div>
                         <label for="price"> Price (per unit):</label>
-                        <input style="width: 300px;height: 45px;text-align: center;font-size: 1.2em;border: 2px solid #ff5e00;border-radius: 10px;" id="price" value="<?php echo $joggers_price; ?>" aria-label="price" readonly>
+                        <input style="width: 300px;height: 45px;text-align: center;font-size: 1.2em;border: 2px solid #ff5e00;border-radius: 10px;" id="price" value="<?php echo $joggers_price; ?>.00" aria-label="price" readonly>
                     </div>
                     
                     <label for="final-price"> Final Price:</label>
-                    <div style="width: 300px; height:45px;text-align: center;font-size: 1.2em;border: 2px solid #ff5e00;border-radius: 10px;">
-                        <span  id="final-price"></span>
+                    <div style="width: 300px; height:45px;text-align: center;font-size: 1.2em;border: 2px solid green;border-radius: 10px;">
+                        <span id="final-price"></span>
                     </div>
     
-                    <label><b style="font-family: Questrial, sans-serif;">A hoodie is a versatile and casual garment featuring a hood,
-                        long sleeves, and a front pocket. Typically made from soft, comfortable
-                        fabrics such as cotton, polyester, or fleece, hoodies provide warmth. 
-                        They come in various styles, including pullover and zip-up designs, and
-                        are available in a wide range of colors, patterns, and sizes to suit 
-                        different preferences.</b></label>
+                    <label><b style="font-family: Questrial, sans-serif;">
+                    Elevate your casual wear with our premium hoodies, designed for both comfort and style. Made from ultra-soft, durable fabrics like cotton and fleece, these hoodies provide warmth without compromising on breathability. Whether you're relaxing at home or heading out, our hoodies offer a versatile look with pullover and zip-up options. Available in a range of bold colors and classic neutrals, they feature a cozy hood, front pockets, and a modern fit that complements every body type. Perfect for layering or wearing on its own, this hoodie is your go-to for comfort, style, and warmth year-round.
+                    </b></label>
                     
                     <!-- Buy and Add to Cart Buttons -->
                     <div class="action-buttons">
-                        <button class="buy-now">Buy Now</button>
+                        <button class="buy-now" onclick="storeFinalPrice()">Buy Now</button>
                         <button class="add-cart">Add to Cart</button>
                     </div>
                 </div>
@@ -258,6 +255,12 @@
 
         // Perform the initial calculation when the page loads
         calculateFinalPrice();
+
+        function storeFinalPrice() {
+            const finalPrice = document.getElementById('final-price').textContent; // Get the final price from the page
+            sessionStorage.setItem('finalPrice', finalPrice); // Store the final price in sessionStorage
+            window.location.href = 'payment.php'; // Redirect to payment page
+        }
 
     </script>
     

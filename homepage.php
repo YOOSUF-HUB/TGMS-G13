@@ -17,7 +17,6 @@ session_start();
     <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
 
 
-
 </head>
 
 <body>
@@ -123,7 +122,9 @@ session_start();
             <div class="quote-detail">
                 <h1>EXPLORE OUR HIGH-QUALITY TEXTILE PRODUCTS TO ELEVATE YOUR BRAND</h1>
                 <p>Experience the pinnacle of textile excellence with our curated collection of high-quality fabrics. Designed to offer unparalleled durability and luxury, our textiles are perfect for enhancing your brand’s prestige. Choose from a variety of sophisticated options to bring your creative vision to life with superior quality and timeless appeal.</p>
-                <button class="quote-btn1">Products</button>
+                
+                <a href="produtpage.php"><button class="quote-btn1">Product</button></a>
+
             </div>
         </div>
 
