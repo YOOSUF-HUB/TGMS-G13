@@ -148,7 +148,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
             </div>
 
             <div id="viewMode" class="table-container" >
-                <h2>Suppliers</h2>
+                <h2>Orders</h2>
                 <ul id="tabs"> <!-- page tabs -->
                     <li><button class="tab1" id="allOrderBtn" onclick="allOrder()"; style="background-color: #ECDFCC; border:0; border-bottom: #000000 2px solid;" >All Orders</button></li>
                     <li><button class="tab1" id="activeOrderBtn" onclick="activeOrder()">Active Orders</button></li>
@@ -310,7 +310,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
 
             <!-- Manage inventory -->
             <div id="editMode" style="display: none;" class="table-container">
-                <h2>Manage Suppliers</h2>
+                <h2>Manage Orders</h2>
                 <div class="inner-table-container" >
                 <form action="" method="POST">
                 <table class="table">
@@ -329,7 +329,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                     <tbody>
                     <?php 
                     
-                    $result->data_seek(0); // Reset the result pointer to reuse the data for the duplicated table
+                    $result->data_seek(0); // reset the result to display results again
                     while($row = $result->fetch_assoc()): ?>
                         <tr>
                             <td><?php echo $row["oid"]; ?></td>
@@ -340,8 +340,8 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                             <td><?php echo $row["ddate"]; ?></td>
                             <td><?php echo $row["sts"]; ?></td>
                             <td>
-                                <button style="background-color: #0B2F9F; border-radius: 5px; border: none; padding: 5px;"><a href="inventory-updateSupplier.php?updateid=<?php echo $row['Supplier_ID']; ?>" style="text-decoration: none; color: white;">Update</a></button>
-                                <button style="background-color: #B8001F; border-radius: 5px; border: none; padding: 5px;"><a href="inventory-deleteSupplier.php?deleteid=<?php echo $row['Supplier_ID']; ?>" style="text-decoration: none; color: white;">Delete</a></button>
+                                <button style="background-color: #0B2F9F; border-radius: 5px; border: none; padding: 5px;"><a href="inventory-updateOrder.php?updateid=<?php echo $row['oid']; ?>" style="text-decoration: none; color: white;">Update</a></button>
+                                <button style="background-color: #B8001F; border-radius: 5px; border: none; padding: 5px;"><a href="inventory-deleteOrder.php?deleteid=<?php echo $row['oid']; ?>" style="text-decoration: none; color: white;">Delete</a></button>
                             </td>
                         </tr>
                     <?php endwhile; ?>
