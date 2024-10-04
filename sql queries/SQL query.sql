@@ -12,6 +12,18 @@ CREATE TABLE Customer_account (
     Date_created DATE DEFAULT CURRENT_DATE
 );
 
+CREATE TABLE Cart (
+    cartID INT AUTO_INCREMENT PRIMARY KEY,
+    Customer_ID varchar(255) NOT NULL,
+    productName VARCHAR(255) NOT NULL,
+    productID INT NOT NULL,
+    size VARCHAR(50) NOT NULL,
+    color VARCHAR(50) NOT NULL,
+    quantity INT NOT NULL,
+    FOREIGN KEY (Customer_ID) REFERENCES Customer_account(Customer_ID)
+);
+
+
 -- Staff Table
 CREATE TABLE Staff_account (
     Staff_ID varchar(255) NOT NULL PRIMARY KEY,
