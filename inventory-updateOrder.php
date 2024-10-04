@@ -18,34 +18,29 @@ $OrderID = $_GET['updateid'];
 // Check if the form is submitted
 if (isset($_POST['save'])) {
     // Collect form data
-    $supplierName = $_POST['supplierName'];
-    $companyName = $_POST['companyName'];
-    $category = $_POST['category'];
-    $email = $_POST['email'];
-    $phoneNumber = $_POST['phoneNumber'];
-    $supply = $_POST['supply'];
+    //$productName = $_POST['productName'];
+    $productQuantity = $_POST['productQuantity'];
+    $newDeliveryDate = $_POST['newDeliveryDate'];
+    $updateStatus = $_POST['updateStatus'];
 
     // Prepare the SQL update query
-    $updateQuery = "UPDATE Supplier 
-            SET `Supplier_name` = '$supplierName', 
-                `Company_name` = '$companyName', 
-                `Category` = '$category', 
-                `Email` = '$email', 
-                `Phone_number` = '$phoneNumber',
-                `Supply` = '$supply'
-        WHERE `Supplier_ID` = '$supplierID'";
+    $updateQuery = "UPDATE Orders 
+            SET `Quantity` = '$productQuantity', 
+                `Delivery_Date` = '$newDeliveryDate', 
+                `Status` = '$updateStatus'
+        WHERE `Order_ID` = '$OrderID'";
 
 
 
     // Execute the query and check if successful
     if (mysqli_query($conn, $updateQuery)) {
-        header("Location: inventory-Supplier.php"); 
+        header("Location: inventory-Orders.php"); 
         exit();
     } else {
         echo "<p style='color: red; text-align: center;'>Failed to Update: " . mysqli_error($conn) . "</p>";
     }
 } else {
-    $sql = "SELECT * FROM Supplier WHERE Supplier_ID = '$supplierID'";
+    $sql = "SELECT * FROM Orders WHERE Order_ID = '$OrderID'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
 }
@@ -154,35 +149,36 @@ if (isset($_POST['save'])) {
     <div>
         <h2>Order ID: <?php echo $OrderID; ?></h2>
     </div>
-    <div class="field input">
+    <!-- <div class="field input">
         <label for="productName">Change Product:</label>
-        <input type="text" name="productName" value="<?php echo $row["Supplier_name"]; ?>" required>
-    </div>
+        <input type="text" name="productName" value="" required>
+    </div> -->
 
     <div class="field input">
         <label for="productQuantity">Change Quantity:</label>
-        <input type="text" name="companyName" value="<?php echo $row["Company_name"]; ?>" required>
+        <input type="text" name="productQuantity" value="<?php echo $row["Quantity"]; ?>" >
     </div>
 
     <div class="field input">
         <label for="newDeliveryDate">Change Delivery Date:</label>
-        <input type="date" name="newDeliveryDate" value="<?php echo $row["Category"]; ?>" required>
+        <input type="date" name="newDeliveryDate" value="<?php echo $row["Delivery_Date"]; ?>">
     </div>
 
     <div class="field input">
-        <label for="email">Email:</label>
-        <input type="text" name="email"  placeholder="Email" value="<?php echo $row["Email"]; ?>">
+        <label for="currentStatus">Current Status: <?php echo $row["Status"]; ?></label>
     </div>
 
     <div class="field input">
-        <label for="phoneNumber">Phone Number:</label>
-        <input type="text" name="phoneNumber" placeholder="Phone Number" value="<?php echo $row["Phone_number"]; ?>">
+        <label for="updateStatus">Update Status:</label>
+        <select name="updateStatus" id="updateStatus">
+            <option value="" disabled selected><?php echo $row["Status"]; ?></option>
+            <option value="In-Progress">In-Progress</option>
+            <option value="Shipped">Shipped</option>
+            <option value="Delivered">Delivered</option>
+            <option value="Cancelled">Cancelled</option>
+        </select>
     </div>
 
-    <div class="field input">
-        <label for="supply">Supply:</label>
-        <input type="text" name="supply" placeholder="Supply" value="<?php echo $row["Supply"]; ?>">
-    </div>
 
     <div class="field">
         <input class="btn" type="submit" name="save" value="Update">

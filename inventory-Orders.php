@@ -150,7 +150,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
             <div id="viewMode" class="table-container" >
                 <h2>Orders</h2>
                 <ul id="tabs"> <!-- page tabs -->
-                    <li><button class="tab1" id="allOrderBtn" onclick="allOrder()"; style="background-color: #ECDFCC; border:0; border-bottom: #000000 2px solid;" >All Orders</button></li>
+                    <li><button class="tab1" id="allOrderBtn" onclick="allOrder()"; >All Orders</button></li>
                     <li><button class="tab1" id="activeOrderBtn" onclick="activeOrder()">Active Orders</button></li>
                     <li><button class="tab1" id="completedOrderBtn" onclick="completedOrder()">Completed Orders</button></li>
                     <li><button class="tab1" id="cancelledOrderBtn" onclick="cancelOrder()">Cancelled Orders</button></li>
