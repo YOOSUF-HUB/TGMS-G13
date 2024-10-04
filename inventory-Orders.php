@@ -292,7 +292,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                         </tr>
                     </thead>
                     <tbody>
-                    <?php while($row = $active_result->fetch_assoc()): ?>
+                    <?php while($row = $custom_result->fetch_assoc()): ?>
                         <tr>
                             <td><?php echo $row["oid"]; ?></td>
                             <td><?php echo $row["otype"]; ?></td>
