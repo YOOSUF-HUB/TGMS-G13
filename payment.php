@@ -1,3 +1,7 @@
+<?php
+session_start();
+//echo $_SESSION['user_id'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,10 +66,28 @@
     
         </section>
 
+
         <!-- Profile and Dropdown -->
         <div class="profile-container">
             <!-- Profile Image Icon; clicking on this toggles the dropdown -->
             <img src="images/profile-google.svg" alt="Profile Icon" class="profile-icon" onclick="toggleDropdown()">
+            
+            <!-- Dropdown Menu content; links for Login, Logout, and My Orders -->
+            <?php 
+            if (isset($_SESSION['user_id'])) {
+            ?>    
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="./myaccount.php">My Account</a>
+                    <a href="myorders.php">My Orders</a>
+                    <a href="./logout.php">Logout</a>
+                </div>
+            <?php }else{?>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="./login.php">Login</a>
+                    <a href="./register.php">Create Account</a>
+                </div>
+
+            <?php }?>
             
         </div>
 
@@ -79,7 +101,7 @@
 
         <div class="container">
         
-            <form class="card_details-container" action="/your-payment-endpoint" method="POST">
+            <form class="card_details-container" action="" method="">
                 <h2>Card Details</h2>
             
                 <div class="card_details">
@@ -103,7 +125,7 @@
                 </div>
             
                 <div class="button1">
-                    <button type="submit">Pay now</button>
+                <button class="buy-now" onclick="storeFinalPrice()" >Pay Now</button>
                 </div>
             </form>
             
@@ -111,9 +133,7 @@
         <div class="order_details">
             <h2>Order summary</h2>
 
-            <p>Sub total Rs. <span id="subtotal">0</span></p>
-            <p>Shipping fee Rs. <span id="shipping">0</span></p>
-            <p>Total  Rs. <span id="total">0</span></p>
+            <p style="font-size:30px;">Sub total: Rs. <span id="total">0</span></p>
         </div>
 
     </div>
@@ -164,6 +184,24 @@
 
 
     <script src="index.js"></script>
+
+    <script>
+        // Retrieve the final price from sessionStorage and display it
+        const finalPrice = sessionStorage.getItem('finalPrice'); // Get the final price from sessionStorage
+        // Assuming there is a span or input field for displaying the total price
+        if (finalPrice) {
+            document.getElementById('total').textContent = finalPrice; // Set the total price in the order summary
+        } else {
+            console.log('No final price found in sessionStorage.');
+        }
+
+        function storeFinalPrice() {
+            const finalPrice = document.getElementById('total').textContent; // Get the final price from the page
+            sessionStorage.setItem('finalPrice-payment', finalPrice-payment); // Store the final price in sessionStorage
+            window.location.href = 'checkout.php'; // Redirect to checkout page
+        }
+
+    </script>
 
 </body>
 </html>

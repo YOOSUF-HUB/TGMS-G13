@@ -161,7 +161,7 @@
                     
                     <!-- Buy and Add to Cart Buttons -->
                     <div class="action-buttons">
-                        <button class="buy-now">Buy Now</button>
+                        <button class="buy-now" onclick="storeFinalPrice()">Buy Now</button>
                         <button class="add-cart">Add to Cart</button>
                     </div>
                 </div>
@@ -256,6 +256,11 @@
         // Perform the initial calculation when the page loads
         calculateFinalPrice();
 
+        function storeFinalPrice() {
+        const finalPrice = document.getElementById('final-price').textContent; // Get the final price from the page
+        sessionStorage.setItem('finalPrice', finalPrice); // Store the final price in sessionStorage
+        window.location.href = 'payment.php'; // Redirect to payment page
+}
     </script>
     
 </body>

@@ -1,3 +1,7 @@
+<?php
+session_start();
+//echo $_SESSION['user_id'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,13 +70,21 @@
             <img src="images/profile-google.svg" alt="Profile Icon" class="profile-icon" onclick="toggleDropdown()">
             
             <!-- Dropdown Menu content; links for Login, Logout, and My Orders -->
-            <div id="myDropdown" class="dropdown-content">
-                <a href="#">Profile</a>
-                <a href="#">Login</a>
-                <a href="#">My Orders</a>
-                <a href="#">Logout</a>
-            </div>
-        </div>
+            <?php 
+            if (isset($_SESSION['user_id'])) {
+            ?>    
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="./myaccount.php">My Account</a>
+                    <a href="myorders.php">My Orders</a>
+                    <a href="./logout.php">Logout</a>
+                </div>
+            <?php }else{?>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="./login.php">Login</a>
+                    <a href="./register.php">Create Account</a>
+                </div>
+
+            <?php }?>
 
 
     </header>
@@ -172,9 +184,9 @@
             <!-- Order Summary Page -->
             <div class="order-summary">
                 <h2>Order Summary</h2>
-                <div class="summary-item">
-                    <span>Sub total</span>
-                    <span id="subtotal">Rs. 0</span> <!-- Subtotal will be updated dynamically -->
+                <div id="checkout">
+                    <h1>Checkout</h1>
+                    <p>Total Price: Rs. <span id="totalPrice">0</span></p>
                 </div>
                 <div class="summary-item">
                     <span>Shipping fee</span>
@@ -182,7 +194,7 @@
                 </div>
                 <div class="summary-item">
                     <span>Total</span>
-                    <span id="total">Rs. 0</span>
+                    <span id="sub-total">Rs. 0</span>
                 </div>
 
                 <div class="place-order-btn">
@@ -195,30 +207,6 @@
         </div>
 
     </main>
-
-    <script>
-        // Function to calculate and update shipping fee and total
-        function calculateOrder() {
-            // Retrieve the subtotal from localStorage
-            const subtotal = localStorage.getItem("subtotal");
-        
-            if (subtotal) {
-                const shippingFee = subtotal * 0.10;  // we have impelemented 10% of subtotal will be the shipping fee
-                const total = parseFloat(subtotal) + shippingFee;
-        
-                // Update the HTML elements
-                document.getElementById("subtotal").innerText = "Rs. " + parseFloat(subtotal).toLocaleString();
-                document.getElementById("shipping").innerText = "Rs. " + shippingFee.toLocaleString();
-                document.getElementById("total").innerText = "Rs. " + total.toLocaleString();
-            } else {
-                // Display error message under the submit button
-                document.getElementById("error-message").innerText = "Subtotal not available!";
-            }
-        }
-        
-        // Call the function to calculate when the page loads
-        calculateOrder();
-        </script>
 
     <!-- Footer Section -->
     <footer>
@@ -264,5 +252,18 @@
 
 
     <script src="index.js"></script>
+
+    <script>
+        // Retrieve the stored final price from sessionStorage on the checkout page
+        const finalPrice = sessionStorage.getItem('finalPrice-payment'); // Get the price from sessionStorage
+        if (finalPrice) {
+            document.getElementById('totalPrice').textContent = totalPrice; // Display the price on the checkout page
+        } else {
+            console.log('No final price found.');
+        }
+    </script>
+
+
+
 </body>
 </html>
