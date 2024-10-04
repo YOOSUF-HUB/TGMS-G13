@@ -356,7 +356,7 @@ main{
 .checkout-container {
     font-family: Questrial, sans-serif;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 
 }
 
@@ -372,7 +372,7 @@ main{
 }
 
 .order-summary {
-    width: 30%;
+    width: 60%;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
