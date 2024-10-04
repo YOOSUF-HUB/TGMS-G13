@@ -53,7 +53,7 @@ if($_SESSION['staff_role']!=='Support'){ //condition make sure admin user redire
     include 'php/config.php';
 
     // SQL query to fetch data from customer account table
-    $customer_sql = "SELECT Inquiry_ID, Inquiry_Date, First_name, Last_name, Email, Phone_no, Topic, Other, Customer_ID FROM Inquiries";
+    $customer_sql = "SELECT Inquiry_ID, Inquiry_Date, First_name, Last_name, Email, Phone_no, Topic, Other, Customer_ID,Status FROM Inquiries";
     $customer_result = $conn->query($customer_sql);
     ?>
 
@@ -79,47 +79,45 @@ if($_SESSION['staff_role']!=='Support'){ //condition make sure admin user redire
                 <div>
 
                 <?php if ($customer_result->num_rows > 0): ?>
-                        <table class="customer_table" style="margin:auto;">
-                            <thead>
-                                <tr>
-                                    <th>Inquiry ID</th>
-                                    <th>Inquiry Date</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Email</th>
-                                    <th>Phone No</th>
-                                    <th>Topic</th>
-                                    <th>Other Details</th>
-                                    <th>Customer ID</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php while($row = $customer_result->fetch_assoc()): ?>
-                                <tr>
-                                    <td><?php echo htmlspecialchars($row["Inquiry_ID"]); ?></td>
-                                    <td><?php echo htmlspecialchars($row["Inquiry_Date"]); ?></td>
-                                    <td><?php echo htmlspecialchars($row["First_name"]); ?></td>
-                                    <td><?php echo htmlspecialchars($row["Last_name"]); ?></td>
-                                    <td><?php echo htmlspecialchars($row["Email"]); ?></td>
-                                    <td><?php echo htmlspecialchars($row["Phone_no"]); ?></td>
-                                    <td><?php echo htmlspecialchars($row["Topic"]); ?></td>
-                                    <td><?php echo htmlspecialchars($row["Other"]); ?></td>
-                                    <td><?php echo htmlspecialchars($row["Customer_ID"]); ?></td>
-                                    <td>
-                                    <label for="Solved"><b>Solved</b></label>
-                                    <select style="width:100px; height:30px; border:none; border-radius:10px;" id="Solved" onchange="updateSelectColor(this)">
-                                        <option value="Active">Active</option>
-                                        <option value="Closed">Closed</option>
-                                    </select>
-                                    </td>
-                                </tr>
-                                <?php endwhile; ?>
-                            </tbody>
-                        </table>
-                    <?php else: ?>
-                        <p>No records found.</p>
-                    <?php endif; ?>
+                    <table class="customer_table" style="margin:auto;">
+                        <thead>
+                            <tr>
+                                <th>Inquiry ID</th>
+                                <th>Inquiry Date</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Phone No</th>
+                                <th>Topic</th>
+                                <th>Other Details</th>
+                                <th>Customer ID</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php while($row = $customer_result->fetch_assoc()): ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($row["Inquiry_ID"]); ?></td>
+                                <td><?php echo htmlspecialchars($row["Inquiry_Date"]); ?></td>
+                                <td><?php echo htmlspecialchars($row["First_name"]); ?></td>
+                                <td><?php echo htmlspecialchars($row["Last_name"]); ?></td>
+                                <td><?php echo htmlspecialchars($row["Email"]); ?></td>
+                                <td><?php echo htmlspecialchars($row["Phone_no"]); ?></td>
+                                <td><?php echo htmlspecialchars($row["Topic"]); ?></td>
+                                <td><?php echo htmlspecialchars($row["Other"]); ?></td>
+                                <td><?php echo htmlspecialchars($row["Customer_ID"]); ?></td>
+                                <td><?php echo htmlspecialchars($row["Status"]); ?></td>
+                                <td>
+                                <button style="background-color: #0B2F9F; border-radius: 5px; border: none; padding: 5px;"><a href="update_inquiry.php?updateid=<?php echo $row['Inquiry_ID']; ?>" style="text-decoration: none; color: white;">Update</a></button>
+                                </td>
+                            </tr>
+                            <?php endwhile; ?>
+                        </tbody>
+                    </table>
+                <?php else: ?>
+                    <p>No records found.</p>
+                <?php endif; ?>
 
 
                 </div>
@@ -135,21 +133,21 @@ if($_SESSION['staff_role']!=='Support'){ //condition make sure admin user redire
 
     <script src="Index.js"></script>
 
-        <script>
-            function updateSelectColor(selectElement) {
-                if (selectElement.value === "Active") {
-                    selectElement.style.backgroundColor = "rgb(255, 161, 161)";
-                } else if (selectElement.value === "Closed") {
-                    selectElement.style.backgroundColor = "rgb(76, 236, 148)";
-                }
+    <script>
+        function updateSelectColor(selectElement) {
+            if (selectElement.value === "Active") {
+                selectElement.style.backgroundColor = "red";
+            } else if (selectElement.value === "Closed") {
+                selectElement.style.backgroundColor = "green";
             }
+        }
 
-            // Set initial color based on default selected value
-            document.addEventListener('DOMContentLoaded', function() {
-                const selectElement = document.getElementById('Solved');
-                updateSelectColor(selectElement);
-            });
-        </script>
+        // Set initial colors based on current status
+        document.addEventListener('DOMContentLoaded', function() {
+            const selectElements = document.querySelectorAll('select[id^="Solved_"]');
+            selectElements.forEach(selectElement => updateSelectColor(selectElement));
+        });
+    </script>
 
     
 

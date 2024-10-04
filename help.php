@@ -133,6 +133,7 @@ session_start();
             $topic = mysqli_real_escape_string($conn, $_POST['topic']);
             $other_comments = mysqli_real_escape_string($conn, $_POST['other_comments']);
             $user_id = mysqli_real_escape_string($conn, $_SESSION['user_id']);
+            $status = 'Active';
 
             // Query to get the last Consultation_ID
             $find = mysqli_query($conn, "SELECT MAX(Inquiry_ID) AS max_id FROM Inquiries");
@@ -155,12 +156,12 @@ session_start();
 
 
             // Insert form data into the database
-            $query = "INSERT INTO Inquiries (Inquiry_ID, Inquiry_Date, First_name, Last_name, Email, Phone_no, Topic, Other, Customer_ID)
-                    VALUES ('$customerid', NOW(), '$first_name', '$last_name', '$email', '$telephone', '$topic', '$other_comments','$user_id')";
+            $query = "INSERT INTO Inquiries (Inquiry_ID, Inquiry_Date, First_name, Last_name, Email, Phone_no, Topic, Other, Customer_ID , Status)
+                    VALUES ('$customerid', NOW(), '$first_name', '$last_name', '$email', '$telephone', '$topic', '$other_comments','$user_id', '$status')";
 
             if (mysqli_query($conn, $query)) {
                 echo "<div class='successmessage'>
-                        <p style='font-family:Questrial,san-serif; text-align:center; font-size: 40px'>Thank you! Your consultation request has been received. We will get back to you shortly.</p>
+                        <p style='font-family:Questrial,san-serif; text-align:center; font-size: 40px'>Thank you! Your Inquiry has been received. We will get back to you shortly.</p>
                         <button onclick='goBack()' style='font-family:Questrial,san-serif; font-size: 20px; padding: 10px 20px; background-color: #697565; color: white; border: none; border-radius: 5px; cursor: pointer;'>Go Back</button>
                     </div>";
                     
