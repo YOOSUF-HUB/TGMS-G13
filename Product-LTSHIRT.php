@@ -7,7 +7,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Detail - TANKTOP</title>
+    <title>Product Detail - LTSHIRT</title>
     <link rel="stylesheet" href="styles/ProductDetails.css">
     <link rel="stylesheet" href="Index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- social media icons -->
@@ -96,15 +96,15 @@ session_start();
             </div>
 
             <!-- Product Image Section -->
-            <h1><b>HOODIES</b></h1><br>
+            <h1><b>LONG SLEEVE - TSHIRT</b></h1><br>
             <div class="product-images">
                 <div>
-                    <img src="PRODUCT IMAGES/HOODIE/hoodie.jpg" alt="Product Image" class="main-image">
+                    <img src="PRODUCT IMAGES/PRODUCT-LSLEEVE/Raven-Black-Long-Sleeve-T-Shirt-V10.webp" alt="Product Image" class="main-image">
                     <div class="thumbnail-images">
-                        <img src="PRODUCT IMAGES/HOODIE/yellow hoodie.png" alt="Yellow Hoodie" class="thumbnail">
-                        <img src="PRODUCT IMAGES/HOODIE/black hoodie.jpg" alt="Black Hoodie" class="thumbnail">
-                        <img src="PRODUCT IMAGES/HOODIE/red hoodie.jpg" alt="Red Hoodie" class="thumbnail">
-                        <img src="PRODUCT IMAGES/HOODIE/white hoodie.jpg" alt="White Hoodie" class="thumbnail">
+                        <img src="PRODUCT IMAGES/PRODUCT-LSLEEVE/Navy-Blue-Long-Sleeve-T-Shirt-V10.webp" alt="Yellow Hoodie" class="thumbnail">
+                        <img src="PRODUCT IMAGES/PRODUCT-LSLEEVE/Army-Green-Long-Sleeve-T-Shirt-V10.webp" alt="Black Hoodie" class="thumbnail">
+                        <img src="PRODUCT IMAGES/PRODUCT-LSLEEVE/Sea-Green-long-Sleeve-T-Shirt-V10.webp" alt="Black Hoodie" class="thumbnail">
+                        <img src="PRODUCT IMAGES/PRODUCT-LSLEEVE/Cotton-White-Long-Sleeve-T-Shirt-V10.webp" alt="Black Hoodie" class="thumbnail">
                     </div>
                 </div>
 
@@ -113,15 +113,15 @@ session_start();
                     include 'php/config.php';
 
                     // SQL query to fetch hoodie price from the Price table
-                    $price_sql = "SELECT TANKTOP FROM Price";
+                    $price_sql = "SELECT LSLEEVE FROM Price";
                     $price_result = $conn->query($price_sql);
 
                     // Fetch the hoodie price
                     if ($price_result->num_rows > 0) {
                         $row = $price_result->fetch_assoc();
-                        $tanktop_price = $row['TANKTOP'];
+                        $lsleeve_price = $row['LSLEEVE'];
                     } else {
-                        $tanktop_price = 0; // Fallback if no price is found
+                        $lsleeve_price = 0; // Fallback if no price is found
                     }
                 ?>
     
@@ -130,9 +130,10 @@ session_start();
                     <label for="colour"><b>Colour</b></label>
                     <select id="colour">
                         <option disabled selected>Select color</option>
-                        <option value="yellow">Yellow</option>
-                        <option value="black">Black</option>
-                        <option value="red">Red</option>
+                        <option value="Black">Black</option>
+                        <option value="Blue">Blue</option>
+                        <option value="Green">Green</option>
+                        <option value="Sea Green">Sea Green</option>
                         <option value="white">White</option>
                     </select>
     
@@ -159,7 +160,7 @@ session_start();
                     
                     <div>
                         <label for="price"> Price (per unit):</label>
-                        <input style="width: 300px;height: 45px;text-align: center;font-size: 1.2em;border: 2px solid #ff5e00;border-radius: 10px;" id="price" value="<?php echo $tanktop_price; ?>.00" aria-label="price" readonly>
+                        <input style="width: 300px;height: 45px;text-align: center;font-size: 1.2em;border: 2px solid #ff5e00;border-radius: 10px;" id="price" value="<?php echo $lsleeve_price; ?>.00" aria-label="price" readonly>
                     </div>
                     
                     <label for="final-price"> Final Price:</label>
@@ -168,7 +169,7 @@ session_start();
                     </div>
     
                     <label><b style="font-family: Questrial, sans-serif;">
-                    Elevate your casual wear with our premium hoodies, designed for both comfort and style. Made from ultra-soft, durable fabrics like cotton and fleece, these hoodies provide warmth without compromising on breathability. Whether you're relaxing at home or heading out, our hoodies offer a versatile look with pullover and zip-up options. Available in a range of bold colors and classic neutrals, they feature a cozy hood, front pockets, and a modern fit that complements every body type. Perfect for layering or wearing on its own, this hoodie is your go-to for comfort, style, and warmth year-round.
+                    Elevate your wardrobe with our premium long-sleeve t-shirts, designed for all-day comfort and effortless style. Crafted from soft, breathable fabrics like cotton and jersey, these shirts offer lightweight warmth and a versatile fit. Whether you're layering up for cooler weather or wearing it solo, our long-sleeve tees feature a relaxed yet tailored look, perfect for any occasion. Available in a range of vibrant colors and timeless neutrals, these shirts come with ribbed cuffs and a classic crew neck for a sleek finish. Ideal for casual wear, these t-shirts are your go-to choice for comfort, style, and year-round versatility.
                     </b></label>
                     
                     <!-- Buy and Add to Cart Buttons -->

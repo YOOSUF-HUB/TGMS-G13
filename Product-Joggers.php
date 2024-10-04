@@ -96,15 +96,14 @@ session_start();
             </div>
 
             <!-- Product Image Section -->
-            <h1><b>HOODIES</b></h1><br>
+            <h1><b>JOGGERS</b></h1><br>
             <div class="product-images">
                 <div>
-                    <img src="PRODUCT IMAGES/HOODIE/hoodie.jpg" alt="Product Image" class="main-image">
+                    <img src="PRODUCT IMAGES/PRODUCT-JOGGERS/j-black.webp" alt="Black Jogger" class="main-image">
                     <div class="thumbnail-images">
-                        <img src="PRODUCT IMAGES/HOODIE/yellow hoodie.png" alt="Yellow Hoodie" class="thumbnail">
-                        <img src="PRODUCT IMAGES/HOODIE/black hoodie.jpg" alt="Black Hoodie" class="thumbnail">
-                        <img src="PRODUCT IMAGES/HOODIE/red hoodie.jpg" alt="Red Hoodie" class="thumbnail">
-                        <img src="PRODUCT IMAGES/HOODIE/white hoodie.jpg" alt="White Hoodie" class="thumbnail">
+                        <img src="PRODUCT IMAGES/PRODUCT-JOGGERS/madmext-beyaz-jogger-pantolon-4242-293-c7.webp" alt="White Jogger" class="thumbnail">
+                        <img src="PRODUCT IMAGES/PRODUCT-JOGGERS/Navy-Blue_06b35c30-afe4-41df-a658-2831a0511e13.webp" alt="Blue Jogger" class="thumbnail">
+                        <img src="PRODUCT IMAGES/PRODUCT-JOGGERS/jogger-green.webp" alt="Green Jogger" class="thumbnail">
                     </div>
                 </div>
 
@@ -130,10 +129,10 @@ session_start();
                     <label for="colour"><b>Colour</b></label>
                     <select id="colour">
                         <option disabled selected>Select color</option>
-                        <option value="yellow">Yellow</option>
+                        <option value="White">White</option>
                         <option value="black">Black</option>
-                        <option value="red">Red</option>
-                        <option value="white">White</option>
+                        <option value="Blue">Blue</option>
+                        <option value="Green">Green</option>
                     </select>
     
                     <label for="material"><b>Material</b></label>
@@ -168,8 +167,7 @@ session_start();
                     </div>
     
                     <label><b style="font-family: Questrial, sans-serif;">
-                    Elevate your casual wear with our premium hoodies, designed for both comfort and style. Made from ultra-soft, durable fabrics like cotton and fleece, these hoodies provide warmth without compromising on breathability. Whether you're relaxing at home or heading out, our hoodies offer a versatile look with pullover and zip-up options. Available in a range of bold colors and classic neutrals, they feature a cozy hood, front pockets, and a modern fit that complements every body type. Perfect for layering or wearing on its own, this hoodie is your go-to for comfort, style, and warmth year-round.
-                    </b></label>
+                    Upgrade your casual wardrobe with our premium joggers, crafted for ultimate comfort and modern style. Made from soft, durable fabrics like cotton and polyester, these joggers offer a perfect balance of warmth and breathability. Whether you're lounging at home or staying active, our joggers feature a tapered fit with an adjustable drawstring waistband for a customized fit. Designed with practical side pockets and ribbed cuffs, they provide a sleek, versatile look for any occasion. Available in a variety of bold and neutral tones, these joggers are your go-to choice for comfort, style, and functionality all year long.                    </b></label>
                     
                     <!-- Buy and Add to Cart Buttons -->
                     <div class="action-buttons">

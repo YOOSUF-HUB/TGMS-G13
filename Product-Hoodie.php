@@ -99,12 +99,12 @@ session_start();
             <h1><b>HOODIES</b></h1><br>
             <div class="product-images">
                 <div>
-                    <img src="PRODUCT IMAGES/HOODIE/hoodie.jpg" alt="Product Image" class="main-image">
+                    <img src="PRODUCT IMAGES/PRODUCT-HOODIE/hoodie.jpg" alt="Product Image" class="main-image">
                     <div class="thumbnail-images">
-                        <img src="PRODUCT IMAGES/HOODIE/yellow hoodie.png" alt="Yellow Hoodie" class="thumbnail">
-                        <img src="PRODUCT IMAGES/HOODIE/black hoodie.jpg" alt="Black Hoodie" class="thumbnail">
-                        <img src="PRODUCT IMAGES/HOODIE/red hoodie.jpg" alt="Red Hoodie" class="thumbnail">
-                        <img src="PRODUCT IMAGES/HOODIE/white hoodie.jpg" alt="White Hoodie" class="thumbnail">
+                        <img src="PRODUCT IMAGES/PRODUCT-HOODIE/black hoodie.jpg" alt="Yellow Hoodie" class="thumbnail">
+                        <img src="PRODUCT IMAGES/PRODUCT-HOODIE/red hoodie.jpg" alt="Black Hoodie" class="thumbnail">
+                        <img src="PRODUCT IMAGES/PRODUCT-HOODIE/yellow hoodie.png" alt="Red Hoodie" class="thumbnail">
+                        <img src="PRODUCT IMAGES/PRODUCT-HOODIE/white hoodie.jpg" alt="White Hoodie" class="thumbnail">
                     </div>
                 </div>
 

@@ -96,15 +96,15 @@ session_start();
             </div>
 
             <!-- Product Image Section -->
-            <h1><b>HOODIES</b></h1><br>
+            <h1><b>TSHIRTS</b></h1><br>
             <div class="product-images">
                 <div>
-                    <img src="PRODUCT IMAGES/HOODIE/hoodie.jpg" alt="Product Image" class="main-image">
+                    <img src="PRODUCT IMAGES/PRODUCT-TSHIRT/Jet-Black-Sports-T-Shirt.webp" alt="Black Tshirt" class="main-image">
                     <div class="thumbnail-images">
-                        <img src="PRODUCT IMAGES/HOODIE/yellow hoodie.png" alt="Yellow Hoodie" class="thumbnail">
-                        <img src="PRODUCT IMAGES/HOODIE/black hoodie.jpg" alt="Black Hoodie" class="thumbnail">
-                        <img src="PRODUCT IMAGES/HOODIE/red hoodie.jpg" alt="Red Hoodie" class="thumbnail">
-                        <img src="PRODUCT IMAGES/HOODIE/white hoodie.jpg" alt="White Hoodie" class="thumbnail">
+                        <img src="PRODUCT IMAGES/PRODUCT-TSHIRT/Electric-Red-Sports-T-Shirt.webp" alt="Red Tshirt" class="thumbnail">
+                        <img src="PRODUCT IMAGES/PRODUCT-TSHIRT/Neon-Yellow-Sports-T-Shirt-1.webp" alt="Yellow Tshirt" class="thumbnail">
+                        <img src="PRODUCT IMAGES/PRODUCT-TSHIRT/White-Sports-T-Shirt.webp" alt="White Tshirt" class="thumbnail">
+                        <img src="PRODUCT IMAGES/PRODUCT-TSHIRT/Maroon-Sports-T-Shirt-300x300.webp" alt="Maroon Tshirt" class="thumbnail">
                     </div>
                 </div>
 
@@ -130,10 +130,11 @@ session_start();
                     <label for="colour"><b>Colour</b></label>
                     <select id="colour">
                         <option disabled selected>Select color</option>
-                        <option value="yellow">Yellow</option>
-                        <option value="black">Black</option>
-                        <option value="red">Red</option>
-                        <option value="white">White</option>
+                        <option value="Black">Black</option>
+                        <option value="Red">Red</option>
+                        <option value="Yellow">Yellow</option>
+                        <option value="Maroon">Maroon</option>
+                        <option value="White">White</option>
                     </select>
     
                     <label for="material"><b>Material</b></label>

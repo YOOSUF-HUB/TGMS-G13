@@ -7,7 +7,7 @@ session_start();
 include 'php/config.php';
 
 // SQL query to fetch all prices from the Price table
-$price_sql = "SELECT HOODIES, TSHIRT, JOGGERS, TANKTOP FROM Price";
+$price_sql = "SELECT HOODIES, TSHIRT, JOGGERS, LSLEEVE FROM Price";
 $price_result = $conn->query($price_sql);
 
 // Fetch prices and set default fallback
@@ -18,7 +18,7 @@ if ($price_result->num_rows > 0) {
     $hoodie_price = $row['HOODIES'];
     $tshirt_price = $row['TSHIRT'];
     $jogger_price = $row['JOGGERS'];
-    $tanktop_price = $row['TANKTOP'];
+    $lsleeve_price = $row['LSLEEVE'];
 }
 ?>
 
@@ -225,18 +225,18 @@ if ($price_result->num_rows > 0) {
             <div class="container">
                 <div class="item2">
                     <form>
-                        <a href="Product-TankTop.php" style="text-decoration: none; color: black;">
+                        <a href="Product-LTSHIRT.php" style="text-decoration: none; color: black;">
                         <fieldset>
-                            <b class="product-title">TANK TOP</b><br><br>
-                            <b style="font-size: 20px;">Category: </b>Activewear, Sportswear<br><br>
-                            <b style="font-size: 20px;">Style: </b>Tops (T-shirts, tank tops), Bottoms (shorts, leggings), Jackets<br><br>
-                            <b style="font-size: 20px;">Fabric: </b>Polyester, Spandex (Lycra), Nylon, or Cotton blends<br><br>
-                            <b style="font-size: 20px;">Features: </b>Moisture-wicking, quick-dry, stretchable, breathable, lightweight<br><br>
-                            <b>Fit: </b>Regular fit, Compression fit, or Relaxed fit<br><br>
+                            <b class="product-title">LONG SLEEVES</b><br><br>
+                            <b style="font-size: 20px;">Category: </b>Casual Wear, Everyday Wear<br><br>
+                            <b style="font-size: 20px;">Style: </b>Long-Sleeve T-shirts<br><br>
+                            <b style="font-size: 20px;">Fabric: </b>Cotton, Jersey, Cotton blends<br><br>
+                            <b style="font-size: 20px;">Features: </b>Breathable, lightweight, soft-touch, comfortable for layering<br><br>
+                            <b>Fit: </b>Regular fit, Relaxed fit, or Slim fit<br><br>
                             <b style="font-size: 20px;">Size Range: </b> S, M, L (custom sizes may also be available).<br><br>
-                            <b style="font-size: 20px;">Care Instructions: Machine washable, tumble dry low or hang dry, avoid fabric softeners to maintain moisture-wicking properties.</b>
-                            <div style="margin-top: 30px;">
-                            <button class="price">Rs.<?php echo $tanktop_price; ?>.00</button>
+                            <b style="font-size: 20px;">Care Instructions: Machine washable, tumble dry low or hang dry to maintain softness and shape.</b>
+```                            <div style="margin-top: 30px;">
+                            <button class="price">Rs.<?php echo $lsleeve_price; ?>.00</button>
                                 <button class="add">Buy Now</button>
                             </div>
                         </fieldset>
@@ -246,7 +246,7 @@ if ($price_result->num_rows > 0) {
                     </form>
                 </div>
                 <div class="item1">
-                    <img src="images/tanktop-product.png"  class="product-img"  alt="img">
+                    <img src="PRODUCT IMAGES/PRODUCT-LSLEEVE/Raven-Black-Long-Sleeve-T-Shirt-V10.webp"  class="product-img"  alt="img">
                 </div>
             </div>   
             
