@@ -294,8 +294,14 @@ footer {
 
 
 /* Orders */
+#tabs {
+    display: flex; list-style-type: none; padding: 0;
+}
 .tab1 {
     background-color: #ECDFCC; border:0; border-bottom: #000000 2px solid;
+}
+.inner-table-container{
+    height: 85vh; overflow:auto; 
 }
 
 /* ADMIN LOGIN PAGE CSS */
