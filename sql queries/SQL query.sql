@@ -80,12 +80,7 @@ CREATE Table Orders(
     CONSTRAINT Orders_FK3 FOREIGN KEY (Payment_ID) REFERENCES Payments(Payment_ID)
 );
 
-CREATE TABLE Price(
-    HOODIES INT(255) NOT NULL,
-    TSHIRT INT(255) NOT NULL,
-    JOGGERS INT(255) NOT NULL,
-    TANKTOP INT(255) NOT NULL
-);
+
 
 -- Consultation Table
 CREATE TABLE Consultation (
@@ -197,3 +192,11 @@ INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantit
 INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES ('VER-3-006','JOGGERS','Blue','Small','Elastic Waistband Trousers','230');
 INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) VALUES 
 ('VER-4-006','TANK TOP','Blue','Small','Tops','490');
+
+-- Price Table
+CREATE TABLE Price(
+    HOODIES INT(255) NOT NULL,
+    TSHIRT INT(255) NOT NULL,
+    JOGGERS INT(255) NOT NULL,
+    TANKTOP INT(255) NOT NULL
+);
