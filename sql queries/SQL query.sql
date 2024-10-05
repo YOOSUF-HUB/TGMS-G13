@@ -258,3 +258,18 @@ CREATE TABLE Price(
     JOGGERS INT(255) NOT NULL,
     LSLEEVE INT(255) NOT NULL
 );
+
+CREATE TABLE Help (
+    Help_ID VARCHAR(255) NOT NULL PRIMARY KEY,
+    Customer_ID VARCHAR(255),  -- Foreign key column
+    First_name VARCHAR(255) NOT NULL,
+    Last_name VARCHAR(255) NOT NULL,
+    Email VARCHAR(255) NOT NULL,
+    Subject VARCHAR(255) NOT NULL,
+    Message VARCHAR(1000) NOT NULL,
+    Date_created DATE DEFAULT CURRENT_DATE
+    CONSTRAINT fk_help_customer  -- Change to a unique name
+    FOREIGN KEY (Customer_ID) REFERENCES Customer_account(Customer_ID) 
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+);

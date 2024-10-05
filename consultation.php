@@ -113,109 +113,106 @@ session_start();
 
     <div class="container">
 
-        <div class="form-box">
-                <?php
+    <div class="form-box">
+        <?php
+        include("./php/config.php");
 
-                include("./php/config.php");
-                
-                if (isset($_POST['submit'])) {
-                    // Collect form data
-                    $full_name = mysqli_real_escape_string($conn, $_POST['full_name']);
-                    $email = mysqli_real_escape_string($conn, $_POST['email']);
-                    $telephone = mysqli_real_escape_string($conn, $_POST['telephone']);
-                    $company_name = mysqli_real_escape_string($conn, $_POST['company_name']);
-                    $company_website = mysqli_real_escape_string($conn, $_POST['company_website']);
-                    $company_scale = mysqli_real_escape_string($conn, $_POST['company_scale']);
-                    $brand_overview = mysqli_real_escape_string($conn, $_POST['brand_overview']);
-                    $other_comments = mysqli_real_escape_string($conn, $_POST['other_comments']);
-                    $user_id = mysqli_real_escape_string($conn, $_SESSION['user_id']);
+        if (isset($_SESSION['user_id'])) {
+            // Form processing logic for logged-in users
+            if (isset($_POST['submit'])) {
+                // Collect form data
+                $full_name = mysqli_real_escape_string($conn, $_POST['full_name']);
+                $email = mysqli_real_escape_string($conn, $_POST['email']);
+                $telephone = mysqli_real_escape_string($conn, $_POST['telephone']);
+                $company_name = mysqli_real_escape_string($conn, $_POST['company_name']);
+                $company_website = mysqli_real_escape_string($conn, $_POST['company_website']);
+                $company_scale = mysqli_real_escape_string($conn, $_POST['company_scale']);
+                $brand_overview = mysqli_real_escape_string($conn, $_POST['brand_overview']);
+                $other_comments = mysqli_real_escape_string($conn, $_POST['other_comments']);
+                $user_id = mysqli_real_escape_string($conn, $_SESSION['user_id']);
 
-                    // Query to get the last Consultation_ID
-                    $find = mysqli_query($conn, "SELECT MAX(Consultation_ID) AS max_id FROM Consultation");
-                    $row = mysqli_fetch_assoc($find);
+                // Query to get the last Consultation_ID
+                $find = mysqli_query($conn, "SELECT MAX(Consultation_ID) AS max_id FROM Consultation");
+                $row = mysqli_fetch_assoc($find);
 
-                    //Assigning customer ID
-                    if ($row['max_id']) {
-                        $last_id = $row['max_id'];
-                        // Extract numeric part from last ID
-                        $last_num = (int)preg_replace("/[^0-9]/", "", $last_id);
-                        $num = $last_num + 1; // Increment the numeric part
-                        
-                    // Generate new customer ID with 'CONSULT_' prefix
-                        $customerid = 'CONSULT_' . str_pad($num, 4, '0', STR_PAD_LEFT); 
-                    } else {
-                        $customerid = 'CONSULT_0001'; // Use the correct prefix here
-                    }
-
-                
-
-
-                    // Insert form data into the database
-                    $query = "INSERT INTO Consultation (Consultation_ID, Consultation_Date, Full_name, Email, Phone_no, Company_name, Company_website_URL, Company_scale, Brand_overview, Other, Customer_ID)
-                            VALUES ('$customerid', NOW(), '$full_name', '$email', '$telephone', '$company_name', '$company_website', '$company_scale', '$brand_overview', '$other_comments', '$user_id')";
-
-                    if (mysqli_query($conn, $query)) {
-                        echo "<div class='successmessage'>
-                                <p style='font-family:Questrial,san-serif; text-align:center; font-size: 40px'>Thank you! Your consultation request has been received. We will get back to you shortly.</p>
-                                <button onclick='goBack()' style='font-family:Questrial,san-serif; font-size: 20px; padding: 10px 20px; background-color: #697565; color: white; border: none; border-radius: 5px; cursor: pointer;'>Go Back</button>
-                            </div>";
-                            
-                    } else {
-                        echo "<div class='errormessage'>
-                                <p>Error: " . mysqli_error($conn) . "</p>
-                                <button onclick='goBack()' style='font-family:Questrial,san-serif; font-size: 20px; padding: 10px 20px; background-color: #697565; color: white; border: none; border-radius: 5px; cursor: pointer;'>Go Back</button>
-                            </div>";
-                    }
-
+                // Assigning consultation ID
+                if ($row['max_id']) {
+                    $last_id = $row['max_id'];
+                    $last_num = (int)preg_replace("/[^0-9]/", "", $last_id);
+                    $num = $last_num + 1;
+                    $customerid = 'CONSULT_' . str_pad($num, 4, '0', STR_PAD_LEFT); 
                 } else {
+                    $customerid = 'CONSULT_0001';
+                }
+
+                // Insert form data into the database
+                $query = "INSERT INTO Consultation (Consultation_ID, Consultation_Date, Full_name, Email, Phone_no, Company_name, Company_website_URL, Company_scale, Brand_overview, Other, Customer_ID)
+                        VALUES ('$customerid', NOW(), '$full_name', '$email', '$telephone', '$company_name', '$company_website', '$company_scale', '$brand_overview', '$other_comments', '$user_id')";
+
+                if (mysqli_query($conn, $query)) {
+                    echo "<div class='successmessage'>
+                            <p style='font-family:Questrial,san-serif; text-align:center; font-size: 40px'>Thank you! Your consultation request has been received. We will get back to you shortly.</p>
+                            <button onclick='goBack()' style='font-family:Questrial,san-serif; font-size: 20px; padding: 10px 20px; background-color: #697565; color: white; border: none; border-radius: 5px; cursor: pointer;'>Go Back</button>
+                        </div>";
+                } else {
+                    echo "<div class='errormessage'>
+                            <p>Error: " . mysqli_error($conn) . "</p>
+                            <button onclick='goBack()' style='font-family:Questrial,san-serif; font-size: 20px; padding: 10px 20px; background-color: #697565; color: white; border: none; border-radius: 5px; cursor: pointer;'>Go Back</button>
+                        </div>";
+                }
+            } else {
+                // Display form if the user is logged in
                 ?>
-                    <h3>Book a Consultancy</h3>
-                    <p style="font-family:Questrial,san-serif; text-align:center;color: #697565; font-size: 20px;">We will respond within 24 Hours</p>
+                <h3>Book a Consultancy</h3>
+                <p style="font-family:Questrial,san-serif; text-align:center;color: #697565; font-size: 20px;">We will respond within 24 Hours</p>
 
+                <form action="" method="post">
+                    <!-- Form fields go here -->
+                    <div class="field input">
+                        <input type="text" name="full_name" placeholder="Full Name*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
+                    </div>
 
-                    <form action="" method="post">
-                        <div class="field input">
-                            <input type="text" name="full_name" placeholder="Full Name*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
-                        </div>
+                    <div class="field input">
+                        <input type="email" name="email" placeholder="Email*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
+                    </div>
 
-                        <div class="field input">
-                            <input type="email" name="email" placeholder="Email*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
-                        </div>
+                    <div class="field input">
+                        <input type="text" name="telephone" placeholder="Telephone*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
+                    </div>
 
-                        <div class="field input">
-                            <input type="text" name="telephone" placeholder="Telephone*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
-                        </div>
+                    <div class="field input">
+                        <input type="text" name="company_name" placeholder="Company Name*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
+                    </div>
 
-                        <div class="field input">
-                            <input type="text" name="company_name" placeholder="Company Name*" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required>
-                        </div>
+                    <div class="field input">
+                        <input type="url" name="company_website" placeholder="Company Website URL" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;">
+                    </div>
 
-                        <div class="field input">
-                            <input type="url" name="company_website" placeholder="Company Website URL" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;">
-                        </div>
+                    <div class="field input">
+                        <input type="text" name="company_scale" placeholder="Company Scale" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;">
+                    </div>
 
-                        <div class="field input">
-                            <input type="text" name="company_scale" placeholder="Company Scale" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;">
-                        </div>
+                    <div class="field input">
+                        <textarea name="brand_overview" placeholder="Brand Overview*" rows="4" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required></textarea>
+                    </div>
 
-                        <div class="field input">
-                            <textarea name="brand_overview" placeholder=" Brand Overview*" rows="4" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;" required></textarea>
-                        </div>
+                    <div class="field input">
+                        <textarea name="other_comments" placeholder="Other" rows="8" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;"></textarea>
+                    </div>
 
-                        <div class="field input">
-                            <textarea name="other_comments" placeholder=" Other" rows="8" style="border-radius: 5px; outline: none; font-family:Questrial,san-serif;"></textarea>
-                        </div>
+                    <div class="field">
+                        <input class="btn" type="submit" name="submit" value="Submit" >
+                    </div>
+                </form>
+                <?php
+            }
+        } else {
+            // Display message if the user is not logged in
+            echo "<p style='font-family:Questrial,san-serif; text-align:center; font-size: 20px'>You must <a href='login.php'>log in</a> to Book a Consultation.</p>";
+        }
+        ?>
+    </div>
 
-                        <div class="field">
-                            <input class="btn" type="submit" name="submit" value="Submit" >
-                        </div>
-                    </form>
-
-
-                <?php } ?>
-
-
-            </div>
 
 
     </div>
