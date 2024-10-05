@@ -17,7 +17,7 @@ if (isset($_POST['pay'])){
     $paymentMethod = $_COOKIE['payment_method'];
     
     function generateTransactionID() {
-        return 'TX' . time() . rand(1000, 9999);
+        return 'TX' . rand(1000, 9999);
     }
     $transactionID = generateTransactionID();
 
