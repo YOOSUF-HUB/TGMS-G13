@@ -228,11 +228,47 @@ ini_set('display_errors', 1);
     </div>
 </main>
 
-<footer>
-    <div class="footer-content">
-        <p>&copy; 2024 Versori. All rights reserved.</p>
-    </div>
-</footer>
+    <!-- Footer Section -->
+    <footer>
+        
+        <div class="footer-links">
+            <div class="social-media">
+                <a href="Index.html"> <img src="./images/Versori.png" alt="logo" style="height: 90px; padding-left: 20px; "> </a>
+                <ul style="list-style-type: none; display: flex; padding: 0; font-size: 30px;">
+                    <li style="margin-left: 20px;"><a href="#" class="fa fa-facebook"></a></li>
+                    <li><a href="#" class="fa fa-twitter"></a></li>
+                    <li><a href="#" class="fa fa-instagram"></a></li>
+                </ul>
+            </div>
+            <div class="footer-left">
+                <ul>
+                    <li style="font-weight: bolder; font-size: 1.5rem; letter-spacing: 0.04rem;">Versori</li>
+                    <li><a href="policy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms and Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-middle">
+                <ul>
+                    <li style="font-weight: bolder; font-size: 1.2rem;">Our service</li>
+                    <li><a href="manufacturing.html">Manufacturing</a></li>
+                    <li><a href="consultancy.php">Consultancy</a></li>
+                    <li><a href="sampling.html">Sampling</a></li>
+                </ul>
+            </div>
+            <div class="footer-right">
+                <ul>
+                    <li style="font-weight: bolder; font-size: 1.2rem;">Useful Links</li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="contact.php">Contact us</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>    
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; Versori 2024</p>
+        </div>
+    </footer>
 <script src="index.js"></script>
 <script>
 

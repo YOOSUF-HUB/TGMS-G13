@@ -164,7 +164,7 @@ ini_set('display_errors', 1);
                 }
             } else {
             ?>
-            <form action="" method="POST" class="product-options">
+            <form action="" method="POST" class="product-options" id="product-form">
                 <div class="product-options">
                     <label for="colour"><b>Colour</b></label>
                     <select id="colour" name="color" required>
@@ -215,10 +215,8 @@ ini_set('display_errors', 1);
                 <input type="hidden" name="productID" value="H001">
 
                 <div class="purchase-btn" style="margin-top: 20px;">
-
-                <button class="buy-now">Buy Now</button>
-                <button type="submit" name="submit" class="add-cart">Add to Cart</button>
-
+                    <button type="button" class="buy-now" id="buy-now" >Buy Now</button>
+                    <button type="submit" name="submit" class="add-cart" >Add to Cart</button>
                 </div>
 
             </form>
@@ -227,11 +225,47 @@ ini_set('display_errors', 1);
     </div>
 </main>
 
-<footer>
-    <div class="footer-content">
-        <p>&copy; 2024 Versori. All rights reserved.</p>
-    </div>
-</footer>
+    <!-- Footer Section -->
+    <footer>
+        
+        <div class="footer-links">
+            <div class="social-media">
+                <a href="Index.html"> <img src="./images/Versori.png" alt="logo" style="height: 90px; padding-left: 20px; "> </a>
+                <ul style="list-style-type: none; display: flex; padding: 0; font-size: 30px;">
+                    <li style="margin-left: 20px;"><a href="#" class="fa fa-facebook"></a></li>
+                    <li><a href="#" class="fa fa-twitter"></a></li>
+                    <li><a href="#" class="fa fa-instagram"></a></li>
+                </ul>
+            </div>
+            <div class="footer-left">
+                <ul>
+                    <li style="font-weight: bolder; font-size: 1.5rem; letter-spacing: 0.04rem;">Versori</li>
+                    <li><a href="policy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms and Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-middle">
+                <ul>
+                    <li style="font-weight: bolder; font-size: 1.2rem;">Our service</li>
+                    <li><a href="manufacturing.html">Manufacturing</a></li>
+                    <li><a href="consultancy.php">Consultancy</a></li>
+                    <li><a href="sampling.html">Sampling</a></li>
+                </ul>
+            </div>
+            <div class="footer-right">
+                <ul>
+                    <li style="font-weight: bolder; font-size: 1.2rem;">Useful Links</li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="contact.php">Contact us</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>    
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; Versori 2024</p>
+        </div>
+    </footer>
 <script src="index.js"></script>
 <script>
 
@@ -269,6 +303,40 @@ ini_set('display_errors', 1);
     function goBack() {
         window.history.back();
     }
+
+
+// Function to enable/disable buttons based on form completion
+function toggleButtons() {
+    const form = document.getElementById('product-form');
+    const buyNowButton = document.getElementById('buy-now');
+    const addToCartButton = document.getElementById('add-cart');
+
+    // Check if the form is valid
+    const isFormValid = form.checkValidity();
+    
+    // Enable or disable buttons based on form validity
+    buyNowButton.disabled = !isFormValid;
+    addToCartButton.disabled = !isFormValid;
+}
+
+// Add event listeners to the form elements
+const formElements = document.querySelectorAll('#product-form input, #product-form select');
+formElements.forEach(element => {
+    element.addEventListener('input', toggleButtons);
+    element.addEventListener('change', toggleButtons);
+});
+
+// Initial check to disable buttons if the form is not filled
+toggleButtons();
+
+
+
+
+
+
+
+
+
 </script>
 </body>
 </html>
