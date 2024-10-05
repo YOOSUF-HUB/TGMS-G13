@@ -87,6 +87,7 @@ if ($price_result->num_rows > 0) {
             <!-- Profile Image Icon; clicking on this toggles the dropdown -->
             <img src="images/profile-google.svg" alt="Profile Icon" class="profile-icon" onclick="toggleDropdown()">
             
+            <!-- Dropdown Menu content; links for Login, Logout, and My Orders -->
             <?php 
             if (isset($_SESSION['user_id'])) {
             ?>    
@@ -103,6 +104,7 @@ if ($price_result->num_rows > 0) {
                 </div>
 
             <?php }?>
+            
         </div>
 
 
