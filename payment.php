@@ -1,7 +1,10 @@
 <?php
 session_start();
 //echo $_SESSION['user_id'];
-echo $_COOKIE['shipping_info'];
+// echo $_COOKIE['shipping_info'];
+// echo $payment;
+// echo $shipping_info;
+echo $_COOKIE['buy_now'];
 
 ?>
 <?php
@@ -9,7 +12,7 @@ include("php/config.php");
 if (isset($_POST['pay'])){
     $user_id = $_SESSION['user_id']; 
     
-    $currentDate = date('Y-m-d');
+    $currentDate = date('Y-m-d_H-i-s');
     $paymentAmount = $_COOKIE['grand_total'];
     $paymentMethod = $_COOKIE['payment_method'];
     
@@ -36,13 +39,18 @@ if (isset($_POST['pay'])){
     $payment = "INSERT INTO `Payments`(`Payment_ID`, `Payment_date`, `Payment_amount`, `Payment_method`, `Transaction_id`)
     VALUES ('$payment_id','$currentDate','$paymentAmount','$paymentMethod','$transactionID')";
     
+    $result= mysqli_query($conn, $payment);
 
-    $shipping_info = $_COOKIE['shipping_info'];
-    $buy_now = $_COOKIE['buy_now'];
+    
 
 
-    if (mysqli_query($conn, $payment_info) && mysqli_query($conn, $shipping_info) && mysqli_query($conn, $buy_now)) {
-        header("Location: product.php");
+    if ($result) {
+        $shipping_info = $_COOKIE['shipping_info'];
+        $result_shipping = mysqli_query($conn, $shipping_info);
+        $buy_now = $_COOKIE['buy_now'];
+        $result_buy = mysqli_query($conn, $buy_now);
+
+        header("Location: homepage.php");
         exit();
     } else {
         echo "<div class='errormessage'>

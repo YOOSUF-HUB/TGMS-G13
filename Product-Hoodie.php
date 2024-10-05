@@ -81,8 +81,8 @@ if (isset($_POST['buy'])) {
     
 
     
-    $buy_now = "INSERT INTO `Orders`(`Order_ID`, `Customer_ID`, `Product_ID`, `Order_Date`, `Delivery_Date`, `Status`, `Type`, `Quantity`) 
-    VALUES ('$orderid','$user_id','$productID','$currentDate','$deliveryDate','In-Progress', '$material' ,$quantity)";
+    $buy_now = "INSERT INTO `Orders`(`Order_ID`, `Customer_ID`, `Product_ID`, `Order_Date`, `Delivery_Date`, `Status`, `Order_type`, `Quantity`) 
+    VALUES ('$orderid','$user_id','$productID','$currentDate','$deliveryDate','In-Progress', 'Whole Sale' ,$quantity)";
     //$buy_result = mysqli_query($conn, $buy_now);
 
     setcookie('buy_now', $buy_now, time() + 3600, "/");
