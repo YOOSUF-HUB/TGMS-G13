@@ -1,14 +1,17 @@
 <?php
 session_start();
-//echo $_SESSION['user_id'];
+// echo $_SESSION['user_id'];
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Detail - JOGGERS</title>
-    <link rel="stylesheet" href="styles/ProductDetails.css">
+    <title>Product Detail - Joggers</title>
+    <link rel="stylesheet" href="styles/ProductDetails copy.css">
     <link rel="stylesheet" href="Index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- social media icons -->
 
@@ -19,81 +22,67 @@ session_start();
 </head>
 <body>
 
-        <!-- Navigation Bar Section-->
-        <header style="padding: 8px 20px;">
-            <!-- Side Navigation Menu -->
-            <nav id="mySidenav" class="sidenav">
-                <!-- Close button -->
-                <img onclick="closeNav()" src="images/close-google.svg" class="closebtn" style="width: 30px;">
-                
-                <!-- Navigation links -->
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="services.html">Services</a>
-                <a href="contact.php">Contact</a>
-                <a href="terms.html">Terms of Services</a>
-            </nav>
-            <!-- Menu icon (with open function)-->
-            <img src="images/menu-google.svg" id="menuIcon" style="width:30px;cursor:pointer" onclick="openNav()">
-    
-            <!-- Search Bar section -->
-            <section id="searchBar" style="position: relative;">
-                <img src="images/search-google.svg" id="searchIcon" style="width: 30px;cursor: pointer;" onclick="opensearchBar()">
-                
-                <!-- Search bar container -->
-                <div id="searchBarContainer">
-                    <input type="text" id="searchInput" placeholder="Search...">
-                    <button onclick="performSearch()">Search</button>
-                </div>
-            </section>
-    
-            <!-- Logo Section -->
-            <section class="logo">
-                <div class="logo-content">
-                    <a href="Index.html"> <img src="./images/Versori.png" alt="logo" style="height: 50px; padding-right: 90px;"> </a>
-                </div>
-            </section>
-    
-        <!-- Profile and Dropdown -->
-        <div class="profile-container">
-            <!-- Profile Image Icon; clicking on this toggles the dropdown -->
-            <img src="images/profile-google.svg" alt="Profile Icon" class="profile-icon" onclick="toggleDropdown()">
-            
-            <?php 
-            if (isset($_SESSION['user_id'])) {
-            ?>    
-                <div id="myDropdown" class="dropdown-content">
-                    <a href="./myaccount.php">My Account</a>
-                    <a href="myorders.php">My Orders</a>
-                    <a href="./logout.php">Logout</a>
-                </div>
-            <?php }else{?>
-                <div id="myDropdown" class="dropdown-content">
-                    <a href="./login.php">Login</a>
-                    <a href="./register.php">Create Account</a>
-                </div>
+<header style="padding: 8px 20px;">
+    <!-- Side Navigation Menu -->
+    <nav id="mySidenav" class="sidenav">
+        <img onclick="closeNav()" src="images/close-google.svg" class="closebtn" style="width: 30px;">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="contact.php">Contact</a>
+        <a href="terms.html">Terms of Services</a>
+    </nav>
+    <img src="images/menu-google.svg" id="menuIcon" style="width:30px;cursor:pointer" onclick="openNav()">
 
-            <?php }?>
+    <section id="searchBar" style="position: relative;">
+        <img src="images/search-google.svg" id="searchIcon" style="width: 30px;cursor: pointer;" onclick="opensearchBar()">
+        <div id="searchBarContainer">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <button onclick="performSearch()">Search</button>
         </div>
-        </header>
+    </section>
 
-    <main>
-        <div class="page">
-            <!-- Discount Section -->
-            <div class="container">
-                <div class="item">
-                    <b>50 - 999 pieces</b><br>
-                    <label><b><button id="button">10%</button></b></label>
-                </div>
-                <div class="item">
-                    <b>1000 - 9999 pieces</b><br>
-                    <label><b><button id="button">15%</button></b></label>
-                </div>
-                <div class="item">
-                    <b>More than 10000 pieces</b><br>
-                    <label><b><button id="button">20%</button></b></label>
-                </div>
+    <section class="logo">
+        <div class="logo-content">
+            <a href="Index.html"> <img src="./images/Versori.png" alt="logo" style="height: 50px; padding-right: 90px;"> </a>
+        </div>
+    </section>
+
+    <div class="profile-container">
+        <img src="images/profile-google.svg" alt="Profile Icon" class="profile-icon" onclick="toggleDropdown()">
+        <?php 
+        if (isset($_SESSION['user_id'])) {
+        ?>    
+            <div id="myDropdown" class="dropdown-content">
+                <a href="./myaccount.php">My Account</a>
+                <a href="myorders.php">My Orders</a>
+                <a href="./logout.php">Logout</a>
             </div>
+        <?php } else { ?>
+            <div id="myDropdown" class="dropdown-content">
+                <a href="./login.php">Login</a>
+                <a href="./register.php">Create Account</a>
+            </div>
+        <?php } ?>
+    </div>
+</header>
+
+<main>
+    <div class="page">
+        <div class="container">
+            <div class="item">
+                <b>50 - 999 pieces</b><br>
+                <label><b><button id="button">10%</button></b></label>
+            </div>
+            <div class="item">
+                <b>1000 - 9999 pieces</b><br>
+                <label><b><button id="button">15%</button></b></label>
+            </div>
+            <div class="item">
+                <b>More than 10000 pieces</b><br>
+                <label><b><button id="button">20%</button></b></label>
+            </div>
+        </div>
 
             <!-- Product Image Section -->
             <h1><b>JOGGERS</b></h1><br>
@@ -107,55 +96,106 @@ session_start();
                     </div>
                 </div>
 
-                <?php
-                    // Include the database connection file here
-                    include 'php/config.php';
+            <?php
+            include 'php/config.php';
+            $price_sql = "SELECT JOGGERS FROM Price";
+            $price_result = $conn->query($price_sql);
+            if ($price_result->num_rows > 0) {
+                $row = $price_result->fetch_assoc();
+                $joggers_price = $row['JOGGERS'];
+            } else {
+                $joggers_price = 0; // Fallback if no price is found
+            }
+            ?>
+        </div>
+    </div>
 
-                    // SQL query to fetch hoodie price from the Price table
-                    $price_sql = "SELECT JOGGERS FROM Price";
-                    $price_result = $conn->query($price_sql);
+    <div class="container-2">
+        <div class="form-box">
+            <?php
+            include("php/config.php");
+            if (isset($_POST['submit'])) {
+                // Collect form data
+                $user_id = mysqli_real_escape_string($conn, $_SESSION['user_id']);
+                $productName = mysqli_real_escape_string($conn, $_POST['productName']);
+                $productID = mysqli_real_escape_string($conn, $_POST['productID']);
+                $size = mysqli_real_escape_string($conn, $_POST['size']);
+                $color = mysqli_real_escape_string($conn, $_POST['color']);
+                $material = mysqli_real_escape_string($conn, $_POST['material']);
+                $quantity = mysqli_real_escape_string($conn, $_POST['quantity']);
 
-                    // Fetch the hoodie price
-                    if ($price_result->num_rows > 0) {
-                        $row = $price_result->fetch_assoc();
-                        $joggers_price = $row['JOGGERS'];
-                    } else {
-                        $joggers_price = 0; // Fallback if no price is found
-                    }
-                ?>
-    
-                <!-- Select Options -->
+
+                $price_total = $joggers_price * $quantity;
+
+
+                // Query to get the last cartID
+                $find = mysqli_query($conn, "SELECT MAX(cartID) AS max_id FROM Cart");
+                $row = mysqli_fetch_assoc($find);
+                
+                // Assigning cart ID
+
+                if ($row['max_id']) {
+                    $last_id = $row['max_id'];
+                    // Extract numeric part from last ID
+                    $last_num = (int)preg_replace("/[^0-9]/", "", $last_id);
+                    $num = $last_num + 1; // Increment the numeric part
+                    
+                // Generate new customer ID with 'CONSULT_' prefix
+                    $cartID = 'CART_' . str_pad($num, 4, '0', STR_PAD_LEFT); 
+                } else {
+                    $cartID = 'CART_0001'; // Use the correct prefix here
+                }
+
+                // Build your insert query
+                $query = "INSERT INTO Cart (cartID,Customer_ID, productName, productID, size, color, quantity, price_single, price_total, material) 
+                VALUES ('$cartID','$user_id', '$productName', '$productID', '$size', '$color', $quantity, $joggers_price, $price_total, '$material')";
+
+                if (mysqli_query($conn, $query)) {
+                    echo "<div class='successmessage'>
+                            <p style='font-family:Questrial,san-serif; text-align:center; font-size: 40px'>Your Product Has been added to your cart</p>
+                            <button onclick='goBack()' style='font-family:Questrial,san-serif; font-size: 20px; padding: 10px 20px; background-color: #697565; color: white; border: none; border-radius: 5px; cursor: pointer;'>Go Back</button>
+                        </div>";
+                        
+                } else {
+                    echo "<div class='errormessage'>
+                            <p>Error: " . mysqli_error($conn) . "</p>
+                            <button onclick='goBack()' style='font-family:Questrial,san-serif; font-size: 20px; padding: 10px 20px; background-color: #697565; color: white; border: none; border-radius: 5px; cursor: pointer;'>Go Back</button>
+                            </div>";
+                }
+            } else {
+            ?>
+            <form action="" method="POST" class="product-options">
                 <div class="product-options">
                     <label for="colour"><b>Colour</b></label>
-                    <select id="colour">
+                    <select id="colour" name="color" required>
                         <option disabled selected>Select color</option>
-                        <option value="White">White</option>
+                        <option value="yellow">Yellow</option>
                         <option value="black">Black</option>
-                        <option value="Blue">Blue</option>
-                        <option value="Green">Green</option>
+                        <option value="red">Red</option>
+                        <option value="white">White</option>
                     </select>
-    
+
                     <label for="material"><b>Material</b></label>
-                    <select id="material">
+                    <select id="material" name="material" required>
                         <option disabled selected>Select Material</option>
                         <option value="cotton">Cotton</option>
                         <option value="polyester">Polyester</option>
                     </select>
-    
+
                     <label for="size"><b>Size</b></label>
-                    <select id="size">
+                    <select id="size" name="size" required>
                         <option disabled selected>Select Size</option>
                         <option value="small">Small</option>
                         <option value="medium">Medium</option>
                         <option value="large">Large</option>
                     </select>
-    
+
                     <div class="quantity-selector">
-                        <button id="decrease">-</button>
-                        <input id="quantity" value="50" min="50" aria-label="Quantity">
-                        <button id="increase">+</button><br><br>
+                        <button type="button" id="decrease-button">-</button>
+                        <input  name="quantity" id="quantity" value="50" min="50" required>
+                        <button type="button" id="increase-button">+</button>
                     </div>
-                    
+
                     <div>
                         <label for="price"> Price (per unit):</label>
                         <input style="width: 300px;height: 45px;text-align: center;font-size: 1.2em;border: 2px solid #ff5e00;border-radius: 10px;" id="price" value="<?php echo $joggers_price; ?>.00" aria-label="price" readonly>
@@ -163,116 +203,72 @@ session_start();
                     
                     <label for="final-price"> Final Price:</label>
                     <div style="width: 300px; height:45px;text-align: center;font-size: 1.2em;border: 2px solid green;border-radius: 10px;">
-                        <span id="final-price"></span>
+                        <span id="finalprice"></span>
                     </div>
-    
-                    <label><b style="font-family: Questrial, sans-serif;">
-                    Upgrade your casual wardrobe with our premium joggers, crafted for ultimate comfort and modern style. Made from soft, durable fabrics like cotton and polyester, these joggers offer a perfect balance of warmth and breathability. Whether you're lounging at home or staying active, our joggers feature a tapered fit with an adjustable drawstring waistband for a customized fit. Designed with practical side pockets and ribbed cuffs, they provide a sleek, versatile look for any occasion. Available in a variety of bold and neutral tones, these joggers are your go-to choice for comfort, style, and functionality all year long.                    </b></label>
-                    
-                    <!-- Buy and Add to Cart Buttons -->
-                    <div class="action-buttons">
-                        <button class="buy-now" onclick="storeFinalPrice()">Buy Now</button>
-                        <button class="add-cart">Add to Cart</button>
-                    </div>
+
                 </div>
-            </div>
+
+
+
+                <input type="hidden" name="cartID" value="<?php echo $cartID; ?>">
+                <input type="hidden" name="productName" value="Jogger">
+                <input type="hidden" name="productID" value="J001">
+
+                <div class="purchase-btn" style="margin-top: 20px;">
+
+                <button class="buy-now">Buy Now</button>
+                <button type="submit" name="submit" class="add-cart">Add to Cart</button>
+
+                </div>
+
+            </form>
+            <?php } ?>
         </div>
-    </main>
+    </div>
+</main>
 
-        <!-- Footer Section -->
-        <footer>
-            <div class="footer-links">
-                <div class="social-media">
-                    <a href="Index.html"> <img src="./images/Versori.png" alt="logo" style="height: 90px; padding-left: 20px; "> </a>
-                    <ul style="list-style-type: none; display: flex; padding: 0; font-size: 30px;">
-                        <li style="margin-left: 20px;"><a href="#" class="fa fa-facebook"></a></li>
-                        <li><a href="#" class="fa fa-twitter"></a></li>
-                        <li><a href="#" class="fa fa-instagram"></a></li>
-                    </ul>
-                </div>
-                <div class="footer-left">
-                    <ul>
-                        <li style="font-weight: bolder; font-size: 1.5rem; letter-spacing: 0.04rem;">Versori</li>
-                        <li><a href="policy.html">Privacy Policy</a></li>
-                        <li><a href="terms.html">Terms and Conditions</a></li>
-                    </ul>
-                </div>
-                <div class="footer-middle">
-                    <ul>
-                        <li style="font-weight: bolder; font-size: 1.2rem;">Our service</li>
-                        <li><a href="#">Shipping & Return Policy</a></li>
-                        <li><a href="#">Secure Payment</a></li>
-                        <li><a href="#">Track Your Order</a></li>
-                    </ul>
-                </div>
-            </div>
-        </footer>
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2024 Versori. All rights reserved.</p>
+    </div>
+</footer>
+<script src="index.js"></script>
+<script>
 
+    // Quantity Adjustment
+    const quantityInput = document.getElementById('quantity');
+    const increaseButton = document.getElementById('increase-button');
+    const decreaseButton = document.getElementById('decrease-button');
 
-    <script src="Index.js"></script>
+    function calculateFinalPrice() {
+        const joggers_price = <?php echo $joggers_price; ?>; // Price from the database
+        const quantity = parseInt(quantityInput.value);
+        const finalPrice = joggers_price * quantity;
+        document.getElementById('finalprice').textContent = finalPrice.toFixed(2);
+    }
 
-    <script>
-        // Get elements
-        const decreaseButton = document.getElementById('decrease');
-        const increaseButton = document.getElementById('increase');
-        const quantityInput = document.getElementById('quantity');
-    
-        // Decrease quantity function
-        decreaseButton.addEventListener('click', function() {
-            let currentValue = parseInt(quantityInput.value);
-            if (currentValue > 50) { // Ensure quantity doesn't go below 50
-                quantityInput.value = currentValue - 1;
-            }
-        });
-    
-        // Increase quantity function
-        increaseButton.addEventListener('click', function() {
-            let currentValue = parseInt(quantityInput.value);
-            quantityInput.value = currentValue + 1;
-        });
-
-        // Get references to the price input fields, and final price display span
-        const priceInput = document.getElementById('price');
-        const finalPriceSpan = document.getElementById('final-price');
-
-        // Function to calculate and display the final price
-        function calculateFinalPrice() {
-            // Multiply the quantity by the price and display the result, rounded to two decimal places
-            finalPriceSpan.textContent = (quantityInput.value * priceInput.value).toFixed(2);
-        }
-
-        // Event listener for the 'increase' button
-        // When clicked, increment the quantity and recalculate the final price
-        document.getElementById('increase').addEventListener('click', () => {
-            quantityInput.value++;  // Increase quantity by 1
-            calculateFinalPrice();  // Recalculate final price
-        });
-
-        // Event listener for the 'decrease' button
-        // When clicked, decrement the quantity if it's greater than 50, and recalculate the final price
-        document.getElementById('decrease').addEventListener('click', () => {
-            if (quantityInput.value > 50) quantityInput.value--;  // Decrease quantity by 1 only if it's greater than 50
-            calculateFinalPrice();  // Recalculate final price
-        });
-
-        // Event listener for changes to the price input field
-        // When the price changes, recalculate the final price
-        priceInput.addEventListener('input', calculateFinalPrice);
-
-        // Event listener for changes to the quantity input field
-        // When the quantity changes, recalculate the final price
-        quantityInput.addEventListener('input', calculateFinalPrice);
-
-        // Perform the initial calculation when the page loads
+    increaseButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        let currentValue = parseInt(quantityInput.value);
+        quantityInput.value = currentValue + 1;
         calculateFinalPrice();
+    });
 
-        function storeFinalPrice() {
-            const finalPrice = document.getElementById('final-price').textContent; // Get the final price from the page
-            sessionStorage.setItem('finalPrice', finalPrice); // Store the final price in sessionStorage
-            window.location.href = 'checkout.php'; // Redirect to payment page
+    decreaseButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        let currentValue = parseInt(quantityInput.value);
+        if (currentValue > 50) {
+            quantityInput.value = currentValue - 1;
+            calculateFinalPrice();
         }
+    });
 
-    </script>
-    
+    // Initial calculation
+    window.onload = calculateFinalPrice;
+
+    function goBack() {
+        window.history.back();
+    }
+</script>
 </body>
 </html>

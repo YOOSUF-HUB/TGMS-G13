@@ -10,7 +10,7 @@ ini_set('display_errors', 1);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Detail - Hoodie</title>
+    <title>Product Detail - LSLEEVE</title>
     <link rel="stylesheet" href="styles/ProductDetails copy.css">
     <link rel="stylesheet" href="Index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- social media icons -->
@@ -84,27 +84,28 @@ ini_set('display_errors', 1);
             </div>
         </div>
 
-        <h1><b>HOODIES</b></h1><br>
-        <div class="product-images">
-            <div>
-                <img src="PRODUCT IMAGES/PRODUCT-HOODIE/hoodie.jpg" alt="Product Image" class="main-image">
-                <div class="thumbnail-images">
-                    <img src="PRODUCT IMAGES/PRODUCT-HOODIE/black hoodie.jpg" alt="Black Hoodie" class="thumbnail">
-                    <img src="PRODUCT IMAGES/PRODUCT-HOODIE/red hoodie.jpg" alt="Red Hoodie" class="thumbnail">
-                    <img src="PRODUCT IMAGES/PRODUCT-HOODIE/yellow hoodie.png" alt="Yellow Hoodie" class="thumbnail">
-                    <img src="PRODUCT IMAGES/PRODUCT-HOODIE/white hoodie.jpg" alt="White Hoodie" class="thumbnail">
+            <!-- Product Image Section -->
+            <h1><b>LONG SLEEVE - TSHIRT</b></h1><br>
+            <div class="product-images">
+                <div>
+                    <img src="PRODUCT IMAGES/PRODUCT-LSLEEVE/Raven-Black-Long-Sleeve-T-Shirt-V10.webp" alt="Product Image" class="main-image">
+                    <div class="thumbnail-images">
+                        <img src="PRODUCT IMAGES/PRODUCT-LSLEEVE/Navy-Blue-Long-Sleeve-T-Shirt-V10.webp" alt="Yellow Hoodie" class="thumbnail">
+                        <img src="PRODUCT IMAGES/PRODUCT-LSLEEVE/Army-Green-Long-Sleeve-T-Shirt-V10.webp" alt="Black Hoodie" class="thumbnail">
+                        <img src="PRODUCT IMAGES/PRODUCT-LSLEEVE/Sea-Green-long-Sleeve-T-Shirt-V10.webp" alt="Black Hoodie" class="thumbnail">
+                        <img src="PRODUCT IMAGES/PRODUCT-LSLEEVE/Cotton-White-Long-Sleeve-T-Shirt-V10.webp" alt="Black Hoodie" class="thumbnail">
+                    </div>
                 </div>
-            </div>
 
             <?php
             include 'php/config.php';
-            $price_sql = "SELECT HOODIES FROM Price";
+            $price_sql = "SELECT LSLEEVE FROM Price";
             $price_result = $conn->query($price_sql);
             if ($price_result->num_rows > 0) {
                 $row = $price_result->fetch_assoc();
-                $hoodie_price = $row['HOODIES'];
+                $lsleeve_price = $row['LSLEEVE'];
             } else {
-                $hoodie_price = 0; // Fallback if no price is found
+                $lsleeve_price = 0; // Fallback if no price is found
             }
             ?>
         </div>
@@ -125,7 +126,7 @@ ini_set('display_errors', 1);
                 $quantity = mysqli_real_escape_string($conn, $_POST['quantity']);
 
 
-                $price_total = $hoodie_price * $quantity;
+                $price_total = $lsleeve_price * $quantity;
 
 
                 // Query to get the last cartID
@@ -148,7 +149,7 @@ ini_set('display_errors', 1);
 
                 // Build your insert query
                 $query = "INSERT INTO Cart (cartID,Customer_ID, productName, productID, size, color, quantity, price_single, price_total, material) 
-                VALUES ('$cartID','$user_id', '$productName', '$productID', '$size', '$color', $quantity, $hoodie_price, $price_total, '$material')";
+                VALUES ('$cartID','$user_id', '$productName', '$productID', '$size', '$color', $quantity, $lsleeve_price, $price_total, '$material')";
 
                 if (mysqli_query($conn, $query)) {
                     echo "<div class='successmessage'>
@@ -198,7 +199,7 @@ ini_set('display_errors', 1);
 
                     <div>
                         <label for="price"> Price (per unit):</label>
-                        <input style="width: 300px;height: 45px;text-align: center;font-size: 1.2em;border: 2px solid #ff5e00;border-radius: 10px;" id="price" value="<?php echo $hoodie_price; ?>.00" aria-label="price" readonly>
+                        <input style="width: 300px;height: 45px;text-align: center;font-size: 1.2em;border: 2px solid #ff5e00;border-radius: 10px;" id="price" value="<?php echo $lsleeve_price; ?>.00" aria-label="price" readonly>
                     </div>
                     
                     <label for="final-price"> Final Price:</label>
@@ -211,8 +212,8 @@ ini_set('display_errors', 1);
 
 
                 <input type="hidden" name="cartID" value="<?php echo $cartID; ?>">
-                <input type="hidden" name="productName" value="Hoodie">
-                <input type="hidden" name="productID" value="H001">
+                <input type="hidden" name="productName" value="Long Sleeve">
+                <input type="hidden" name="productID" value="LS001">
 
                 <div class="purchase-btn" style="margin-top: 20px;">
 
@@ -241,9 +242,9 @@ ini_set('display_errors', 1);
     const decreaseButton = document.getElementById('decrease-button');
 
     function calculateFinalPrice() {
-        const hoodiePrice = <?php echo $hoodie_price; ?>; // Price from the database
+        const lsleeve_price = <?php echo $lsleeve_price; ?>; // Price from the database
         const quantity = parseInt(quantityInput.value);
-        const finalPrice = hoodiePrice * quantity;
+        const finalPrice = lsleeve_price * quantity;
         document.getElementById('finalprice').textContent = finalPrice.toFixed(2);
     }
 

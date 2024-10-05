@@ -24,6 +24,26 @@ CREATE TABLE Cart (
 );
 
 
+CREATE TABLE Cart (
+    cartID INT AUTO_INCREMENT PRIMARY KEY,
+    Customer_ID VARCHAR(255) NOT NULL,
+    productName VARCHAR(255) NOT NULL,
+    productID INT NOT NULL,
+    size VARCHAR(50) NOT NULL,
+    color VARCHAR(50) NOT NULL,
+    quantity INT NOT NULL,
+    price_single DECIMAL(10, 2) NULL,
+    price_total DECIMAL(10, 2) NULL,
+    material VARCHAR(255) NULL,
+    FOREIGN KEY (Customer_ID) REFERENCES Customer_account(Customer_ID)
+);
+
+
+
+
+
+
+
 -- Staff Table
 CREATE TABLE Staff_account (
     Staff_ID varchar(255) NOT NULL PRIMARY KEY,

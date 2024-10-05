@@ -127,7 +127,7 @@ if ($price_result->num_rows > 0) {
                 </div>
                 <div class="item2">
                     <form>
-                        <a href="Product-Hoodie.php" style="text-decoration: none; color: black;">
+                        <a href="Product-HOODIE.php" style="text-decoration: none; color: black;">
                         <fieldset>
                             <b class="product-title">HOODIES</b><br><br>
                             <b style="font-size: 20px;">Category: </b>Casualwear<br><br>
@@ -158,7 +158,7 @@ if ($price_result->num_rows > 0) {
             <div class="container">
                 <div class="item2">
                     <form>
-                        <a href="Product_Tshirt.php" style="text-decoration: none; color: black;">
+                        <a href="Product-TSHIRT.php" style="text-decoration: none; color: black;">
                         <fieldset>
                             <b class="product-title">T-Shirt</b><br><br>
                             <b style="font-size: 20px;">Category: </b>Casualwear<br><br>
@@ -194,7 +194,7 @@ if ($price_result->num_rows > 0) {
                 </div>
                 <div class="item2">
                     <form>
-                        <a href="Product-Joggers.php" style="text-decoration: none; color: black;">
+                        <a href="Product-JOGGERS.php" style="text-decoration: none; color: black;">
                             <fieldset>
                                 <b class="product-title">JOGGERS</b><br><br>
                                 <b style="font-size: 20px;">Category: </b>Casualwear<br><br>
@@ -225,7 +225,7 @@ if ($price_result->num_rows > 0) {
             <div class="container">
                 <div class="item2">
                     <form>
-                        <a href="Product-LTSHIRT.php" style="text-decoration: none; color: black;">
+                        <a href="Product-LSHIRT.php" style="text-decoration: none; color: black;">
                         <fieldset>
                             <b class="product-title">LONG SLEEVES</b><br><br>
                             <b style="font-size: 20px;">Category: </b>Casual Wear, Everyday Wear<br><br>
