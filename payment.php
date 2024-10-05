@@ -4,7 +4,7 @@ session_start();
 // echo $_COOKIE['shipping_info'];
 // echo $payment;
 // echo $shipping_info;
-echo $_COOKIE['buy_now'];
+// echo $_COOKIE['buy_now'];
 
 ?>
 <?php
