@@ -1,10 +1,15 @@
+<?php
+session_start();
+//echo $_SESSION['user_id'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Textile and Garment Management System</title>
-    <link rel="stylesheet" href="/styles/terms.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="/styles/policy.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- social media icons -->
 
     <!-- Questrial Font-->
@@ -13,7 +18,341 @@
     <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
 
 
+    <style>
+        html{
+    background-color: #ECDFCC ;
+}
 
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #697565;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button{
+    font-family: questrial, sans-serif;
+}
+
+
+/* HEADER */
+/* HEADER */
+
+/* Container for centering the logo */
+.logo {
+    text-align: center;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    width: 100vw; /* Full viewport width to center horizontally */
+}
+
+.logo-content p{
+    margin-right: 55px;
+}
+
+
+
+
+#menuIcon{
+    margin-bottom: 3px;
+}
+
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 20px; /* Space between menu icon and search bar */
+}
+
+
+.sidenav {
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 90%;
+    backdrop-filter: blur(100px);
+    height: 100%; 
+    width: 0;  /* Initially hidden with 0 width */
+    position: fixed; /* Fixed in place while scrolling */
+    z-index: 1; /* Places the sidenav above other content */
+    top: 0; 
+    left: 0; 
+    background-color:  #ffffff;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+    transition: 0.6s; /* Smooth transition for opening and closing */
+    padding-top: 60px; /* Adds padding to the top of the sidenav */
+}
+
+/* Styling for links inside the sidenav */
+.sidenav a {
+    margin-top: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 8px 8px 8px 32px; /* Padding inside links */
+    text-decoration: none; 
+    font-size: 1rem; 
+    color: #000000; 
+    display: block; 
+    transition: 0.3s; /* Smooth transition for hover */
+}
+
+/* Changes link color when hovered */
+.sidenav a:hover {
+    color: #ECDFCC; 
+    background-color: #697565;
+}
+
+/* Close button inside the side navigation */
+.sidenav .closebtn {
+    position: absolute; /* Positions the close button relative to the sidenav */
+    top: 0; 
+    right: 25px; 
+    font-size: 36px; 
+    margin-left: 50px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.sidenav .closebtn :hover{
+    
+    color: #f1f1f1;
+}
+
+#mySidenav .closebtn{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+/* When the side navigation is active (open) */
+.sidenav.active {
+    width: 250px; 
+}
+
+
+
+
+#searchIcon{
+    margin-left: 40px;
+}
+
+/* Search Bar*/
+#searchBarContainer {
+
+    border-radius: 10px;
+    position: absolute; /* Align next to the search icon */
+    top: -55%; 
+    left: 120%;
+    overflow: hidden; /* Hide overflow content */
+    transition: 0.3s; 
+    background-color: #f9f9f9; 
+    padding: 10px; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow  */
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    margin-top: 10px;
+    width: 0; 
+    opacity: 0; 
+    visibility: hidden; /* Ensure the search bar is not interactable */
+}
+
+/* Search input field styling */
+#searchInput {
+    width:200px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 8px;
+    font-size: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc; 
+    border-radius: 10px;
+}
+
+/* Search button styling */
+#searchBarContainer button {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 10px;
+    padding: 8px 16px;
+    font-size: 10px;
+    cursor: pointer;
+    border: none; 
+    background-color: #333; 
+    color: white; 
+}
+
+/* Active class for showing the search bar */
+#searchBarContainer.active {
+    width: 300px; 
+    opacity: 1; 
+    visibility: visible; 
+}
+
+
+
+
+/* Profile image icon styling */
+.profile-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Profile container */
+.profile-container {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: relative; /* Position the dropdown relative to this container */
+    display: inline-block; /* Keeps the profile container only as wide as its contents */
+    font-size: 1rem;
+}
+
+
+
+
+
+/* Dropdown menu styling */
+.dropdown-content {
+    position: absolute; 
+    right: 0; 
+    top: 100%; 
+    background-color: black;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    transform: translateY(-20px); 
+    opacity: 0; 
+    visibility: hidden; 
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition for transform, opacity, and visibility */
+}
+
+/* Styling for links inside the dropdown */
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Changes background color of dropdown links when hovered */
+.dropdown-content a:hover {
+    background-color: #697565;
+    transition: 0.3s;
+}
+
+/* Show dropdown when active */
+.dropdown-content.show {
+    transform: translateY(0); /* Move the dropdown */
+    opacity: 1; 
+    visibility: visible; 
+}
+
+/* END OF HEADER */
+/* END OF HEADER */
+
+/* FOOTER */
+/* FOOTER */
+
+/* Footer Section */
+footer {
+    background-color: #697565;
+    color: white;
+    padding: 40px 20px;
+}
+
+.social-media{
+    margin-right: 100px;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    color: #ECDFCC;
+}
+
+.footer-links {
+    font-family: questrial, sans-serif;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.footer-links ul {
+    margin: 10px;
+    list-style-type: none;
+}
+
+.footer-links ul a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-links ul a:hover {
+    color: #ECDFCC;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 10px;
+}
+
+
+/* END OF FOOTER */
+/* END OF FOOTER */
+
+
+
+
+main{
+    font-family: Questrial, sans-serif;
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+#tc{
+    margin-top: 30px;
+    font-size: 50px;
+    text-align: center;
+    padding: 0;
+}
+
+
+main h6{
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+#terms-end{
+    margin: 40px;
+    text-align: center;
+    font-size: 20px;
+}
+
+#contact-terms{
+    text-decoration: none;
+    color: black;
+    font-size: 21px;
+    transition: 0.5s ease;
+}
+
+#contact-terms:hover{
+    font-size: 21.5px;
+}
+    </style>
 </head>
 
 <body>
@@ -64,12 +403,23 @@
             <img src="images/profile-google.svg" alt="Profile Icon" class="profile-icon" onclick="toggleDropdown()">
             
             <!-- Dropdown Menu content; links for Login, Logout, and My Orders -->
-            <div id="myDropdown" class="dropdown-content">
-                <a href="#">Profile</a>
-                <a href="#">Login</a>
-                <a href="#">My Orders</a>
-                <a href="#">Logout</a>
-            </div>
+            <?php 
+            if (isset($_SESSION['user_id'])) {
+            ?>    
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="./myaccount.php">My Account</a>
+                    <a href="myorders.php">My Orders</a>
+                    <a href="cart.php">My Cart</a>
+                    <a href="./logout.php">Logout</a>
+                </div>
+            <?php }else{?>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="./login.php">Login</a>
+                    <a href="./register.php">Create Account</a>
+                </div>
+
+            <?php }?>
+            
         </div>
 
 
