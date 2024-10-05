@@ -1,6 +1,8 @@
 <?php
 session_start();
 //echo $_SESSION['user_id'];
+echo $_COOKIE['shipping_info'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

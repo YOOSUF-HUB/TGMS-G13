@@ -5,6 +5,102 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 ?>
 
+
+<?php
+include("php/config.php");
+if (isset($_POST['buy'])) {
+    // Collect form data
+    $user_id =  $_SESSION['user_id'];
+    $size = $_POST['size'];
+    $color = $_POST['color'];
+    $material = $_POST['material'];
+    $quantity =  $_POST['quantity'];
+
+    $currentDate = date('Y-m-d');
+    // Default values
+    $deliveryDate = null;
+    $fprice = 0;
+    $shipping = 0;
+
+
+    
+    $search = mysqli_query($conn, "SELECT MAX(Order_ID) AS max_id FROM Orders"); //order id
+    $order_row = mysqli_fetch_assoc($search);
+    if ($order_row['max_id']) {
+        $last_id = $order_row['max_id'];
+        $num = intval(substr($last_id, 1)) + 1; 
+        
+        $orderid = 'O' . str_pad($num, 4, '0', STR_PAD_LEFT); 
+    } else {
+        $orderid = 'O1001'; 
+    }
+
+    $sql = "SELECT * FROM Inventory WHERE `Name`= 'HOODIE' AND `Colour` = '$color' AND `Size` = '$size'"; //product ID
+    $result = mysqli_query($conn, $sql);
+    
+
+
+    if ($result && mysqli_num_rows($result) > 0) {
+        $product = mysqli_fetch_assoc($result);
+    } else {
+        echo "Product not found.";
+        exit;
+    }
+    $productID = $product['Product_ID'];
+    $price = $product['Price'];
+    $price_total = $price * $quantity; //calculate total price
+
+
+    if ($quantity>=50 && $quantity<499){ // setting dellivery date
+        $deliveryDate = (date('Y-m-d', strtotime('+1 week')));
+    }else if ($quantity>=500 && $quantity<999) {
+        $deliveryDate = date('Y-m-d', strtotime('+2 week')); 
+    }else if ($quantity>=1000) {
+        $deliveryDate = date('Y-m-d', strtotime('+6 week')); 
+    }
+
+
+    if ($quantity>=50 && $quantity<499){
+        $fprice = ($price_total-($price_total/10)); // calculate discount price
+        $shipping = $quantity * 25; // setting shipping price
+    }else if ($quantity>=500 && $quantity<999) {
+        $fprice = ($price_total-($price_total/15));
+        $shipping = $quantity * 20;
+    }else if ($quantity>=1000) {
+        $fprice = ($price_total-($price_total/20));
+        $shipping = $quantity * 15;
+    }
+
+    $grand_total = $fprice + $quantity;
+    
+
+    
+    $buy_now = "INSERT INTO `Orders`(`Order_ID`, `Customer_ID`, `Product_ID`, `Order_Date`, `Delivery_Date`, `Status`, `Type`, `Quantity`) 
+    VALUES ('$orderid','$user_id','$productID','$currentDate','$deliveryDate','In-Progress', '$material' ,$quantity)";
+    //$buy_result = mysqli_query($conn, $buy_now);
+
+    setcookie('buy_now', $buy_now, time() + 3600, "/");
+    setcookie('fprice', $fprice, time() + 3600, "/");
+    setcookie('quantity', $quantity, time() + 3600, "/");
+    setcookie('shippingPrice', $shipping, time() + 3600, "/");
+    setcookie('productID', $productID, time() + 3600, "/");
+    setcookie('grand_total', $grand_total, time() + 3600, "/");
+
+
+    if ($_COOKIE['buy_now']) {
+        header("Location: checkout.php"); 
+        exit();     
+    } else {
+        echo "<div class='errormessage'>
+                <p>Error: " . mysqli_error($conn) . "</p>
+                <button onclick='goBack()' style='font-family:Questrial,san-serif; font-size: 20px; padding: 10px 20px; background-color: #697565; color: white; border: none; border-radius: 5px; cursor: pointer;'>Go Back</button>
+                </div>";
+    }
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -114,24 +210,27 @@ ini_set('display_errors', 1);
     <div class="container-2">
         <div class="form-box">
             <?php
-            include("php/config.php");
+
+
             if (isset($_POST['submit'])) {
                 // Collect form data
                 $user_id = mysqli_real_escape_string($conn, $_SESSION['user_id']);
                 $productName = mysqli_real_escape_string($conn, $_POST['productName']);
-                $productID = mysqli_real_escape_string($conn, $_POST['productID']);
+                //$productID = mysqli_real_escape_string($conn, $_POST['productID']);
                 $size = mysqli_real_escape_string($conn, $_POST['size']);
                 $color = mysqli_real_escape_string($conn, $_POST['color']);
-                $material = mysqli_real_escape_string($conn, $_POST['material']);
+                //$material = mysqli_real_escape_string($conn, $_POST['material']);
                 $quantity = mysqli_real_escape_string($conn, $_POST['quantity']);
 
+                
+                
 
-                $price_total = $hoodie_price * $quantity;
 
 
                 // Query to get the last cartID
                 $find = mysqli_query($conn, "SELECT MAX(cartID) AS max_id FROM Cart");
                 $row = mysqli_fetch_assoc($find);
+
                 
                 // Assigning cart ID
 
@@ -171,25 +270,25 @@ ini_set('display_errors', 1);
                     <label for="colour"><b>Colour</b></label>
                     <select id="colour" name="color" required>
                         <option disabled selected>Select color</option>
-                        <option value="yellow">Yellow</option>
-                        <option value="black">Black</option>
-                        <option value="red">Red</option>
-                        <option value="white">White</option>
+                        <option value="Yellow">Yellow</option>
+                        <option value="Black">Black</option>
+                        <option value="Red">Red</option>
+                        <option value="White">White</option>
                     </select>
+                    
 
                     <label for="material"><b>Material</b></label>
                     <select id="material" name="material" required>
                         <option disabled selected>Select Material</option>
                         <option value="cotton">Cotton</option>
-                        <option value="polyester">Polyester</option>
-                    </select>
+                    </select> 
 
                     <label for="size"><b>Size</b></label>
                     <select id="size" name="size" required>
                         <option disabled selected>Select Size</option>
-                        <option value="small">Small</option>
-                        <option value="medium">Medium</option>
-                        <option value="large">Large</option>
+                        <option value="Small">Small</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Large">Large</option>
                     </select>
 
                     <div class="quantity-selector">
@@ -216,8 +315,9 @@ ini_set('display_errors', 1);
                 <input type="hidden" name="productName" value="Hoodie">
                 <input type="hidden" name="productID" value="H001">
 
+
                 <div class="purchase-btn" style="margin-top: 20px;">
-                    <button type="button" class="buy-now" id="buy-now" >Buy Now</button>
+                    <button type="submit" name="buy"   class="buy-now" id="buy-now" >Buy Now</button>
                     <button type="submit" name="submit" class="add-cart" >Add to Cart</button>
                 </div>
 
