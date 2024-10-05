@@ -1,0 +1,31 @@
+main{
+    margin-left: 300px;
+    margin-right: 300px;
+    margin-bottom: 100px;
+    font-family: Questrial,sans-serif;
+}
+
+.faq-item{
+    margin-bottom: 70px;
+}
+h1{
+    font-size: 50px;
+}
+
+h2{
+    font-size: 30px;
+}
+
+#faq-items{
+    background-color: white;
+    padding: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+#faq-items:hover{
+    transform: scale(1.03);
+}
