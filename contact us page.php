@@ -9,18 +9,14 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="styles/contact.css">
+    <link rel="stylesheet" href="styles/contactpage.css" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- social media icons -->
 
     <!-- Questrial Font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
-    
-<style>
-    
-    
-</style>
+
 
 </head>
 
@@ -97,7 +93,7 @@ session_start();
 
     <main>
         <h1>Get in touch with us</h1>
-        <p id="intro">We'd love to hear from you! Feel free to get in touch by email at[Email] or via our contact form below and we will be happy to help. You can also find answers to some of our most <u>Frequently Asked Questions</u> here.</p>
+        <p id="intro">We'd love to hear from you! Feel free to get in touch by filling the form below and we will be happy to help. You can also find answers to some of our most Frequently Asked Questions here.</p>
         <div class="faq">
             <button id="button-1">Frequently Asked Questions</button>
         </div>
@@ -124,7 +120,7 @@ session_start();
         <h2>Send us a message</h2>
         <p id="txt">We will respond within 24 hours</p>
 
-        <form>
+        <form id="contact">
             <div class="one">
                 <div id="first_name">
                     <input type="text" name="first_name" placeholder="First Name">
@@ -146,7 +142,7 @@ session_start();
             </div>
 
             <div class="three">
-                <textarea name="message" cols="104" raws="100" placeholder="Message"></textarea>
+                <textarea style="width:950px;" name="message" cols="104" raws="100" placeholder="Message"></textarea>
             </div>
 
             <div class="submit">
