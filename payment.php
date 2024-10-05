@@ -4,7 +4,7 @@ session_start();
 // echo $_COOKIE['shipping_info'];
 // echo $payment;
 // echo $shipping_info;
-echo $_COOKIE['buy_now'];
+// echo $_COOKIE['buy_now'];
 
 ?>
 <?php
@@ -17,7 +17,7 @@ if (isset($_POST['pay'])){
     $paymentMethod = $_COOKIE['payment_method'];
     
     function generateTransactionID() {
-        return 'TX' . time() . rand(1000, 9999);
+        return 'TX' . rand(1000, 9999);
     }
     $transactionID = generateTransactionID();
 
