@@ -428,156 +428,119 @@ main h6{
     
 
 
-        <main>
+    <main id="content">
 
-            <h2>Privacy Policy</h2>
+<h4 id="tc" style="padding:0; margin-top:50px;">Privacy Policy</h4>
 
-            <p>At Versori, we are committed to protecting your privacy and ensuring that your personal information is handled in a safe and responsible manner. This Privacy Policy outlines how we collect, use, and protect your personal information when you use our Textile and Garment Management System.</p>
-        <div>
-            <ol>
-                <li>
-                    <h6>Information We Collect</h6>
-                    <p>We collect the following types of information when you use the System:</p>
-                    <ul>
-                        <li>
-                            <p>Personal Information: Name, email address, phone number, and other contact details when you create an account.</p>
-                        </li>
-                        <li>
-                            <p>Transactional Data: Information related to your purchases, orders, and inquiries.</p>
-                        </li>
-                        <li>
-                            <p>Technical Data: IP address, browser type, and device information collected automatically when you interact with our System.</p>
-                        </li>
-                    </ul>
-                </li>        
+<p style="text-align: center;">Welcome to Versori. This Privacy Policy outlines how we collect, use, disclose, and safeguard your information when you visit our website and use our services. Please read it carefully.</p>
+<ol style="list-style-type: square; font-size: 1rem;">
 
-                <li>
-                    <h6>How We Use Your Information</h6>
-                    <p>We use the information collected to :</p>
-                    <ul>
-                        <li>
-                            <p>Provide and maintain the System</p>
-                        </li>
-                        <li>
-                            <p>Process your orders and manage your account.</p>
-                        </li>
-                        <li>
-                            <p>Respond to inquiries and provide customer support</p>
-                        </li>
-                        <li>
-                            <p>Improve our services, website, and user experience</p>
-                        </li>
-                    </ul>
-                </li>
+    <li>
+        <h6>Information We Collect</h6>
+        <ul>
+            <li>
+                <p>Personal Information: When you register or use our services, we may collect personal information such as your name, email address, phone number, and payment details.</p>
+            </li>
+            <li>
+                <p>Usage Data: We may collect information about how you access and use our website, including your IP address, browser type, and pages visited.</p>
+            </li>
+        </ul>
+    </li>
 
-                <li>
-                    <h6>Sharing Your Information</h6>
-                    <p>We do not sell, trade, or rent your personal information. We may share information with third parties only for:</p>
-                    <ul>
-                        <li>
-                            <p>Processing payments and completing orders.</p>
-                        </li>
-                        <li>
-                            <p>Complying with legal obligations.</p>
-                            
-                        </li>
-                        <li>
-                            <p>Protecting the rights and safety of our users.</p>
-                        </li>
-                    </ul>
-                </li>
+    <li>
+        <h6>How We Use Your Information</h6>
+        <ul>
+            <li>
+                <p>To provide and maintain our services, process your transactions, and communicate with you.</p>
+            </li>
+            <li>
+                <p>To improve our website and services, including analyzing usage patterns to enhance user experience.</p>
+            </li>
+        </ul>
+    </li>
 
-                    <h6>Data Security</h6>
-                    <p>We implement strict security measures to protect your personal information from unauthorized access, alteration, or disclosure. However, no data transmission over the internet can be guaranteed to be completely secure</p>
-                
-                <li>
-                    <h6>Your Rights</h6>
-                    <p>You have the right to: </p>
-                    <ul>
-                        <li>
-                            <p>Ownership: All content, including but not limited to text, graphics, logos, icons, and software on the Versori platform, are the exclusive property of Versori or its licensors.</p>
-                        </li>
-                        <li>
-                            <p>Restrictions: You may not copy, modify, distribute, sell, or lease any part of our services or software without explicit permission from Versori.</p>
-                        </li>
-                    </ul>
-                </li>
+    <li>
+        <h6>Disclosure of Your Information</h6>
+        <ul>
+            <li>
+                <p>We do not sell or rent your personal information to third parties. We may share your information with:</p>
+                <ul>
+                    <li>
+                        <p>Service Providers: Third-party vendors who assist us in providing our services.</p>
+                    </li>
+                    <li>
+                        <p>Legal Authorities: If required by law or to protect our rights, we may disclose your information to comply with legal obligations.</p>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
 
-                <li>
-                    <h6>Orders and Transactions</h6>
-                    <ul>
-                        <li>
-                            <p>Order Processing: All orders placed through Versori are subject to acceptance and availability. We reserve the right to cancel or refuse orders if there is a technical issue or pricing error.</p>
-                        </li>
-                        <li>
-                            <p>Payments: You agree to provide valid and accurate payment information for transactions made on our platform. All payments are processed through secure third-party gateways, and we are not responsible for any issues arising from these external services.</p>
-                        </li>
-                    </ul>
-                </li>
+    <li>
+        <h6>Data Security</h6>
+        <ul>
+            <li>
+                <p>We take appropriate security measures to protect your personal information from unauthorized access, use, or disclosure.</p>
+            </li>
+            <li>
+                <p>However, no method of transmission over the internet or electronic storage is 100% secure. Therefore, we cannot guarantee its absolute security.</p>
+            </li>
+        </ul>
+    </li>
 
-                <li>
-                    <h6>Data Protection</h6>
-                    <ul>
-                            <p>Your personal data is collected and processed in accordance with our Privacy Policy. We are committed to ensuring that your information is secure and will not share it with third parties except as outlined in the Privacy Policy.</p>
-                    </ul>
-                </li>
+    <li>
+        <h6>Your Rights</h6>
+        <ul>
+            <li>
+                <p>You have the right to access, correct, or delete your personal information. You can also withdraw your consent for processing your data at any time.</p>
+            </li>
+            <li>
+                <p>To exercise these rights, please contact us using the contact information provided in this policy.</p>
+            </li>
+        </ul>
+    </li>
 
-                <li>
-                    <h6>Service Availability</h6>
-                    <ul>
-                        <li>
-                            <p>Service Interruptions: While we strive to provide continuous access to Versori services, there may be occasional downtime for maintenance, updates, or technical issues. Versori is not liable for any losses caused by such interruptions</p>
-                        </li>
-                        <li>
-                            <p>Modifications: Versori reserves the right to modify or discontinue any of its services or features at any time without prior notice</p>
-                        </li>
-                    </ul>
-                </li>
+    <li>
+        <h6>Cookies and Tracking Technologies</h6>
+        <ul>
+            <li>
+                <p>We use cookies and similar tracking technologies to enhance your experience on our website. You can choose to accept or decline cookies in your browser settings.</p>
+            </li>
+        </ul>
+    </li>
 
-                <li>
-                    <h6>Limitation of Liability</h6>
-                    <p>To the maximum extent permitted by law:</p>
-                    <ul>
-                        <li>
-                            <p>Versori is not liable for any indirect, incidental, special, or consequential damages arising from your use of our services.</p>
-                        </li>
-                        <li>
-                            <p>We do not guarantee that our services will be error-free, secure, or free from harmful components.</p>
-                        </li>
-                    </ul>
-                </li>
+    <li>
+        <h6>Third-Party Links</h6>
+        <ul>
+            <li>
+                <p>Our website may contain links to third-party websites. We are not responsible for the privacy practices of these sites. We encourage you to read their privacy policies before providing any personal information.</p>
+            </li>
+        </ul>
+    </li>
 
-                <li>
-                    <h6>Indemnification</h6>
-                        <p>You agree to indemnify and hold harmless Versori, its affiliates, employees, and agents from any claims, liabilities, damages, and expenses arising out of your violation of these Terms or misuse of our services.</p>
-                </li>
+    <li>
+        <h6>Children's Privacy</h6>
+        <ul>
+            <li>
+                <p>Our services are not intended for children under the age of 13. We do not knowingly collect personal information from children. If we become aware that we have collected such information, we will take steps to delete it.</p>
+            </li>
+        </ul>
+    </li>
 
-                <li>
-                    <h6>Termination of Access</h6>
-                        <p>We reserve the right to suspend or terminate your access to Versori's services at our sole discretion for any breach of these Terms and Conditions. Upon termination, your right to use the services will cease immediately.</p>
-                </li>
+    <li>
+        <h6>Changes to This Privacy Policy</h6>
+        <p>We may update this Privacy Policy from time to time. Changes will be posted on our website and will take effect upon posting. Your continued use of our services constitutes acceptance of the modified policy.</p>
+    </li>
 
-                <li>
-                    <h6>Governing Law</h6>
-                        <p>These Terms and Conditions are governed by and construed in accordance with the laws of [Insert Jurisdiction], without regard to its conflict of law principles. You agree to submit to the exclusive jurisdiction of the courts of Sri Lanka.</p>
-                </li>
+    <li>
+        <h6>Contact Us</h6>
+        <p>If you have any questions or concerns about this Privacy Policy, <a href="contact.php" id="contact-privacy">please contact us</a>.</p>
+    </li>
 
-                <li>
-                    <h6>Amendments</h6>
-                        <p>Versori reserves the right to modify these Terms and Conditions at any time. Changes will be posted on our website and will take effect upon posting. Your continued use of our services constitutes acceptance of the modified terms.</p>
-                </li>
+</ol>
 
-                <li>
-                    <h6>Contact Us</h6>
-                        <p>If you have any questions or concerns about these Terms and Conditions, please contact us</p>
-                </li>
-            </ol>
+</main>
 
-        </div>
-            
-
-
-        </main>
     <!-- Footer Section -->
     <footer>
         
