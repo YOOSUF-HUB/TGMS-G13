@@ -29,11 +29,11 @@ session_start();
             <img onclick="closeNav()" src="images/close-google.svg" class="closebtn" style="width: 30px;">
             
             <!-- Navigation links -->
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="contact.php">Contact</a>
-            <a href="terms.html">Terms of Services</a>
+            <a href="homepage.php">Home</a>
+            <a href="about.php">About</a>
+            <a href="consultation.php">Consultations</a>
+            <a href="contact us page.php">Contact</a>
+            <a href="termspage.php">Terms of Services</a>
         </nav>
         <!-- Menu icon (with open function)-->
         <img src="images/menu-google.svg" id="menuIcon" style="width:30px;cursor:pointer" onclick="openNav()">

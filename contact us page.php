@@ -373,7 +373,7 @@ ini_set('display_errors', 1);
                 } else {
                     // If the user is not logged in, show a message
                     echo "<p>You must <a href='login.php'>log in</a> to submit a request.</p>";
-                    echo "<p style='font-family:Questrial,san-serif; text-align:center; font-size: 20px'>If You are a new user <a href='register.php'>Create an Account</a> to Book a Consultation.</p>";
+                    echo "<p style='font-family:Questrial,san-serif; text-align:center; font-size: 20px'>If You are a new user <a href='register.php'>Create an Account</a> to fill the form.</p>";
                 }
                 ?>
     </div>
