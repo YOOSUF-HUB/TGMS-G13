@@ -209,6 +209,7 @@ session_start();
         } else {
             // Display message if the user is not logged in
             echo "<p style='font-family:Questrial,san-serif; text-align:center; font-size: 20px'>You must <a href='login.php'>log in</a> to Book a Consultation.</p>";
+            echo "<p style='font-family:Questrial,san-serif; text-align:center; font-size: 20px'>If You are a new user <a href='register.php'>Create an Account</a> to Book a Consultation.</p>";
         }
         ?>
     </div>
