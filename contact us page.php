@@ -7,8 +7,9 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Textile and Garment Management System</title>
+    <title>Contact Us</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="styles/contact.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- social media icons -->
 
     <!-- Questrial Font-->
@@ -16,8 +17,10 @@ session_start();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="styles/contact.css">
-
+<style>
+    
+    
+</style>
 
 </head>
 

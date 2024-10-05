@@ -1,134 +1,94 @@
-h1{
-    text-align: center;
-    font-family: Arial, sans-serif;
-    margin: 100px 500px 20px 400px;
-    color: black;
+/* index.css */
+body {
+    font-family: 'Questrial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-h2{
-    text-align: center;
+main {
+    padding: 20px;
 }
 
-#txt{
-    text-align: center;
-    font-family: Arial, sans-serif;
+h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
 }
 
-#intro{
-    text-align: center;
-    margin: auto 100px;
-    font-size: 18px;
-    font-family: Arial, sans-serif;
+#intro {
+    font-size: 1rem;
+    margin-bottom: 20px;
 }
 
-#button-1{
-    font-family: Arial, sans-serif;
-    font-size: 18px;
-    padding: 12px;
-    background-color: rgb(219, 13, 92);
-    color: white;
-    border-color: white;
-    cursor: pointer;
+.faq {
+    margin-bottom: 20px;
 }
 
-.faq{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-}
-
-.email img {
-    height: 70px;
-    width: 70px;
-}
-
-.email button{
-    height: 210px;
-    width: 200px;
-    padding: 10px;
-    cursor: pointer;
-}
-
-.contact img{
-    height: 70px;
-    width: 70px;
-}
-
-.contact button{
-    height: 210px;
-    width: 200px;
-    padding: 10px;
+.faq button {
+    padding: 10px 20px;
+    font-size: 1rem;
     cursor: pointer;
 }
 
 .container {
     display: flex;
-    padding: 50px;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    margin: 20px 0;
 }
 
-.email {
-    width: 200px;
-    margin-bottom: 0px;
-    margin-left: 120px;
-    margin-right: 60px;
+.container div {
+    text-align: center;
 }
 
-.contact {
-    width: 200px;   
-}
-
-form input{
-    font-size: 18px;
-    height: 40px;
-    width: 500px;
-}
-
-form textarea{
-    font-size: 18px;
-}
-
-.one, .two{
-    
-    display: flex;
-    gap: 40px;
-    padding: 5px;
-    align-items: center;
-    justify-content: center;
-    
-}
-
-.three{
-   
-    display: flex;
-    height: 150px;
-    padding: 5px;
-    justify-content: center;
-    
-}
-
-#submit{
-    font-family: Arial, sans-serif;
-    font-size: 18px;
-    padding: 10px;
-    background-color: rgba(255, 0, 0, 0.781);
-    color: white;
-    border-color: rgba(255, 0, 0, 0.774);
+.container button {
+    background: none;
+    border: none;
     cursor: pointer;
-
+    text-align: center;
 }
 
-.submit{
-    
-    padding: 10px;
+.container img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.container h2 {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+form {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
 }
 
+form .one, form .two {
+    display: flex;
+    gap: 10px;
+}
 
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
 
+form textarea {
+    resize: vertical;
+}
 
+form button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
 
-
+form button:hover {
+    background-color: #45a049;
+}
