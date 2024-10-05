@@ -38,7 +38,7 @@ if (isset($_POST['login'])) {
                 header("Location: AdminDashboard.php");
                 break;
             case 'Inventory':
-                header("Location: inventorydashboard.php");
+                header("Location: inventory-Dashboard.php");
                 break;
             case 'Support':
                 header("Location: CustomerSupportDashboard.php");
