@@ -49,7 +49,7 @@ if (isset($_POST['buy'])) {
     $productID = $product['Product_ID'];
     $price = $product['Price'];
     $price_total = $price * $quantity; //calculate total price
-
+    
 
     if ($quantity>=50 && $quantity<499){ // setting dellivery date
         $deliveryDate = (date('Y-m-d', strtotime('+1 week')));
@@ -62,21 +62,27 @@ if (isset($_POST['buy'])) {
 
     if ($quantity>=50 && $quantity<499){
         $fprice = ($price_total-($price_total/10)); // calculate discount price
-        $shipping = $quantity * 25; // setting shipping price
     }else if ($quantity>=500 && $quantity<999) {
         $fprice = ($price_total-($price_total/15));
-        $shipping = $quantity * 20;
     }else if ($quantity>=1000) {
         $fprice = ($price_total-($price_total/20));
-        $shipping = $quantity * 15;
     }
 
-    $grand_total = $fprice + $quantity;
+    if ($quantity>=49 && $quantity<500){ // setting shipping price
+        $shipping = ($quantity * 25); 
+    }else if ($quantity>=500 && $quantity<999) {
+        $shipping = ($quantity * 20);
+    }else if ($quantity>=1000) {
+        $shipping = ($quantity * 15);
+    }
+
+
+    $grand_total = ($fprice + $shipping);
     
 
     
-    $buy_now = "INSERT INTO `Orders`(`Order_ID`, `Customer_ID`, `Product_ID`, `Order_Date`, `Delivery_Date`, `Status`, `Type`, `Quantity`) 
-    VALUES ('$orderid','$user_id','$productID','$currentDate','$deliveryDate','In-Progress', '$material' ,$quantity)";
+    $buy_now = "INSERT INTO `Orders`(`Order_ID`, `Customer_ID`, `Product_ID`, `Order_Date`, `Delivery_Date`, `Status`, `Order_type`, `Quantity`) 
+    VALUES ('$orderid','$user_id','$productID','$currentDate','$deliveryDate','In-Progress', 'Whole Sale' ,$quantity)";
     //$buy_result = mysqli_query($conn, $buy_now);
 
     setcookie('buy_now', $buy_now, time() + 3600, "/");
@@ -84,8 +90,7 @@ if (isset($_POST['buy'])) {
     setcookie('quantity', $quantity, time() + 3600, "/");
     setcookie('shippingPrice', $shipping, time() + 3600, "/");
     setcookie('productID', $productID, time() + 3600, "/");
-    setcookie('grand_total', $grand_total, time() + 3600, "/");
-
+    setcookie('grand_total',$grand_total, time() + 3600, "/");
 
     if ($_COOKIE['buy_now']) {
         header("Location: checkout.php"); 

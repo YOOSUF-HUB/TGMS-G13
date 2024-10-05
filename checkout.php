@@ -1,5 +1,8 @@
 <?php
 session_start();
+echo $_COOKIE['shippingPrice'];echo " ";
+// echo $_COOKIE['fprice'];echo " ";
+echo $_COOKIE['buy_now'];
 
 
 ?>
@@ -171,7 +174,7 @@ if (isset($_POST['submit'])){
                         <label>
                             <input type="radio" name="payment_method" value="credit_card" required>
                             <span>
-                                Credit
+                                Credit Card
                                 <img src="https://example.com/visa.png" alt="Visa" width="20px">
                                 <img src="https://example.com/mastercard.png" alt="MasterCard" width="20px">
                                 <img src="https://example.com/amex.png" alt="American Express" width="20px">
