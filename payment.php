@@ -4,6 +4,54 @@ session_start();
 echo $_COOKIE['shipping_info'];
 
 ?>
+<?php
+include("php/config.php");
+if (isset($_POST['pay'])){
+    $user_id = $_SESSION['user_id']; 
+    
+    $currentDate = date('Y-m-d');
+    $paymentAmount = $_COOKIE['grand_total'];
+    $paymentMethod = $_COOKIE['payment_method'];
+    
+    function generateTransactionID() {
+        return 'TX' . time() . rand(1000, 9999);
+    }
+    $transactionID = generateTransactionID();
+
+
+    $find = mysqli_query($conn, "SELECT MAX(Payment_ID) AS max_id FROM Payments");
+    $row = mysqli_fetch_assoc($find);
+          
+    if ($row['max_id']) {
+        $last_id = $row['max_id'];
+        $num = intval(substr($last_id, 4)) + 1;  
+         $payment_id = 'PAY-' . str_pad($num, 3, '0', STR_PAD_LEFT);
+    } else {
+        $payment_id = 'PAY-001'; 
+    }
+
+    
+
+    //update payments
+    $payment = "INSERT INTO `Payments`(`Payment_ID`, `Payment_date`, `Payment_amount`, `Payment_method`, `Transaction_id`)
+    VALUES ('$payment_id','$currentDate','$paymentAmount','$paymentMethod','$transactionID')";
+    
+
+    $shipping_info = $_COOKIE['shipping_info'];
+    $buy_now = $_COOKIE['buy_now'];
+
+
+    if (mysqli_query($conn, $payment_info) && mysqli_query($conn, $shipping_info) && mysqli_query($conn, $buy_now)) {
+        header("Location: product.php");
+        exit();
+    } else {
+        echo "<div class='errormessage'>
+                <p>Error processing payment: " . mysqli_error($conn) . "</p>
+            </div>";
+    }
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -199,13 +247,13 @@ echo $_COOKIE['shipping_info'];
                     <input id="cvv" type="text" name="CVV" placeholder="Code" required pattern="\d{3}" title="Please enter a valid 3-digit CVV">
                 </div>
 
-                <button type="submit" style="margin-top: 10px; margin-bottom:30px; cursor:pointer;">Proceed to Checkout</button>
+                <button type="submit" name="pay" style="margin-top: 10px; margin-bottom:30px; cursor:pointer;">Proceed to Checkout</button>
 
             </form>
 
             <div class="order_details">
                 <h2>Order summary</h2>
-                <p style="font-size:30px;">Sub total: Rs. <span id="totalPrice">0</span></p>
+                <p style="font-size:30px;">Sub total: Rs. <?php echo $_COOKIE['grand_total'];?></p>
             </div>
 
         </div>
@@ -257,7 +305,7 @@ echo $_COOKIE['shipping_info'];
     <script src="index.js"></script>
 
     <script>
-
+        
         // Retrieve the final price from sessionStorage and display it
         const finalPrice = sessionStorage.getItem('finalPrice'); // Corrected key to match what was used in storeFinalPrice
         // Assuming there is a span or input field for displaying the total price
