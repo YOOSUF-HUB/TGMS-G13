@@ -382,7 +382,7 @@ if (isset($_POST['buy'])) {
     const decreaseButton = document.getElementById('decrease-button');
 
     function calculateFinalPrice() {
-        const hoodiePrice = <?php echo $hoodie_price; ?>; // Price from the database
+        const hoodiePrice = <?php echo $price; ?>; // Price from the database
         const quantity = parseInt(quantityInput.value);
         const finalPrice = hoodiePrice * quantity;
         document.getElementById('finalprice').textContent = finalPrice.toFixed(2);
