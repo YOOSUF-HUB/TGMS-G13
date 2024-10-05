@@ -197,12 +197,12 @@ footer {
 
 
 .customer_table{
-    width: 100%;
+    width: 1400px;
     border-collapse: collapse;
-    font-size: 10px;
+
     text-align: left;
     margin-right: 20px;
-    
+    margin-left: 20px;
 }
 
 table{
