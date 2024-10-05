@@ -1,10 +1,5 @@
 <?php
 session_start();
-//echo $_SESSION['user_id'];
-// echo $_COOKIE['shipping_info'];
-// echo $payment;
-// echo $shipping_info;
-// echo $_COOKIE['buy_now'];
 
 ?>
 <?php

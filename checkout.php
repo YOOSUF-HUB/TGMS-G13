@@ -1,8 +1,5 @@
 <?php
 session_start();
-echo $_COOKIE['shippingPrice'];echo " ";
-// echo $_COOKIE['fprice'];echo " ";
-echo $_COOKIE['buy_now'];
 
 
 ?>
