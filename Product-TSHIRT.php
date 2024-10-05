@@ -162,6 +162,7 @@ ini_set('display_errors', 1);
                     echo "<div class='successmessage'>
                             <p style='font-family:Questrial,san-serif; text-align:center; font-size: 40px'>Your Product Has been added to your cart</p>
                             <button onclick='goBack()' style='font-family:Questrial,san-serif; font-size: 20px; padding: 10px 20px; background-color: #697565; color: white; border: none; border-radius: 5px; cursor: pointer;'>Go Back</button>
+                            <a href='cart.php'><button style='font-family:Questrial,san-serif; font-size: 20px; padding: 10px 20px; background-color: #697565; color: white; border: none; border-radius: 5px; cursor: pointer;'>View Cart</button></a>
                         </div>";
                         
                 } else {
