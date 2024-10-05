@@ -1,5 +1,45 @@
 <?php
 session_start();
+echo $_COOKIE['buy_now']; 
+echo $_COOKIE['shipping']; 
+echo $_COOKIE['fprice']; 
+
+
+?>
+<?php
+include("php/config.php");
+if (isset($_POST['buy'])){
+    $user_id = $_SESSION['user_id']; 
+    // Collect form data
+    $country = $_POST['country'];
+    $full_name = $_POST['full_name'];
+    $mobile = $_POST['mobile'];
+    $address = $_POST['address'];
+    $apartment = $_POST['apartment'];
+    $city = $_POST['city'];
+    $province = $_POST['province'];
+    $zip = $_POST['zip'];
+    $payment_method = $_POST['payment_method'];
+
+    $insert_query = "INSERT INTO shipping_details (Customer_ID, Country, Full_name, Mobile, Address, Apartment, City, Province, Zip, Payment_method)
+    VALUES ('$Customer_ID', '$country', '$full_name', '$mobile', '$address', '$apartment', '$city', '$province', '$zip', '$payment_method')";
+    
+    $result = mysqli_query($conn, $insert_query);
+
+    if ($result) {
+        echo "<div class='successmessage'>
+                <p>Shipping details saved successfully!</p>
+              </div><br>";
+        // Optionally redirect to a confirmation page
+        echo "<a href='confirmation.php'><button class='btn'>Continue to Confirmation</button></a>";
+    } else {
+        echo "<div class='errormessage'>
+                <p>Error saving shipping details: " . mysqli_error($conn) . "</p>
+              </div>";
+    }
+
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
