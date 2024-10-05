@@ -198,17 +198,6 @@ if (isset($_POST['buy'])) {
                 </div>
             </div>
 
-            <?php
-            include 'php/config.php';
-            $price_sql = "SELECT HOODIES FROM Price";
-            $price_result = $conn->query($price_sql);
-            if ($price_result->num_rows > 0) {
-                $row = $price_result->fetch_assoc();
-                $hoodie_price = $row['HOODIES'];
-            } else {
-                $hoodie_price = 0; // Fallback if no price is found
-            }
-            ?>
         </div>
     </div>
 
