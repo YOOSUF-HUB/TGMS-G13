@@ -1,14 +1,11 @@
 <?php
 session_start();
-echo $_COOKIE['buy_now']; 
-echo $_COOKIE['shipping']; 
-echo $_COOKIE['fprice']; 
 
 
 ?>
 <?php
 include("php/config.php");
-if (isset($_POST['buy'])){
+if (isset($_POST['submit'])){
     $user_id = $_SESSION['user_id']; 
     // Collect form data
     $country = $_POST['country'];
@@ -21,17 +18,18 @@ if (isset($_POST['buy'])){
     $zip = $_POST['zip'];
     $payment_method = $_POST['payment_method'];
 
-    $insert_query = "INSERT INTO shipping_details (Customer_ID, Country, Full_name, Mobile, Address, Apartment, City, Province, Zip, Payment_method)
-    VALUES ('$Customer_ID', '$country', '$full_name', '$mobile', '$address', '$apartment', '$city', '$province', '$zip', '$payment_method')";
+    $shipping_info = "INSERT INTO `Shipping_details`(`Customer_ID`, `Country`, `Full_name`, `Mobile`, `Address`, `Apartment`, `City`, `Province`, `Zip`, `Payment_method`)
+    VALUES ('$user_id','$country','$full_name','$mobile','$address','$apartment','$city','$province','$zip','$payment_method')";
     
-    $result = mysqli_query($conn, $insert_query);
+    //$result = mysqli_query($conn, $shipping_info);
+    setcookie('shipping_info', $shipping_info, time() + 3600, "/");
+    setcookie('payment_method', $payment_method, time() + 3600, "/");
 
-    if ($result) {
-        echo "<div class='successmessage'>
-                <p>Shipping details saved successfully!</p>
-              </div><br>";
-        // Optionally redirect to a confirmation page
-        echo "<a href='confirmation.php'><button class='btn'>Continue to Confirmation</button></a>";
+
+
+    if ($_COOKIE['shipping_info']) {
+        header("Location: payment.php"); 
+        exit(); 
     } else {
         echo "<div class='errormessage'>
                 <p>Error saving shipping details: " . mysqli_error($conn) . "</p>
@@ -109,7 +107,7 @@ if (isset($_POST['buy'])){
             <!-- Shipping Address Form -->
             <div class="shipping-address">
                 <h2>Shipping Address</h2>
-                <form id="checkoutForm" action="payment.php" method="post">
+                <form id="checkoutForm" action="" method="post">
                     <!-- Country Dropdown -->
                     <div class="input-field">
                         <label for="country">Country</label>
@@ -173,7 +171,7 @@ if (isset($_POST['buy'])){
                         <label>
                             <input type="radio" name="payment_method" value="credit_card" required>
                             <span>
-                                Credit or Debit Card
+                                Credit
                                 <img src="https://example.com/visa.png" alt="Visa" width="20px">
                                 <img src="https://example.com/mastercard.png" alt="MasterCard" width="20px">
                                 <img src="https://example.com/amex.png" alt="American Express" width="20px">
@@ -181,7 +179,7 @@ if (isset($_POST['buy'])){
                         </label>
                         <label>
                             <input type="radio" name="payment_method" value="other">
-                            Other
+                            Debit Card
                         </label>
                     </div>
 
@@ -189,15 +187,15 @@ if (isset($_POST['buy'])){
                     <div class="order-summary" style="width:70%; margin-top:30px;">
                         <h2>Order Summary</h2>
                         <div id="checkout">
-                            <p>Total Price: Rs. <span id="totalPrice">0</span></p>
+                            <p>Total Price: Rs. <?php echo $_COOKIE['fprice'];  ?></p>
                         </div>
                         <div class="summary-item">
-                            <span>Shipping fee ( 10% )</span>
-                            <span id="shipping">Rs. 0</span>
+                            <span>Shipping fee </span>
+                            <span id="shipping">Rs. <?php echo $_COOKIE['shipping'];?></span>
                         </div>
                         <div class="summary-item">
                             <span>Total</span>
-                            <span id="sub-total">Rs. 0</span>
+                            <span id="sub-total">Rs. <?php echo $_COOKIE['grand_total'];?></span>
                         </div>
 
                         <div class="place-order-btn">

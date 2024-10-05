@@ -50,22 +50,6 @@ if (isset($_POST['buy'])) {
     $price = $product['Price'];
     $price_total = $price * $quantity; //calculate total price
 
-    if ($quantity>=50 && $quantity<499){
-        $fprice = ($price_total-($price_total/10)); // calculate discount price
-    }else if ($quantity>=500 && $quantity<999) {
-        $fprice = ($price_total-($price_total/15));
-    }else if ($quantity>=1000) {
-        $fprice = ($price_total-($price_total/20));
-    }
-
-    if ($quantity>=49 && $quantity<500){ // setting shipping price
-        $shipping = $quantity * 25; 
-    }else if ($quantity>=500 && $quantity<999) {
-        $shipping = $quantity * 20;
-    }else if ($quantity>=1000) {
-        $shipping = $quantity * 15;
-    }
-    
 
     if ($quantity>=50 && $quantity<499){ // setting dellivery date
         $deliveryDate = (date('Y-m-d', strtotime('+1 week')));
@@ -74,6 +58,20 @@ if (isset($_POST['buy'])) {
     }else if ($quantity>=1000) {
         $deliveryDate = date('Y-m-d', strtotime('+6 week')); 
     }
+
+
+    if ($quantity>=50 && $quantity<499){
+        $fprice = ($price_total-($price_total/10)); // calculate discount price
+        $shipping = $quantity * 25; // setting shipping price
+    }else if ($quantity>=500 && $quantity<999) {
+        $fprice = ($price_total-($price_total/15));
+        $shipping = $quantity * 20;
+    }else if ($quantity>=1000) {
+        $fprice = ($price_total-($price_total/20));
+        $shipping = $quantity * 15;
+    }
+
+    $grand_total = $fprice + $quantity;
     
 
     
@@ -84,8 +82,10 @@ if (isset($_POST['buy'])) {
     setcookie('buy_now', $buy_now, time() + 3600, "/");
     setcookie('fprice', $fprice, time() + 3600, "/");
     setcookie('quantity', $quantity, time() + 3600, "/");
-    setcookie('shipping', $shipping, time() + 3600, "/");
+    setcookie('shippingPrice', $shipping, time() + 3600, "/");
     setcookie('productID', $productID, time() + 3600, "/");
+    setcookie('grand_total', $grand_total, time() + 3600, "/");
+
 
     if ($_COOKIE['buy_now']) {
         header("Location: checkout.php"); 
