@@ -209,60 +209,6 @@ if (isset($_POST['buy'])) {
             $result_findPrice = mysqli_query($conn, $findPrice);
             $product = mysqli_fetch_assoc($result_findPrice);
             $price = $product['Price'];
-
-
-            if (isset($_POST['submit'])) {
-                // Collect form data
-                $user_id = mysqli_real_escape_string($conn, $_SESSION['user_id']);
-                $productName = mysqli_real_escape_string($conn, $_POST['productName']);
-                //$productID = mysqli_real_escape_string($conn, $_POST['productID']);
-                $size = mysqli_real_escape_string($conn, $_POST['size']);
-                $color = mysqli_real_escape_string($conn, $_POST['color']);
-                //$material = mysqli_real_escape_string($conn, $_POST['material']);
-                $quantity = mysqli_real_escape_string($conn, $_POST['quantity']);
-
-                
-                
-
-
-
-                // Query to get the last cartID
-                $find = mysqli_query($conn, "SELECT MAX(cartID) AS max_id FROM Cart");
-                $row = mysqli_fetch_assoc($find);
-
-                
-                // Assigning cart ID
-
-                if ($row['max_id']) {
-                    $last_id = $row['max_id'];
-                    // Extract numeric part from last ID
-                    $last_num = (int)preg_replace("/[^0-9]/", "", $last_id);
-                    $num = $last_num + 1; // Increment the numeric part
-                    
-                // Generate new customer ID with 'CONSULT_' prefix
-                    $cartID = 'CART_' . str_pad($num, 4, '0', STR_PAD_LEFT); 
-                } else {
-                    $cartID = 'CART_0001'; // Use the correct prefix here
-                }
-
-                // Build your insert query
-                $query = "INSERT INTO Cart (cartID,Customer_ID, productName, productID, size, color, quantity, price_single, price_total, material) 
-                VALUES ('$cartID','$user_id', '$productName', '$productID', '$size', '$color', $quantity, $hoodie_price, $price_total, '$material')";
-
-                if (mysqli_query($conn, $query)) {
-                    echo "<div class='successmessage'>
-                            <p style='font-family:Questrial,san-serif; text-align:center; font-size: 40px'>Your Product Has been added to your cart</p>
-                            <button onclick='goBack()' style='font-family:Questrial,san-serif; font-size: 20px; padding: 10px 20px; background-color: #697565; color: white; border: none; border-radius: 5px; cursor: pointer;'>Go Back</button>
-                            <a href='cart.php'><button style='font-family:Questrial,san-serif; font-size: 20px; padding: 10px 20px; background-color: #697565; color: white; border: none; border-radius: 5px; cursor: pointer;'>View Cart</button></a>
-                        </div>";
-                        
-                } else {
-                    echo "<div class='errormessage'>
-                            <p>Error: " . mysqli_error($conn) . "</p>
-                            <button onclick='goBack()' style='font-family:Questrial,san-serif; font-size: 20px; padding: 10px 20px; background-color: #697565; color: white; border: none; border-radius: 5px; cursor: pointer;'>Go Back</button>
-                            </div>";
-                }
-            } else {
             ?>
             <form action="" method="POST" class="product-options" id="product-form">
                 <div class="product-options">
@@ -310,18 +256,11 @@ if (isset($_POST['buy'])) {
 
 
 
-                <input type="hidden" name="cartID" value="<?php echo $cartID; ?>">
-                <input type="hidden" name="productName" value="Hoodie">
-                <input type="hidden" name="productID" value="H001">
-
-
                 <div class="purchase-btn" style="margin-top: 20px;">
                     <button type="submit" name="buy"   class="buy-now" id="buy-now" >Buy Now</button>
-                    <button type="submit" name="submit" class="add-cart" >Add to Cart</button>
                 </div>
 
             </form>
-            <?php } ?>
         </div>
     </div>
 </main>
