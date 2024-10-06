@@ -249,6 +249,7 @@ CREATE TABLE Inventory (
 CREATE TABLE Inventory_Manager (
     InventoryManager_ID VARCHAR(10),
     User_name VARCHAR(50) NOT NULL,
+    Name VARCHAR(100) NOT NULL,
     Email VARCHAR(100) NOT NULL UNIQUE,
     Password VARCHAR(255) NOT NULL,
 
