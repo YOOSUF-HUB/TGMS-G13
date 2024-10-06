@@ -222,11 +222,13 @@ CREATE TABLE Order (
 
 -- Create Payment table
 CREATE TABLE Payment (
-    Payment_ID INT PRIMARY KEY AUTO_INCREMENT,
-    Order_ID INT,
-    Amount DECIMAL(10, 2) NOT NULL,
-    Payment_Type ENUM('Bank_transfer', 'Card') NOT NULL,
-    FOREIGN KEY (Order_ID) REFERENCES `Order`(Order_ID)
+Payment_ID VARCHAR(10) NOT NULL,
+Order_ID INT,
+Amount DECIMAL(10, 2) NOT NULL,
+Payment_Type ENUM('Bank_transfer', 'Card') NOT NULL,
+
+CONSTRAINT Payment_PK PRIMARY KEY (Payment_ID),
+CONSTRAINT Payment_FK FOREIGN KEY (Customer_ID) REFERENCES Customer_account(Customer_ID)
 );
 
 -- Create Inventory table
