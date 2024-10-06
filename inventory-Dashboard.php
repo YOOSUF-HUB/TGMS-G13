@@ -13,6 +13,19 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
     // Include the database connection file here
     include 'php/config.php';
 
+    $sql = "SELECT 
+        O.Order_ID as oid,
+        I.Name as pname,
+        I.Colour as pcolour,
+        I.Size as psize,
+        O.Quantity as qty,
+        O.Delivery_Date as ddate,
+        O.Status as sts
+    FROM Orders O, Customer_account C, Inventory I
+    where O.Customer_ID = C.Customer_ID AND O.Product_ID = I.Product_ID AND O.Status ='In-Progress' ORDER BY O.Delivery_Date ASC LIMIT 4;";
+
+    $order_result = $conn->query($sql);
+
     // SQL query to group by product Name and sum the quantities(Only our main 4 products will be displayed)
     $group_query = "SELECT `Name`, SUM(`Quantity`) AS TotalQuantity FROM `Inventory` 
     WHERE `Name`='Hoodie' || `Name`='Joggers' || `Name`='T-Shirt' || `Name`='Long Sleeve T' GROUP BY `Name`";
@@ -135,34 +148,23 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                         </tr>
                     </thead>
                     <tbody>
+                    <?php while($row = $order_result->fetch_assoc()): ?>
                         <tr>
+                            <td><?php echo $row["pname"];?><br><p class="insideRow" style="font-size:smaller; margin:0;"><?php echo $row["pcolour"]; echo ", "; echo $row["psize"];?> </p></td>
+                            <td><?php echo $row["oid"]; ?></td>
+                            <td><?php echo $row["qty"]; ?></td>
+                            <td><?php echo $row["ddate"]; ?></td>
+                            <td><?php echo $row["sts"]; ?></td>
+                        </tr>
+                        <!-- <tr>
                             <td class="orders">Product A <span>Color,Size</span></td>
                             <td class="orderid">#O12134</td>
                             <td class="qty">40</td>
                             <td class="delivery">10/02/2024</td>
                             <td class="status">In-Progress</td>
-                        </tr>
-                        <tr>
-                            <td class="orders">Product A <span>Color,Size</span></td>
-                            <td class="orderid">#O12134</td>
-                            <td class="qty">40</td>
-                            <td class="delivery">10/02/2024</td>
-                            <td class="status">In-Progress</td>
-                        </tr>
-                        <tr>
-                            <td class="orders">Product A <span>Color,Size</span></td>
-                            <td class="orderid">#O12134</td>
-                            <td class="qty">40</td>
-                            <td class="delivery">10/02/2024</td>
-                            <td class="status">In-Progress</td>
-                        </tr>
-                        <tr>
-                            <td class="orders">Product A <span>Color,Size</span></td>
-                            <td class="orderid">#O12134</td>
-                            <td class="qty">40</td>
-                            <td class="delivery">10/02/2024</td>
-                            <td class="status">In-Progress</td>
-                        </tr>
+                        </tr> -->
+                        
+                        <?php endwhile; ?>
                     </tbody>
                 </table>
             </div>
