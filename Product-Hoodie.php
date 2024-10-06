@@ -43,74 +43,68 @@ if (isset($_POST['buy'])) {
         $productID = $product['Product_ID'];
         $price = $product['Price'];
         $inventory_qty = $product['Quantity'];
+
         if ($quantity > $inventory_qty) {
             echo "Not enough inventory available.";
             exit;
         }
+
+        $price_total = $price * $quantity; //calculate total price
+        
+        $balance_qty = $inventory_qty - $quantity;//find balance inventory
+
+
+        
+
+        if ($quantity>=50 && $quantity<500){ // setting dellivery date
+            $deliveryDate = (date('Y-m-d', strtotime('+1 week')));
+        }else if ($quantity>=500 && $quantity<1000) {
+            $deliveryDate = date('Y-m-d', strtotime('+2 week')); 
+        }else if ($quantity>=1000) {
+            $deliveryDate = date('Y-m-d', strtotime('+6 week')); 
+        }
+
+
+        if ($quantity>=50 && $quantity<500){
+            $fprice = ($price_total-($price_total/10)); // calculate discount price
+        }else if ($quantity>=500 && $quantity<1000) {
+            $fprice = ($price_total-($price_total/15));
+        }else if ($quantity>=1000) {
+            $fprice = ($price_total-($price_total/20));
+        }
+
+        if ($quantity>=49 && $quantity<500){ // setting shipping price
+            $shipping = ($quantity * 25); 
+        }else if ($quantity>=500 && $quantity<1000) {
+            $shipping = ($quantity * 20);
+        }else if ($quantity>=1000) {
+            $shipping = ($quantity * 15);
+        }
+
+
+        $grand_total = ($fprice + $shipping);
+        
+
+        
+        $buy_now = "INSERT INTO `Orders`(`Order_ID`, `Customer_ID`, `Product_ID`, `Order_Date`, `Delivery_Date`, `Status`, `Order_type`, `Quantity`) 
+        VALUES ('$orderid','$user_id','$productID','$currentDate','$deliveryDate','In-Progress', 'Wholesale' ,$quantity)";
+        //$buy_result = mysqli_query($conn, $buy_now);
+
+        setcookie('buy_now', $buy_now, time() + 3600, "/");
+        setcookie('fprice', $fprice, time() + 3600, "/");
+        setcookie('shippingPrice', $shipping, time() + 3600, "/");
+        setcookie('productID', $productID, time() + 3600, "/"); 
+        setcookie('orderid', $orderid, time() + 3600, "/"); 
+        setcookie('grand_total',$grand_total, time() + 3600, "/");
+        setcookie('balance_qty',$balance_qty, time() + 3600, "/"); 
+
+        header("Location: checkout.php"); 
+        exit(); 
     } else {
         echo "Product not found.";
         exit;
     }
     
-    $price_total = $price * $quantity; //calculate total price
-    
-    $balance_qty = $inventory_qty - $quantity;//find balance inventory
-
-
-    
-
-    if ($quantity>=50 && $quantity<500){ // setting dellivery date
-        $deliveryDate = (date('Y-m-d', strtotime('+1 week')));
-    }else if ($quantity>=500 && $quantity<1000) {
-        $deliveryDate = date('Y-m-d', strtotime('+2 week')); 
-    }else if ($quantity>=1000) {
-        $deliveryDate = date('Y-m-d', strtotime('+6 week')); 
-    }
-
-
-    if ($quantity>=50 && $quantity<500){
-        $fprice = ($price_total-($price_total/10)); // calculate discount price
-    }else if ($quantity>=500 && $quantity<1000) {
-        $fprice = ($price_total-($price_total/15));
-    }else if ($quantity>=1000) {
-        $fprice = ($price_total-($price_total/20));
-    }
-
-    if ($quantity>=49 && $quantity<500){ // setting shipping price
-        $shipping = ($quantity * 25); 
-    }else if ($quantity>=500 && $quantity<1000) {
-        $shipping = ($quantity * 20);
-    }else if ($quantity>=1000) {
-        $shipping = ($quantity * 15);
-    }
-
-
-    $grand_total = ($fprice + $shipping);
-    
-
-    
-    $buy_now = "INSERT INTO `Orders`(`Order_ID`, `Customer_ID`, `Product_ID`, `Order_Date`, `Delivery_Date`, `Status`, `Order_type`, `Quantity`) 
-    VALUES ('$orderid','$user_id','$productID','$currentDate','$deliveryDate','In-Progress', 'Wholesale' ,$quantity)";
-    //$buy_result = mysqli_query($conn, $buy_now);
-
-    setcookie('buy_now', $buy_now, time() + 3600, "/");
-    setcookie('fprice', $fprice, time() + 3600, "/");
-    setcookie('shippingPrice', $shipping, time() + 3600, "/");
-    setcookie('productID', $productID, time() + 3600, "/"); 
-    setcookie('orderid', $orderid, time() + 3600, "/"); 
-    setcookie('grand_total',$grand_total, time() + 3600, "/");
-    setcookie('balance_qty',$balance_qty, time() + 3600, "/"); 
-
-
-    if ($_COOKIE['buy_now']) {
-        header("Location: checkout.php"); 
-        exit();     
-    } else {
-        echo "<div class='errormessage'>
-                <p>Error: " . mysqli_error($conn) . "</p>
-                <button onclick='goBack()' style='font-family:Questrial,san-serif; font-size: 20px; padding: 10px 20px; background-color: #697565; color: white; border: none; border-radius: 5px; cursor: pointer;'>Go Back</button>
-                </div>";
-    }
 }
 
 
