@@ -150,11 +150,11 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
             </div>
 
             <div id="viewMode" class="table-container" >
-                <h2>Orders</h2>
+                <h2>Report</h2>
                 <ul id="tabs"> <!-- page tabs -->
-                    <li><button class="tab1" id="allOrderBtn" onclick="allOrder()"; >All Orders</button></li>
-                    <li><button class="tab1" id="activeOrderBtn" onclick="activeOrder()">Active Orders</button></li>
-                    <li><button class="tab1" id="completedOrderBtn" onclick="completedOrder()">Completed Orders</button></li>
+                    <li><button class="tab1" id="allOrderBtn" onclick="allOrder()"; >Summary</button></li>
+                    <li><button class="tab1" id="activeOrderBtn" onclick="activeOrder()">Revenue by Products</button></li>
+                    <li><button class="tab1" id="completedOrderBtn" onclick="completedOrder()">Revenue by Orders</button></li>
                     <li><button class="tab1" id="cancelledOrderBtn" onclick="cancelOrder()">Cancelled Orders</button></li>
                     <li><button class="tab1" id="customOrderBtn" onclick="customOrder()">Custom Orders</button></li>
                 </ul>
@@ -162,7 +162,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                 <!-- All Orders List -->
                 <div id="allOrdersTab" class="inner-table-container"> 
                 <table class="table" >
-                    <thead>
+                    <!-- <thead>
                         <tr>
                             <th>Order ID</th>
                             <th>Product Name</th>
@@ -172,19 +172,32 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                             <th>Delivery Date</th>
                             <th>Status</th>
                         </tr>
-                    </thead>
+                    </thead> -->
                     <tbody>
-                    <?php while($row = $result->fetch_assoc()): ?>
                         <tr>
-                            <td><?php echo $row["oid"]; ?></td>
-                            <td><?php echo $row["pname"];?><br><p class="insideRow"><?php echo $row["pcolour"]; echo ", "; echo $row["psize"];?> </p></td>
-                            <td><?php echo $row["cid"]; ?></td>
-                            <td><?php echo $row["qty"]; ?></td>
-                            <td><?php echo $row["odate"]; ?></td>
-                            <td><?php echo $row["ddate"]; ?></td>
-                            <td><?php echo $row["sts"]; ?></td>
+                            <td>Total Number of Products</td>
+                            <td><?php echo '5000'; ?></td>
                         </tr>
-                        <?php endwhile; ?>
+                        <tr>
+                            <td>Total Stock Value</td>
+                            <td><?php echo '5000'; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Total Revenue Generated</td>
+                            <td><?php echo '5000'; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Total Orders Received</td>
+                            <td><?php echo '5000'; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Most Ordered Product</td>
+                            <td><?php echo '5000'; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Leased Ordered Product</td>
+                            <td><?php echo '5000'; ?></td>
+                        </tr>
                     </tbody>
                 </table>
                 </div>
@@ -194,11 +207,10 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                 <table class="table" >
                     <thead>
                         <tr>
-                            <th>Order ID</th>
                             <th>Product Name</th>
-                            <th>Customer ID</th>
-                            <th>Quantity</th>
-                            <th>Order Date</th>
+                            <th>Quantity Sold</th>
+                            <th>Price per unit</th>
+                            <th>Total Revenue</th>
                             <th>Delivery Date</th>
                             <th>Status</th>
                         </tr>
@@ -229,20 +241,18 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                             <th>Customer ID</th>
                             <th>Quantity</th>
                             <th>Order Date</th>
-                            <th>Delivery Date</th>
-                            <th>Status</th>
+                            <th>Revenue</th>
                         </tr>
                     </thead>
                     <tbody>
-                    <?php while($row = $completed_result->fetch_assoc()): ?>
+                    <?php while($row = $result->fetch_assoc()): ?>
                         <tr>
                             <td><?php echo $row["oid"]; ?></td>
                             <td><?php echo $row["pname"]; ?></td>
                             <td><?php echo $row["cid"]; ?></td>
                             <td><?php echo $row["qty"]; ?></td>
                             <td><?php echo $row["odate"]; ?></td>
-                            <td><?php echo $row["ddate"]; ?></td>
-                            <td><?php echo $row["sts"]; ?></td>
+                            <td><?php echo '12'; ?></td>
                         </tr>
                         <?php endwhile; ?>
                     </tbody>
@@ -264,7 +274,6 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                         </tr>
                     </thead>
                     <tbody>
-                    <?php while($row = $cancelled_result->fetch_assoc()): ?>
                         <tr>
                             <td><?php echo $row["oid"]; ?></td>
                             <td><?php echo $row["pname"]; ?></td>
@@ -274,37 +283,6 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                             <td><?php echo $row["ddate"]; ?></td>
                             <td><?php echo $row["sts"]; ?></td>
                         </tr>
-                        <?php endwhile; ?>
-                    </tbody>
-                </table>
-                </div>
-
-                <!-- Custom Orders List -->
-                <div id="customOrdersTab" class="inner-table-container" style="display:none; "> 
-                <table class="table" >
-                    <thead>
-                        <tr>
-                            <th>Order ID</th>
-                            <th>Product Name</th>
-                            <th>Customer ID</th>
-                            <th>Quantity</th>
-                            <th>Order Date</th>
-                            <th>Delivery Date</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php while($row = $custom_result->fetch_assoc()): ?>
-                        <tr>
-                            <td><?php echo $row["oid"]; ?></td>
-                            <td><?php echo $row["otype"]; ?></td>
-                            <td><?php echo $row["cid"]; ?></td>
-                            <td><?php echo $row["qty"]; ?></td>
-                            <td><?php echo $row["odate"]; ?></td>
-                            <td><?php echo $row["ddate"]; ?></td>
-                            <td><?php echo $row["sts"]; ?></td>
-                        </tr>
-                        <?php endwhile; ?>
                     </tbody>
                 </table>
                 </div>

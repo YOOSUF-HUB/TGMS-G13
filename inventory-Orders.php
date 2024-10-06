@@ -13,8 +13,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
     // Include the database connection file here
     include 'php/config.php';
 
-    // SQL query to fetch data
-    // $sql = "SELECT `Supplier_ID`, `Supplier_name`, `Company_name`, `Category`, `Email`, `Phone_number`, `Supply` FROM Supplier";
+    
     $sql = "SELECT 
         O.Order_ID as oid,
         I.Name as pname,
@@ -310,7 +309,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                 </div>
             </div>
 
-            <!-- Manage inventory -->
+            <!-- Manage orders -->
             <div id="editMode" style="display: none;" class="table-container">
                 <h2>Manage Orders</h2>
                 <div class="inner-table-container" >
