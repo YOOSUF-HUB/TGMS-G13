@@ -204,7 +204,7 @@ session_start();
 
 
             <div id="faq-button">
-                <a href="faq.html"><button id="faq">Frequently Asked Questions</button></a>
+                <a href="faq.php"><button id="faq">Frequently Asked Questions</button></a>
             </div>
 
 
