@@ -15,7 +15,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
 
     // SQL query to group by product Name and sum the quantities(Only our main 4 products will be displayed)
     $group_query = "SELECT `Name`, SUM(`Quantity`) AS TotalQuantity FROM `Inventory` 
-    WHERE `Name`='HOODIES' || `Name`='JOGGERS' || `Name`='T-Shirt' || `Name`='TANK TOP' GROUP BY `Name`";
+    WHERE `Name`='Hoodie' || `Name`='Joggers' || `Name`='T-Shirt' || `Name`='Long Sleeve T' GROUP BY `Name`";
     $result = mysqli_query($conn, $group_query);
 
     
