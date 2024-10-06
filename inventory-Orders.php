@@ -145,7 +145,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
             <div style="float:right;">
                 <button class="btn1" id="addOrderBtn"><a href="inventory-addOrder.php?>" >Add Order</a></button>
                 <button class="btn1" id="manageOrderBtn" onclick="manageOrder()" >Manage Order</button>
-                <button class="btn1" id="cancelBtn" style="display: none;" onclick="cancelOrder()"  >Cancel Manage</button>
+                <button class="btn1" id="cancelBtn" style="display: none;" onclick="cancelManageOrder()"  >Cancel Manage</button>
             </div>
 
             <div id="viewMode" class="table-container" >
@@ -414,18 +414,18 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
     
     // JavaScript to toggle between view and manage mode
     function manageOrder() {
-        document.getElementById('summaryBtn').style.display = 'none'; 
-        document.getElementById('rbpBtn').style.display = 'none'; 
-        document.getElementById('rboBtn').style.display = 'block'; 
+        document.getElementById('addOrderBtn').style.display = 'none'; 
+        document.getElementById('manageOrderBtn').style.display = 'none'; 
+        document.getElementById('cancelBtn').style.display = 'block'; 
 
         document.getElementById('viewMode').style.display = 'none';
-        document.getElementById('rboBtn').style.display = 'block';
+        document.getElementById('editMode').style.display = 'block';
         
     }
 
-    function cancelOrder() {
-        document.getElementById('summaryBtn').style.display = 'inline-block'; 
-        document.getElementById('rbpBtn').style.display = 'inline-block'; 
+    function cancelManageOrder() {
+        document.getElementById('addOrderBtn').style.display = 'inline-block'; 
+        document.getElementById('manageOrderBtn').style.display = 'inline-block'; 
         document.getElementById('cancelBtn').style.display = 'none'; 
 
         document.getElementById('editMode').style.display = 'none';
