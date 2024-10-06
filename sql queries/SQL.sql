@@ -231,12 +231,16 @@ CREATE TABLE Payment (
 
 -- Create Inventory table
 CREATE TABLE Inventory (
-    Product_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Product_ID VARCHAR(10) NOT NULL,
     Name VARCHAR(100) NOT NULL,
     Type VARCHAR(50),
-    Size VARCHAR(10),
+    Size VARCHAR(20),
     Colour VARCHAR(20),
-    Quantity INT NOT NULL
+    Quantity INT NOT NULL,
+    InventoryManager_ID VARCHAR(10) NOT NULL,
+
+    CONSTRAINT Inventory_PK PRIMARY KEY (Product_ID),
+    CONSTRAINT Inventory_FK FOREIGN KEY (InventoryManager_ID) REFERENCES Inventory_Manager(InventoryManager_ID)
 );
 
 -- Create Supplier table
