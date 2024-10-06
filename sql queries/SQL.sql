@@ -223,7 +223,7 @@ CREATE TABLE Order (
 -- Create Payment table
 CREATE TABLE Payment (
 Payment_ID VARCHAR(10) NOT NULL,
-Order_ID INT,
+Customer_ID VARCHAR(10) NOT NULL,
 Amount DECIMAL(10, 2) NOT NULL,
 Payment_Type ENUM('Bank_transfer', 'Card') NOT NULL,
 
