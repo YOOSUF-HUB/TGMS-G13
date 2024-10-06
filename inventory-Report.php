@@ -106,11 +106,11 @@ ini_set('display_errors', 1);
         </section>
 
         <section class="content" >
-            <div style="float:right;">
+            <!-- <div style="float:right;">
                 <button class="btn1" id="addSupplierBtn"><a href="inventory-addSupplier.php?>" >Add Supplier</a></button>
                 <button class="btn1" id="manageSupplierBtn" onclick="manageSupplier()" >Manage Supplier</button>
                 <button class="btn1" id="cancelBtn" style="display: none;" onclick="cancelSupplier()"  >Cancel Manage</button>
-            </div>
+            </div> -->
 
             <div id="viewMode" class="table-container" >
                 <h2>Report</h2>
@@ -118,8 +118,6 @@ ini_set('display_errors', 1);
                     <li><button class="tab1" id="summaryBtn" onclick="summary()"; >Summary</button></li>
                     <li><button class="tab1" id="rbpBtn" onclick="rbp()">Revenue by Products</button></li>
                     <li><button class="tab1" id="rboBtn" onclick="rbo()">Revenue by Orders</button></li>
-                    <li><button class="tab1" id="cancelledOrderBtn" onclick="cancelOrder()">Cancelled Orders</button></li>
-                    <li><button class="tab1" id="customOrderBtn" onclick="customOrder()">Custom Orders</button></li>
                 </ul>
                 
 
