@@ -47,6 +47,97 @@ if (isset($_POST['submit'])) {
 
 <link rel="stylesheet" href="styles/update_admin.css">
 
+<style>
+    /* Center the form on the page */
+    form {
+        margin: 50px auto;
+        width: 300px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    /* Style the label */
+    label {
+        font-size: 18px;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    /* Style the input fields */
+    .field.input input {
+        width: 100%;
+        height: 40px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        font-size: 16px;
+        background-color: #fff;
+        margin-bottom: 20px;
+        outline: none;
+        transition: border-color 0.3s ease;
+    }
+
+    /* Change border color on focus */
+    .field.input input:focus {
+        border-color: #007BFF;
+    }
+
+    /* Style the submit button */
+    .btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    /* Change button color on hover */
+    .btn:hover {
+        background-color: #0056b3;
+    }
+
+    /* Style the cancel button */
+    .cancel-btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #FF0000;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-top: 10px;
+    }
+
+    /* Change button color on hover */
+    .cancel-btn:hover {
+        background-color: #CC0000;
+    }
+
+    /* Style the error message */
+    p {
+        color: red;
+        font-size: 14px;
+    }
+
+    /* Add responsive design */
+    @media (max-width: 600px) {
+        form {
+            width: 90%;
+        }
+    }
+</style>
+
 <form action="" method="post">
     <div>
         <h2>Customer ID: <?php echo $row['Customer_ID']; ?></h2>
@@ -82,9 +173,9 @@ if (isset($_POST['submit'])) {
     <div class="field">
         <input class="btn" type="submit" name="submit" value="Update">
     </div>
+    <div class="field">
+        <input class="cancel-btn" type="button" value="Cancel" onclick="window.location.href='AdminDashboard-user.php';">
+    </div>
 </form>
 
-
-
 </html>
-

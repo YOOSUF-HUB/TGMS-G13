@@ -91,6 +91,25 @@ input[type="submit"]:hover {
     background-color: #0056b3;
 }
 
+/* Style the cancel button */
+input[type="button"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #FF0000;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top:10px;
+}
+
+/* Change button color on hover */
+input[type="button"]:hover {
+    background-color: #CC0000;
+}
+
 /* Style the error message */
 p {
     color: red;
@@ -116,6 +135,7 @@ p {
     </select>
     <br><br>
     <input type="submit" name="submit" value="Update Status">
+    <input type="button" value="Cancel" onclick="window.location.href='Customersupport-inquiries.php';">
 </form>
 
 </html>
