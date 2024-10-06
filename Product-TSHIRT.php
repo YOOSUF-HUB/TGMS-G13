@@ -286,7 +286,7 @@ if (isset($_POST['buy'])) {
         
         <div class="footer-links">
             <div class="social-media">
-                <a href="Index.html"> <img src="./images/Versori.png" alt="logo" style="height: 90px; padding-left: 20px; "> </a>
+                <a href="homepage.php"> <img src="./images/Versori.png" alt="logo" style="height: 90px; padding-left: 20px; "> </a>
                 <ul style="list-style-type: none; display: flex; padding: 0; font-size: 30px;">
                     <li style="margin-left: 20px;"><a href="#" class="fa fa-facebook"></a></li>
                     <li><a href="#" class="fa fa-twitter"></a></li>
@@ -296,25 +296,25 @@ if (isset($_POST['buy'])) {
             <div class="footer-left">
                 <ul>
                     <li style="font-weight: bolder; font-size: 1.5rem; letter-spacing: 0.04rem;">Versori</li>
-                    <li><a href="policy.html">Privacy Policy</a></li>
-                    <li><a href="terms.html">Terms and Conditions</a></li>
+                    <li><a href="Policy.php">Privacy Policy</a></li>
+                    <li><a href="termspage.php">Terms and Conditions</a></li>
                 </ul>
             </div>
             <div class="footer-middle">
                 <ul>
                     <li style="font-weight: bolder; font-size: 1.2rem;">Our service</li>
-                    <li><a href="manufacturing.html">Manufacturing</a></li>
-                    <li><a href="consultancy.php">Consultancy</a></li>
-                    <li><a href="sampling.html">Sampling</a></li>
+                    <li><a href="help.php" >Manufacturing</a></li>
+                    <li><a href="consultation.php">Consultancy</a></li>
+                    <li><a href="help.php">Sampling</></li>
                 </ul>
             </div>
             <div class="footer-right">
                 <ul>
                     <li style="font-weight: bolder; font-size: 1.2rem;">Useful Links</li>
-                    <li><a href="about.html">About us</a></li>
-                    <li><a href="contact.php">Contact us</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="about.php">About us</a></li>
+                    <li><a href="contact us page.php">Contact us</a></li>
+                    <li><a href="productpage.php">Products</a></li>
+                    <li><a href="faq.php">FAQ</a></li>
                 </ul>    
             </div>
         </div>

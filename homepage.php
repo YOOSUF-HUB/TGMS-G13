@@ -8,7 +8,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Textile and Garment Management System</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="homepage.php">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- social media icons -->
 
     <!-- Questrial Font-->
@@ -157,7 +157,7 @@ session_start();
         
         <div class="footer-links">
             <div class="social-media">
-                <a href="Index.html"> <img src="./images/Versori.png" alt="logo" style="height: 90px; padding-left: 20px; "> </a>
+                <a href="homepage.php"> <img src="./images/Versori.png" alt="logo" style="height: 90px; padding-left: 20px; "> </a>
                 <ul style="list-style-type: none; display: flex; padding: 0; font-size: 30px;">
                     <li style="margin-left: 20px;"><a href="#" class="fa fa-facebook"></a></li>
                     <li><a href="#" class="fa fa-twitter"></a></li>
@@ -174,9 +174,9 @@ session_start();
             <div class="footer-middle">
                 <ul>
                     <li style="font-weight: bolder; font-size: 1.2rem;">Our service</li>
-                    <li><a href="manufacturing.html">Manufacturing</a></li>
+                    <li><a href="help.php" >Manufacturing</a></li>
                     <li><a href="consultation.php">Consultancy</a></li>
-                    <li><a href="sampling.html">Sampling</a></li>
+                    <li><a href="help.php">Sampling</></li>
                 </ul>
             </div>
             <div class="footer-right">
