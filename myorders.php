@@ -174,7 +174,7 @@ if (isset($_POST['save'])) {
         <div id="externalContainer">
             <div id="myaccountContainer" >
                 <div class="myaccount">
-                    <h1>My Account</h1>
+                    <h1>My Orders</h1>
                     <hr>
                 </div>
                 <div>
@@ -187,6 +187,7 @@ if (isset($_POST['save'])) {
                                 <th>Order Date</th>
                                 <th>Delivery Date</th>
                                 <th>Status</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -198,6 +199,8 @@ if (isset($_POST['save'])) {
                                 <td><?php echo $row["odate"]; ?></td>
                                 <td><?php echo $row["ddate"]; ?></td>
                                 <td><?php echo $row["sts"]; ?></td>
+                                <td><a href="contact us page.php"><img src="PRODUCT IMAGES/delete-icon.svg"></a></td>
+                                
                                 
                             </tr>
                             <?php endwhile; ?>
@@ -207,6 +210,7 @@ if (isset($_POST['save'])) {
                 
             </div>
         </div>
+
     </main>
     
     

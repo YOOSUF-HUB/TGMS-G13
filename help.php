@@ -86,11 +86,11 @@ session_start();
                 <div class="card">
                     <div class="icon-item">
                         <img src="images/manage-order.svg" alt="Manage Orders Icon" class="icon">
-                        <span>Manage Orders</span>
+                        <a href="myorders.php" style="text-decoration:none;"> <span>My Orders</span> </a>
                     </div>
                     <div class="icon-item">
                         <img src="images/edit profile.svg" alt="Edit Profile Icon" class="icon">
-                        <a href="myaccount.php"> <span>Edit Profile</span> </a>
+                        <a href="myaccount.php" style="text-decoration:none;"> <span >Edit Profile</span> </a>
                     </div>
 
                 </div>
