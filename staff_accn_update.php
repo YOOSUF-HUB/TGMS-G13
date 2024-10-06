@@ -136,6 +136,15 @@ if (isset($_POST['submit'])) {
         font-size: 14px;
     }
 
+.input input,
+.input select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
     /* Add responsive design */
     @media (max-width: 600px) {
         form {
@@ -178,7 +187,7 @@ if (isset($_POST['submit'])) {
         <input class="btn" type="submit" name="submit" value="Update" required>
     </div>
     <div class="field">
-        <input class="cancel-btn" type="button" value="Cancel" onclick="window.location.href='AdminDashboard-staff.php;">
+        <input class="cancel-btn" type="button" value="Cancel" onclick="window.location.href='AdminDashboard-staff.php'">
     </div>
 </form>
 
