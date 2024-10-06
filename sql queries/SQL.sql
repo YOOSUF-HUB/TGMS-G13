@@ -188,6 +188,7 @@ CREATE TABLE Inquiries (
     Date DATE DEFAULT CURRENT_DATE,
     Time TIME DEFAULT CURRENT_TIME,
     Customer_ID INT,
+    
 
     CONSTRAINT Inquiries_PK PRIMARY KEY (Inquiry_ID),
     CONSTRAINT Inquiries_FK FOREIGN KEY (Customer_ID) REFERENCES Customer_account(Customer_ID)
