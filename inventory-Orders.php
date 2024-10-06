@@ -143,9 +143,9 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
 
         <section class="content" >
             <div style="float:right;">
-                <button class="btn1" id="addSupplierBtn"><a href="inventory-addSupplier.php?>" >Add Supplier</a></button>
-                <button class="btn1" id="manageSupplierBtn" onclick="manageSupplier()" >Manage Supplier</button>
-                <button class="btn1" id="cancelBtn" style="display: none;" onclick="cancelSupplier()"  >Cancel Manage</button>
+                <button class="btn1" id="addOrderBtn"><a href="inventory-addOrder.php?>" >Add Order</a></button>
+                <button class="btn1" id="manageOrderBtn" onclick="manageOrder()" >Manage Order</button>
+                <button class="btn1" id="cancelBtn" style="display: none;" onclick="cancelOrder()"  >Cancel Manage</button>
             </div>
 
             <div id="viewMode" class="table-container" >
@@ -413,19 +413,19 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
     <script>
     
     // JavaScript to toggle between view and manage mode
-    function manageSupplier() {
-        document.getElementById('addSupplierBtn').style.display = 'none'; 
-        document.getElementById('manageSupplierBtn').style.display = 'none'; 
-        document.getElementById('cancelBtn').style.display = 'block'; 
+    function manageOrder() {
+        document.getElementById('summaryBtn').style.display = 'none'; 
+        document.getElementById('rbpBtn').style.display = 'none'; 
+        document.getElementById('rboBtn').style.display = 'block'; 
 
         document.getElementById('viewMode').style.display = 'none';
-        document.getElementById('editMode').style.display = 'block';
+        document.getElementById('rboBtn').style.display = 'block';
         
     }
 
-    function cancelSupplier() {
-        document.getElementById('addSupplierBtn').style.display = 'inline-block'; 
-        document.getElementById('manageSupplierBtn').style.display = 'inline-block'; 
+    function cancelOrder() {
+        document.getElementById('summaryBtn').style.display = 'inline-block'; 
+        document.getElementById('rbpBtn').style.display = 'inline-block'; 
         document.getElementById('cancelBtn').style.display = 'none'; 
 
         document.getElementById('editMode').style.display = 'none';
