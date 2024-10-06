@@ -243,6 +243,17 @@ CREATE TABLE Inventory (
     CONSTRAINT Inventory_FK FOREIGN KEY (InventoryManager_ID) REFERENCES Inventory_Manager(InventoryManager_ID)
 );
 
+-- Create Inventory_Manager table
+CREATE TABLE Inventory_Manager (
+    InventoryManager_ID VARCHAR(10),
+    User_name VARCHAR(50) NOT NULL,
+    Email VARCHAR(100) NOT NULL UNIQUE,
+    Password VARCHAR(255) NOT NULL,
+
+    CONSTRAINT Inventory_Manager_PK PRIMARY KEY (InventoryManager_ID)
+);
+
+
 -- Create Supplier table
 CREATE TABLE Supplier (
     Supplier_ID INT PRIMARY KEY AUTO_INCREMENT,
