@@ -77,7 +77,7 @@ if($_SESSION['staff_role']!=='Admin'){ //condition make sure admin user redirect
 
 
 
-            <div id="viewMode" class="table-container">
+            <div id="viewMode" class="table-container" style=" margin-top: 100px;height: 85vh; overflow:auto; margin-bottom: 100px;">
                 <div >
 
                     <?php if ($customer_result->num_rows > 0): ?>
@@ -125,7 +125,7 @@ if($_SESSION['staff_role']!=='Admin'){ //condition make sure admin user redirect
 
 
 
-            <div class="table-container" id="editMode" style="display: none;">
+            <div class="table-container" id="editMode" style="display: none; height: 85vh; overflow:auto; margin-top: 100px; margin-bottom: 100px;">
 
             <?php
             // SQL query to fetch data from customer account table

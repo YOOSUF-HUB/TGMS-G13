@@ -76,7 +76,7 @@ if($_SESSION['staff_role']!=='Admin'){ //condition make sure admin user redirect
             </div>
 
 
-            <div id="viewMode" class="table-container" >
+            <div id="viewMode" class="table-container" style=" margin-top: 100px;height: 85vh; overflow:auto; margin-bottom: 100px;" >
             <?php if ($staff_result->num_rows > 0): ?>
                 <table class="staff_table" style="justify-content:center">
                     <thead>
@@ -113,7 +113,7 @@ if($_SESSION['staff_role']!=='Admin'){ //condition make sure admin user redirect
             $staff_sql = "SELECT Staff_ID, Full_name, username, Staff_role, Email, Password, Date_created FROM Staff_account";
             $staff_result = $conn->query($staff_sql);
             ?>
-            <div class="table-container" id="editMode" style="display: none;">
+            <div class="table-container" id="editMode" style="display: none;margin-top: 100px;height: 85vh; overflow:auto; margin-bottom: 100px;"">
             <table class="staff_table" style="justify-content:center" >
                     <thead>
                         <tr>
