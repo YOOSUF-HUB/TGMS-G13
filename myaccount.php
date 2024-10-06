@@ -231,7 +231,7 @@ mysqli_close($conn);
         
         <div class="footer-links">
             <div class="social-media">
-                <a href="homepage.php"> <img src="./images/Versori.png" alt="logo" style="height: 90px; padding-left: 20px; "> </a>
+                <a href="index.php"> <img src="./images/Versori.png" alt="logo" style="height: 90px; padding-left: 20px; "> </a>
                 <ul style="list-style-type: none; display: flex; padding: 0; font-size: 30px;">
                     <li style="margin-left: 20px;"><a href="#" class="fa fa-facebook"></a></li>
                     <li><a href="#" class="fa fa-twitter"></a></li>

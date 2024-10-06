@@ -365,7 +365,7 @@ main h6{
             <img onclick="closeNav()" src="images/close-google.svg" class="closebtn" style="width: 30px;">
             
             <!-- Navigation links -->
-            <a href="homepage.php">Home</a>
+            <a href="index.php">Home</a>
             <a href="about.php">About</a>
             <a href="productpage.php">Products</a>
             <a href="consultation.php">Consultations</a>
@@ -379,7 +379,7 @@ main h6{
         <section class="logo">
 
             <div class="logo-content">
-                <a href="Index.php"> <img src="./images/Versori.png" alt="logo" style="height: 50px; padding-right: 90px;"> </a>
+                <a href="index.php"> <img src="./images/Versori.png" alt="logo" style="height: 50px; padding-right: 90px;"> </a>
             </div>
     
         </section>
@@ -532,7 +532,7 @@ main h6{
         
         <div class="footer-links">
             <div class="social-media">
-                <a href="homepage.php"> <img src="./images/Versori.png" alt="logo" style="height: 90px; padding-left: 20px; "> </a>
+                <a href="index.php"> <img src="./images/Versori.png" alt="logo" style="height: 90px; padding-left: 20px; "> </a>
                 <ul style="list-style-type: none; display: flex; padding: 0; font-size: 30px;">
                     <li style="margin-left: 20px;"><a href="#" class="fa fa-facebook"></a></li>
                     <li><a href="#" class="fa fa-twitter"></a></li>
