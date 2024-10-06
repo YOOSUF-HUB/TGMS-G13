@@ -191,7 +191,7 @@ if (isset($_POST['submit'])){
                         </div>
                         <div class="summary-item">
                             <span>Shipping fee </span>
-                            <span id="shipping">Rs. <?php echo $_COOKIE['shipping'];?></span>
+                            <span id="shipping">Rs. <?php echo $_COOKIE['shippingPrice'];?></span>
                         </div>
                         <div class="summary-item">
                             <span>Total</span>
