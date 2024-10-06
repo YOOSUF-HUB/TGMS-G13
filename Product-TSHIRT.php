@@ -272,7 +272,7 @@ if (isset($_POST['buy'])) {
                     <?php if (isset($_SESSION['user_id'])) { ?>
                     <button type="submit" name="buy"   class="buy-now" id="buy-now" >Buy Now</button>
                     <?php } else {?>
-                    <button type="submit" name="buy"   class="buy-now" id="buy-now" >Buy Now</button>
+                    <a href="login.php"><button type="button" name="buy"   class="buy-now" id="buy-now" >Buy Now</button></a>
                     <?php } ?>
                 </div>
 
