@@ -110,7 +110,7 @@ if (isset($_POST['submit'])){
 
     <main>
         <div id="checkout">
-            <h1>Checkout <?php echo $_COOKIE['balance_qty'];?></h1>
+            <h1>Checkout</h1>
         </div>
 
         <div style="justify-content: centre;" class="checkout-container" >
