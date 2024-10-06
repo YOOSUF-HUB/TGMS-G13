@@ -166,15 +166,16 @@ CREATE TABLE Customer_account (
 
 -- Create Staff_account table
 CREATE TABLE Staff_account (
-    Staff_ID INT PRIMARY KEY AUTO_INCREMENT,
-    Full_name VARCHAR(100) NOT NULL,
-    username VARCHAR(50) NOT NULL UNIQUE,
+    Staff_ID VARCHAR(10) NOT NULL,
+    First_name VARCHAR(50) NOT NULL,
+    Last_name VARCHAR(50) NOT NULL,
     Email VARCHAR(100) NOT NULL UNIQUE,
     Password VARCHAR(255) NOT NULL,
-    staff_role ENUM('Admin', 'Inventory', 'Support') NOT NULL,
     Date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    Admin_ID INT,
-    FOREIGN KEY (Admin_ID) REFERENCES Admin(Admin_ID)
+    Admin_ID VARCHAR(10),
+
+    CONSTRAINT Staff_account_PK PRIMARY KEY (Staff_ID),
+    CONSTRAINT Staff_account_FK FOREIGN KEY (Admin_ID) REFERENCES Admin(Admin_ID)
 );
 
 -- Create Inquiries table
