@@ -33,8 +33,8 @@ ini_set('display_errors', 1);
         I.Name as pname, 
         I.Price as pprice, 
         SUM(O.Quantity) AS qtysold, 
-        SUM(O.Quantity * I.Price) AS trevenue FROM Inventory I, Orders O
-    WHERE I.Product_ID = O.Product_ID AND (I.Name='Hoodie' OR I.Name='Joggers' OR I.Name='T-Shirt' OR I.Name='Long Sleeve T')
+        SUM(P.Payment_amount) AS income FROM Inventory I, Orders O, Payments P
+    WHERE I.Product_ID = O.Product_ID AND O.Payment_ID = P.Payment_ID  AND (I.Name='Hoodie' OR I.Name='Joggers' OR I.Name='T-Shirt' OR I.Name='Long Sleeve T')
     GROUP BY I.Name";
     $active_result =$conn->query($active_sql);
 
@@ -202,9 +202,7 @@ ini_set('display_errors', 1);
                             <th>Product Name</th>
                             <th>Quantity Sold</th>
                             <th>Price per unit</th>
-                            <th>Total Revenue</th>
-                            <th>Delivery Date</th>
-                            <th>Status</th>
+                            <th>Total Income</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -213,7 +211,7 @@ ini_set('display_errors', 1);
                             <td><?php echo $row["pname"]; ?></td>
                             <td><?php echo $row["qtysold"]; ?></td>
                             <td><?php echo $row["pprice"]; ?></td>
-                            <td><?php echo $row["trevenue"]; ?></td>
+                            <td><?php echo $row["income"]; ?></td>
                         </tr>
                         <?php endwhile; ?>
                     </tbody>
