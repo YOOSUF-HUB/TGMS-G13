@@ -8,38 +8,34 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
     header("Location: adminlogin.php");
     exit();
 }
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 ?>
 <?php
     // Include the database connection file here
     include 'php/config.php';
 
-    // SQL query to fetch data
-    // $sql = "SELECT `Supplier_ID`, `Supplier_name`, `Company_name`, `Category`, `Email`, `Phone_number`, `Supply` FROM Supplier";
+    // Query for revenue by order table
     $sql = "SELECT 
         O.Order_ID as oid,
         I.Name as pname,
-        I.Colour as pcolour,
-        I.Size as psize,
         C.Customer_ID as cid,
+        P.Transaction_id as tid,
         O.Quantity as qty,
         O.Order_Date as odate,
-        O.Delivery_Date as ddate,
-        O.Status as sts
-    FROM Orders O, Customer_account C, Inventory I
-    where O.Customer_ID = C.Customer_ID AND O.Product_ID = I.Product_ID;";
+        P.Payment_amount as amount
+    FROM Orders O, Customer_account C, Inventory I , Payments P
+    where O.Customer_ID = C.Customer_ID AND O.Product_ID = I.Product_ID AND O.Payment_ID = P.Payment_ID AND O.Status!='Cancelled';";
 
     $result = $conn->query($sql);
 
     $active_sql = "SELECT 
-        O.Order_ID as oid,
-        I.Name as pname,
-        C.Customer_ID as cid,
-        O.Quantity as qty,
-        O.Order_Date as odate,
-        O.Delivery_Date as ddate,
-        O.Status as sts
-    FROM Orders O, Customer_account C, Inventory I
-    where O.Customer_ID = C.Customer_ID AND O.Product_ID = I.Product_ID AND O.Status ='In-Progress'";
+        I.Name as pname, 
+        I.Price as pprice, 
+        SUM(O.Quantity) AS qtysold, 
+        SUM(O.Quantity * I.Price) AS trevenue FROM Inventory I, Orders O
+    WHERE I.Product_ID = O.Product_ID AND (I.Name='Hoodie' OR I.Name='Joggers' OR I.Name='T-Shirt' OR I.Name='Long Sleeve T')
+    GROUP BY I.Name";
     $active_result =$conn->query($active_sql);
 
     $completed_sql = "SELECT 
@@ -136,9 +132,9 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                 <li class="im-page"><a href="inventory-Dashboard.php">Home</a></li>
                 <li class="im-page"><a href="inventory-Inventory.php">Inventory</a></li>
                 <li class="im-page"><a href="inventory-Production.php">Production</a></li>
-                <li class="im-page"><a href="inventory-Orders.php" style="background-color: #34495e; padding-left: 20px;">Orders</a></li>
+                <li class="im-page"><a href="inventory-Orders.php">Orders</a></li>
                 <li class="im-page"><a href="inventory-Supplier.php">Suppliers</a></li>
-                <li class="im-page"><a href="inventory-Report.php">Report</a></li>
+                <li class="im-page"><a href="inventory-Report.php"  style="background-color: #34495e; padding-left: 20px;">Report</a></li>
             </ul>
         </section>
 
@@ -152,25 +148,21 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
             <div id="viewMode" class="table-container" >
                 <h2>Report</h2>
                 <ul id="tabs"> <!-- page tabs -->
-                    <li><button class="tab1" id="allOrderBtn" onclick="allOrder()"; >Summary</button></li>
-                    <li><button class="tab1" id="activeOrderBtn" onclick="activeOrder()">Revenue by Products</button></li>
-                    <li><button class="tab1" id="completedOrderBtn" onclick="completedOrder()">Revenue by Orders</button></li>
+                    <li><button class="tab1" id="summaryBtn" onclick="summary()"; >Summary</button></li>
+                    <li><button class="tab1" id="rbpBtn" onclick="rbp()">Revenue by Products</button></li>
+                    <li><button class="tab1" id="rboBtn" onclick="rbo()">Revenue by Orders</button></li>
                     <li><button class="tab1" id="cancelledOrderBtn" onclick="cancelOrder()">Cancelled Orders</button></li>
                     <li><button class="tab1" id="customOrderBtn" onclick="customOrder()">Custom Orders</button></li>
                 </ul>
+                
 
-                <!-- All Orders List -->
-                <div id="allOrdersTab" class="inner-table-container"> 
+                <!-- Summary -->
+                <div id="summaryTab" class="inner-table-container"> 
                 <table class="table" >
                     <!-- <thead>
                         <tr>
                             <th>Order ID</th>
                             <th>Product Name</th>
-                            <th>Customer ID</th>
-                            <th>Quantity</th>
-                            <th>Order Date</th>
-                            <th>Delivery Date</th>
-                            <th>Status</th>
                         </tr>
                     </thead> -->
                     <tbody>
@@ -202,8 +194,8 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                 </table>
                 </div>
                 
-                <!-- Active Orders List -->
-                <div id="activeOrdersTab" class="inner-table-container" style="display:none;"> 
+                <!-- Revenue by Products -->
+                <div id="rbpTab" class="inner-table-container" style="display:none;"> 
                 <table class="table" >
                     <thead>
                         <tr>
@@ -218,27 +210,25 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                     <tbody>
                     <?php while($row = $active_result->fetch_assoc()): ?>
                         <tr>
-                            <td><?php echo $row["oid"]; ?></td>
                             <td><?php echo $row["pname"]; ?></td>
-                            <td><?php echo $row["cid"]; ?></td>
-                            <td><?php echo $row["qty"]; ?></td>
-                            <td><?php echo $row["odate"]; ?></td>
-                            <td><?php echo $row["ddate"]; ?></td>
-                            <td><?php echo $row["sts"]; ?></td>
+                            <td><?php echo $row["qtysold"]; ?></td>
+                            <td><?php echo $row["pprice"]; ?></td>
+                            <td><?php echo $row["trevenue"]; ?></td>
                         </tr>
                         <?php endwhile; ?>
                     </tbody>
                 </table>
                 </div>
 
-                <!-- Complted Orders List -->
-                <div id="completedOrdersTab" class="inner-table-container" style="display:none; "> 
+                <!-- Revenue by Orders -->
+                <div id="rboTab" class="inner-table-container" style="display:none; "> 
                 <table class="table" >
                     <thead>
                         <tr>
                             <th>Order ID</th>
                             <th>Product Name</th>
                             <th>Customer ID</th>
+                            <th>Transaction ID</th>
                             <th>Quantity</th>
                             <th>Order Date</th>
                             <th>Revenue</th>
@@ -250,9 +240,10 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                             <td><?php echo $row["oid"]; ?></td>
                             <td><?php echo $row["pname"]; ?></td>
                             <td><?php echo $row["cid"]; ?></td>
+                            <td><?php echo $row["tid"]; ?></td>
                             <td><?php echo $row["qty"]; ?></td>
                             <td><?php echo $row["odate"]; ?></td>
-                            <td><?php echo '12'; ?></td>
+                            <td><?php echo $row["amount"]; ?></td>
                         </tr>
                         <?php endwhile; ?>
                     </tbody>
@@ -412,38 +403,38 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
         
     }
 
-    function allOrder() {
-        document.getElementById('allOrdersTab').style.display='block'
-        document.getElementById('activeOrdersTab').style.display='none'
-        document.getElementById('completedOrdersTab').style.display='none'
+    function summary() {
+        document.getElementById('summaryTab').style.display='block'
+        document.getElementById('rbpTab').style.display='none'
+        document.getElementById('rboTab').style.display='none'
         document.getElementById('cancelledOrdersTab').style.display='none'
         document.getElementById('customOrdersTab').style.display='none'
     }
-    function activeOrder() {
-        document.getElementById('allOrdersTab').style.display='none'
-        document.getElementById('activeOrdersTab').style.display='block'
-        document.getElementById('completedOrdersTab').style.display='none'
+    function rbp() {
+        document.getElementById('summaryTab').style.display='none'
+        document.getElementById('rbpTab').style.display='block'
+        document.getElementById('rboTab').style.display='none'
         document.getElementById('cancelledOrdersTab').style.display='none'
         document.getElementById('customOrdersTab').style.display='none'
     }
-    function completedOrder() {
-        document.getElementById('allOrdersTab').style.display='none'
-        document.getElementById('activeOrdersTab').style.display='none'
-        document.getElementById('completedOrdersTab').style.display='block'
+    function rbo() {
+        document.getElementById('summaryTab').style.display='none'
+        document.getElementById('rbpTab').style.display='none'
+        document.getElementById('rboTab').style.display='block'
         document.getElementById('cancelledOrdersTab').style.display='none'
         document.getElementById('customOrdersTab').style.display='none'
     }
     function cancelOrder() {
-        document.getElementById('allOrdersTab').style.display='none'
-        document.getElementById('activeOrdersTab').style.display='none'
-        document.getElementById('completedOrdersTab').style.display='none'
+        document.getElementById('summaryTab').style.display='none'
+        document.getElementById('rbpTab').style.display='none'
+        document.getElementById('rboTab').style.display='none'
         document.getElementById('cancelledOrdersTab').style.display='block'
         document.getElementById('customOrdersTab').style.display='none'
     }
     function customOrder() {
-        document.getElementById('allOrdersTab').style.display='none'
-        document.getElementById('activeOrdersTab').style.display='none'
-        document.getElementById('completedOrdersTab').style.display='none'
+        document.getElementById('summaryTab').style.display='none'
+        document.getElementById('rbpTab').style.display='none'
+        document.getElementById('rboTab').style.display='none'
         document.getElementById('cancelledOrdersTab').style.display='none'
         document.getElementById('customOrdersTab').style.display='block'
     }
