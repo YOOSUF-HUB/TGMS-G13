@@ -271,3 +271,36 @@ INSERT INTO Report (Report_ID, Title, Start_date, End_date, Type, Date, Inventor
 ('R003', 'Quarterly Performance Report', '2024-07-01', '2024-09-30', 'Performance', '2024-10-03', 'IM003'),
 ('R004', 'Supplier Evaluation Report', '2024-09-01', '2024-09-30', 'Evaluation', '2024-10-04', 'IM004'),
 ('R005', 'Annual Financial Report', '2024-01-01', '2024-12-31', 'Financial', '2024-10-05', 'IM005');
+
+
+-- Insert entries into Supplier_Inventory
+INSERT INTO Supplier_Inventory (Supplier_ID, Product_ID) VALUES
+('SP001', 'PD001'),
+('SP002', 'PD001'),
+('SP003', 'PD001'),
+('SP004', 'PD001'),
+('SP005', 'PD001');
+
+-- Insert entries into Customer_account_Phone_no
+INSERT INTO Customer_account_Phone_no (Customer_ID, Phone_no) VALUES
+('C001', 94771234567),
+('C002', 94772345678),
+('C003', 94773456789),
+('C004', 94774567890),
+('C005', 94775678901);
+
+-- Insert entries into Customer_support_Phone_no
+INSERT INTO Customer_support_Phone_no (Customersupport_ID, Phone_no) VALUES
+('CS001', 94771234567),
+('CS002', 94772345678),
+('CS003', 94773456789),
+('CS004', 94774567890),
+('CS005', 94775678901);
+
+-- Insert entries into Inquiries_Phone_no
+INSERT INTO Inquiries_Phone_no (Inquiry_ID, Phone) VALUES
+('I001', 94771234567),
+('I002', 94772345678),
+('I003', 94773456789),
+('I004', 94774567890),
+('I005', 94775678901);
