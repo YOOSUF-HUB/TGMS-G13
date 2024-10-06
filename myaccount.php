@@ -83,6 +83,7 @@ mysqli_close($conn);
             <!-- Navigation links -->
             <a href="homepage.php">Home</a>
             <a href="about.php">About</a>
+            <a href="productpage.php">Products</a>
             <a href="consultation.php">Consultations</a>
             <a href="contact us page.php">Contact</a>
             <a href="termspage.php">Terms of Services</a>
@@ -90,25 +91,11 @@ mysqli_close($conn);
         <!-- Menu icon (with open function)-->
         <img src="images/menu-google.svg" id="menuIcon" style="width:30px;cursor:pointer" onclick="openNav()">
 
-
-        <!-- Search Bar section -->
-        <section id="searchBar" style="position: relative;">
-            <img src="images/search-google.svg" id="searchIcon" style="width: 30px;cursor: pointer;" onclick="opensearchBar()">
-            
-            <!-- Search bar container -->
-            <div id="searchBarContainer">
-                <input type="text" id="searchInput" placeholder="Search...">
-                <button onclick="performSearch()">Search</button>
-            </div>
-        </section>
-
-
-
         <!-- Logo Section -->
         <section class="logo">
 
             <div class="logo-content">
-                <a href="Index.html"> <img src="./images/Versori.png" alt="logo" style="height: 50px; padding-right: 90px;"> </a>
+                <a href="Index.php"> <img src="./images/Versori.png" alt="logo" style="height: 50px; padding-right: 90px;"> </a>
             </div>
     
         </section>
