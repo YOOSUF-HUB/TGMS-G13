@@ -181,11 +181,12 @@ CREATE TABLE Staff_account (
 
 -- Create Inquiries table
 CREATE TABLE Inquiries (
-    Inquiry_ID INT AUTO_INCREMENT,
+    Inquiry_ID  VARCHAR(10) NOT NULL,
     Email VARCHAR(100) NOT NULL,
     Date DATE DEFAULT CURRENT_DATE,
     Time TIME DEFAULT CURRENT_TIME,
-    Customer_ID INT,
+    Customer_ID VARCHAR(10),
+    Customersupport_ID VARCHAR(10),
 
     CONSTRAINT Inquiries_PK PRIMARY KEY (Inquiry_ID),
     CONSTRAINT Inquiries_FK FOREIGN KEY (Customer_ID) REFERENCES Customer_account(Customer_ID)
@@ -202,7 +203,6 @@ CREATE TABLE Customer_Support (
     Password VARCHAR(255) NOT NULL,
 
     CONSTRAINT Customer_Support_PK PRIMARY KEY (Customersupport_ID),
-    CONSTRAINT Customer_Support_FK FOREIGN KEY (Inquiry_ID) REFERENCES Inquiries(Inquiry_ID)
 );
 
 -- Create Order table
