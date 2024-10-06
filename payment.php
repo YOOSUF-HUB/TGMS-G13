@@ -45,6 +45,9 @@ if (isset($_POST['pay'])){
         $result_buy = mysqli_query($conn, $buy_now);
         $order_id= $_COOKIE['orderid'];
         $updatePaymentID =mysqli_query($conn,"UPDATE `Orders` SET `Payment_ID`='$payment_id' WHERE `Order_ID`= '$order_id'");
+        $productID = $_COOKIE['productID'];
+        $balance_qty = $_COOKIE['balance_qty'];
+        $updateNew_qty = mysqli_query($conn,"UPDATE `Inventory` SET `Quantity`='$balance_qty' WHERE `Product_ID`= '$productID'");
         
 
         header("Location: productpage.php");
