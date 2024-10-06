@@ -196,7 +196,7 @@ CREATE TABLE Order (
     Order_ID VARCHAR(10) NOT NULL,
     Status ENUM('In-Progress', 'Shipped', 'Delivered', 'Cancelled') NOT NULL,
     Total_Amount DECIMAL(10, 2) NOT NULL,
-    Delivery_Date CURRENT_DATE NOT NULL,
+    Delivery_Date DATE NOT NULL,
     Ordered_Date DATE NOT NULL,
     Order_Type VARCHAR(50) NOT NULL,
     Customer_ID VARCHAR(10) NOT NULL
