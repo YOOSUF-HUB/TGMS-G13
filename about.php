@@ -90,7 +90,7 @@ session_start();
     <main>
         <section id="about-us">
 
-            <h1 style="font-size: 50px;">Why Choose Us?</h1>
+            <h1 style="font-size: 50px; ">Why Choose Us?</h1>
             <p style="font-size: 20px;">
                 With a commitment to excellence and a focus on the needs of textile businesses, Versori is your trusted partner for optimizing operations. Our platform is designed with both simplicity and functionality in mind, ensuring that businesses can quickly adopt and benefit from our solutions.
             </p>
@@ -107,7 +107,7 @@ session_start();
                 <h1>ABOUT US</h1>
                 <p>Welcome to Versori, a leading provider in textile and garment management solutions. Our mission is to streamline and enhance the operational efficiency of textile businesses, from managing raw materials to overseeing final product delivery. Versori offers an integrated platform that simplifies inventory management, supplier coordination, customer interactions, and overall business operations.</p>
                 
-                <button class="quote-btn1">About Us</button>
+                
 
             </div>
         </div>
@@ -116,7 +116,7 @@ session_start();
             <div class="quote-detail">
                 <h1>OUR MISSION</h1>
                 <p>At Versori, our mission is to empower textile and garment businesses by providing innovative, scalable, and user-friendly solutions. We aim to bridge the gap between traditional management practices and modern technology to help businesses thrive in a competitive market.</p>
-                <button class="quote-btn1">MISSION</button>
+                
             </div>
             <div class="quote-image-container" style="box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.2);" >
                 <img class="quote-image" src="PRODUCT IMAGES/quottailor-inspecting-finished-custom-suit-qualityquot.jpg" alt="Clothing-manufacturer" >
@@ -131,7 +131,7 @@ session_start();
             <div class="quote-detail">
                 <h1>OUR VISION</h1>
                 <p>Our vision is to become the leading textile and garment management platform globally, known for innovation, reliability, and exceptional customer service. We envision a future where businesses of all sizes can operate seamlessly and grow sustainably with the help of our platform.</p>
-                <button class="quote-btn1">VISION</button>
+                
             </div>
         </div>
     </section>
