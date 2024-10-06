@@ -35,7 +35,7 @@ if (isset($_POST['buy'])) {
         $orderid = 'O1001'; 
     }
 
-    $sql = "SELECT * FROM Inventory WHERE `Name`= 'HOODIE' AND `Colour` = '$color' AND `Size` = '$size'"; //product ID
+    $sql = "SELECT * FROM Inventory WHERE `Name`= 'HOODIE' AND `Colour` = '$color' AND `Size` = '$size' AND `Type` = '$material'"; //product ID
     $result = mysqli_query($conn, $sql);
     
     if ($result && mysqli_num_rows($result) > 0) {
