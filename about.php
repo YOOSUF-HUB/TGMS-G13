@@ -40,40 +40,35 @@ session_start();
             <!-- Navigation links -->
             <a href="homepage.php">Home</a>
             <a href="about.php">About</a>
+            <a href="productpage.php">Products</a>
             <a href="consultation.php">Consultations</a>
             <a href="contact us page.php">Contact</a>
             <a href="termspage.php">Terms of Services</a>
         </nav>
+        <!-- Menu icon (with open function)-->
         <img src="images/menu-google.svg" id="menuIcon" style="width:30px;cursor:pointer" onclick="openNav()">
-
-        <!-- Search Bar section -->
-        <section id="searchBar" style="position: relative;">
-            <img src="images/search-google.svg" id="searchIcon" style="width: 30px;cursor: pointer;" onclick="opensearchBar()">
-            <div id="searchBarContainer">
-                <input type="text" id="searchInput" placeholder="Search...">
-                <button onclick="performSearch()">Search</button>
-            </div>
-        </section>
 
         <!-- Logo Section -->
         <section class="logo">
+
             <div class="logo-content">
-                <a href="Index.html"> <img src="./images/Versori.png" alt="logo" style="height: 50px; padding-right: 90px;"> </a>
+                <a href="Index.php"> <img src="./images/Versori.png" alt="logo" style="height: 50px; padding-right: 90px;"> </a>
             </div>
+    
         </section>
 
         <!-- Profile and Dropdown -->
         <div class="profile-container">
+            <!-- Profile Image Icon; clicking on this toggles the dropdown -->
             <img src="images/profile-google.svg" alt="Profile Icon" class="profile-icon" onclick="toggleDropdown()">
             
-            <!-- Dropdown Menu content -->
+            <!-- Dropdown Menu content; links for Login, Logout, and My Orders -->
             <?php 
             if (isset($_SESSION['user_id'])) {
             ?>    
                 <div id="myDropdown" class="dropdown-content">
                     <a href="./myaccount.php">My Account</a>
                     <a href="myorders.php">My Orders</a>
-                    <a href="cart.php">My Cart</a>
                     <a href="./logout.php">Logout</a>
                 </div>
             <?php }else{?>
@@ -81,9 +76,12 @@ session_start();
                     <a href="./login.php">Login</a>
                     <a href="./register.php">Create Account</a>
                 </div>
+
             <?php }?>
             
         </div>
+
+
     </header>
 
     <!-- Main Content: About Us Section -->
