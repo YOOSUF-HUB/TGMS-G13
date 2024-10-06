@@ -20,177 +20,177 @@ ini_set('display_errors', 1);
     <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
 
     <style>
-            /* General styles */
-    body {
-        font-family: 'Questrial', sans-serif;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    
-    main {
-        font-family: 'Questrial', sans-serif;
-        margin-left: 100px;
-        margin-right: 100px;
-    }
-    
-    h1, h2 {
-        color: #333;
-        text-align: center;
-    }
-    
-    p {
-        color: #555;
-        line-height: 1.6;
-        text-align: center;
-    }
-    
-    /* FAQ and container buttons */
-    button {
-        background-color: #ff6200;
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        cursor: pointer;
-        font-size: 16px;
-        margin-bottom: 10px;
-        border-radius: 5px;
-        transition: background-color 0.3s ease;
-    }
-    
-    .faq{
-        margin-top: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .faq #button-1{
-        height: 90px;
-        width: 250px;
-    }
-    
-    
-    
-    button:hover {
-        background-color: #ff8d45;
-    }
-    
-    button img {
-        width: 30px;
-        height: auto;
-        margin-top: 10px;
-    }
-    
-    /* Form section */
-    form {
-        width: 1000px;
-        background-color: #f9f9f9;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        margin: 20px auto;  /* Centers the form horizontally */
-        margin-bottom: 100px;
-    }
-    
-    input, textarea {
-        width: 90%;
-        padding: 12px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        margin-top: 8px;
-        margin-bottom: 16px;
-        resize: vertical;
-        font-size: 14px;
-    }
-    
-    input:focus, textarea:focus {
-        border-color: #ff6b6b;
-        outline: none;
-    }
-    
-    /* Grouping input fields */
-    .one, .two {
-        display: flex;
-        gap: 20px;
-    }
-    
-    .one div, .two div {
-        flex: 1;
-    }
-    
-    /* Message textarea */
-    textarea {
-        height: 150px;
-        line-height: 1.5;
-    }
-    
-    /* Submit button */
-    .submit {
-        text-align: center;
-    }
-    
-    .submit button {
-        background-color: #ff6200;
-        color: #fff;
-        padding: 12px 24px;
-        font-size: 16px;
-        border-radius: 5px;
-        border: none;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-    
-    .submit button:hover {
-        background-color: #ff904c;
-    }
-    
-    /* Box shadow for the form and buttons */
-    .faq button, .email button, .contact button {
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-    }
-    
-    .container {
-        justify-content: center;
-        display: flex;
-        gap: 70px;
-        margin-top: 100px;
-        margin-bottom: 100px;
-    }
-    
-    
-    .container div button {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-        text-align: center;
-        border-radius: 8px;
-        transition: background-color 0.3s ease;
-    }
-    
-    .container div button:hover {
-        background-color: #ff873d ;
-    }
-    
-    
-    /* Responsive styles */
-    @media screen and (max-width: 768px) {
-        main {
-            margin-left: 20px;
-            margin-right: 20px;
-        }
-    
-        form {
-            width: 100%;
-        }
-    
-        .container {
-            flex-direction: column;
-            gap: 10px;
-        }
-    }
+   /* General styles */
+   body {
+font-family: 'Questrial', sans-serif;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+main {
+font-family: 'Questrial', sans-serif;
+margin-left: 100px;
+margin-right: 100px;
+}
+
+h1, h2 {
+color: #333;
+text-align: center;
+}
+
+p {
+color: #555;
+line-height: 1.6;
+text-align: center;
+}
+
+/* FAQ and container buttons */
+button {
+background-color: #697565;
+color: #fff;
+border: none;
+padding: 10px 20px;
+cursor: pointer;
+font-size: 16px;
+margin-bottom: 10px;
+border-radius: 5px;
+transition: background-color 0.3s ease;
+}
+
+.faq{
+margin-top: 50px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.faq #button-1{
+height: 90px;
+width: 250px;
+}
+
+
+
+button:hover {
+background-color: #697565;
+}
+
+button img {
+width: 30px;
+height: auto;
+margin-top: 10px;
+}
+
+/* Form section */
+form {
+width: 1000px;
+background-color: #f9f9f9;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+margin: 20px auto;  /* Centers the form horizontally */
+margin-bottom: 100px;
+}
+
+input, textarea {
+width: 90%;
+padding: 12px;
+border: 1px solid #ccc;
+border-radius: 4px;
+margin-top: 8px;
+margin-bottom: 16px;
+resize: vertical;
+font-size: 14px;
+}
+
+input:focus, textarea:focus {
+border-color: #ff6b6b;
+outline: none;
+}
+
+/* Grouping input fields */
+.one, .two {
+display: flex;
+gap: 20px;
+}
+
+.one div, .two div {
+flex: 1;
+}
+
+/* Message textarea */
+textarea {
+height: 150px;
+line-height: 1.5;
+}
+
+/* Submit button */
+.submit {
+text-align: center;
+}
+
+.submit button {
+background-color: #ff6200;
+color: #fff;
+padding: 12px 24px;
+font-size: 16px;
+border-radius: 5px;
+border: none;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+.submit button:hover {
+background-color: #ff904c;
+}
+
+/* Box shadow for the form and buttons */
+.faq button, .email button, .contact button {
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+border-radius: 8px;
+}
+
+.container {
+justify-content: center;
+display: flex;
+gap: 70px;
+margin-top: 100px;
+margin-bottom: 100px;
+}
+
+
+.container div button {
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 20px;
+text-align: center;
+border-radius: 8px;
+transition: background-color 0.3s ease;
+}
+
+.container div button:hover {
+background-color: #697565 ;
+}
+
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+main {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+form {
+    width: 100%;
+}
+
+.container {
+    flex-direction: column;
+    gap: 10px;
+}
+}
     </style>
 
 </head>
