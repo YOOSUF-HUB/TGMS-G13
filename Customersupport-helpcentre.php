@@ -37,7 +37,7 @@ if($_SESSION['staff_role']!=='Support'){ //condition make sure admin user redire
             </div>
 
             <div class="title">
-                <h1>Customer Support Dashboard</h1>
+                <h1>Help Centre Dashboard</h1>
             </div>
 
             <div class="profile-container">
@@ -54,7 +54,7 @@ if($_SESSION['staff_role']!=='Support'){ //condition make sure admin user redire
     include 'php/config.php';
 
     // SQL query to fetch data from customer account table
-    $customer_sql = "SELECT Consultation_ID, Consultation_Date, Full_name, Email, Phone_no, Company_name, Company_website_URL, Company_scale, Brand_overview,Other,Customer_ID FROM Consultation";
+    $customer_sql = "SELECT Help_ID, Customer_ID, First_name, Last_name, Email, Subject, Message, Date_created FROM Help";
     $customer_result = $conn->query($customer_sql);
     ?>
 
@@ -76,7 +76,7 @@ if($_SESSION['staff_role']!=='Support'){ //condition make sure admin user redire
             <div id="viewMode" class="table-container">
 
             <div id="overviewContainer">
-                <h1 style="text-align:center">Consultations</h1>
+                <h1 style="text-align:center">Help Centre</h1>
             </div>
 
                 <div>
@@ -85,33 +85,27 @@ if($_SESSION['staff_role']!=='Support'){ //condition make sure admin user redire
                         <table class="customer_table" style="width: 1400px;border-collapse: collapse;text-align: left;margin-right: 20px;margin-left: 20px; font-size:12px;">
                             <thead>
                                 <tr>
-                                    <th>Consultation_ID</th>
-                                    <th>Consultation_Date</th>
-                                    <th>Full_name</th>
-                                    <th>Email</th>
-                                    <th>Phone_no</th>
-                                    <th>Company_name</th>
-                                    <th>Company_website_URL</th>
-                                    <th>Company_scale</th>
-                                    <th>Brand_overview</th>
-                                    <th>Other</th>
+                                    <th>Help_ID</th>
                                     <th>Customer_ID</th>
+                                    <th>First_name</th>
+                                    <th>Last_name</th>
+                                    <th>Email</th>
+                                    <th>Subject</th>
+                                    <th>Message</th>
+                                    <th>Date_created</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php while($row = $customer_result->fetch_assoc()): ?>
                                 <tr>
-                                    <td><?php echo $row["Consultation_ID"]; ?></td>
-                                    <td><?php echo $row["Consultation_Date"]; ?></td>
-                                    <td><?php echo $row["Full_name"]; ?></td>
-                                    <td><?php echo $row["Email"]; ?></td>
-                                    <td><?php echo $row["Phone_no"]; ?></td>
-                                    <td><?php echo $row["Company_name"]; ?></td>
-                                    <td><?php echo $row["Company_website_URL"]; ?></td>
-                                    <td><?php echo $row["Company_scale"]; ?></td>
-                                    <td><?php echo $row["Brand_overview"]; ?></td>
-                                    <td><?php echo $row["Other"]; ?></td>
+                                    <td><?php echo $row["Help_ID"]; ?></td>
                                     <td><?php echo $row["Customer_ID"]; ?></td>
+                                    <td><?php echo $row["First_name"]; ?></td>
+                                    <td><?php echo $row["Last_name"]; ?></td>
+                                    <td><?php echo $row["Email"]; ?></td>
+                                    <td><?php echo $row["Subject"]; ?></td>
+                                    <td><?php echo $row["Message"]; ?></td>
+                                    <td><?php echo $row["Date_created"]; ?></td>
                                 </tr>
                                 <?php endwhile; ?>
                             </tbody>

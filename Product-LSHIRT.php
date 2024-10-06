@@ -5,12 +5,117 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 ?>
 
+
+<?php
+include("php/config.php");
+if (isset($_POST['buy'])) {
+    // Collect form data
+    $user_id =  $_SESSION['user_id'];
+    $size = $_POST['size'];
+    $color = $_POST['color'];
+    $material = $_POST['material'];
+    $quantity =  $_POST['quantity'];
+
+    $currentDate = date('Y-m-d');
+    // Default values
+    $deliveryDate = null;
+    $fprice = 0;
+    $shipping = 0;
+
+
+    
+    $search = mysqli_query($conn, "SELECT MAX(Order_ID) AS max_id FROM Orders"); //order id
+    $order_row = mysqli_fetch_assoc($search);
+    if ($order_row['max_id']) {
+        $last_id = $order_row['max_id'];
+        $num = intval(substr($last_id, 1)) + 1; 
+        
+        $orderid = 'O' . str_pad($num, 4, '0', STR_PAD_LEFT); 
+    } else {
+        $orderid = 'O1001'; 
+    }
+
+    $sql = "SELECT * FROM Inventory WHERE `Name`= 'Long Sleeve T' AND `Colour` = '$color' AND `Size` = '$size' AND `Type` = '$material'"; //product ID
+    $result = mysqli_query($conn, $sql);
+    
+    if ($result && mysqli_num_rows($result) > 0) {
+        $product = mysqli_fetch_assoc($result);
+        $productID = $product['Product_ID'];
+        $price = $product['Price'];
+        $inventory_qty = $product['Quantity'];
+
+        if ($quantity > $inventory_qty) {
+            echo "Not enough inventory available.";
+            exit;
+        }
+
+        $price_total = $price * $quantity; //calculate total price
+        
+        $balance_qty = $inventory_qty - $quantity;//find balance inventory
+
+
+        
+
+        if ($quantity>=50 && $quantity<500){ // setting dellivery date
+            $deliveryDate = (date('Y-m-d', strtotime('+1 week')));
+        }else if ($quantity>=500 && $quantity<1000) {
+            $deliveryDate = date('Y-m-d', strtotime('+2 week')); 
+        }else if ($quantity>=1000) {
+            $deliveryDate = date('Y-m-d', strtotime('+6 week')); 
+        }
+
+
+        if ($quantity>=50 && $quantity<500){
+            $fprice = ($price_total-($price_total/10)); // calculate discount price
+        }else if ($quantity>=500 && $quantity<1000) {
+            $fprice = ($price_total-($price_total/15));
+        }else if ($quantity>=1000) {
+            $fprice = ($price_total-($price_total/20));
+        }
+
+        if ($quantity>=49 && $quantity<500){ // setting shipping price
+            $shipping = ($quantity * 25); 
+        }else if ($quantity>=500 && $quantity<1000) {
+            $shipping = ($quantity * 20);
+        }else if ($quantity>=1000) {
+            $shipping = ($quantity * 15);
+        }
+
+
+        $grand_total = ($fprice + $shipping);
+        
+
+        
+        $buy_now = "INSERT INTO `Orders`(`Order_ID`, `Customer_ID`, `Product_ID`, `Order_Date`, `Delivery_Date`, `Status`, `Order_type`, `Quantity`) 
+        VALUES ('$orderid','$user_id','$productID','$currentDate','$deliveryDate','In-Progress', 'Wholesale' ,$quantity)";
+        //$buy_result = mysqli_query($conn, $buy_now);
+
+        setcookie('buy_now', $buy_now, time() + 3600, "/");
+        setcookie('fprice', $fprice, time() + 3600, "/");
+        setcookie('shippingPrice', $shipping, time() + 3600, "/");
+        setcookie('productID', $productID, time() + 3600, "/"); 
+        setcookie('orderid', $orderid, time() + 3600, "/"); 
+        setcookie('grand_total',$grand_total, time() + 3600, "/");
+        setcookie('balance_qty',$balance_qty, time() + 3600, "/"); 
+
+        header("Location: checkout.php"); 
+        exit(); 
+    } else {
+        echo "Product not found.";
+        exit;
+    }
+    
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Detail - LSLEEVE</title>
+    <title>Product Detail - Hoodie</title>
     <link rel="stylesheet" href="styles/ProductDetails copy.css">
     <link rel="stylesheet" href="Index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- social media icons -->
@@ -77,15 +182,15 @@ ini_set('display_errors', 1);
     <div class="page">
         <div class="container">
             <div class="item">
-                <b>50 - 999 pieces</b><br>
+                <b>50 - 499 pieces</b><br>
                 <label><b><button id="button">10%</button></b></label>
             </div>
             <div class="item">
-                <b>1000 - 9999 pieces</b><br>
+                <b>499 - 999 pieces</b><br>
                 <label><b><button id="button">15%</button></b></label>
             </div>
             <div class="item">
-                <b>More than 10000 pieces</b><br>
+                <b>More than 1000 pieces</b><br>
                 <label><b><button id="button">20%</button></b></label>
             </div>
         </div>
@@ -102,100 +207,39 @@ ini_set('display_errors', 1);
                         <img src="PRODUCT IMAGES/PRODUCT-LSLEEVE/Cotton-White-Long-Sleeve-T-Shirt-V10.webp" alt="Black Hoodie" class="thumbnail">
                     </div>
                 </div>
-
-            <?php
-            include 'php/config.php';
-            $price_sql = "SELECT LSLEEVE FROM Price";
-            $price_result = $conn->query($price_sql);
-            if ($price_result->num_rows > 0) {
-                $row = $price_result->fetch_assoc();
-                $lsleeve_price = $row['LSLEEVE'];
-            } else {
-                $lsleeve_price = 0; // Fallback if no price is found
-            }
-            ?>
-        </div>
     </div>
 
     <div class="container-2">
         <div class="form-box">
             <?php
-            include("php/config.php");
-            if (isset($_POST['submit'])) {
-                // Collect form data
-                $user_id = mysqli_real_escape_string($conn, $_SESSION['user_id']);
-                $productName = mysqli_real_escape_string($conn, $_POST['productName']);
-                $productID = mysqli_real_escape_string($conn, $_POST['productID']);
-                $size = mysqli_real_escape_string($conn, $_POST['size']);
-                $color = mysqli_real_escape_string($conn, $_POST['color']);
-                $material = mysqli_real_escape_string($conn, $_POST['material']);
-                $quantity = mysqli_real_escape_string($conn, $_POST['quantity']);
-
-
-                $price_total = $lsleeve_price * $quantity;
-
-
-                // Query to get the last cartID
-                $find = mysqli_query($conn, "SELECT MAX(cartID) AS max_id FROM Cart");
-                $row = mysqli_fetch_assoc($find);
-                
-                // Assigning cart ID
-
-                if ($row['max_id']) {
-                    $last_id = $row['max_id'];
-                    // Extract numeric part from last ID
-                    $last_num = (int)preg_replace("/[^0-9]/", "", $last_id);
-                    $num = $last_num + 1; // Increment the numeric part
-                    
-                // Generate new customer ID with 'CONSULT_' prefix
-                    $cartID = 'CART_' . str_pad($num, 4, '0', STR_PAD_LEFT); 
-                } else {
-                    $cartID = 'CART_0001'; // Use the correct prefix here
-                }
-
-                // Build your insert query
-                $query = "INSERT INTO Cart (cartID,Customer_ID, productName, productID, size, color, quantity, price_single, price_total, material) 
-                VALUES ('$cartID','$user_id', '$productName', '$productID', '$size', '$color', $quantity, $lsleeve_price, $price_total, '$material')";
-
-                if (mysqli_query($conn, $query)) {
-                    echo "<div class='successmessage'>
-                            <p style='font-family:Questrial,san-serif; text-align:center; font-size: 40px'>Your Product Has been added to your cart</p>
-                            <button onclick='goBack()' style='font-family:Questrial,san-serif; font-size: 20px; padding: 10px 20px; background-color: #697565; color: white; border: none; border-radius: 5px; cursor: pointer;'>Go Back</button>
-                            <a href='cart.php'><button style='font-family:Questrial,san-serif; font-size: 20px; padding: 10px 20px; background-color: #697565; color: white; border: none; border-radius: 5px; cursor: pointer;'>View Cart</button></a>
-                        </div>";
-                        
-                } else {
-                    echo "<div class='errormessage'>
-                            <p>Error: " . mysqli_error($conn) . "</p>
-                            <button onclick='goBack()' style='font-family:Questrial,san-serif; font-size: 20px; padding: 10px 20px; background-color: #697565; color: white; border: none; border-radius: 5px; cursor: pointer;'>Go Back</button>
-                            </div>";
-                }
-            } else {
+            //fatching price to show display price
+            $findPrice = "SELECT * FROM Inventory WHERE `Name`= 'Long Sleeve T'"; //product ID
+            $result_findPrice = mysqli_query($conn, $findPrice);
+            $product = mysqli_fetch_assoc($result_findPrice);
+            $price = $product['Price'];
             ?>
-            <form action="" method="POST" class="product-options">
+            <form action="" method="POST" class="product-options" id="product-form">
                 <div class="product-options">
                     <label for="colour"><b>Colour</b></label>
                     <select id="colour" name="color" required>
                         <option disabled selected>Select color</option>
-                        <option value="yellow">Yellow</option>
-                        <option value="black">Black</option>
-                        <option value="red">Red</option>
-                        <option value="white">White</option>
+                        <option value="Blue">Blue</option>
+                        <option value="White">White</option>
                     </select>
+                    
 
                     <label for="material"><b>Material</b></label>
                     <select id="material" name="material" required>
                         <option disabled selected>Select Material</option>
-                        <option value="cotton">Cotton</option>
-                        <option value="polyester">Polyester</option>
-                    </select>
+                        <option value="Cotton">Cotton</option>
+                    </select> 
 
                     <label for="size"><b>Size</b></label>
                     <select id="size" name="size" required>
                         <option disabled selected>Select Size</option>
-                        <option value="small">Small</option>
-                        <option value="medium">Medium</option>
-                        <option value="large">Large</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Large">Large</option>
+                        <option value="Small">Small</option>
                     </select>
 
                     <div class="quantity-selector">
@@ -206,7 +250,7 @@ ini_set('display_errors', 1);
 
                     <div>
                         <label for="price"> Price (per unit):</label>
-                        <input style="width: 300px;height: 45px;text-align: center;font-size: 1.2em;border: 2px solid #ff5e00;border-radius: 10px;" id="price" value="<?php echo $lsleeve_price; ?>.00" aria-label="price" readonly>
+                        <input style="width: 300px;height: 45px;text-align: center;font-size: 1.2em;border: 2px solid #ff5e00;border-radius: 10px;" id="price" value="<?php echo $price; ?>" aria-label="price" readonly>
                     </div>
                     
                     <label for="final-price"> Final Price:</label>
@@ -218,19 +262,15 @@ ini_set('display_errors', 1);
 
 
 
-                <input type="hidden" name="cartID" value="<?php echo $cartID; ?>">
-                <input type="hidden" name="productName" value="Long Sleeve">
-                <input type="hidden" name="productID" value="LS001">
-
                 <div class="purchase-btn" style="margin-top: 20px;">
-
-                <button class="buy-now">Buy Now</button>
-                <button type="submit" name="submit" class="add-cart">Add to Cart</button>
-
+                    <?php if (isset($_SESSION['user_id'])) { ?>
+                    <button type="submit" name="buy"   class="buy-now" id="buy-now" >Buy Now</button>
+                    <?php } else {?>
+                    <button type="submit" name="buy"   class="buy-now" id="buy-now" >Buy Now</button>
+                    <?php } ?>
                 </div>
 
             </form>
-            <?php } ?>
         </div>
     </div>
 </main>
@@ -285,9 +325,9 @@ ini_set('display_errors', 1);
     const decreaseButton = document.getElementById('decrease-button');
 
     function calculateFinalPrice() {
-        const lsleeve_price = <?php echo $lsleeve_price; ?>; // Price from the database
+        const hoodiePrice = <?php echo $price; ?>; // Price from the database
         const quantity = parseInt(quantityInput.value);
-        const finalPrice = lsleeve_price * quantity;
+        const finalPrice = hoodiePrice * quantity;
         document.getElementById('finalprice').textContent = finalPrice.toFixed(2);
     }
 
@@ -313,6 +353,11 @@ ini_set('display_errors', 1);
     function goBack() {
         window.history.back();
     }
+
+
+
 </script>
+
+
 </body>
 </html>

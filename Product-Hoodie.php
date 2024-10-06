@@ -357,39 +357,9 @@ if (isset($_POST['buy'])) {
         window.history.back();
     }
 
-
-// Function to enable/disable buttons based on form completion
-function toggleButtons() {
-    const form = document.getElementById('product-form');
-    const buyNowButton = document.getElementById('buy-now');
-    const addToCartButton = document.getElementById('add-cart');
-
-    // Check if the form is valid
-    const isFormValid = form.checkValidity();
-    
-    // Enable or disable buttons based on form validity
-    buyNowButton.disabled = !isFormValid;
-    addToCartButton.disabled = !isFormValid;
-}
-
-// Add event listeners to the form elements
-const formElements = document.querySelectorAll('#product-form input, #product-form select');
-formElements.forEach(element => {
-    element.addEventListener('input', toggleButtons);
-    element.addEventListener('change', toggleButtons);
-});
-
-// Initial check to disable buttons if the form is not filled
-toggleButtons();
-
-
-
-
-
-
-
-
-
 </script>
+
+
+
 </body>
 </html>
