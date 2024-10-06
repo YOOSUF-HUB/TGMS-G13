@@ -142,16 +142,16 @@ CREATE TABLE Payment (
 --2nd sql
 -- Create Admin table
 CREATE TABLE Admin (
-    Admin_ID INT PRIMARY KEY AUTO_INCREMENT,
-    Full_name VARCHAR(100) NOT NULL,
+    Admin_ID VARCHAR(10) PRIMARY KEY,
+    First_name VARCHAR(100) NOT NULL,
+    Last_name VARCHAR(100) NOT NULL,
     Email VARCHAR(100) NOT NULL UNIQUE,
     Password VARCHAR(255) NOT NULL,
-    Date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Create Customer_account table
 CREATE TABLE Customer_account (
-    Customer_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Customer_ID VARCHAR(10) PRIMARY KEY,
     First_name VARCHAR(50) NOT NULL,
     Last_name VARCHAR(50) NOT NULL,
     Email VARCHAR(100) NOT NULL UNIQUE,
@@ -161,7 +161,8 @@ CREATE TABLE Customer_account (
     Dob DATE,
     Date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     Admin_ID INT,
-    FOREIGN KEY (Admin_ID) REFERENCES Admin(Admin_ID)
+    CONSTRAINT FK_Admin FOREIGN KEY (Admin_ID) REFERENCES Admin(Admin_ID),
+
 );
 
 -- Create Staff_account table
