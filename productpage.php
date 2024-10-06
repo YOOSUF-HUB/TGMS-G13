@@ -17,20 +17,7 @@ while($row = $result->fetch_assoc()){
 }
 
 
-// SQL query to fetch all prices from the Price table
-$price_sql = "SELECT HOODIES, TSHIRT, JOGGERS, LSLEEVE FROM Price";
-$price_result = $conn->query($price_sql);
 
-// Fetch prices and set default fallback
-$hoodie_price = $tshirt_price = $jogger_price = $tanktop_price = 0;
-
-if ($price_result->num_rows > 0) {
-    $row = $price_result->fetch_assoc();
-    $hoodie_price = $row['HOODIES'];
-    $tshirt_price = $row['TSHIRT'];
-    $jogger_price = $row['JOGGERS'];
-    $lsleeve_price = $row['LSLEEVE'];
-}
 ?>
 
 
