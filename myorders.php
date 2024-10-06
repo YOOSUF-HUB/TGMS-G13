@@ -174,7 +174,7 @@ if (isset($_POST['save'])) {
         <div id="externalContainer">
             <div id="myaccountContainer" >
                 <div class="myaccount">
-                    <h1>My Account</h1>
+                    <h1>My Orders</h1>
                     <hr>
                 </div>
                 <div>
