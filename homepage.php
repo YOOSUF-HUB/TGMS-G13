@@ -73,7 +73,6 @@ session_start();
                 <div id="myDropdown" class="dropdown-content">
                     <a href="./myaccount.php">My Account</a>
                     <a href="myorders.php">My Orders</a>
-                    <a href="cart.php">My Cart</a>
                     <a href="./logout.php">Logout</a>
                 </div>
             <?php }else{?>
@@ -124,7 +123,7 @@ session_start();
                 <h1>EXPLORE OUR HIGH-QUALITY TEXTILE PRODUCTS TO ELEVATE YOUR BRAND</h1>
                 <p>Experience the pinnacle of textile excellence with our curated collection of high-quality fabrics. Designed to offer unparalleled durability and luxury, our textiles are perfect for enhancing your brand’s prestige. Choose from a variety of sophisticated options to bring your creative vision to life with superior quality and timeless appeal.</p>
                 
-                <a href="produtpage.php"><button class="quote-btn1">Product</button></a>
+                <a href="productpage.php"><button class="quote-btn1">Product</button></a>
 
             </div>
         </div>
