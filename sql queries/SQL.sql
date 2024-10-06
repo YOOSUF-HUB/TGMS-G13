@@ -161,6 +161,8 @@ CREATE TABLE Customer_account (
     Dob DATE,
     Date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     Admin_ID VARCHAR(10),
+
+
     CONSTRAINT FK_Admin FOREIGN KEY (Admin_ID) REFERENCES Admin(Admin_ID),
 
 );
@@ -181,17 +183,14 @@ CREATE TABLE Staff_account (
 
 -- Create Inquiries table
 CREATE TABLE Inquiries (
-    Inquiry_ID INT PRIMARY KEY AUTO_INCREMENT,
-    Inquiry_Date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    First_name VARCHAR(50) NOT NULL,
-    Last_name VARCHAR(50) NOT NULL,
+    Inquiry_ID INT AUTO_INCREMENT,
     Email VARCHAR(100) NOT NULL,
-    Phone_no VARCHAR(15),
-    Topic VARCHAR(255),
-    Other TEXT,
+    Date DATE DEFAULT CURRENT_DATE,
+    Time TIME DEFAULT CURRENT_TIME,
     Customer_ID INT,
-    Status ENUM('Active', 'Closed') NOT NULL,
-    FOREIGN KEY (Customer_ID) REFERENCES Customer_account(Customer_ID)
+
+    CONSTRAINT Inquiries_PK PRIMARY KEY (Inquiry_ID),
+    CONSTRAINT Inquiries_FK FOREIGN KEY (Customer_ID) REFERENCES Customer_account(Customer_ID)
 );
 
 -- Create Order table
@@ -207,11 +206,13 @@ CREATE TABLE `Order` (
 
 -- Create Payment table
 CREATE TABLE Payment (
-    Payment_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Payment_ID INT AUTO_INCREMENT,
     Order_ID INT,
     Amount DECIMAL(10, 2) NOT NULL,
     Payment_Type ENUM('Bank_transfer', 'Card') NOT NULL,
     FOREIGN KEY (Order_ID) REFERENCES `Order`(Order_ID)
+
+    CONSTRAINT Payment_PK PRIMARY KEY (Payment_ID),
 );
 
 -- Create Inventory table
