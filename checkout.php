@@ -25,15 +25,8 @@ if (isset($_POST['submit'])){
     setcookie('payment_method', $payment_method, time() + 3600, "/");
 
 
-
-    if ($_COOKIE['shipping_info']) {
-        header("Location: payment.php"); 
-        exit(); 
-    } else {
-        echo "<div class='errormessage'>
-                <p>Error saving shipping details: " . mysqli_error($conn) . "</p>
-              </div>";
-    }
+    header("Location: payment.php"); 
+    exit(); 
 
 }
 
