@@ -189,6 +189,20 @@ CREATE TABLE Inquiries (
 
     CONSTRAINT Inquiries_PK PRIMARY KEY (Inquiry_ID),
     CONSTRAINT Inquiries_FK FOREIGN KEY (Customer_ID) REFERENCES Customer_account(Customer_ID)
+    CONSTRAINT Inquiries_FK2 FOREIGN KEY (Customersupport_ID) REFERENCES Customer_Support(Customersupport_ID)
+);
+
+-- Create Customer_Support table
+CREATE TABLE Customer_Support (
+    Customersupport_ID VARCHAR(10),
+    First_name VARCHAR(50) NOT NULL,
+    Last_name VARCHAR(50) NOT NULL,
+    Email VARCHAR(100) NOT NULL UNIQUE,
+    Phone_no VARCHAR(15),
+    Password VARCHAR(255) NOT NULL,
+
+    CONSTRAINT Customer_Support_PK PRIMARY KEY (Customersupport_ID),
+    CONSTRAINT Customer_Support_FK FOREIGN KEY (Inquiry_ID) REFERENCES Inquiries(Inquiry_ID)
 );
 
 -- Create Order table
