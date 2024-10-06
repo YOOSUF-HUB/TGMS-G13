@@ -151,11 +151,8 @@ if (isset($_POST['submit'])){
                         </div>
 
                         <div class="input-field">
-                            <label for="province">Province</label>
-                            <select name="province" id="province" required>
-                                <option value="" disabled selected>Choose province</option>
-                                <option value="province1">Province 1</option>
-                                <option value="province2">Province 2</option>
+                            <label for="province">State</label>
+                            <input type="text" id="province" name="province" placeholder="State*" required>
                             </select>
                         </div>
 
@@ -168,13 +165,13 @@ if (isset($_POST['submit'])){
                     <!-- Payment Methods -->
                     <div class="payment-methods">
                         <h2>Payment Methods</h2>
-                        <label>
+                        <img src="PRODUCT IMAGES/visa.svg" alt="Visa" width="60px">
+                        <img src="PRODUCT IMAGES/mastercard.svg" alt="MasterCard" width="60px">
+                        <img src="PRODUCT IMAGES/amex.svg" alt="American Express" width="60px">
+                        <label style="margin-top: 20px">
                             <input type="radio" name="payment_method" value="credit_card" required>
                             <span>
                                 Credit Card
-                                <img src="https://example.com/visa.png" alt="Visa" width="20px">
-                                <img src="https://example.com/mastercard.png" alt="MasterCard" width="20px">
-                                <img src="https://example.com/amex.png" alt="American Express" width="20px">
                             </span>
                         </label>
                         <label>
