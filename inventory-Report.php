@@ -126,12 +126,7 @@ ini_set('display_errors', 1);
                 <!-- Summary -->
                 <div id="summaryTab" class="inner-table-container"> 
                 <table class="table" >
-                    <!-- <thead>
-                        <tr>
-                            <th>Order ID</th>
-                            <th>Product Name</th>
-                        </tr>
-                    </thead> -->
+                    
                     <tbody>
                         <tr>
                             <td>Total Number of Products</td>
