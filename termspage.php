@@ -203,7 +203,7 @@ session_start();
 
             <li>
                 <h6>Governing Law</h6>
-                    <p>These Terms and Conditions are governed by and construed in accordance with the laws of [Insert Jurisdiction], without regard to its conflict of law principles. You agree to submit to the exclusive jurisdiction of the courts of Sri Lanka.</p>
+                    <p>These Terms and Conditions are governed by and construed in accordance with the laws of the country, without regard to its conflict of law principles. You agree to submit to the exclusive jurisdiction of the courts of Sri Lanka.</p>
             </li>
 
             <li>
@@ -256,7 +256,7 @@ session_start();
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; Versori 2024</p>
+            <p style="font-family:Questrial,sans-serif;">&copy; Versori 2024</p>
         </div>
     </footer>
 
