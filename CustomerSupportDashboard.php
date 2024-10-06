@@ -110,7 +110,7 @@ if ($_SESSION['staff_role'] !== 'Support') { // Ensure admin user is redirected 
 
         // Create the chart
         const accountCreationChart = new Chart(ctx, {
-            type: 'bar',
+            type: 'line',
             data: {
                 labels: ['Active Inquiries', 'Closed Inquiries', 'Total Inquiries'],
                 datasets: [{

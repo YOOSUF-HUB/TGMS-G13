@@ -227,14 +227,14 @@ session_start();
                     <li><a href="#" class="fa fa-instagram"></a></li>
                 </ul>
             </div>
-            <div class="footer-left">
+            <div class="footer-left" style="font-family:Questrial,san-serif">
                 <ul>
                     <li style="font-weight: bolder; font-size: 1.5rem; letter-spacing: 0.04rem;">Versori</li>
                     <li><a href="Policy.php">Privacy Policy</a></li>
                     <li><a href="termspage.php">Terms and Conditions</a></li>
                 </ul>
             </div>
-            <div class="footer-middle">
+            <div class="footer-middle" style="font-family:Questrial,san-serif">
                 <ul>
                     <li style="font-weight: bolder; font-size: 1.2rem;">Our service</li>
                     <li><a href="help.php" >Manufacturing</a></li>
@@ -242,7 +242,7 @@ session_start();
                     <li><a href="help.php">Sampling</></li>
                 </ul>
             </div>
-            <div class="footer-right">
+            <div class="footer-right" style="font-family:Questrial,san-serif">
                 <ul>
                     <li style="font-weight: bolder; font-size: 1.2rem;">Useful Links</li>
                     <li><a href="about.php">About us</a></li>
