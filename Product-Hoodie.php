@@ -48,21 +48,25 @@ if (isset($_POST['buy'])) {
     $price = $product['Price'];
     $price_total = $price * $quantity; //calculate total price
 
+    //find balance inventory
+    $inventory_qty = $product['Quantity'];
+    $balance_qty = $inventory_qty - $quantity;
+
 
     
 
-    if ($quantity>=50 && $quantity<499){ // setting dellivery date
+    if ($quantity>=50 && $quantity<500){ // setting dellivery date
         $deliveryDate = (date('Y-m-d', strtotime('+1 week')));
-    }else if ($quantity>=500 && $quantity<999) {
+    }else if ($quantity>=500 && $quantity<1000) {
         $deliveryDate = date('Y-m-d', strtotime('+2 week')); 
     }else if ($quantity>=1000) {
         $deliveryDate = date('Y-m-d', strtotime('+6 week')); 
     }
 
 
-    if ($quantity>=50 && $quantity<499){
+    if ($quantity>=50 && $quantity<500){
         $fprice = ($price_total-($price_total/10)); // calculate discount price
-    }else if ($quantity>=500 && $quantity<999) {
+    }else if ($quantity>=500 && $quantity<1000) {
         $fprice = ($price_total-($price_total/15));
     }else if ($quantity>=1000) {
         $fprice = ($price_total-($price_total/20));
@@ -70,7 +74,7 @@ if (isset($_POST['buy'])) {
 
     if ($quantity>=49 && $quantity<500){ // setting shipping price
         $shipping = ($quantity * 25); 
-    }else if ($quantity>=500 && $quantity<999) {
+    }else if ($quantity>=500 && $quantity<1000) {
         $shipping = ($quantity * 20);
     }else if ($quantity>=1000) {
         $shipping = ($quantity * 15);
@@ -92,6 +96,8 @@ if (isset($_POST['buy'])) {
     setcookie('productID', $productID, time() + 3600, "/"); 
     setcookie('orderid', $orderid, time() + 3600, "/"); 
     setcookie('grand_total',$grand_total, time() + 3600, "/");
+    setcookie('balance_qty',$balance_qty, time() + 3600, "/"); 
+
 
     if ($_COOKIE['buy_now']) {
         header("Location: checkout.php"); 
