@@ -77,7 +77,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                 <li class="im-page"><a href="inventory-Production.php">Production</a></li>
                 <li class="im-page"><a href="inventory-Orders.php">Orders</a></li>
                 <li class="im-page"><a href="inventory-Supplier.php">Suppliers</a></li>
-                <li class="im-page"><a href="inventory-Report">Report</a></li>
+                <li class="im-page"><a href="inventory-Report.php">Report</a></li>
             </ul>
         </section>
 
