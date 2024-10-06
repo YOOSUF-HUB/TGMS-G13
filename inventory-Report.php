@@ -29,14 +29,14 @@ ini_set('display_errors', 1);
 
     $result = $conn->query($sql);
 
-    $active_sql = "SELECT 
+    $revenue_sql = "SELECT 
         I.Name as pname, 
         I.Price as pprice, 
         SUM(O.Quantity) AS qtysold, 
         SUM(P.Payment_amount) AS income FROM Inventory I, Orders O, Payments P
     WHERE I.Product_ID = O.Product_ID AND O.Payment_ID = P.Payment_ID  AND (I.Name='Hoodie' OR I.Name='Joggers' OR I.Name='T-Shirt' OR I.Name='Long Sleeve T')
     GROUP BY I.Name";
-    $active_result =$conn->query($active_sql);
+    $revenue_result =$conn->query($revenue_sql);
 
     $completed_sql = "SELECT 
         O.Order_ID as oid,
@@ -206,7 +206,7 @@ ini_set('display_errors', 1);
                         </tr>
                     </thead>
                     <tbody>
-                    <?php while($row = $active_result->fetch_assoc()): ?>
+                    <?php while($row = $revenue_result->fetch_assoc()): ?>
                         <tr>
                             <td><?php echo $row["pname"]; ?></td>
                             <td><?php echo $row["qtysold"]; ?></td>
