@@ -40,17 +40,21 @@ if (isset($_POST['buy'])) {
     
     if ($result && mysqli_num_rows($result) > 0) {
         $product = mysqli_fetch_assoc($result);
+        $productID = $product['Product_ID'];
+        $price = $product['Price'];
+        $inventory_qty = $product['Quantity'];
+        if ($quantity > $inventory_qty) {
+            echo "Not enough inventory available.";
+            exit;
+        }
     } else {
         echo "Product not found.";
         exit;
     }
-    $productID = $product['Product_ID'];
-    $price = $product['Price'];
+    
     $price_total = $price * $quantity; //calculate total price
-
-    //find balance inventory
-    $inventory_qty = $product['Quantity'];
-    $balance_qty = $inventory_qty - $quantity;
+    
+    $balance_qty = $inventory_qty - $quantity;//find balance inventory
 
 
     
@@ -268,7 +272,11 @@ if (isset($_POST['buy'])) {
 
 
                 <div class="purchase-btn" style="margin-top: 20px;">
+                    <?php if (isset($_SESSION['user_id'])) { ?>
                     <button type="submit" name="buy"   class="buy-now" id="buy-now" >Buy Now</button>
+                    <?php } else {?>
+                    <button type="submit" name="buy"   class="buy-now" id="buy-now" >Buy Now</button>
+                    <?php } ?>
                 </div>
 
             </form>
