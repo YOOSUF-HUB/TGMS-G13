@@ -1,10 +1,21 @@
 <?php
 session_start();
-//echo $_SESSION['user_id'];
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 ?>
 <?php
-// Include the database connection file here
 include 'php/config.php';
+
+$sql = "SELECT Name, Price FROM Inventory "; 
+$result = mysqli_query($conn, $sql);
+$product = mysqli_fetch_assoc($result);
+$productname = $product['Name'];
+
+while($row = $result->fetch_assoc()){
+    $product_prices[$row['Name']] = $row['Price'];
+}
+
 
 // SQL query to fetch all prices from the Price table
 $price_sql = "SELECT HOODIES, TSHIRT, JOGGERS, LSLEEVE FROM Price";
@@ -144,7 +155,7 @@ if ($price_result->num_rows > 0) {
                             <b style="font-size: 20px;">Size Range: </b> S, M, L (custom sizes may also be available).<br><br>
                             <b style="font-size: 20px;">Care Instructions: </b>Machine wash, tumble dry or air dry, based on fabric type.
                             <div style="margin-top: 30px;">
-                                <button class="price">Rs.<?php echo $hoodie_price; ?>.00</button>
+                                <button class="price">Rs.<?php echo $product_prices['Hoodie']; ?></button>
                                 <button class="add">Buy Now</button>
                             </div>
 
@@ -175,7 +186,7 @@ if ($price_result->num_rows > 0) {
                             <b style="font-size: 20px;">Size Range: </b> S, M, L (custom sizes may also be available).<br><br>
                             <b style="font-size: 20px;">Care Instructions: </b>Machine wash cold, tumble dry low or air dry. Avoid bleach or ironing on print.
                             <div style="margin-top: 30px;">
-                            <button class="price">Rs.<?php echo $tshirt_price; ?>.00</button>
+                            <button class="price">Rs.<?php echo $product_prices['T-Shirt']; ?></button>
                             <button class="add">Buy Now</button>
                                 
                             </div>
@@ -212,7 +223,7 @@ if ($price_result->num_rows > 0) {
                                 <b style="font-size: 20px;">Size Range: </b>S, M, L (custom sizes may also be available).<br><br>
                                 <b style="font-size: 20px;">Care Instructions: </b>Machine wash cold, tumble dry low or air dry. Avoid bleach or ironing.
                                 <div style="margin-top: 30px;">
-                                <button class="price">Rs.<?php echo $jogger_price; ?>.00</button>
+                                <button class="price">Rs.<?php echo $product_prices['Joggers']; ?></button>
                                     <button class="add">Buy Now</button>
                                 </div>
                             </fieldset>
@@ -238,7 +249,7 @@ if ($price_result->num_rows > 0) {
                             <b style="font-size: 20px;">Size Range: </b> S, M, L (custom sizes may also be available).<br><br>
                             <b style="font-size: 20px;">Care Instructions: Machine washable, tumble dry low or hang dry to maintain softness and shape.</b>
 ```                            <div style="margin-top: 30px;">
-                            <button class="price">Rs.<?php echo $lsleeve_price; ?>.00</button>
+                            <button class="price">Rs.<?php echo $product_prices['T-Shirt']; ?></button>
                                 <button class="add">Buy Now</button>
                             </div>
                         </fieldset>
