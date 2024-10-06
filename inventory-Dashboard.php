@@ -62,9 +62,6 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                     <a href="homepage.php"> <img src="./images/versori 2.png" alt="logo" > </a>
                 </div>
             
-                <div class="notification">
-                    <i class="fa fa-bell" style="font-size:30px"></i>
-                </div>
             </div>
 
             <div class="title">

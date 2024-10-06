@@ -70,9 +70,6 @@ ini_set('display_errors', 1);
                     <a href="Index.html"> <img src="./images/versori 2.png" alt="logo" > </a>
                 </div>
             
-                <div class="notification">
-                    <i class="fa fa-bell" style="font-size:30px"></i>
-                </div>
             </div>
 
             <div class="title">

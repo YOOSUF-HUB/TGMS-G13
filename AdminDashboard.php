@@ -31,9 +31,7 @@ if($_SESSION['staff_role']!=='Admin'){ //condition make sure admin user redirect
                 <div class="logo-content">
                     <a href="Index.html"><img src="images/versori 2.png" alt="logo"></a>
                 </div>
-                <div class="notification">
-                    <i class="fa fa-bell" style="font-size:30px"></i>
-                </div>
+                
             </div>
 
             <div class="title">
