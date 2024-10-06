@@ -38,8 +38,6 @@ if (isset($_POST['buy'])) {
     $sql = "SELECT * FROM Inventory WHERE `Name`= 'HOODIE' AND `Colour` = '$color' AND `Size` = '$size'"; //product ID
     $result = mysqli_query($conn, $sql);
     
-
-
     if ($result && mysqli_num_rows($result) > 0) {
         $product = mysqli_fetch_assoc($result);
     } else {
@@ -49,6 +47,8 @@ if (isset($_POST['buy'])) {
     $productID = $product['Product_ID'];
     $price = $product['Price'];
     $price_total = $price * $quantity; //calculate total price
+
+
     
 
     if ($quantity>=50 && $quantity<499){ // setting dellivery date
@@ -198,23 +198,17 @@ if (isset($_POST['buy'])) {
                 </div>
             </div>
 
-            <?php
-            include 'php/config.php';
-            $price_sql = "SELECT HOODIES FROM Price";
-            $price_result = $conn->query($price_sql);
-            if ($price_result->num_rows > 0) {
-                $row = $price_result->fetch_assoc();
-                $hoodie_price = $row['HOODIES'];
-            } else {
-                $hoodie_price = 0; // Fallback if no price is found
-            }
-            ?>
         </div>
     </div>
 
     <div class="container-2">
         <div class="form-box">
             <?php
+            //fatching price to show display price
+            $findPrice = "SELECT * FROM Inventory WHERE `Name`= 'HOODIE'"; //product ID
+            $result_findPrice = mysqli_query($conn, $findPrice);
+            $product = mysqli_fetch_assoc($result_findPrice);
+            $price = $product['Price'];
 
 
             if (isset($_POST['submit'])) {
@@ -304,7 +298,7 @@ if (isset($_POST['buy'])) {
 
                     <div>
                         <label for="price"> Price (per unit):</label>
-                        <input style="width: 300px;height: 45px;text-align: center;font-size: 1.2em;border: 2px solid #ff5e00;border-radius: 10px;" id="price" value="<?php echo $hoodie_price; ?>.00" aria-label="price" readonly>
+                        <input style="width: 300px;height: 45px;text-align: center;font-size: 1.2em;border: 2px solid #ff5e00;border-radius: 10px;" id="price" value="<?php echo $price; ?>" aria-label="price" readonly>
                     </div>
                     
                     <label for="final-price"> Final Price:</label>
