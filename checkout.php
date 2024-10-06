@@ -123,12 +123,14 @@ if (isset($_POST['submit'])){
                         <label for="country">Country</label>
                         <select name="country" id="country" required>
                             <option value="" disabled selected>Choose your country</option>
-                            <option value="USA">United States</option>
-                            <option value="UK">United Kingdom</option>
-                            <option value="CA">Canada</option>
+                            <option value="AF">Afghanistan</option>
+                            <option value="BD">Bangladesh</option>
+                            <option value="BT">Bhutan</option>
                             <option value="IN">India</option>
-                            <option value="AU">Australia</option>
-                            <!-- Add more countries -->
+                            <option value="MV">Maldives</option>
+                            <option value="NP">Nepal</option>
+                            <option value="PK">Pakistan</option>
+                            <option value="LK">Sri Lanka</option>
                         </select>
                     </div>
 
