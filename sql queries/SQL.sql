@@ -193,16 +193,18 @@ CREATE TABLE Inquiries (
 
 -- Create Order table
 CREATE TABLE Order (
-    Order_ID VARCHAR(10),
+    Order_ID VARCHAR(10) NOT NULL,
     Status ENUM('In-Progress', 'Shipped', 'Delivered', 'Cancelled') NOT NULL,
-    Total_Amount DECIMAL(10, 2),
-    Delivery_Date DATE,
-    Ordered_Date DATE,
-    Customer_ID VARCHAR(10),
+    Total_Amount DECIMAL(10, 2) NOT NULL,
+    Delivery_Date CURRENT_DATE NOT NULL,
+    Ordered_Date DATE NOT NULL,
+    Order_Type VARCHAR(50) NOT NULL,
+    Customer_ID VARCHAR(10) NOT NULL
 
     CONSTRAINT Order_PK PRIMARY KEY (Order_ID),
     CONSTRAINT Order_FK FOREIGN KEY (Customer_ID) REFERENCES Customer_account(Customer_ID)
 );
+
 
 -- Create Payment table
 CREATE TABLE Payment (
