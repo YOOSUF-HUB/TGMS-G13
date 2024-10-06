@@ -49,7 +49,14 @@ if (isset($_POST['pay'])){
         $balance_qty = $_COOKIE['balance_qty'];
         $updateNew_qty = mysqli_query($conn,"UPDATE `Inventory` SET `Quantity`='$balance_qty' WHERE `Product_ID`= '$productID'");
         
-
+        //destroy cookies
+        setcookie('buy_now', $buy_now, time() -3600, "/");
+        setcookie('fprice', $fprice, time() - 3600, "/");
+        setcookie('shippingPrice', $shipping, time() - 3600, "/");
+        setcookie('productID', $productID, time() - 3600, "/"); 
+        setcookie('orderid', $orderid, time() - 3600, "/"); 
+        setcookie('grand_total',$grand_total, time() - 3600, "/");
+        setcookie('balance_qty',$balance_qty, time() -3600, "/"); 
         header("Location: productpage.php");
         exit();
     } else {

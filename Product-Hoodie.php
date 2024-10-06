@@ -91,7 +91,6 @@ if (isset($_POST['buy'])) {
 
     setcookie('buy_now', $buy_now, time() + 3600, "/");
     setcookie('fprice', $fprice, time() + 3600, "/");
-    setcookie('quantity', $quantity, time() + 3600, "/");
     setcookie('shippingPrice', $shipping, time() + 3600, "/");
     setcookie('productID', $productID, time() + 3600, "/"); 
     setcookie('orderid', $orderid, time() + 3600, "/"); 
