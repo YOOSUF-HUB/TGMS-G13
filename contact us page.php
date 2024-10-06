@@ -1,6 +1,6 @@
 <?php
 session_start();
-echo $_SESSION['user_id'];
+//echo $_SESSION['user_id'];
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 ?>
@@ -172,6 +172,7 @@ transition: background-color 0.3s ease;
 
 .container div button:hover {
 background-color: #697565 ;
+color: white;
 }
 
 
