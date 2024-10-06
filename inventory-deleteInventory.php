@@ -9,7 +9,7 @@ if (isset($_GET['deleteid'])) {
 
     // Execute the query
     if (mysqli_query($conn, $delete_query)) {
-        header("Location: inventoryPage.php");
+        header("Location: inventory-Inventory.php");
     } else {
         echo "<p style='color: red; text-align: center;'>Failed to Delete: " . mysqli_error($conn) . "</p>";
     }

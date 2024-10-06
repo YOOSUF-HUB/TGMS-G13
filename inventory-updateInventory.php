@@ -37,7 +37,7 @@ if (isset($_POST['save'])) {
 
     // Execute the query and check if successful
     if (mysqli_query($conn, $updateQuery)) {
-        header("Location: inventoryPage.php"); 
+        header("Location: inventory-Inventory.php"); 
         exit();
     } else {
         echo "<p style='color: red; text-align: center;'>Failed to Update: " . mysqli_error($conn) . "</p>";

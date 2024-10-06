@@ -47,7 +47,7 @@ if (isset($_POST['pay'])){
         $updatePaymentID =mysqli_query($conn,"UPDATE `Orders` SET `Payment_ID`='$payment_id' WHERE `Order_ID`= '$order_id'");
         
 
-        header("Location: homepage.php");
+        header("Location: productpage.php");
         exit();
     } else {
         echo "<div class='errormessage'>
