@@ -216,12 +216,12 @@ if (isset($_POST['submit'])){
         </div>
     </main>
 
-        <!-- Footer Section -->
-        <footer>
+    <!-- Footer Section -->
+    <footer>
         
         <div class="footer-links">
             <div class="social-media">
-                <a href="Index.html"> <img src="./images/Versori.png" alt="logo" style="height: 90px; padding-left: 20px; "> </a>
+                <a href="homepage.php"> <img src="./images/Versori.png" alt="logo" style="height: 90px; padding-left: 20px; "> </a>
                 <ul style="list-style-type: none; display: flex; padding: 0; font-size: 30px;">
                     <li style="margin-left: 20px;"><a href="#" class="fa fa-facebook"></a></li>
                     <li><a href="#" class="fa fa-twitter"></a></li>
@@ -238,9 +238,9 @@ if (isset($_POST['submit'])){
             <div class="footer-middle">
                 <ul>
                     <li style="font-weight: bolder; font-size: 1.2rem;">Our service</li>
-                    <li><a href="manufacturing.html">Manufacturing</a></li>
+                    <li><a href="help.php" >Manufacturing</a></li>
                     <li><a href="consultation.php">Consultancy</a></li>
-                    <li><a href="sampling.html">Sampling</a></li>
+                    <li><a href="help.php">Sampling</></li>
                 </ul>
             </div>
             <div class="footer-right">
