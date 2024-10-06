@@ -75,7 +75,6 @@ session_start();
                 <div id="myDropdown" class="dropdown-content">
                     <a href="./myaccount.php">My Account</a>
                     <a href="myorders.php">My Orders</a>
-                    <a href="cart.php">My Cart</a>
                     <a href="./logout.php">Logout</a>
                 </div>
             <?php }else{?>

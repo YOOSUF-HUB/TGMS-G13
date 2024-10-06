@@ -84,8 +84,12 @@ if (isset($_POST['submit'])){
             </div>
         </section>
 
+        <!-- Profile and Dropdown -->
         <div class="profile-container">
+            <!-- Profile Image Icon; clicking on this toggles the dropdown -->
             <img src="images/profile-google.svg" alt="Profile Icon" class="profile-icon" onclick="toggleDropdown()">
+            
+            <!-- Dropdown Menu content; links for Login, Logout, and My Orders -->
             <?php 
             if (isset($_SESSION['user_id'])) {
             ?>    
@@ -93,14 +97,15 @@ if (isset($_POST['submit'])){
                     <a href="./myaccount.php">My Account</a>
                     <a href="myorders.php">My Orders</a>
                     <a href="./logout.php">Logout</a>
-                    <a href="./cart.php">My Cart</a>
                 </div>
-            <?php } else { ?>
+            <?php }else{?>
                 <div id="myDropdown" class="dropdown-content">
                     <a href="./login.php">Login</a>
                     <a href="./register.php">Create Account</a>
                 </div>
-            <?php } ?>
+
+            <?php }?>
+            
         </div>
     </header>
 
