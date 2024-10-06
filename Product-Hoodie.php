@@ -185,15 +185,15 @@ if (isset($_POST['buy'])) {
     <div class="page">
         <div class="container">
             <div class="item">
-                <b>50 - 999 pieces</b><br>
+                <b>50 - 499 pieces</b><br>
                 <label><b><button id="button">10%</button></b></label>
             </div>
             <div class="item">
-                <b>1000 - 9999 pieces</b><br>
+                <b>499 - 999 pieces</b><br>
                 <label><b><button id="button">15%</button></b></label>
             </div>
             <div class="item">
-                <b>More than 10000 pieces</b><br>
+                <b>More than 1000 pieces</b><br>
                 <label><b><button id="button">20%</button></b></label>
             </div>
         </div>
