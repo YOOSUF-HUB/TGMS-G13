@@ -45,8 +45,14 @@ if (isset($_POST['submit'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout Page</title>
+    <link rel="stylesheet" href="Index.css">
     <link rel="stylesheet" href="styles/checkout.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+
+    <!-- Questrial Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
 </head>
 
@@ -151,8 +157,8 @@ if (isset($_POST['submit'])){
                         </div>
 
                         <div class="input-field">
-                            <label for="province">State</label>
-                            <input type="text" id="province" name="province" placeholder="State*" required>
+                            <label for="province">State/Province</label>
+                            <input type="text" id="province" name="province" placeholder="State/Province*" required>
                             </select>
                         </div>
 
@@ -181,10 +187,10 @@ if (isset($_POST['submit'])){
                     </div>
 
                     <!-- Order Summary -->
-                    <div class="order-summary" style="width:70%; margin-top:30px;">
+                    <div class="order-summary" style="width:95%; margin-top:30px;">
                         <h2>Order Summary</h2>
                         <div id="checkout">
-                            <p>Total Price: Rs. <?php echo $_COOKIE['fprice'];  ?></p>
+                            <p>Total Price: Rs. <?php echo $_COOKIE['grand_total'];  ?></p>
                         </div>
                         <div class="summary-item">
                             <span>Shipping fee </span>
@@ -192,7 +198,7 @@ if (isset($_POST['submit'])){
                         </div>
                         <div class="summary-item">
                             <span>Total</span>
-                            <span id="sub-total">Rs. <?php echo $_COOKIE['grand_total'];?></span>
+                            <span id="sub-total">Rs. <?php echo $_COOKIE['fprice'];?></span>
                         </div>
 
                         <div class="place-order-btn">
@@ -206,6 +212,48 @@ if (isset($_POST['submit'])){
             </div>
         </div>
     </main>
+
+        <!-- Footer Section -->
+        <footer>
+        
+        <div class="footer-links">
+            <div class="social-media">
+                <a href="Index.html"> <img src="./images/Versori.png" alt="logo" style="height: 90px; padding-left: 20px; "> </a>
+                <ul style="list-style-type: none; display: flex; padding: 0; font-size: 30px;">
+                    <li style="margin-left: 20px;"><a href="#" class="fa fa-facebook"></a></li>
+                    <li><a href="#" class="fa fa-twitter"></a></li>
+                    <li><a href="#" class="fa fa-instagram"></a></li>
+                </ul>
+            </div>
+            <div class="footer-left">
+                <ul>
+                    <li style="font-weight: bolder; font-size: 1.5rem; letter-spacing: 0.04rem;">Versori</li>
+                    <li><a href="Policy.php">Privacy Policy</a></li>
+                    <li><a href="termspage.php">Terms and Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-middle">
+                <ul>
+                    <li style="font-weight: bolder; font-size: 1.2rem;">Our service</li>
+                    <li><a href="manufacturing.html">Manufacturing</a></li>
+                    <li><a href="consultation.php">Consultancy</a></li>
+                    <li><a href="sampling.html">Sampling</a></li>
+                </ul>
+            </div>
+            <div class="footer-right">
+                <ul>
+                    <li style="font-weight: bolder; font-size: 1.2rem;">Useful Links</li>
+                    <li><a href="about.php">About us</a></li>
+                    <li><a href="contact us page.php">Contact us</a></li>
+                    <li><a href="productpage.php">Products</a></li>
+                    <li><a href="faq.php">FAQ</a></li>
+                </ul>    
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; Versori 2024</p>
+        </div>
+    </footer>
 
     <script src="index.js"></script>
     <script>
