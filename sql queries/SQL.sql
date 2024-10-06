@@ -160,7 +160,7 @@ CREATE TABLE Customer_account (
     Phone_no VARCHAR(15),
     Dob DATE,
     Date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    Admin_ID INT,
+    Admin_ID VARCHAR(10),
     CONSTRAINT FK_Admin FOREIGN KEY (Admin_ID) REFERENCES Admin(Admin_ID),
 
 );
