@@ -34,45 +34,12 @@ ini_set('display_errors', 1);
         I.Price as pprice, 
         SUM(O.Quantity) AS qtysold, 
         SUM(P.Payment_amount) AS income FROM Inventory I, Orders O, Payments P
-    WHERE I.Product_ID = O.Product_ID AND O.Payment_ID = P.Payment_ID  AND (I.Name='Hoodie' OR I.Name='Joggers' OR I.Name='T-Shirt' OR I.Name='Long Sleeve T')
+    WHERE I.Product_ID = O.Product_ID AND O.Payment_ID = P.Payment_ID AND O.Status !='Cancelled'  AND (I.Name='Hoodie' OR I.Name='Joggers' OR I.Name='T-Shirt' OR I.Name='Long Sleeve T')
     GROUP BY I.Name";
     $revenue_result =$conn->query($revenue_sql);
 
-    $completed_sql = "SELECT 
-        O.Order_ID as oid,
-        I.Name as pname,
-        C.Customer_ID as cid,
-        O.Quantity as qty,
-        O.Order_Date as odate,
-        O.Delivery_Date as ddate,
-        O.Status as sts
-    FROM Orders O, Customer_account C, Inventory I
-    where O.Customer_ID = C.Customer_ID AND O.Product_ID = I.Product_ID AND O.Status ='Delivered'";
-    $completed_result =$conn->query($completed_sql);
-
-    $cancelled_sql = "SELECT 
-        O.Order_ID as oid,
-        I.Name as pname,
-        C.Customer_ID as cid,
-        O.Quantity as qty,
-        O.Order_Date as odate,
-        O.Delivery_Date as ddate,
-        O.Status as sts
-    FROM Orders O, Customer_account C, Inventory I
-    where O.Customer_ID = C.Customer_ID AND O.Product_ID = I.Product_ID AND O.Status ='Cancelled'";
-    $cancelled_result =$conn->query($cancelled_sql);
-
-    $custom_sql = "SELECT 
-        O.Order_ID as oid,
-        O.Order_type as otype,
-        C.Customer_ID as cid,
-        O.Quantity as qty,
-        O.Order_Date as odate,
-        O.Delivery_Date as ddate,
-        O.Status as sts
-    FROM Orders O, Customer_account C, Inventory I
-    where O.Customer_ID = C.Customer_ID AND O.Product_ID = I.Product_ID AND O.Order_type ='Custom'";
-    $custom_result =$conn->query($custom_sql);
+    
+    
     ?>
 
 <!DOCTYPE html>
@@ -248,33 +215,7 @@ ini_set('display_errors', 1);
                 </table>
                 </div>
                 
-                <!-- Cancelled Orders List -->
-                <div id="cancelledOrdersTab"  class="inner-table-container" style="display:none; "> 
-                <table class="table" >
-                    <thead>
-                        <tr>
-                            <th>Order ID</th>
-                            <th>Product Name</th>
-                            <th>Customer ID</th>
-                            <th>Quantity</th>
-                            <th>Order Date</th>
-                            <th>Delivery Date</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><?php echo $row["oid"]; ?></td>
-                            <td><?php echo $row["pname"]; ?></td>
-                            <td><?php echo $row["cid"]; ?></td>
-                            <td><?php echo $row["qty"]; ?></td>
-                            <td><?php echo $row["odate"]; ?></td>
-                            <td><?php echo $row["ddate"]; ?></td>
-                            <td><?php echo $row["sts"]; ?></td>
-                        </tr>
-                    </tbody>
-                </table>
-                </div>
+                <
             </div>
 
             <!-- Manage inventory -->
