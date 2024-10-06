@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 <?php
 include("php/config.php");
@@ -44,6 +43,9 @@ if (isset($_POST['pay'])){
         $result_shipping = mysqli_query($conn, $shipping_info);
         $buy_now = $_COOKIE['buy_now'];
         $result_buy = mysqli_query($conn, $buy_now);
+        $order_id= $_COOKIE['orderid'];
+        $updatePaymentID =mysqli_query($conn,"UPDATE `Orders` SET `Payment_ID`='$payment_id' WHERE `Order_ID`= '$order_id'");
+        
 
         header("Location: homepage.php");
         exit();
