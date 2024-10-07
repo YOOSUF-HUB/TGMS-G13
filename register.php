@@ -1,3 +1,50 @@
+<?php
+include("./php/config.php");
+if(isset($_POST['submit'])){
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    // Query to get the last Customer_ID
+    $find = mysqli_query($conn, "SELECT MAX(Customer_ID) AS max_id FROM Customer_account");
+    $row = mysqli_fetch_assoc($find);
+    //assigning customer id
+    if ($row['max_id']) {
+        $last_id = $row['max_id'];
+        $num = intval(substr($last_id, 1)) + 1; 
+        
+        $customerid = 'C' . str_pad($num, 4, '0', STR_PAD_LEFT); 
+    } else {
+        $customerid = 'C1001'; 
+    }
+
+    //verifying the unique email
+    $verify_query = mysqli_query ($conn, "SELECT Email FROM Customer_account WHERE Email='$email'");
+    
+    if(mysqli_num_rows($verify_query) != 0){
+        // Email already exists, show error
+        $error_message = "This email is already registered. Please use a different email.";
+    }
+    else{
+
+        $insert_query = "INSERT INTO customer_account (Customer_ID, First_name, Last_name, Email, Password, Date_created) VALUES ('$customerid','$fname', '$lname', '$email', '$password', DEFAULT)";
+        $result = mysqli_query($conn, $insert_query);
+        
+
+        if($result){
+            $success_message = "Registration Successfully!";
+            
+        }else{
+            $error_message = "Registration Failed. Register Again";
+        }
+
+        
+    }
+}
+            
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,82 +115,34 @@
     <div class="container">
         <div class="form-box">
 
-            <?php
 
-            include("./php/config.php");
-            if(isset($_POST['submit'])){
-                $fname = $_POST['fname'];
-                $lname = $_POST['lname'];
-                $email = $_POST['email'];
-                $password = $_POST['password'];
+            <?php if (isset($error_message)) { ?>
+                <div class="errormessage">
+                    <p><?php echo $error_message; ?></p>
+                    <a href='javascript:self.history.back()'><button class='btn'>Go back</button></a>
+                </div>
+            <?php } elseif (isset($success_message)) { ?>
+                <div class="successmessage">
+                    <p><?php echo $success_message ." Now login to your account" ; ?></p>
+                    <a href='login.php'><button class='btn'>Login</button></a>
+                </div>
+            <?php } else { ?>
 
-                // Query to get the last Customer_ID
-                $find = mysqli_query($conn, "SELECT MAX(Customer_ID) AS max_id FROM Customer_account");
-                $row = mysqli_fetch_assoc($find);
-                //assigning customer id
-                if ($row['max_id']) {
-                    $last_id = $row['max_id'];
-                    $num = intval(substr($last_id, 1)) + 1; 
-                    
-                    $customerid = 'C' . str_pad($num, 4, '0', STR_PAD_LEFT); 
-                } else {
-                    $customerid = 'C1001'; 
-                }
-
-                //verifying the unique email
-                $verify_query = mysqli_query ($conn, "SELECT Email FROM Customer_account WHERE Email='$email'");
-                
-                if(mysqli_num_rows($verify_query) != 0){
-                    // Email already exists, show error
-                    echo "<div class= 'errormessage'>
-                            <p>This email is already registered. Please use a different email.</p>
-                        </div> <br>";
-                    echo "<a href='javascript:self.history.back()'><button class='btn'>Go back</button></a>";
-                }
-                else{
-
-                    $insert_query = "INSERT INTO customer_account (Customer_ID, First_name, Last_name, Email, Password, Date_created) VALUES ('$customerid','$fname', '$lname', '$email', '$password', DEFAULT)";
-                    $result = mysqli_query($conn, $insert_query);
-                    
-
-                    if($result){
-                        echo "<div class= 'successmessage'>
-                            <p>Registration Successfully!.</p>
-                            </div> <br>";
-                        echo "<a href='login.php'><button class='btn'>Login now</button></a>";
-                    }else{
-                        echo "<div class= 'errormessage'>
-                            <p>This email is already registered. Please use a different email.</p>
-                            </div> <br>";
-                        echo "<a href='javascript:self.history.back()'><button class='btn'>Go back</button></a>";
-                    }
-
-                    
-                }
-            }else{
-
-            
-
-            ?>
             <h3>Create Account</h3>
             <form action="" method="post">
                 <div class="field input">
-                    <!-- <label for="fname">First Name</label> -->
                     <input type="text" name="fname" id="fname" placeholder="First Name" required>
                 </div>
 
                 <div class="field input">
-                    <!-- <label for="lname">Last Name</label> -->
                     <input type="text" name="lname" id="lname" placeholder="Last Name" required>
                 </div>
                 
                 <div class="field input">
-                    <!-- <label for="email">Email</label> -->
                     <input type="email" name="email" id="email" placeholder="Email" autocomplete="off" required>
                 </div>
 
                 <div class="field input">
-                    <!-- <label for="password">Password</label> -->
                     <input type="password" name="password" id="password" placeholder="Password" autocomplete="off" required>
                 </div>
 
@@ -155,8 +154,9 @@
                     <p>Already have an account? <a href="login.php"> Login</a></p>
                 </div>
             </form>
+            <?php } ?>
         </div>
-        <?php } ?>
+        
     </div>
 
     
