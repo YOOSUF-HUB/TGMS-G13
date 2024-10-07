@@ -1,49 +1,86 @@
+<?php
+include("./php/config.php");
+if(isset($_POST['submit'])){
+    $fname = $_POST['fname'];
+    $username = $_POST['username'];
+    $staff_role = $_POST['staff_role'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+                // Query to get the last Customer_ID
+                $find = mysqli_query($conn, "SELECT MAX(Staff_ID) AS max_id FROM Staff_account");
+                $row = mysqli_fetch_assoc($find);
+                    // Assigning new Staff_ID
+                    if ($row['max_id']) {
+                        // Extract the numeric part of the last Staff_ID and increment it
+                        $last_id = $row['max_id'];
+                        $num = intval(substr($last_id, 3)) + 1;  // Strip 'STF' and convert the rest to an integer
+                        $staffid = 'STF' . str_pad($num, 4, '0', STR_PAD_LEFT); // STF + incremented number, padded to 4 digits
+                    } else {
+                        // If there is no existing Staff_ID, start with STF0001
+                        $staffid = 'STF0001'; 
+                    }
+
+                    //verifying the unique email
+                    $verify_query = mysqli_query ($conn, "SELECT Email FROM Staff_account WHERE Email='$email'");
+                    
+                    if(mysqli_num_rows($verify_query) != 0){
+                        // Email already exists, show error
+                        $error_message = "This email is already registered. Please use a different email.";
+                    }
+                    else{
+
+                        $insert_query = "INSERT INTO Staff_account (Staff_ID, Full_name, username, staff_role, Email, Password, Date_created) VALUES ('$staffid','$fname', '$username', '$staff_role' , '$email', '$password', DEFAULT)";
+                        $result = mysqli_query($conn, $insert_query);
+                        
+
+                        if($result){
+                            $success_message = "Registration Successfully!";
+                            
+                        }else{
+                            $error_message = "Registration Failed. Register Again";
+                        }
+
+                        
+                    }
+                }
+            
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Staff Account</title>
+    <title>Create Account</title>
     <link rel="stylesheet" href="./styles/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- social media icons -->
 
 </head>
 <body>
-    <header>
+    <!-- Navigation Bar Section-->
+    <header style="padding: 8px 20px;">
         <!-- Side Navigation Menu -->
         <nav id="mySidenav" class="sidenav">
             <!-- Close button -->
             <img onclick="closeNav()" src="images/close-google.svg" class="closebtn" style="width: 30px;">
             
             <!-- Navigation links -->
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="contact.php">Contact</a>
-            <a href="terms.html">Terms of Services</a>
+            <a href="index.php">Home</a>
+            <a href="about.php">About</a>
+            <a href="productpage.php">Products</a>
+            <a href="consultation.php">Consultations</a>
+            <a href="contact us page.php">Contact</a>
+            <a href="termspage.php">Terms of Services</a>
         </nav>
         <!-- Menu icon (with open function)-->
         <img src="images/menu-google.svg" id="menuIcon" style="width:30px;cursor:pointer" onclick="openNav()">
-
-
-        <!-- Search Bar section -->
-        <section id="searchBar" style="position: relative;">
-            <img src="images/search-google.svg" id="searchIcon" style="width: 30px;cursor: pointer;" onclick="opensearchBar()">
-            
-            <!-- Search bar container -->
-            <div id="searchBarContainer">
-                <input type="text" id="searchInput" placeholder="Search...">
-                <button onclick="performSearch()">Search</button>
-            </div>
-        </section>
-
-
 
         <!-- Logo Section -->
         <section class="logo">
 
             <div class="logo-content">
-                <a href="Index.html"> <img src="./images/Versori.png" alt="logo" style="height: 50px; padding-right: 90px;"> </a>
+                <a href="index.php"> <img src="./images/Versori.png" alt="logo" style="height: 50px; padding-right: 90px;"> </a>
             </div>
     
         </section>
@@ -54,12 +91,22 @@
             <img src="images/profile-google.svg" alt="Profile Icon" class="profile-icon" onclick="toggleDropdown()">
             
             <!-- Dropdown Menu content; links for Login, Logout, and My Orders -->
-            <div id="myDropdown" class="dropdown-content">
-                <a href="#">Profile</a>
-                <a href="#">Login</a>
-                <a href="#">My Orders</a>
-                <a href="#">Logout</a>
-            </div>
+            <?php 
+            if (isset($_SESSION['user_id'])) {
+            ?>    
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="./myaccount.php">My Account</a>
+                    <a href="myorders.php">My Orders</a>
+                    <a href="./logout.php">Logout</a>
+                </div>
+            <?php }else{?>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="./login.php">Login</a>
+                    <a href="./register.php">Create Account</a>
+                </div>
+
+            <?php }?>
+            
         </div>
 
 
@@ -70,72 +117,20 @@
     <div class="container">
         <div class="form-box">
 
-            <?php
 
-            // Enable error reporting for debugging
-            ini_set('display_errors', 1);
-            ini_set('display_startup_errors', 1);
-            error_reporting(E_ALL);
+            <?php if (isset($error_message)) { ?>
+                <div class="errormessage">
+                    <p><?php echo $error_message; ?></p>
+                    <a href='javascript:self.history.back()'><button class='btn'>Go back</button></a>
+                </div>
+            <?php } elseif (isset($success_message)) { ?>
+                <div class="successmessage">
+                    <p><?php echo $success_message ." Now login to your account" ; ?></p>
+                    <a href='adminlogin.php'><button class='btn'>Login</button></a>
+                    <a href='AdminDashboard-staff.php'><button class='btn'>Return to Dashboard</button></a>
+                </div>
+            <?php } else { ?>
 
-            include("php/config.php");
-            if(isset($_POST['submit'])){
-                $fname = $_POST['fname'];
-                $username = $_POST['username'];
-                $staff_role = $_POST['staff_role'];
-                $email = $_POST['email'];
-                $password = $_POST['password'];
-
-                // Query to get the last Customer_ID
-                $find = mysqli_query($conn, "SELECT MAX(Staff_ID) AS max_id FROM Staff_account");
-                $row = mysqli_fetch_assoc($find);
-
-                    // Assigning new Staff_ID
-                if ($row['max_id']) {
-                    // Extract the numeric part of the last Staff_ID and increment it
-                    $last_id = $row['max_id'];
-                    $num = intval(substr($last_id, 3)) + 1;  // Strip 'STF' and convert the rest to an integer
-                    $staffid = 'STF' . str_pad($num, 4, '0', STR_PAD_LEFT); // STF + incremented number, padded to 4 digits
-                } else {
-                    // If there is no existing Staff_ID, start with STF0001
-                    $staffid = 'STF0001'; 
-                }
-
-                //verifying the unique email
-                $verify_query = mysqli_query ($conn, "SELECT Email FROM Staff_account WHERE Email='$email'");
-                
-                if(mysqli_num_rows($verify_query) != 0){
-                    // Email already exists, show error
-                    echo "<div class= 'errormessage'>
-                            <p>This email is already registered. Please use a different email.</p>
-                        </div> <br>";
-                    echo "<a href='javascript:self.history.back()'><button class='btn'>Go back</button></a>";
-                }
-                else{
-
-                    $insert_query = "INSERT INTO Staff_account (Staff_ID, Full_name, username, staff_role, Email, Password, Date_created) VALUES ('$staffid','$fname', '$username', '$staff_role' , '$email', '$password', DEFAULT)";
-                    $result = mysqli_query($conn, $insert_query);
-                    
-
-                    if($result){
-                        echo "<div class= 'successmessage'>
-                            <p>Registration Successfully!.</p>
-                            </div> <br>";
-                        echo "<a href='adminlogin.php'><button class='btn'>Login now</button></a>";
-                        echo "<a href='AdminDashboard.php'><button class='btn'>Return to Dashboard</button></a>";
-                    }else{
-                        echo "<div class= 'errormessage'>
-                            <p>This email is already registered. Please use a different email.</p>
-                            </div> <br>";
-                        echo "<a href='javascript:self.history.back()'><button class='btn'>Go back</button></a>";
-                    }
-
-                    
-                }
-            }else{
-
-            
-
-            ?>
             <h3>Create Account</h3>
             <form action="" method="post">
                 <div class="field input">
@@ -173,8 +168,9 @@
                 </div>
 
             </form>
+            <?php } ?>
         </div>
-        <?php } ?>
+        
     </div>
 
     
@@ -183,9 +179,9 @@
     <!-- Footer Section -->
     <footer>
         
-    <div class="footer-links">
+        <div class="footer-links">
             <div class="social-media">
-                <a href="Index.html"> <img src="./images/Versori.png" alt="logo" style="height: 90px; padding-left: 20px; "> </a>
+                <a href="index.php"> <img src="./images/Versori.png" alt="logo" style="height: 90px; padding-left: 20px; "> </a>
                 <ul style="list-style-type: none; display: flex; padding: 0; font-size: 30px;">
                     <li style="margin-left: 20px;"><a href="#" class="fa fa-facebook"></a></li>
                     <li><a href="#" class="fa fa-twitter"></a></li>
@@ -194,31 +190,31 @@
             </div>
             <div class="footer-left">
                 <ul>
-                    <li style="font-weight: bolder; font-size: 1.5rem;">Versori</li>
-                    <li><a href="policy.html">Privacy Policy</a></li>
-                    <li><a href="terms.html">Terms and Conditions</a></li>
+                    <li style="font-weight: bolder; font-size: 1.5rem; letter-spacing: 0.04rem;">Versori</li>
+                    <li><a href="Policy.php">Privacy Policy</a></li>
+                    <li><a href="termspage.php">Terms and Conditions</a></li>
                 </ul>
             </div>
             <div class="footer-middle">
                 <ul>
                     <li style="font-weight: bolder; font-size: 1.2rem;">Our service</li>
-                    <li><a href="manufacturing.html">Manufacturing</a></li>
-                    <li><a href="consultancy.php">Consultancy</a></li>
-                    <li><a href="sampling.html">Sampling</a></li>
+                    <li><a href="help.php" >Manufacturing</a></li>
+                    <li><a href="consultation.php">Consultancy</a></li>
+                    <li><a href="help.php">Sampling</></li>
                 </ul>
             </div>
             <div class="footer-right">
                 <ul>
                     <li style="font-weight: bolder; font-size: 1.2rem;">Useful Links</li>
-                    <li><a href="about.html">About us</a></li>
-                    <li><a href="contact.php">Contact us</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="about.php">About us</a></li>
+                    <li><a href="contact us page.php">Contact us</a></li>
+                    <li><a href="productpage.php">Products</a></li>
+                    <li><a href="faq.php">FAQ</a></li>
                 </ul>    
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; Versori 2024</p>
+            <p style="font-family:Questrial,sans-serif;">&copy; Versori 2024</p>
         </div>
     </footer>
 
@@ -227,6 +223,6 @@
    
 
 
-    <script src="Index.js"></script>
+    <script src="./index.js"></script>
 </body>
 </html>
