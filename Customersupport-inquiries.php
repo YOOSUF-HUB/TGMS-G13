@@ -29,7 +29,7 @@ if($_SESSION['staff_role']!=='Support'){ //condition make sure admin user redire
         <div class="top-container">
             <div class="logo-notification">
                 <div class="logo-content">
-                    <a href="Index.html"><img src="images/versori 2.png" alt="logo"></a>
+                    <a href="index.php"><img src="images/versori 2.png" alt="logo"></a>
                 </div>
             </div>
 

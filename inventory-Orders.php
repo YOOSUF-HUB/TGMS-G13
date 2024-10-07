@@ -85,7 +85,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
         <div class="top-container">
             <div class="logo-notification" >
                 <div class="logo-content">
-                    <img src="./images/versori 2.png" alt="logo" > 
+                <a href="index.php"> <img src="./images/versori 2.png" alt="logo" > </a>
                 </div>
 
             </div>
