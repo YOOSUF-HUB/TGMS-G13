@@ -273,10 +273,10 @@ button{
     transform: translateY(-20px); 
     opacity: 0; 
     visibility: hidden; 
-    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition for transform, opacity, and visibility */
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease; 
 }
 
-/* Styling for links inside the dropdown */
+
 .dropdown-content a {
     color: white;
     padding: 12px 16px;
@@ -284,13 +284,13 @@ button{
     display: block;
 }
 
-/* Changes background color of dropdown links when hovered */
+
 .dropdown-content a:hover {
     background-color: #697565;
     transition: 0.3s;
 }
 
-/* Show dropdown when active */
+
 .dropdown-content.show {
     transform: translateY(0); /* Move the dropdown */
     opacity: 1; 
@@ -374,8 +374,8 @@ footer {
 }
 
 .banner-content {
-    position: relative; /* To ensure the image is positioned relative to the banner */
-    overflow: hidden; /* This will clip any overflow of the image */
+    position: relative; 
+    overflow: hidden; 
     height: 100%;
     width: 100%;
 }
@@ -419,7 +419,7 @@ footer {
     font-size: 20px;
     width: 200px;
     height: 40px;
-    position: relative; /* Make sure it's positioned relative to its normal position */
+    position: relative; 
     z-index: 10; /* Bring it above other content */
 }
 
@@ -641,38 +641,38 @@ footer {
 
 /* Styles the card layout and look */
 .card {
-    width: 1000px; /* Sets the width of the card */
-    height: 300px; /* Sets the height of the card */
-    display: grid; /* Use grid to arrange items inside the card */
-    grid-template-columns: repeat(2, 1fr); /* Create 4 equal columns */
-    gap: 20px; /* Adds space between the columns */
-    padding: 20px; /* Adds space inside the card */
-    border-radius: 10px; /* Rounds the card corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a soft shadow */
-    background-color: #697565; /* Sets the card background color */
+    width: 1000px; 
+    height: 300px; 
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px; 
+    padding: 20px;
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    background-color: #697565;
 }
 
 /* Arranges each icon and text label */
 .icon-item {
-    display: flex; /* Use flexbox to arrange icon and text */
-    flex-direction: column; /* Stack icon and text vertically */
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center items vertically */
-    text-align: center; /* Center the text below the icon */
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center; 
+    text-align: center; 
 }
 
 /* Styles the icon */
 .icon-item .icon {
-    height: 70px; /* Sets the size of the icon */
-    margin-bottom: 10px; /* Adds space between icon and text */
+    height: 70px;
+    margin-bottom: 10px;
 }
 
 /* Styles the text under each icon */
 .icon-item span {
-    font-family: Questrial, sans-serif; /* Sets the font style */
-    font-size: 16px; /* Sets the text size */
-    font-weight: 500; /* Makes the text slightly bold */
-    color: white; /* Sets the text color to white */
+    font-family: Questrial, sans-serif; 
+    font-size: 16px; 
+    font-weight: 500; 
+    color: white; 
 }
 
 

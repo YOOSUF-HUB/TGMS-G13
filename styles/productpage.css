@@ -95,9 +95,9 @@ button{
 .logo {
     text-align: center;
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    width: 100vw; /* Full viewport width to center horizontally */
+    justify-content: center; 
+    align-items: center;
+    width: 100vw;
 }
 
 .logo-content p{
@@ -114,7 +114,7 @@ button{
 .menu-icon {
     font-size: 24px;
     cursor: pointer;
-    margin-right: 20px; /* Space between menu icon and search bar */
+    margin-right: 20px; 
 }
 
 
@@ -123,27 +123,27 @@ button{
     opacity: 90%;
     backdrop-filter: blur(100px);
     height: 100%; 
-    width: 0;  /* Initially hidden with 0 width */
-    position: fixed; /* Fixed in place while scrolling */
-    z-index: 1; /* Places the sidenav above other content */
+    width: 0;  
+    position: fixed; 
+    z-index: 1; 
     top: 0; 
     left: 0; 
     background-color:  #ffffff;
-    overflow-x: hidden; /* Prevents horizontal scrolling */
-    transition: 0.6s; /* Smooth transition for opening and closing */
-    padding-top: 60px; /* Adds padding to the top of the sidenav */
+    overflow-x: hidden; 
+    transition: 0.6s; 
+    padding-top: 60px; 
 }
 
 /* Styling for links inside the sidenav */
 .sidenav a {
     margin-top: 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    padding: 8px 8px 8px 32px; /* Padding inside links */
+    padding: 8px 8px 8px 32px; 
     text-decoration: none; 
     font-size: 1rem; 
     color: #000000; 
     display: block; 
-    transition: 0.3s; /* Smooth transition for hover */
+    transition: 0.3s; 
 }
 
 /* Changes link color when hovered */
@@ -154,7 +154,7 @@ button{
 
 /* Close button inside the side navigation */
 .sidenav .closebtn {
-    position: absolute; /* Positions the close button relative to the sidenav */
+    position: absolute; 
     top: 0; 
     right: 25px; 
     font-size: 36px; 
@@ -191,7 +191,7 @@ button{
 #searchBarContainer {
 
     border-radius: 10px;
-    position: absolute; /* Align next to the search icon */
+    position: absolute; 
     top: -55%; 
     left: 120%;
     overflow: hidden; /* Hide overflow content */
@@ -252,8 +252,8 @@ button{
 /* Profile container */
 .profile-container {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    position: relative; /* Position the dropdown relative to this container */
-    display: inline-block; /* Keeps the profile container only as wide as its contents */
+    position: relative; 
+    display: inline-block; 
     font-size: 1rem;
 }
 
@@ -273,7 +273,7 @@ button{
     transform: translateY(-20px); 
     opacity: 0; 
     visibility: hidden; 
-    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition for transform, opacity, and visibility */
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease; 
 }
 
 /* Styling for links inside the dropdown */
@@ -390,15 +390,15 @@ main{
 /* Container for each product, providing spacing, background, border, and a subtle box-shadow */
 .container {
     border-radius: 10px;
-    background: white; /* Light beige background color */
-    margin-top: 30px; /* Space at the top */
-    margin-bottom: 30px; /* Space at the bottom */
+    background: white; 
+    margin-top: 30px; 
+    margin-bottom: 30px; 
     margin-right: 20px;
     margin-left: 20px;
-    display: flex; /* Flexbox layout to arrange items side by side */
-    flex-wrap: wrap; /* Ensure the items wrap when screen size is smaller */
-    justify-content: space-between; /* Space out items evenly within the container */
-    padding: 20px; /* Padding inside the container for space */
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    padding: 20px; 
     transition: transform 0.3s ease;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
 }
@@ -411,35 +411,35 @@ main{
 
 /* Styles for both item1 (image) and item2 (product details), giving them flexible width */
 .item1, .item2 {
-    flex: 1; /* Flexbox property to allow both items to grow equally */
-    min-width: 300px; /* Minimum width for responsive design */
-    padding: 10px; /* Space around the content */
+    flex: 1; 
+    min-width: 300px; 
+    padding: 10px; 
 }
 
 /* Specific styling for the image inside item1 */
 .item1 img {
-    width: 100%; /* Make the image take full width of its container */
-    max-height: 500px; /* Set a maximum height for the image */
-    object-fit: cover; /* Ensure the image covers the area without distortion */
+    width: 100%; 
+    max-height: 500px; 
+    object-fit: cover;
 }
 
 /* Reverse layout for alternating product arrangements */
 .reverse {
-    flex-direction: row-reverse; /* Reverse the flex direction to swap the order of the items */
+    flex-direction: row-reverse; 
 }
 
 /* Style for the "Buy Now" button */
 .add {
-    background-color: #ff6200; /* Dark olive green background */
-    height: 70px; /* Button height */
-    width: 160px; /* Button width */
-    cursor: pointer; /* Show a pointer when hovering over the button */
+    background-color: #ff6200; 
+    height: 70px;
+    width: 160px;
+    cursor: pointer; 
     transition: transform 0.3s ease;
-    border-radius: 10px; /* Rounded corners for the button */
-    color: #fff; /* White text color */
-    border: none; /* Remove default button border */
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for a raised look */
-    font-size: 20px; /* Button text size */
+    border-radius: 10px; 
+    color: #fff; 
+    border: none; 
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
+    font-size: 20px;
     margin-left: 40px;
     text-decoration: none;
 }
@@ -447,20 +447,20 @@ main{
 
 /* Hover effect for the "Buy Now" button */
 .add-btn:hover {
-    opacity: 0.8; /* Reduce opacity slightly on hover */
+    opacity: 0.8; 
     transform: scale(1.05);
 }
 
 .price {
-    background-color: #697565; /* Dark olive green background */
-    height: 70px; /* Button height */
-    width: 260px; /* Button width */
+    background-color: #697565; 
+    height: 70px; 
+    width: 260px; 
     transition: transform 0.3s ease;
-    border-radius: 10px; /* Rounded corners for the button */
-    color: #fff; /* White text color */
-    border: none; /* Remove default button border */
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for a raised look */
-    font-size: 20px; /* Button text size */
+    border-radius: 10px; 
+    color: #fff; 
+    border: none; 
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
+    font-size: 20px; 
 }
 
 
@@ -468,17 +468,17 @@ main{
 /* Styling for the fieldset containing product details */
 fieldset {
 
-    padding: 20px; /* Padding inside the fieldset */
-    font-family: Questrial, sans-serif; /* Set the font for product details */
+    padding: 20px;
+    font-family: Questrial, sans-serif; 
     border: none;
 }
 
 /* General image styling for all product images */
 .product-img {
-    width: 100%; /* Full width of the container */
-    max-height: 500px; /* Set a maximum height */
-    object-fit: cover; /* Ensure the image covers the area without distortion */
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4); /* Subtle shadow for a raised look */
+    width: 100%;
+    max-height: 500px; 
+    object-fit: cover; 
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4); 
 }
 
 .product-title{
@@ -511,16 +511,16 @@ fieldset {
 
 #book-consultation{
     padding: 30px;
-    background-color: #ff6200; /* Dark olive green background */
-    height: 100px; /* Button height */
-    width: 460px; /* Button width */
-    cursor: pointer; /* Show a pointer when hovering over the button */
+    background-color: #ff6200; 
+    height: 100px; 
+    width: 460px; 
+    cursor: pointer; 
     transition: transform 0.3s ease;
-    border-radius: 10px; /* Rounded corners for the button */
-    color: #fff; /* White text color */
-    border: none; /* Remove default button border */
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for a raised look */
-    font-size: 20px; /* Button text size */
+    border-radius: 10px; 
+    color: #fff; 
+    border: none; 
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
+    font-size: 20px;
 }
 
 #book-consultation:hover {

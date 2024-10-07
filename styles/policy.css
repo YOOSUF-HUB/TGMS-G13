@@ -29,9 +29,9 @@ button{
 .logo {
     text-align: center;
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    width: 100vw; /* Full viewport width to center horizontally */
+    justify-content: center; 
+    align-items: center; 
+    width: 100vw; 
 }
 
 .logo-content p{
@@ -48,7 +48,7 @@ button{
 .menu-icon {
     font-size: 24px;
     cursor: pointer;
-    margin-right: 20px; /* Space between menu icon and search bar */
+    margin-right: 20px; 
 }
 
 
@@ -57,15 +57,15 @@ button{
     opacity: 90%;
     backdrop-filter: blur(100px);
     height: 100%; 
-    width: 0;  /* Initially hidden with 0 width */
-    position: fixed; /* Fixed in place while scrolling */
-    z-index: 1; /* Places the sidenav above other content */
+    width: 0;  
+    position: fixed;
+    z-index: 1; 
     top: 0; 
     left: 0; 
     background-color:  #ffffff;
-    overflow-x: hidden; /* Prevents horizontal scrolling */
-    transition: 0.6s; /* Smooth transition for opening and closing */
-    padding-top: 60px; /* Adds padding to the top of the sidenav */
+    overflow-x: hidden; 
+    transition: 0.6s; 
+    padding-top: 60px; 
 }
 
 /* Styling for links inside the sidenav */
@@ -88,7 +88,7 @@ button{
 
 /* Close button inside the side navigation */
 .sidenav .closebtn {
-    position: absolute; /* Positions the close button relative to the sidenav */
+    position: absolute; 
     top: 0; 
     right: 25px; 
     font-size: 36px; 
