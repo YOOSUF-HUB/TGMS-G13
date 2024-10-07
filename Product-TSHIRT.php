@@ -21,6 +21,7 @@ if (isset($_POST['buy'])) {
     $deliveryDate = null;
     $fprice = 0;
     $shipping = 0;
+    $discount = 0;
 
 
     
@@ -67,10 +68,13 @@ if (isset($_POST['buy'])) {
 
         if ($quantity>=50 && $quantity<500){
             $fprice = ($price_total-($price_total/10)); // calculate discount price
+            $discount = ($price_total/10);
         }else if ($quantity>=500 && $quantity<1000) {
             $fprice = ($price_total-($price_total/15));
+            $discount = ($price_total/15);
         }else if ($quantity>=1000) {
             $fprice = ($price_total-($price_total/20));
+            $discount = ($price_total/20);
         }
 
         if ($quantity>=49 && $quantity<500){ // setting shipping price
@@ -96,7 +100,9 @@ if (isset($_POST['buy'])) {
         setcookie('productID', $productID, time() + 3600, "/"); 
         setcookie('orderid', $orderid, time() + 3600, "/"); 
         setcookie('grand_total',$grand_total, time() + 3600, "/");
-        setcookie('balance_qty',$balance_qty, time() + 3600, "/"); 
+        setcookie('balance_qty',$balance_qty, time() + 3600, "/");
+        setcookie('discount',$discount, time() + 3600, "/");
+        setcookie('price_total',$price_total, time() + 3600, "/");
 
         header("Location: checkout.php"); 
         exit(); 

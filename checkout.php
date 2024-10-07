@@ -193,14 +193,28 @@ if (isset($_POST['submit'])){
                         <div id="checkout">
                             <p>Total Price: Rs. <?php echo $_COOKIE['grand_total'];  ?></p>
                         </div>
+
+                        <div class="summary-item">
+                            <span>Total Price</span>
+                            <span id="sub-total">Rs. <?php echo $_COOKIE['price_total'];?></span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Discount Amount </span>
+                            <span id="shipping"> - Rs. <?php echo $_COOKIE['discount'];?></span>
+                        </div>
                         <div class="summary-item">
                             <span>Shipping fee </span>
-                            <span id="shipping">Rs. <?php echo $_COOKIE['shippingPrice'];?></span>
+                            <span id="shipping">+ Rs. <?php echo $_COOKIE['shippingPrice'];?></span>
+                        </div>
+                        <div class="summary-item">
+                            <span> </span>
+                            <span id="shipping">______________</span>
                         </div>
                         <div class="summary-item">
                             <span>Total</span>
-                            <span id="sub-total">Rs. <?php echo $_COOKIE['fprice'];?></span>
+                            <span id="sub-total">Rs. <?php echo $_COOKIE['grand_total'];?></span>
                         </div>
+
 
                         <div class="place-order-btn">
                             <input class="btn" type="submit" name="submit" value="Pay Now">
