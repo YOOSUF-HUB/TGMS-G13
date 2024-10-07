@@ -1,5 +1,7 @@
 <?php
 session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 if (!isset($_SESSION['username'])) {
     header("Location: adminlogin.php");
     exit();
@@ -26,18 +28,31 @@ if (isset($_POST['submit'])) {
     $productQuantity = $_POST['productQuantity'];
     $productPrice = $_POST['productPrice'];
 
-    // insert query
-    $newproduct = "INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`, `Price`) 
-                VALUES ('$productID','$productName','$productColour','$productSize','$productType','$productQuantity', $productPrice)";
+    
 
-
-    // execute the query and check if successful
-    if (mysqli_query($conn, $newproduct)) {
-        header("Location: inventory-Inventory.php"); 
-        exit();
+    $idcheck = mysqli_query($conn,"SELECT * FROM Inventory WHERE Product_ID = '$productID'");
+    if (mysqli_num_rows($idcheck) > 0) {
+        // If exists, display error message
+        $error_message = "Already existing product ID";
     } else {
-        echo "<p style='color: red; text-align: center;'>Failed to Update: " . mysqli_error($conn) . "</p>";
+        // insert query
+        $newproduct = "INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`, `Price`) 
+        VALUES ('$productID','$productName','$productColour','$productSize','$productType','$productQuantity', $productPrice)";
+
+        if (mysqli_query($conn, $newproduct)) {
+            header("Location: inventory-Inventory.php"); 
+            exit();
+        } else {
+            echo "<p style='color: red; text-align: center;'>Failed to Update: " . mysqli_error($conn) . "</p>";
+        }
+
+
     }
+    
+
+
+
+    
 } 
 ?>
 
@@ -129,6 +144,10 @@ if (isset($_POST['submit'])) {
         background-color: #e9ecef;
     }
 
+    .errormessage{
+        color: red;
+    }
+
     
 
 </style>
@@ -144,6 +163,12 @@ if (isset($_POST['submit'])) {
     <div>
         <h2>Add Product </h2>
     </div>
+            <?php 
+            if (isset($error_message)): ?>
+                <div class="errormessage">
+                    <p><?php echo $error_message; ?></p>
+                </div>
+            <?php endif; ?>
     <div class="field input">
         <label for="productID">Product ID:</label>
         <input type="text" name="productID" placeholder="Product ID"  required>
