@@ -75,7 +75,7 @@ while($row = $result->fetch_assoc()){
         <section class="logo">
 
             <div class="logo-content">
-                <a href="Index.html"> <img src="./images/Versori.png" alt="logo" style="height: 50px; padding-right: 90px;"> </a>
+                <a href="Index.php"> <img src="./images/Versori.png" alt="logo" style="height: 50px; padding-right: 90px;"> </a>
             </div>
     
         </section>
