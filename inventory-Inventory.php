@@ -144,7 +144,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                             <td><?php echo $row["Type"]; ?></td>
                             <td><?php echo $row["Quantity"]; ?></td>
                             <td>
-                                <button style="background-color: #0B2F9F; border-radius: 5px; border: none; padding: 5px;"><a href="inventory-updateInventory.php.php?updateid=<?php echo $row['Product_ID']; ?>" style="text-decoration: none; color: white;">Update</a></button>
+                                <button style="background-color: #0B2F9F; border-radius: 5px; border: none; padding: 5px;"><a href="inventory-updateInventory.php?updateid=<?php echo $row['Product_ID']; ?>" style="text-decoration: none; color: white;">Update</a></button>
                                 <button style="background-color: #B8001F; border-radius: 5px; border: none; padding: 5px;"><a href="inventory-deleteInventory.php?deleteid=<?php echo $row['Product_ID']; ?>" style="text-decoration: none; color: white;">Delete</a></button>
                             </td>
                         </tr>
