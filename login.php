@@ -2,6 +2,43 @@
     session_start(); 
     
 ?>
+<?php
+
+include("./php/config.php");
+if(isset($_POST['submit'])){
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
+
+    // Query to check the email and password
+    $login_query = "SELECT * FROM Customer_account WHERE email='$email' AND password='$password'";
+    $result = mysqli_query($conn, $login_query); //excute query
+    $row = mysqli_fetch_assoc($result);
+
+    if(is_array($row) && !empty($row)){ 
+        $_SESSION['valid'] = $row['Email'];
+        $_SESSION['user_id'] = $row['Customer_ID'];
+        $_SESSION['lastname'] = $row['Last_name'];
+
+        
+        
+    }else{
+        // if user details doesn't exists, show error
+        $error_message = "Wrong Username or Password";
+        
+    }
+
+    if(isset($_SESSION['valid'])){
+        header("Location: index.php");
+    }
+
+    
+
+
+}
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +47,7 @@
     <title>Login</title>
     <link rel="stylesheet" href="./styles/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- social media icons -->
-
+    
 </head>
 <body>
     <!-- Navigation Bar Section-->
@@ -72,47 +109,16 @@
     <div class="container">
         <div class="form-box">
 
-        <?php
-
-        include("./php/config.php");
-        if(isset($_POST['submit'])){
-            $email = mysqli_real_escape_string($conn, $_POST['email']);
-            $password = mysqli_real_escape_string($conn, $_POST['password']);
-
-            // Query to check the email and password
-            $login_query = "SELECT * FROM Customer_account WHERE email='$email' AND password='$password'";
-            $result = mysqli_query($conn, $login_query); //excute query
-            $row = mysqli_fetch_assoc($result);
-
-            if(is_array($row) && !empty($row)){ 
-                $_SESSION['valid'] = $row['Email'];
-                $_SESSION['user_id'] = $row['Customer_ID'];
-                $_SESSION['lastname'] = $row['Last_name'];
-
-                
-                
-            }else{
-                // if user details doesn't exists, show error
-                echo "<div class= 'errormessage'>
-                        <p> Wrong Username or Password</p>
-                    </div> <br>";
-                echo "<a href='login.php'><button class='btn'>Go back</button></a>";
-                
-            }
-
-            if(isset($_SESSION['valid'])){
-                header("Location: index.php");
-            }
-
             
-
-
-        }else{
-        
-        
-        ?>
             <h3>Login</h3>
-            <form action="" method="post">
+
+            <?php if (isset($error_message)): ?>
+                <div class="errormessage">
+                    <p style="color: red;"><?php echo $error_message; ?></p>
+                </div>
+            <?php endif; ?>
+
+            <form action="" method="post" style="display: block;">
                 <div class="field input">
                     <input type="email" name="email" id="email" placeholder="Email" autocomplete="off" required>
                 </div>
@@ -122,7 +128,8 @@
                 </div>
 
                 <div class="link">
-                    <p> <a href="forgotpassword.php">Forgot password</a></p>
+                    <!-- <p> <a href="forgotpassword.php">Forgot password</a></p> -->
+                    <button onclick="forgotPassword()">Forgot password</button>
                 </div>
 
                 <div class="field">
@@ -134,7 +141,7 @@
                 </div>
             </form>
         </div>
-        <?php } ?>
+        
     </div>
 
 
@@ -182,7 +189,11 @@
         </div>
     </footer>
 
-    
+    <script>
+        function forgotPassword(){
+            document.getElementById()
+        }
+    </script>
     
 
 
