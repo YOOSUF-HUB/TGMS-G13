@@ -105,7 +105,9 @@ if($_SESSION['staff_role']!=='Support'){ //condition make sure admin user redire
                                     <td><?php echo $row["Subject"]; ?></td>
                                     <td><?php echo $row["Message"]; ?></td>
                                     <td><?php echo $row["Date_created"]; ?></td>
-                                    <td><?php echo $row["Status"]; ?></td>
+                                    <td style="background-color: <?php echo $row["Status"] == 'Active' ? 'rgba(255, 97, 97, 1)' : ($row["Status"] == 'Closed' ? 'rgba(103, 255, 188, 1)' : ''); ?>;">
+                                        <?php echo $row["Status"]; ?>
+                                    </td>
                                     <td>
                                     <button style="background-color: #0B2F9F; border-radius: 5px; border: none; padding: 5px;"><a href="update-help.php?updateid=<?php echo $row['Help_ID']; ?>" style="text-decoration: none; color: white;">Update</a></button>
                                     <button style="background-color: #B8001F; border-radius: 5px; border: none; padding: 5px;  margin-top: 10px"><a href="delete-help.php?deleteid=<?php echo $row['Help_ID']; ?>" style="text-decoration: none; color: white;">Delete</a></button>
