@@ -10,7 +10,6 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
 }
 ?>
 <?php
-    // Include the database connection file here
     include 'php/config.php';
 
     // SQL query to fetch data
@@ -52,7 +51,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
             </div>
 
             <div class="profile-container" >
-                <i class="fa fa-user-circle-o profile-icon" onclick="toggleDropdown()"></i>
+                <i class="fa fa-user-circle-o profile-icon" ></i>
                 
                 <p><?php echo$_SESSION['name']?></p>
                 <button id="logout-btn" ><a href="adminlogout.php">Logout</a></button>
@@ -116,7 +115,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                 </div>
             </div>
 
-            <!-- Manage inventory -->
+            <!-- Manage Supplier -->
             <div id="editMode" style="display: none;" class="table-container">
                 <h2>Manage Suppliers</h2>
                 <div class="inner-table-container" style="height: 85vh; overflow:auto; ">

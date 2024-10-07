@@ -8,12 +8,19 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
     header("Location: adminlogin.php");
     exit();
 }
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 ?>
 <?php
-    // Include the database connection file here
     include 'php/config.php';
+
+    // Query for revenue by product table
+    $rbp_sql = "SELECT 
+        I.Name as pname, 
+        I.Price as pprice, 
+        SUM(O.Quantity) AS qtysold, 
+        SUM(P.Payment_amount) AS income FROM Inventory I, Orders O, Payments P
+    WHERE I.Product_ID = O.Product_ID AND O.Payment_ID = P.Payment_ID AND O.Status !='Cancelled'  AND (I.Name='Hoodie' OR I.Name='Joggers' OR I.Name='T-Shirt' OR I.Name='Long Sleeve T')
+    GROUP BY I.Name";
+    $rbp_result =mysqli_query($conn,$rbp_sql);
 
     // Query for revenue by order table
     $rbo_sql = "SELECT 
@@ -26,19 +33,13 @@ ini_set('display_errors', 1);
         P.Payment_amount as amount
     FROM Orders O, Customer_account C, Inventory I , Payments P
     where O.Customer_ID = C.Customer_ID AND O.Product_ID = I.Product_ID AND O.Payment_ID = P.Payment_ID AND O.Status!='Cancelled';";
+    $rbo_result = mysqli_query($conn, $rbo_sql);
 
-    $rbo_result = $conn->query($rbo_sql);
+    // Query for monthly revenue table
+    $curMonth_sql = "SELECT DATE_FORMAT(Payment_date, '%M %Y') as month, SUM(Payment_amount) as mtotal FROM Payments GROUP BY `month`";
+    $curMonth_result = mysqli_query($conn, $curMonth_sql); //execute query
 
-    // Query for revenue by product table
-    $rbp_sql = "SELECT 
-        I.Name as pname, 
-        I.Price as pprice, 
-        SUM(O.Quantity) AS qtysold, 
-        SUM(P.Payment_amount) AS income FROM Inventory I, Orders O, Payments P
-    WHERE I.Product_ID = O.Product_ID AND O.Payment_ID = P.Payment_ID AND O.Status !='Cancelled'  AND (I.Name='Hoodie' OR I.Name='Joggers' OR I.Name='T-Shirt' OR I.Name='Long Sleeve T')
-    GROUP BY I.Name";
-    $rbp_result =$conn->query($rbp_sql);
-
+    
     
     
     ?>
@@ -78,7 +79,7 @@ ini_set('display_errors', 1);
             </div>
 
             <div class="profile-container" >
-                <i class="fa fa-user-circle-o profile-icon" onclick="toggleDropdown()"></i>
+                <i class="fa fa-user-circle-o profile-icon" ></i>
                 
                 <p><?php echo$_SESSION['name']?></p>
                 <button id="logout-btn" ><a href="adminlogout.php">Logout</a></button>
@@ -160,7 +161,7 @@ ini_set('display_errors', 1);
                         </tr>
                     </thead>
                     <tbody>
-                    <?php while($row = $rbp_result->fetch_assoc()): ?>
+                    <?php while($row = mysqli_fetch_assoc($rbp_result)): ?>
                         <tr>
                             <td><?php echo $row["pname"]; ?></td>
                             <td><?php echo $row["qtysold"]; ?></td>
@@ -187,7 +188,7 @@ ini_set('display_errors', 1);
                         </tr>
                     </thead>
                     <tbody>
-                    <?php while($row = $rbo_result->fetch_assoc()): ?>
+                    <?php while($row = mysqli_fetch_assoc($rbo_result)): ?>
                         <tr>
                             <td><?php echo $row["oid"]; ?></td>
                             <td><?php echo $row["pname"]; ?></td>
@@ -207,31 +208,17 @@ ini_set('display_errors', 1);
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Order ID</th>
-                            <th>Product Name</th>
-                            <th>Customer ID</th>
-                            <th>Quantity</th>
-                            <th>Order Date</th>
-                            <th>Delivery Date</th>
-                            <th>Status</th>
-                            <th>Manage</th> <!--  new column will appear to manage inventory -->
+                            <th>Month</th>
+                            <th>Revenue </th>
                         </tr>
                     </thead>
                     <tbody>
-                    
+                    <?php while ($row = mysqli_fetch_assoc($curMonth_result)){?>
                         <tr>
-                            <td><?php echo $row["oid"]; ?></td>
-                            <td><?php echo $row["pname"]; ?></td>
-                            <td><?php echo $row["cid"]; ?></td>
-                            <td><?php echo $row["qty"]; ?></td>
-                            <td><?php echo $row["odate"]; ?></td>
-                            <td><?php echo $row["ddate"]; ?></td>
-                            <td><?php echo $row["sts"]; ?></td>
-                            <td>
-                                <button style="background-color: #0B2F9F; border-radius: 5px; border: none; padding: 5px;"><a href="inventory-updateOrder.php?updateid=<?php echo $row['oid']; ?>" style="text-decoration: none; color: white;">Update</a></button>
-                                <button style="background-color: #B8001F; border-radius: 5px; border: none; padding: 5px;"><a href="inventory-deleteOrder.php?deleteid=<?php echo $row['oid']; ?>" style="text-decoration: none; color: white;">Delete</a></button>
-                            </td>
+                            <td><?php echo $row["month"]; ?></td>
+                            <td><?php echo $row["mtotal"]; ?></td>
                         </tr>
+                        <?php }?>
                     </tbody>
                 </table>
                 </div>

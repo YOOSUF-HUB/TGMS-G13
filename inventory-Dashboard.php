@@ -1,7 +1,7 @@
 <?php
 session_start();
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 if (!isset($_SESSION['username'])) { 
     header("Location: adminlogin.php");
     exit();
@@ -12,9 +12,44 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
 }
 ?>
 <?php
-    // Include the database connection file here
     include 'php/config.php';
 
+    //query to total sales of the current month
+    $curMonth_sql = "SELECT DATE_FORMAT(Payment_date, '%M') as month, SUM(Payment_amount) as mtotal FROM Payments GROUP BY `month`";
+    $curMonth_result = mysqli_query($conn, $curMonth_sql); //execute query
+
+    while ($curMonth_row = mysqli_fetch_assoc($curMonth_result)){ //process to get current months total
+        if($curMonth_row['month'] == date('F')){    
+            $curMonth = $curMonth_row['month'];
+            $curMonth_revenue = $curMonth_row['mtotal'];
+        }
+    }
+
+    $find_target = mysqli_query($conn,"SELECT target_amount FROM sales_target WHERE id =1 "); //find already targeted amount
+    $fetch_target = mysqli_fetch_assoc($find_target);
+    $targetAmount = $fetch_target['target_amount'];
+
+    if(isset($_GET['submit'])){ //collecting value from set new target form
+        $newtargetAmount = $_GET['targetValue'];
+
+        $target_sql = "UPDATE sales_target SET `month`='$curMonth', target_amount = $newtargetAmount, achieved_amount = $curMonth_revenue where id =1";
+        $target_result = mysqli_query($conn, $target_sql);
+
+    }
+    $find_target = mysqli_query($conn,"SELECT target_amount FROM sales_target WHERE id =1 ");
+    $fetch_target = mysqli_fetch_assoc($find_target);
+    $targetAmount = $fetch_target['target_amount'];
+
+
+
+    //query to group by product Name and sum the quantities(Only our main 4 products will be displayed)
+    $group_query = "SELECT `Name`, SUM(`Quantity`) AS TotalQuantity FROM `Inventory` 
+    WHERE `Name`='Hoodie' || `Name`='Joggers' || `Name`='T-Shirt' || `Name`='Long Sleeve T' GROUP BY `Name`";
+
+    $result = mysqli_query($conn, $group_query);
+
+
+    //query to find and display order details getting near to delivery date(Only 4 details will be displayed)
     $sql = "SELECT 
         O.Order_ID as oid,
         I.Name as pname,
@@ -28,40 +63,6 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
 
     $order_result = $conn->query($sql);
 
-    // SQL query to group by product Name and sum the quantities(Only our main 4 products will be displayed)
-    $group_query = "SELECT `Name`, SUM(`Quantity`) AS TotalQuantity FROM `Inventory` 
-    WHERE `Name`='Hoodie' || `Name`='Joggers' || `Name`='T-Shirt' || `Name`='Long Sleeve T' GROUP BY `Name`";
-    $result = mysqli_query($conn, $group_query);
-
-
-    $curMonth_sql = "SELECT DATE_FORMAT(Payment_date, '%M') as month, SUM(Payment_amount) as mtotal FROM Payments GROUP BY `month`";
-    $curMonth_result = mysqli_query($conn, $curMonth_sql); //excute query
-
-    while ($curMonth_row = mysqli_fetch_assoc($curMonth_result)){
-        if($curMonth_row['month'] == date('F')){    
-            $curMonth = $curMonth_row['month'];
-            $curMonth_revenue = $curMonth_row['mtotal'];
-        }
-    }
-
-    $find_target = mysqli_query($conn,"SELECT target_amount FROM sales_target WHERE id =1 ");
-    $fetch_target = mysqli_fetch_assoc($find_target);
-    $targetAmount = $fetch_target['target_amount'];
-
-    if(isset($_GET['submit'])){
-        $newtargetAmount = $_GET['targetValue'];
-
-        $target_sql = "UPDATE sales_target SET `month`='$curMonth', target_amount = $newtargetAmount, achieved_amount = $curMonth_revenue where id =1";
-        $target_result = mysqli_query($conn, $target_sql);
-
-
-
-
-    }
-    $find_target = mysqli_query($conn,"SELECT target_amount FROM sales_target WHERE id =1 ");
-    $fetch_target = mysqli_fetch_assoc($find_target);
-    $targetAmount = $fetch_target['target_amount'];
-    
 
     
     ?>
@@ -101,7 +102,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
             </div>
 
             <div class="profile-container" >
-                <i class="fa fa-user-circle-o profile-icon" onclick="toggleDropdown()"></i>
+                <i class="fa fa-user-circle-o profile-icon" ></i>
                 
                 <p><?php echo$_SESSION['name']?></p>
                 <button id="logout-btn" ><a href="adminlogout.php">Logout</a></button>

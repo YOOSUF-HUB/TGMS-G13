@@ -103,7 +103,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
         <div class="top-container">
             <div class="logo-notification" >
                 <div class="logo-content">
-                    <a href="Index.html"> <img src="./images/versori 2.png" alt="logo" > </a>
+                    <img src="./images/versori 2.png" alt="logo" > 
                 </div>
 
             </div>
@@ -113,7 +113,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
             </div>
 
             <div class="profile-container" >
-                <i class="fa fa-user-circle-o profile-icon" onclick="toggleDropdown()"></i>
+                <i class="fa fa-user-circle-o profile-icon"></i>
                 
                 <p><?php echo$_SESSION['name']?></p>
                 <button id="logout-btn" ><a href="adminlogout.php">Logout</a></button>

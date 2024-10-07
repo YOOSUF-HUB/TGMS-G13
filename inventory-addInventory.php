@@ -177,7 +177,7 @@ if (isset($_POST['submit'])) {
         <input class="btn" type="submit" name="submit" value="Create">
         <input class="btn" id="cancelBtn" type="button" value="Cancel" onclick="goBack()">
     </div>
-    <div class="instructions">
+    <div class="instructions" style="color: #303030;">
             <h3>Instruction:</h3>
             <ul>
                 <li>Set a unique product id according to your product.</li>
