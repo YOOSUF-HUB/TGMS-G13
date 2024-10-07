@@ -24,10 +24,11 @@ if (isset($_POST['submit'])) {
     $productSize = $_POST['productSize'];
     $productType = $_POST['productType'];
     $productQuantity = $_POST['productQuantity'];
+    $productPrice = $_POST['productPrice'];
 
     // insert query
-    $newproduct = "INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`) 
-                VALUES ('$productID','$productName','$productColour','$productSize','$productType','$productQuantity')";
+    $newproduct = "INSERT INTO `Inventory`(`Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity`, `Price`) 
+                VALUES ('$productID','$productName','$productColour','$productSize','$productType','$productQuantity', $productPrice)";
 
 
     // execute the query and check if successful
@@ -170,6 +171,11 @@ if (isset($_POST['submit'])) {
     <div class="field input">
         <label for="productQuantity">Quantity:</label>
         <input type="text" name="productQuantity" placeholder="Product Quantity" required>
+    </div>
+
+    <div class="field input">
+        <label for="productPrice">Price:</label>
+        <input type="number" name="productPrice" placeholder="Product Price" required>
     </div>
 
 
