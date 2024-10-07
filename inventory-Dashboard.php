@@ -110,7 +110,6 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
             <ul>
                 <li class="im-page"><a href="inventory-Dashboard.php" style="background-color: #34495e; padding-left: 20px;">Home</a></li>
                 <li class="im-page"><a href="inventory-Inventory.php" >Inventory</a></li>
-                <li class="im-page"><a href="inventory-Production.php">Production</a></li>
                 <li class="im-page"><a href="inventory-Orders.php">Orders</a></li>
                 <li class="im-page"><a href="inventory-Supplier.php">Suppliers</a></li>
                 <li class="im-page"><a href="inventory-Report.php">Report</a></li>
@@ -199,7 +198,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
 
 
     <!-- Footer Section -->
-    <footer>
+    <footer> 
         
         <div class="footer-links">
             <div class="social-media">
@@ -271,6 +270,5 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
         
     </script>
 
-    <script src="index.js"></script>
 </body>
 </html>
