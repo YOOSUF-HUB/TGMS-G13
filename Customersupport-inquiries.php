@@ -54,7 +54,7 @@ if($_SESSION['staff_role']!=='Support'){ //condition make sure admin user redire
     $customer_result = $conn->query($customer_sql);
     ?>
 
-    <main class="dashboard-container">
+    <main class="dashboard-container" >
         <section class="im-page-links">
             <ul>
                 <li class="im-page"><a href="CustomerSupportDashboard.php">Home</a></li>
@@ -65,8 +65,8 @@ if($_SESSION['staff_role']!=='Support'){ //condition make sure admin user redire
         </section>
 
 
-        <section class="content">
-        <div>
+        <section class="content" >
+        <div >
 
             <div id="viewMode" class="table-container">
 
@@ -74,51 +74,51 @@ if($_SESSION['staff_role']!=='Support'){ //condition make sure admin user redire
                 <h1 style="text-align:center">Inquiries</h1>
             </div>
 
-                <div>
+                <div style=" margin-top: 100px;height: 85vh; overflow:auto;">
 
-                <?php if ($customer_result->num_rows > 0): ?>
-                    <table class="customer_table" style="width: 1400px;border-collapse: collapse;text-align: left;margin-right: 20px;margin-left: 20px; font-size:12px;">
-                        <thead>
-                            <tr>
-                                <th>Inquiry ID</th>
-                                <th>Inquiry Date</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Email</th>
-                                <th>Phone No</th>
-                                <th>Topic</th>
-                                <th>Other Details</th>
-                                <th>Customer ID</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php while($row = $customer_result->fetch_assoc()): ?>
-                            <tr>
-                                <td><?php echo htmlspecialchars($row["Inquiry_ID"]); ?></td>
-                                <td><?php echo htmlspecialchars($row["Inquiry_Date"]); ?></td>
-                                <td><?php echo htmlspecialchars($row["First_name"]); ?></td>
-                                <td><?php echo htmlspecialchars($row["Last_name"]); ?></td>
-                                <td><?php echo htmlspecialchars($row["Email"]); ?></td>
-                                <td><?php echo htmlspecialchars($row["Phone_no"]); ?></td>
-                                <td><?php echo htmlspecialchars($row["Topic"]); ?></td>
-                                <td><?php echo htmlspecialchars($row["Other"]); ?></td>
-                                <td><?php echo htmlspecialchars($row["Customer_ID"]); ?></td>
-                                <td style="background-color: <?php echo $row["Status"] == 'Active' ? 'rgba(255, 97, 97, 1)' : ($row["Status"] == 'Closed' ? 'rgba(103, 255, 188, 1)' : ''); ?>;">
-                                        <?php echo htmlspecialchars($row["Status"]); ?>
-                                </td>
-                                <td>
-                                <button style="background-color: #0B2F9F; border-radius: 5px; border: none; padding: 5px;"><a href="update_inquiry.php?updateid=<?php echo $row['Inquiry_ID']; ?>" style="text-decoration: none; color: white;">Update</a></button>
-                                <button style="background-color: #B8001F; border-radius: 5px; border: none; padding: 5px;  margin-top: 10px"><a href="delete-inquiries.php?deleteid=<?php echo $row['Inquiry_ID']; ?>" style="text-decoration: none; color: white;">Delete</a></button>
-                                </td>
-                            </tr>
-                            <?php endwhile; ?>
-                        </tbody>
-                    </table>
-                <?php else: ?>
-                    <p>No records found.</p>
-                <?php endif; ?>
+                    <?php if ($customer_result->num_rows > 0): ?>
+                        <table class="customer_table" style="width: 1400px;border-collapse: collapse;text-align: left;margin-right: 20px;margin-left: 20px; font-size:12px;margin-bottom:100px;box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);">
+                            <thead>
+                                <tr>
+                                    <th>Inquiry ID</th>
+                                    <th>Inquiry Date</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Email</th>
+                                    <th>Phone No</th>
+                                    <th>Topic</th>
+                                    <th>Other Details</th>
+                                    <th>Customer ID</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php while($row = $customer_result->fetch_assoc()): ?>
+                                <tr>
+                                    <td><?php echo htmlspecialchars($row["Inquiry_ID"]); ?></td>
+                                    <td><?php echo htmlspecialchars($row["Inquiry_Date"]); ?></td>
+                                    <td><?php echo htmlspecialchars($row["First_name"]); ?></td>
+                                    <td><?php echo htmlspecialchars($row["Last_name"]); ?></td>
+                                    <td><?php echo htmlspecialchars($row["Email"]); ?></td>
+                                    <td><?php echo htmlspecialchars($row["Phone_no"]); ?></td>
+                                    <td><?php echo htmlspecialchars($row["Topic"]); ?></td>
+                                    <td><?php echo htmlspecialchars($row["Other"]); ?></td>
+                                    <td><?php echo htmlspecialchars($row["Customer_ID"]); ?></td>
+                                    <td style="background-color: <?php echo $row["Status"] == 'Active' ? 'rgba(255, 97, 97, 1)' : ($row["Status"] == 'Closed' ? 'rgba(103, 255, 188, 1)' : ''); ?>;">
+                                            <?php echo htmlspecialchars($row["Status"]); ?>
+                                    </td>
+                                    <td>
+                                    <button style="background-color: #0B2F9F; border-radius: 5px; border: none; padding: 5px;"><a href="update_inquiry.php?updateid=<?php echo $row['Inquiry_ID']; ?>" style="text-decoration: none; color: white;">Update</a></button>
+                                    <button style="background-color: #B8001F; border-radius: 5px; border: none; padding: 5px;  margin-top: 10px"><a href="delete-inquiries.php?deleteid=<?php echo $row['Inquiry_ID']; ?>" style="text-decoration: none; color: white;">Delete</a></button>
+                                    </td>
+                                </tr>
+                                <?php endwhile; ?>
+                            </tbody>
+                        </table>
+                    <?php else: ?>
+                        <p>No records found.</p>
+                    <?php endif; ?>
 
 
                 </div>

@@ -86,7 +86,7 @@ if ($_SESSION['staff_role'] !== 'Support') { // Ensure admin user is redirected 
     ?>
 
     <main class="dashboard-container">
-        <section class="im-page-links" style="height:200vh;">
+        <section class="im-page-links" style="height:180vh;">
             <ul>
                 <li class="im-page"><a href="CustomerSupportDashboard.php">Home</a></li>
                 <li class="im-page"><a href="Customersupport-inquiries.php">Inquiries</a></li>

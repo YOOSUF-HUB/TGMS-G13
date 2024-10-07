@@ -79,7 +79,7 @@ if($_SESSION['staff_role']!=='Support'){ //condition make sure admin user redire
                 <div>
 
                     <?php if ($customer_result->num_rows > 0): ?>
-                        <table class="customer_table" style="width: 1400px;border-collapse: collapse;text-align: left;margin-right: 20px;margin-left: 20px; font-size:12px;">
+                        <table class="customer_table" style="width: 60%;border-collapse: collapse;text-align: left;margin-right: 20px;margin-left: 20px; font-size:11px; margin-bottom:100px; box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);">
                             <thead>
                                 <tr>
                                     <th>Consultation_ID</th>
