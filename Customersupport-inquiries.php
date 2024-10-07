@@ -74,7 +74,7 @@ if($_SESSION['staff_role']!=='Support'){ //condition make sure admin user redire
                 <h1 style="text-align:center">Inquiries</h1>
             </div>
 
-                <div style=" margin-top: 100px;height: 85vh; overflow:auto;">
+                <div style="height: 85vh; overflow:auto;">
 
                     <?php if ($customer_result->num_rows > 0): ?>
                         <table class="customer_table" style="width: 1400px;border-collapse: collapse;text-align: left;margin-right: 20px;margin-left: 20px; font-size:12px;margin-bottom:100px;box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);">
@@ -85,7 +85,7 @@ if($_SESSION['staff_role']!=='Support'){ //condition make sure admin user redire
                                     <th>First Name</th>
                                     <th>Last Name</th>
                                     <th>Email</th>
-                                    <th>Phone No</th>
+                                    <th>Telephone</th>
                                     <th>Topic</th>
                                     <th>Other Details</th>
                                     <th>Customer ID</th>

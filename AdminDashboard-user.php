@@ -87,7 +87,7 @@ if($_SESSION['staff_role']!=='Admin'){ //condition make sure admin user redirect
                                     <th>Email</th>
                                     <th>Password</th>
                                     <th>Address</th>
-                                    <th>Phone No</th>
+                                    <th>Telephone</th>
                                     <th>Date of Birth</th>
                                     <th>Date Created</th>
                                 </tr>

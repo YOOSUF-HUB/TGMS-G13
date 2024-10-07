@@ -79,20 +79,20 @@ if($_SESSION['staff_role']!=='Support'){ //condition make sure admin user redire
                 <div>
 
                     <?php if ($customer_result->num_rows > 0): ?>
-                        <table class="customer_table" style="width: 60%;border-collapse: collapse;text-align: left;margin-right: 20px;margin-left: 20px; font-size:11px; margin-bottom:100px; box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);">
+                        <table class="customer_table" style="width: 98%;border-collapse: collapse;text-align: left;margin-right: 20px;margin-left: 20px; font-size:11px; margin-bottom:100px; box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);">
                             <thead>
                                 <tr>
-                                    <th>Consultation_ID</th>
-                                    <th>Consultation_Date</th>
-                                    <th>Full_name</th>
+                                    <th>Consultation ID</th>
+                                    <th>Consultation Date</th>
+                                    <th>Full name</th>
                                     <th>Email</th>
-                                    <th>Phone_no</th>
-                                    <th>Company_name</th>
-                                    <th>Company_website_URL</th>
-                                    <th>Company_scale</th>
-                                    <th>Brand_overview</th>
+                                    <th>Telephone</th>
+                                    <th>Company Name</th>
+                                    <th>Company Website URL</th>
+                                    <th>Company Scale</th>
+                                    <th>Brand Overview</th>
                                     <th>Other</th>
-                                    <th>Customer_ID</th>
+                                    <th>Customer ID</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>

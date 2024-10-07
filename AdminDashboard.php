@@ -16,11 +16,324 @@ if($_SESSION['staff_role']!=='Admin'){ //condition make sure admin user redirect
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrator Dashboard</title>
-    <link rel="stylesheet" href="styles/Admin_Dashboard.css">
+   <!-- <link rel="stylesheet" href="styles/Admin_Dashboard.css"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- social media icons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <!-- Questrial Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+
+
+    <style>
+        html{
+    background-color: #ECDFCC ;
+}
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif; 
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #697565;
+    padding: 20px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 120px;
+}
+
+
+
+
+/* HEADER */
+/* HEADER */
+.top-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo-notification {
+    display: flex;
+    padding-left: 20px;
+}
+
+.logo-notification .logo-content img{
+    height: 80px;
+    padding-left: 5px;
+}
+
+.logo-notification .notification {
+    padding-right: 0;
+}
+
+.title {
+    color: #ECDFCC
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.profile-container i{
+    font-size:36px;
+    padding-bottom: 10px;
+}
+
+.profile-container p{
+    font-family: Questrial,sans-serif;
+    margin-top: 0px; color: #ECDFCC;
+}
+
+#logout-btn{
+    border: none;
+    height: 30px;
+    width: 90px;
+    border-radius: 10px;
+
+}
+
+
+
+
+
+
+
+
+/* END OF HEADER */
+/* END OF HEADER */
+
+/* FOOTER */
+/* FOOTER */
+
+/* Footer Section */
+footer {
+    background-color: #697565;
+    color: white;
+    padding: 40px 0px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.social-media{
+    margin-right: 100px;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    color: #ECDFCC;
+}
+
+.footer-links {
+    font-family: questrial, sans-serif;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.footer-links ul {
+    margin: 10px;
+    list-style-type: none;
+}
+
+.footer-links ul a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-links ul a:hover {
+    color: #ECDFCC;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 10px;
+}
+
+
+/* END OF FOOTER */
+/* END OF FOOTER */
+
+
+
+/* MAIN CONTENT  */
+/* MAIN CONTENT  */
+/* MAIN CONTENT  */
+
+
+
+
+
+
+
+.dashboard-container {
+    display: flex;
+    height: 110%;
+}
+
+/* Navigation Bar */
+.im-page-links{
+    width: 270px;
+    background-color: #2c3e50;
+    padding-top: 40px;
+}
+.im-page-links ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 0;
+    padding: 0px;
+}
+.im-page-links li {
+    padding: 10px;
+    text-align: left;
+}
+.im-page a{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 10px 8px 10px 32px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    color: #e0e0e0;
+    display: block;
+    transition: 0.3s;
+}
+.im-page-links li a:hover {
+    background-color: #34495e;
+    padding-left: 20px;
+    transition: 0.3s;
+}
+
+
+.customer_table{
+    width: 1400px;
+    border-collapse: collapse;
+    font-size: 15px;
+    text-align: left;
+    margin-right: 20px;
+    margin-left: 20px;
+    
+}
+
+.staff_table{
+    width: 1400px;
+    border-collapse: collapse;
+    font-size: 15px;
+    text-align: left;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+thead {
+    background-color: #f2f2f2;
+
+}
+
+tbody tr{
+    background-color: white;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+th {
+    background-color: #3672ae;
+    color: white;
+}
+
+tbody td {
+    vertical-align: middle;
+}
+
+p {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.overview_buttons{
+    text-align: center;
+    width: 100%;
+    height: 250px;
+    justify-content: center;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 20px;
+}
+
+.overview_buttons button{
+    transition: transform .2s;
+    border: none;
+    border-radius: 10px;
+    font-size: 40px;
+    height: 200px;
+    width: 400px;
+}
+
+.overview_buttons button:hover{
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+
+}
+
+
+.btn1 {
+    background-color: #2c3e50;
+    color: white;
+    font-weight:200;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    margin-right: 20px;
+}
+.btn1 a {
+    text-decoration: none;
+    color: white;
+    padding: 8px;
+
+}
+ .btn1:hover {
+    background-color: #34495e;
+}
+
+#chartContainer{
+    margin-bottom: 100px;
+}
+    </style>
 
 </head>
 <body>
@@ -85,7 +398,7 @@ if($_SESSION['staff_role']!=='Admin'){ //condition make sure admin user redirect
 
         <section class="content"></section>
 
-        <div style="width:100%;">
+        <div style="width:100%;  margin-bottom: 100px;">
 
             <div id="overviewContainer">
                 <h1 style="text-align:center">Admin Dashboard Overview</h1>
@@ -93,15 +406,15 @@ if($_SESSION['staff_role']!=='Admin'){ //condition make sure admin user redirect
             </div>
 
             <div class="overview_buttons">
-                <button><text style="font-size: 30px;">Staff Accounts</text><br><br><?php echo $staff_count; ?></button>
-                <button><text style="font-size: 30px;">Customer Accounts</text><br><br><?php echo $customer_count; ?></button>
+                <button style="background-color:white;"><text style="font-size: 30px; font-family: 'Questrial', sans-serif;">Staff Accounts</text><br><br><?php echo $staff_count; ?></button>
+                <button style="background-color:white;"><text style="font-size: 30px; font-family: 'Questrial', sans-serif;">Customer Accounts</text><br><br><?php echo $customer_count; ?></button>
             </div>
 
 
             <!-- Account Creation Chart -->
-            <div id="chartContainer" style="background-color: white; width:70vw; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); padding: 20px;margin-left:7%;">
-               <h1 style="text-align:center">Account Creation Overview</h1>
-                <canvas id="accountCreationChart" width="100" height="25" style="margin-right: 30px; margin-left: 30px;"></canvas>
+            <div id="chartContainer" style=" height: 70vh; overflow:auto; background-color: white; width:70vw; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); padding: 20px;margin-left:7%;">
+               <h1 style="text-align:center; font-family: 'Questrial', sans-serif;">Account Creation Overview</h1>
+                <canvas id="accountCreationChart" width="200" height="100" style="margin-right: 30px; margin-left: 30px;"></canvas>
             </div>
 
             <?php $conn->close(); // Close the connection ?>

@@ -82,14 +82,14 @@ if($_SESSION['staff_role']!=='Support'){ //condition make sure admin user redire
                         <table class="customer_table" style="width: 1400px;border-collapse: collapse;text-align: left;margin-right: 20px;margin-left: 20px; font-size:12px; margin-bottom:100px;box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);">
                             <thead>
                                 <tr>
-                                    <th>Help_ID</th>
-                                    <th>Customer_ID</th>
-                                    <th>First_name</th>
-                                    <th>Last_name</th>
+                                    <th>Help ID</th>
+                                    <th>Customer ID</th>
+                                    <th>First name</th>
+                                    <th>Last name</th>
                                     <th>Email</th>
                                     <th>Subject</th>
                                     <th>Message</th>
-                                    <th>Date_created</th>
+                                    <th>Date created</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>

@@ -159,7 +159,7 @@ footer {
 
 .dashboard-container {
     display: flex;
-    height: 100vh;
+    height: 150vh;
 }
 
 /* Navigation Bar */
@@ -297,4 +297,8 @@ p {
 }
  .btn1:hover {
     background-color: #34495e;
+}
+
+#chartContainer{
+    margin-bottom: 100px;
 }
