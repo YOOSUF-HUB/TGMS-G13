@@ -118,7 +118,7 @@ if(isset($_POST['submit'])){
                 </div>
             <?php endif; ?>
 
-            <form action="" method="post" style="display: block;">
+            <form action="" method="post" >
                 <div class="field input">
                     <input type="email" name="email" id="email" placeholder="Email" autocomplete="off" required>
                 </div>
@@ -128,8 +128,7 @@ if(isset($_POST['submit'])){
                 </div>
 
                 <div class="link">
-                    <!-- <p> <a href="forgotpassword.php">Forgot password</a></p> -->
-                    <button onclick="forgotPassword()">Forgot password</button>
+                    <p> <a href="forgotpassword.php">Forgot password</a></p> 
                 </div>
 
                 <div class="field">
@@ -139,6 +138,11 @@ if(isset($_POST['submit'])){
                 <div class="link">
                     <p> <a href="register.php">Create new account</a></p>
                 </div>
+            </form>
+
+            <form action="" method="post">
+                <input type="password" name="password" placeholder="Enter new password" required>
+                <button type="submit" name="submit">Reset Password</button>
             </form>
         </div>
         
