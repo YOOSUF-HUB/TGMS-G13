@@ -117,6 +117,7 @@ session_start();
                 $brand_overview = mysqli_real_escape_string($conn, $_POST['brand_overview']);
                 $other_comments = mysqli_real_escape_string($conn, $_POST['other_comments']);
                 $user_id = mysqli_real_escape_string($conn, $_SESSION['user_id']);
+                $status = 'Status';
 
                 // Query to get the last Consultation_ID
                 $find = mysqli_query($conn, "SELECT MAX(Consultation_ID) AS max_id FROM Consultation");
@@ -133,8 +134,8 @@ session_start();
                 }
 
                 // Insert form data into the database
-                $query = "INSERT INTO Consultation (Consultation_ID, Consultation_Date, Full_name, Email, Phone_no, Company_name, Company_website_URL, Company_scale, Brand_overview, Other, Customer_ID)
-                        VALUES ('$customerid', NOW(), '$full_name', '$email', '$telephone', '$company_name', '$company_website', '$company_scale', '$brand_overview', '$other_comments', '$user_id')";
+                $query = "INSERT INTO Consultation (Consultation_ID, Consultation_Date, Full_name, Email, Phone_no, Company_name, Company_website_URL, Company_scale, Brand_overview, Other, Customer_ID , Status)
+                        VALUES ('$customerid', NOW(), '$full_name', '$email', '$telephone', '$company_name', '$company_website', '$company_scale', '$brand_overview', '$other_comments', '$user_id' , 'Active')";
 
                 if (mysqli_query($conn, $query)) {
                     echo "<div class='successmessage'>

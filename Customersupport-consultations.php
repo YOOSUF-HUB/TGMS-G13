@@ -51,7 +51,7 @@ if($_SESSION['staff_role']!=='Support'){ //condition make sure admin user redire
     include 'php/config.php';
 
     // SQL query to fetch data from customer account table
-    $customer_sql = "SELECT Consultation_ID, Consultation_Date, Full_name, Email, Phone_no, Company_name, Company_website_URL, Company_scale, Brand_overview,Other,Customer_ID FROM Consultation";
+    $customer_sql = "SELECT Consultation_ID, Consultation_Date, Full_name, Email, Phone_no, Company_name, Company_website_URL, Company_scale, Brand_overview,Other,Customer_ID, Status FROM Consultation";
     $customer_result = $conn->query($customer_sql);
     ?>
 
@@ -93,6 +93,8 @@ if($_SESSION['staff_role']!=='Support'){ //condition make sure admin user redire
                                     <th>Brand_overview</th>
                                     <th>Other</th>
                                     <th>Customer_ID</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -109,6 +111,11 @@ if($_SESSION['staff_role']!=='Support'){ //condition make sure admin user redire
                                     <td><?php echo $row["Brand_overview"]; ?></td>
                                     <td><?php echo $row["Other"]; ?></td>
                                     <td><?php echo $row["Customer_ID"]; ?></td>
+                                    <td><?php echo $row["Status"]; ?></td>
+                                    <td>
+                                    <button style="background-color: #0B2F9F; border-radius: 5px; border: none; padding: 5px;"><a href="consultation-update.php?updateid=<?php echo $row['Consultation_ID']; ?>" style="text-decoration: none; color: white;">Update</a></button>
+                                    <button style="background-color: #B8001F; border-radius: 5px; border: none; padding: 5px;  margin-top: 10px"><a href="consultation-delete.php?deleteid=<?php echo $row['Consultation_ID']; ?>" style="text-decoration: none; color: white;">Delete</a></button>
+                                    </td>
                                 </tr>
                                 <?php endwhile; ?>
                             </tbody>
