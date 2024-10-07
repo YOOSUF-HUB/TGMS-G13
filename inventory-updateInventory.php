@@ -23,6 +23,8 @@ if (isset($_POST['save'])) {
     $productSize = $_POST['productSize'];
     $productType = $_POST['productType'];
     $productQuantity = $_POST['productQuantity'];
+    $productPrice = $_POST['productPrice'];
+
 
     // Prepare the SQL update query
     $updateQuery = "UPDATE Inventory 
@@ -30,7 +32,8 @@ if (isset($_POST['save'])) {
                 `Colour` = '$productColour', 
                 `Size` = '$productSize', 
                 `Type` = '$productType', 
-                `Quantity` = '$productQuantity'
+                `Quantity` = '$productQuantity',
+                `Price` = '$productPrice'
         WHERE `Product_ID` = '$Product_ID'";
 
 
@@ -175,6 +178,11 @@ if (isset($_POST['save'])) {
     <div class="field input">
         <label for="productQuantity">Quantity:</label>
         <input type="text" name="productQuantity" placeholder="Product Quantity" value="<?php echo $row["Quantity"]; ?>">
+    </div>
+
+    <div class="field input">
+        <label for="productPrice">Price:</label>
+        <input type="number" name="productPrice" placeholder="Product Price" value="<?php echo $row["Price"]; ?>">
     </div>
 
 
