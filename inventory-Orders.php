@@ -363,7 +363,6 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
     
     // js to change between view and manage mode
     function manageOrder() {
-        document.getElementById('addOrderBtn').style.display = 'none'; 
         document.getElementById('manageOrderBtn').style.display = 'none'; 
         document.getElementById('cancelBtn').style.display = 'block'; 
 
@@ -372,7 +371,6 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
         
     }
     function cancelManageOrder() {
-        document.getElementById('addOrderBtn').style.display = 'inline-block'; 
         document.getElementById('manageOrderBtn').style.display = 'inline-block'; 
         document.getElementById('cancelBtn').style.display = 'none'; 
 
