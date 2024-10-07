@@ -230,7 +230,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                 </div>
 
                 <!-- monthly revenues -->
-                <div id="rbmTab" class="inner-table-container" >
+                <div id="rbmTab" class="inner-table-container" style="display:none; ">
                 <table class="table">
                     <thead>
                         <tr>
