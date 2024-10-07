@@ -216,7 +216,7 @@ footer {
 .progress-bar {
     height: 100%;
     width: 0;
-    background-color: #4caf50;
+    background-color: #45a548;
     border-radius: 5px;
     transition: width 0.5s;
 }
@@ -291,7 +291,9 @@ footer {
  .btn1:hover {
     background-color: #34495e;
 }
-
+.target_field{
+    height: 2rem;
+}
 
 /* Orders */
 .tab1 {

@@ -1,5 +1,7 @@
 <?php
 session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 if (!isset($_SESSION['username'])) { 
     header("Location: adminlogin.php");
     exit();
@@ -30,6 +32,36 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
     $group_query = "SELECT `Name`, SUM(`Quantity`) AS TotalQuantity FROM `Inventory` 
     WHERE `Name`='Hoodie' || `Name`='Joggers' || `Name`='T-Shirt' || `Name`='Long Sleeve T' GROUP BY `Name`";
     $result = mysqli_query($conn, $group_query);
+
+
+    $curMonth_sql = "SELECT DATE_FORMAT(Payment_date, '%M') as month, SUM(Payment_amount) as mtotal FROM Payments GROUP BY `month`";
+    $curMonth_result = mysqli_query($conn, $curMonth_sql); //excute query
+
+    while ($curMonth_row = mysqli_fetch_assoc($curMonth_result)){
+        if($curMonth_row['month'] == date('F')){    
+            $curMonth = $curMonth_row['month'];
+            $curMonth_revenue = $curMonth_row['mtotal'];
+        }
+    }
+
+    $find_target = mysqli_query($conn,"SELECT target_amount FROM sales_target WHERE id =1 ");
+    $fetch_target = mysqli_fetch_assoc($find_target);
+    $targetAmount = $fetch_target['target_amount'];
+
+    if(isset($_GET['submit'])){
+        $newtargetAmount = $_GET['targetValue'];
+
+        $target_sql = "UPDATE sales_target SET `month`='$curMonth', target_amount = $newtargetAmount, achieved_amount = $curMonth_revenue where id =1";
+        $target_result = mysqli_query($conn, $target_sql);
+
+
+
+
+    }
+    $find_target = mysqli_query($conn,"SELECT target_amount FROM sales_target WHERE id =1 ");
+    $fetch_target = mysqli_fetch_assoc($find_target);
+    $targetAmount = $fetch_target['target_amount'];
+    
 
     
     ?>
@@ -97,8 +129,14 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
         <section class="content" >
             <div class="sales-target-container">
                 <div style="display: flex; justify-content: space-between;">
-                    <h2>Monthly Sales Target</h2>
-                    <input type="button" value="Set-Target">
+                    <h2>Monthly Sales Target : <?php echo $curMonth?></h2>
+                    <div>
+                        <form action="" method="GET" id="targetValue" style="display: none;">
+                            <input type="number" name="targetValue" class="target_field" style="height: 2rem; font-size:1.3rem;">
+                            <input type="submit" name="submit" class="btn1" value="submit" onclick="close_setTarget()">
+                        </form>
+                        <input type="button" class="btn1" value="Set-Target" onclick="setTarget()" id="on_targetValue">
+                    </div>
                 </div>
 
                 <div class="progress-bar-container">
@@ -106,7 +144,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                 </div>
                 
                 <div class="text">
-                    <p>Target: <span id="target-amount">$5000</span></p>
+                    <p>Target: <span id="target-amount">Rs.<?php echo $targetAmount?></span></p>
                     <p>Completed: <span id="completed-percentage">0%</span></p>
                 </div>
             </div>
@@ -153,13 +191,6 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                             <td><?php echo $row["ddate"]; ?></td>
                             <td><?php echo $row["sts"]; ?></td>
                         </tr>
-                        <!-- <tr>
-                            <td class="orders">Product A <span>Color,Size</span></td>
-                            <td class="orderid">#O12134</td>
-                            <td class="qty">40</td>
-                            <td class="delivery">10/02/2024</td>
-                            <td class="status">In-Progress</td>
-                        </tr> -->
                         
                         <?php endwhile; ?>
                     </tbody>
@@ -222,26 +253,32 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
 
 
     <script>
-        // Define target and completed sales
-        const targetAmount = 5000;  // Sales target amount
-        const completedSales = 1900;  // Sales completed so far
+        function setTarget() { // to display input field and submit btn
+            document.getElementById('targetValue').style.display='block';
+            document.getElementById('on_targetValue').style.display='none';    
+        }
+        function close_setTarget() { // to display input field and submit btn
+            document.getElementById('targetValue').style.display='none';
+            document.getElementById('on_targetValue').style.display='block';    
+        }
 
-        // Calculate the percentage completed
-        const completedPercentage = (completedSales / targetAmount) * 100;
+        const targetAmount = <?php echo $targetAmount?>;  //  target amount
+        const completedSales = <?php echo $curMonth_revenue?>;  //  completed sales
 
-        // Update the progress bar and percentage displayed
+        const completedPercentage = (completedSales / targetAmount) * 100;// calculate completed percentage
+
+        // update the progress bar and percentage
         document.addEventListener("DOMContentLoaded", () => {
             const progressBar = document.getElementById('progress-bar');
             const completedPercentageElement = document.getElementById('completed-percentage');
 
-            // Set the width of the progress bar based on percentage
-            progressBar.style.width = `${completedPercentage}%`;
+            progressBar.style.width = `${completedPercentage}%`;//width of the progress bar
 
-            // Update the displayed completed percentage
+            // update completed percentage
             completedPercentageElement.textContent = `${Math.round(completedPercentage)}%`;
         });
+        
     </script>
-
 
     <script src="index.js"></script>
 </body>

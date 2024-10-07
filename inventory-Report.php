@@ -16,7 +16,7 @@ ini_set('display_errors', 1);
     include 'php/config.php';
 
     // Query for revenue by order table
-    $sql = "SELECT 
+    $rbo_sql = "SELECT 
         O.Order_ID as oid,
         I.Name as pname,
         C.Customer_ID as cid,
@@ -27,16 +27,17 @@ ini_set('display_errors', 1);
     FROM Orders O, Customer_account C, Inventory I , Payments P
     where O.Customer_ID = C.Customer_ID AND O.Product_ID = I.Product_ID AND O.Payment_ID = P.Payment_ID AND O.Status!='Cancelled';";
 
-    $result = $conn->query($sql);
+    $rbo_result = $conn->query($rbo_sql);
 
-    $revenue_sql = "SELECT 
+    // Query for revenue by product table
+    $rbp_sql = "SELECT 
         I.Name as pname, 
         I.Price as pprice, 
         SUM(O.Quantity) AS qtysold, 
         SUM(P.Payment_amount) AS income FROM Inventory I, Orders O, Payments P
     WHERE I.Product_ID = O.Product_ID AND O.Payment_ID = P.Payment_ID AND O.Status !='Cancelled'  AND (I.Name='Hoodie' OR I.Name='Joggers' OR I.Name='T-Shirt' OR I.Name='Long Sleeve T')
     GROUP BY I.Name";
-    $revenue_result =$conn->query($revenue_sql);
+    $rbp_result =$conn->query($rbp_sql);
 
     
     
@@ -103,11 +104,6 @@ ini_set('display_errors', 1);
         </section>
 
         <section class="content" >
-            <!-- <div style="float:right;">
-                <button class="btn1" id="addSupplierBtn"><a href="inventory-addSupplier.php?>" >Add Supplier</a></button>
-                <button class="btn1" id="manageSupplierBtn" onclick="manageSupplier()" >Manage Supplier</button>
-                <button class="btn1" id="cancelBtn" style="display: none;" onclick="cancelSupplier()"  >Cancel Manage</button>
-            </div> -->
 
             <div id="viewMode" class="table-container" >
                 <h2>Report</h2>
@@ -115,6 +111,7 @@ ini_set('display_errors', 1);
                     <li><button class="tab1" id="summaryBtn" onclick="summary()"; >Summary</button></li>
                     <li><button class="tab1" id="rbpBtn" onclick="rbp()">Revenue by Products</button></li>
                     <li><button class="tab1" id="rboBtn" onclick="rbo()">Revenue by Orders</button></li>
+                    <li><button class="tab1" id="rbmBtn" onclick="rbm()">Monthly Revenue</button></li>
                 </ul>
                 
 
@@ -163,7 +160,7 @@ ini_set('display_errors', 1);
                         </tr>
                     </thead>
                     <tbody>
-                    <?php while($row = $revenue_result->fetch_assoc()): ?>
+                    <?php while($row = $rbp_result->fetch_assoc()): ?>
                         <tr>
                             <td><?php echo $row["pname"]; ?></td>
                             <td><?php echo $row["qtysold"]; ?></td>
@@ -190,7 +187,7 @@ ini_set('display_errors', 1);
                         </tr>
                     </thead>
                     <tbody>
-                    <?php while($row = $result->fetch_assoc()): ?>
+                    <?php while($row = $rbo_result->fetch_assoc()): ?>
                         <tr>
                             <td><?php echo $row["oid"]; ?></td>
                             <td><?php echo $row["pname"]; ?></td>
@@ -204,15 +201,9 @@ ini_set('display_errors', 1);
                     </tbody>
                 </table>
                 </div>
-                
-                <
-            </div>
 
-            <!-- Manage inventory -->
-            <div id="editMode" style="display: none;" class="table-container">
-                <h2>Manage Orders</h2>
-                <div class="inner-table-container" >
-                <form action="" method="POST">
+
+                <div id="rbmTab" class="inner-table-container" >
                 <table class="table">
                     <thead>
                         <tr>
@@ -227,10 +218,7 @@ ini_set('display_errors', 1);
                         </tr>
                     </thead>
                     <tbody>
-                    <?php 
                     
-                    $result->data_seek(0); // reset the result to display results again
-                    while($row = $result->fetch_assoc()): ?>
                         <tr>
                             <td><?php echo $row["oid"]; ?></td>
                             <td><?php echo $row["pname"]; ?></td>
@@ -244,14 +232,14 @@ ini_set('display_errors', 1);
                                 <button style="background-color: #B8001F; border-radius: 5px; border: none; padding: 5px;"><a href="inventory-deleteOrder.php?deleteid=<?php echo $row['oid']; ?>" style="text-decoration: none; color: white;">Delete</a></button>
                             </td>
                         </tr>
-                    <?php endwhile; ?>
                     </tbody>
                 </table>
-                </form>
                 </div>
-
+                
                 
             </div>
+
+        
 
             
         </section>
@@ -311,62 +299,37 @@ ini_set('display_errors', 1);
 
     <script>
     
-    // JavaScript to toggle between view and manage mode
-    function manageSupplier() {
-        document.getElementById('addSupplierBtn').style.display = 'none'; 
-        document.getElementById('manageSupplierBtn').style.display = 'none'; 
-        document.getElementById('cancelBtn').style.display = 'block'; 
-
-        document.getElementById('viewMode').style.display = 'none';
-        document.getElementById('editMode').style.display = 'block';
-        
-    }
-
-    function cancelSupplier() {
-        document.getElementById('addSupplierBtn').style.display = 'inline-block'; 
-        document.getElementById('manageSupplierBtn').style.display = 'inline-block'; 
-        document.getElementById('cancelBtn').style.display = 'none'; 
-
-        document.getElementById('editMode').style.display = 'none';
-        document.getElementById('viewMode').style.display = 'block';
-        
-    }
+    
 
     function summary() {
         document.getElementById('summaryTab').style.display='block'
         document.getElementById('rbpTab').style.display='none'
         document.getElementById('rboTab').style.display='none'
-        document.getElementById('cancelledOrdersTab').style.display='none'
+        document.getElementById('rbmTab').style.display='none'
         document.getElementById('customOrdersTab').style.display='none'
     }
     function rbp() {
         document.getElementById('summaryTab').style.display='none'
         document.getElementById('rbpTab').style.display='block'
         document.getElementById('rboTab').style.display='none'
-        document.getElementById('cancelledOrdersTab').style.display='none'
+        document.getElementById('rbmTab').style.display='none'
         document.getElementById('customOrdersTab').style.display='none'
     }
     function rbo() {
         document.getElementById('summaryTab').style.display='none'
         document.getElementById('rbpTab').style.display='none'
         document.getElementById('rboTab').style.display='block'
-        document.getElementById('cancelledOrdersTab').style.display='none'
+        document.getElementById('rbmTab').style.display='none'
         document.getElementById('customOrdersTab').style.display='none'
     }
-    function cancelOrder() {
+    function rbm() {
         document.getElementById('summaryTab').style.display='none'
         document.getElementById('rbpTab').style.display='none'
         document.getElementById('rboTab').style.display='none'
-        document.getElementById('cancelledOrdersTab').style.display='block'
+        document.getElementById('rbmTab').style.display='block'
         document.getElementById('customOrdersTab').style.display='none'
     }
-    function customOrder() {
-        document.getElementById('summaryTab').style.display='none'
-        document.getElementById('rbpTab').style.display='none'
-        document.getElementById('rboTab').style.display='none'
-        document.getElementById('cancelledOrdersTab').style.display='none'
-        document.getElementById('customOrdersTab').style.display='block'
-    }
+   
     </script>
     
     
