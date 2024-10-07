@@ -132,6 +132,7 @@ if ($_SESSION['staff_role'] !== 'Support') { // Ensure admin user is redirected 
 
         const helpActive = <?php echo $active_help; ?>;
         const helpClosed = <?php echo $closed_help; ?>;
+        const totalhelp = helpActive + helpClosed;
 
         const consultationActive = <?php echo $active_consultation; ?>;
         const consultationClosed = <?php echo $closed_consultation; ?>;
@@ -167,13 +168,14 @@ if ($_SESSION['staff_role'] !== 'Support') { // Ensure admin user is redirected 
         const helpChart = new Chart(ctxHelp, {
             type: 'line',
             data: {
-                labels: ['Active Help Requests', 'Closed Help Requests'],
+                labels: ['Active Help Requests', 'Closed Help Requests', 'Total Help Requests'], // Add total to labels
                 datasets: [{
                     label: 'Help Requests',
-                    data: [helpActive, helpClosed],
+                    data: [helpActive, helpClosed, totalhelp], // Include totalhelp in the data
                     backgroundColor: [
                         'rgba(255, 120, 120, 1)', // Color for active help
-                        'rgba(103, 255, 188, 1)' // Color for closed help
+                        'rgba(103, 255, 188, 1)', // Color for closed help
+                        'rgba(100, 163, 150, 1)'  // Color for total help
                     ]
                 }]
             },
@@ -187,18 +189,22 @@ if ($_SESSION['staff_role'] !== 'Support') { // Ensure admin user is redirected 
             }
         });
 
+        // Declare totalConsultation
+        const totalConsultation = consultationActive + consultationClosed;
+
         // Chart for Consultation Requests Overview
         const ctxConsultation = document.getElementById('consultationChart').getContext('2d');
         const consultationChart = new Chart(ctxConsultation, {
             type: 'line',
             data: {
-                labels: ['Active Consultation Requests', 'Closed Consultation Requests'],
+                labels: ['Active Consultation Requests', 'Closed Consultation Requests', 'Total Consultation Requests'], // Add total to labels
                 datasets: [{
                     label: 'Consultation Requests',
-                    data: [consultationActive, consultationClosed],
+                    data: [consultationActive, consultationClosed, totalConsultation], // Include totalConsultation in the data
                     backgroundColor: [
                         'rgba(255, 120, 120, 1)', // Color for active consultation
-                        'rgba(103, 255, 188, 1)' // Color for closed consultation
+                        'rgba(103, 255, 188, 1)', // Color for closed consultation
+                        'rgba(100, 163, 150, 1)'  // Color for total consultation
                     ]
                 }]
             },
