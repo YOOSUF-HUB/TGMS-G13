@@ -313,9 +313,10 @@ ini_set('display_errors', 1);
                 $subject = mysqli_real_escape_string($conn, $_POST['subject']);
                 $message = mysqli_real_escape_string($conn, $_POST['message']);
                 $user_id = mysqli_real_escape_string($conn, $_SESSION['user_id']);
+                $status = 'Status';
 
-                $query = "INSERT INTO Help (Help_ID, Customer_ID, First_name, Last_name, Email, Subject, Message, Date_created)
-                          VALUES ('$helpid', '$user_id', '$first_name', '$last_name', '$email', '$subject', '$message', NOW())";
+                $query = "INSERT INTO Help (Help_ID, Customer_ID, First_name, Last_name, Email, Subject, Message, Date_created , Status	)
+                          VALUES ('$helpid', '$user_id', '$first_name', '$last_name', '$email', '$subject', '$message', NOW(), 'Active')";
 
                 if (mysqli_query($conn, $query)) {
                     echo "<div class='successmessage'>
