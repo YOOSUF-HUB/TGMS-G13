@@ -141,11 +141,11 @@ if (isset($_POST['submit'])) {
 
     <form action="" method="post">
     <div>
-        <h2>Add Product: <?php echo $Product_ID; ?></h2>
+        <h2>Add Product </h2>
     </div>
     <div class="field input">
         <label for="productID">Product ID:</label>
-        <input type="text" name="productID" placeholder="Product ID(VERXXX)"  required>
+        <input type="text" name="productID" placeholder="Product ID"  required>
     </div>
     <div class="field input">
         <label for="productName">Name:</label>
@@ -177,7 +177,20 @@ if (isset($_POST['submit'])) {
         <input class="btn" type="submit" name="submit" value="Create">
         <input class="btn" id="cancelBtn" type="button" value="Cancel" onclick="goBack()">
     </div>
+    <div class="instructions">
+            <h3>Instruction:</h3>
+            <ul>
+                <li>Set a unique product id according to your product.</li>
+                <ol>
+                    <li>Hoodie : VR-H-XXX</li>
+                    <li>Joggers : VR-J-XXX</li>
+                    <li>T-Shirt : VR-TS-XXX</li>
+                    <li>Long Sleeve T : VR-LT-XXX</li>
+                </ol>
+            </ul>
+    </div>
 </form>
+
    
 <script>
     //redirect to previous page
