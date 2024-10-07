@@ -100,7 +100,7 @@
             }
 
             if(isset($_SESSION['valid'])){
-                header("Location: homepage.php");
+                header("Location: index.php");
             }
 
             

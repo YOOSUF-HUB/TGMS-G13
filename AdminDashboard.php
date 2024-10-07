@@ -433,7 +433,7 @@ p {
 
         // Create the chart
         const accountCreationChart = new Chart(ctx, {
-            type: 'bar', 
+            type: 'line', 
             data: {
                 labels: ['Customer Accounts', 'Staff Accounts','Total Accounts'],
                 datasets: [{
