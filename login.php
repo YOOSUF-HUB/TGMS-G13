@@ -1,5 +1,6 @@
 <?php
     session_start(); 
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -113,12 +114,10 @@
             <h3>Login</h3>
             <form action="" method="post">
                 <div class="field input">
-                    <!-- <label for="email">Email</label> -->
                     <input type="email" name="email" id="email" placeholder="Email" autocomplete="off" required>
                 </div>
 
                 <div class="field input">
-                    <!-- <label for="password">Password</label> -->
                     <input type="password" name="password" id="password" placeholder="Password" autocomplete="off" required>
                 </div>
 
