@@ -206,7 +206,7 @@ ini_set('display_errors', 1);
             <img onclick="closeNav()" src="images/close-google.svg" class="closebtn" style="width: 30px;">
             
             <!-- Navigation links -->
-            <a href="homepage.php">Home</a>
+            <a href="index.php">Home</a>
             <a href="about.php">About</a>
             <a href="productpage.php">Products</a>
             <a href="consultation.php">Consultations</a>
