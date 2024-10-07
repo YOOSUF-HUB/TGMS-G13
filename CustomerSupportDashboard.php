@@ -50,39 +50,43 @@ if ($_SESSION['staff_role'] !== 'Support') { // Ensure admin user is redirected 
     // Include the database connection file here
     include 'php/config.php';
 
-    // SQL query to fetch data from customer account table
-    $customer_sql = "SELECT Inquiry_ID, Inquiry_Date, First_name, Last_name, Email, Phone_no, Topic, Other, Customer_ID, Status FROM Inquiries";
-    $customer_result = $conn->query($customer_sql);
-
-    // SQL query to count active inquiries
+    // SQL queries to count active and closed inquiries
     $customer_count_sql = "SELECT COUNT(*) as status_active FROM Inquiries WHERE Status = 'Active'";
     $customer_count_result = $conn->query($customer_count_sql);
     $customer_count_row = $customer_count_result->fetch_assoc();
     $status_active = $customer_count_row['status_active'];
 
-    // SQL query to count closed inquiries
     $staff_count_sql = "SELECT COUNT(*) as status_closed FROM Inquiries WHERE Status = 'Closed'";
     $staff_count_result = $conn->query($staff_count_sql);
     $staff_count_row = $staff_count_result->fetch_assoc();
     $status_closed = $staff_count_row['status_closed'];
 
-        // SQL query to count closed inquiries
-    $help_sql = "SELECT COUNT(*) as help_request FROM Help";
-    $help_sql_result = $conn->query($help_sql);
-    $help_count_row = $help_sql_result->fetch_assoc();
-    $help = $help_count_row['help_request'];
+    // SQL queries for Help and Consultation
+    $help_active_sql = "SELECT COUNT(*) as active_help FROM Help WHERE Status = 'Active'";
+    $help_active_result = $conn->query($help_active_sql);
+    $help_active_row = $help_active_result->fetch_assoc();
+    $active_help = $help_active_row['active_help'];
 
-    // SQL query to count closed inquiries
-    $consultation_sql = "SELECT COUNT(*) as consultaion_request FROM Consultation";
-    $consultation_count_result = $conn->query($consultation_sql);
-    $consultation_count_row = $consultation_count_result->fetch_assoc();
-    $consultation = $consultation_count_row['consultaion_request'];
+    $help_closed_sql = "SELECT COUNT(*) as closed_help FROM Help WHERE Status = 'Closed'";
+    $help_closed_result = $conn->query($help_closed_sql);
+    $help_closed_row = $help_closed_result->fetch_assoc();
+    $closed_help = $help_closed_row['closed_help'];
+
+    $consultation_active_sql = "SELECT COUNT(*) as active_consultation FROM Consultation WHERE Status = 'Active'";
+    $consultation_active_result = $conn->query($consultation_active_sql);
+    $consultation_active_row = $consultation_active_result->fetch_assoc();
+    $active_consultation = $consultation_active_row['active_consultation'];
+
+    $consultation_closed_sql = "SELECT COUNT(*) as closed_consultation FROM Consultation WHERE Status = 'Closed'";
+    $consultation_closed_result = $conn->query($consultation_closed_sql);
+    $consultation_closed_row = $consultation_closed_result->fetch_assoc();
+    $closed_consultation = $consultation_closed_row['closed_consultation'];
 
     $conn->close(); // Close the connection
     ?>
 
     <main class="dashboard-container">
-        <section class="im-page-links" style="height:150vh;">
+        <section class="im-page-links" style="height:200vh;">
             <ul>
                 <li class="im-page"><a href="CustomerSupportDashboard.php">Home</a></li>
                 <li class="im-page"><a href="Customersupport-inquiries.php">Inquiries</a></li>
@@ -96,20 +100,25 @@ if ($_SESSION['staff_role'] !== 'Support') { // Ensure admin user is redirected 
                 <h1 style="text-align:center">Support Dashboard Overview</h1>
             </div>
 
-        <!-- Account Creation Chart -->
+        <!-- Inquiries Overview Chart -->
         <div id="chartContainer" style="background-color: white; width:70vw; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); padding: 20px; margin-left:7%;margin-top:7%;">
             <h1 style="text-align:center">Inquiries Overview</h1>
             <canvas id="accountCreationChart" width="800" height="200" style="margin-right: 30px; margin-left: 30px;"></canvas>
         </div>
 
-        <!-- Account Creation Chart 2-->
+        <!-- Help Requests Chart -->
         <div id="chartContainer" style="background-color: white; width:70vw; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); padding: 20px; margin-left:7%;margin-top:7%;">
-            <h1 style="text-align:center">Consulation & Help Request Overview</h1>
-            <canvas id="accountCreationChart2" width="800" height="200" style="margin-right: 30px; margin-left: 30px;"></canvas>
+            <h1 style="text-align:center">Help Requests Overview</h1>
+            <canvas id="helpChart" width="800" height="200" style="margin-right: 30px; margin-left: 30px;"></canvas>
+        </div>
+
+        <!-- Consultation Requests Chart -->
+        <div id="chartContainer" style="background-color: white; width:70vw; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); padding: 20px; margin-left:7%;margin-top:7%;">
+            <h1 style="text-align:center">Consultation Requests Overview</h1>
+            <canvas id="consultationChart" width="800" height="200" style="margin-right: 30px; margin-left: 30px;"></canvas>
         </div>
 
         </div>
-
 
     </main>
 
@@ -121,13 +130,14 @@ if ($_SESSION['staff_role'] !== 'Support') { // Ensure admin user is redirected 
         const staffCount = <?php echo $status_closed; ?>;
         const totalCount = customerCount + staffCount;
 
-        const helpreq = <?php echo $help; ?>;
-        const consultreq = <?php echo $consultation; ?>;
-        const totalreq = helpreq + consultreq;
+        const helpActive = <?php echo $active_help; ?>;
+        const helpClosed = <?php echo $closed_help; ?>;
 
+        const consultationActive = <?php echo $active_consultation; ?>;
+        const consultationClosed = <?php echo $closed_consultation; ?>;
+
+        // Chart for Inquiries Overview
         const ctx = document.getElementById('accountCreationChart').getContext('2d');
-
-        // Create the chart
         const accountCreationChart = new Chart(ctx, {
             type: 'line',
             data: {
@@ -152,22 +162,43 @@ if ($_SESSION['staff_role'] !== 'Support') { // Ensure admin user is redirected 
             }
         });
 
-
-
-        const ctx2 = document.getElementById('accountCreationChart2').getContext('2d');
-
-        // Create the chart
-        const accountCreationChart2 = new Chart(ctx2, {
+        // Chart for Help Requests Overview
+        const ctxHelp = document.getElementById('helpChart').getContext('2d');
+        const helpChart = new Chart(ctxHelp, {
             type: 'line',
             data: {
-                labels: ['Help Requests', 'Consultation Requests', 'Total'],
+                labels: ['Active Help Requests', 'Closed Help Requests'],
                 datasets: [{
-                    label: 'Total Inquiries',
-                    data: [helpreq, consultreq, totalreq],
+                    label: 'Help Requests',
+                    data: [helpActive, helpClosed],
                     backgroundColor: [
-                        'rgba(255, 120, 120, 1)', // Color for active inquiries
-                        'rgba(103, 255, 188, 1)', // Color for closed inquiries
-                        'rgba(100, 163, 150, 1)' // Color for total inquiries
+                        'rgba(255, 120, 120, 1)', // Color for active help
+                        'rgba(103, 255, 188, 1)' // Color for closed help
+                    ]
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true, // Start the y-axis at zero
+                        ticks: { stepSize: 1 } // y-axis increases in increments of 1
+                    }
+                }
+            }
+        });
+
+        // Chart for Consultation Requests Overview
+        const ctxConsultation = document.getElementById('consultationChart').getContext('2d');
+        const consultationChart = new Chart(ctxConsultation, {
+            type: 'line',
+            data: {
+                labels: ['Active Consultation Requests', 'Closed Consultation Requests'],
+                datasets: [{
+                    label: 'Consultation Requests',
+                    data: [consultationActive, consultationClosed],
+                    backgroundColor: [
+                        'rgba(255, 120, 120, 1)', // Color for active consultation
+                        'rgba(103, 255, 188, 1)' // Color for closed consultation
                     ]
                 }]
             },
