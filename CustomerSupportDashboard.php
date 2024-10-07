@@ -66,11 +66,23 @@ if ($_SESSION['staff_role'] !== 'Support') { // Ensure admin user is redirected 
     $staff_count_row = $staff_count_result->fetch_assoc();
     $status_closed = $staff_count_row['status_closed'];
 
+        // SQL query to count closed inquiries
+    $help_sql = "SELECT COUNT(*) as help_request FROM Help";
+    $help_sql_result = $conn->query($help_sql);
+    $help_count_row = $help_sql_result->fetch_assoc();
+    $help = $help_count_row['help_request'];
+
+    // SQL query to count closed inquiries
+    $consultation_sql = "SELECT COUNT(*) as consultaion_request FROM Consultation";
+    $consultation_count_result = $conn->query($consultation_sql);
+    $consultation_count_row = $consultation_count_result->fetch_assoc();
+    $consultation = $consultation_count_row['consultaion_request'];
+
     $conn->close(); // Close the connection
     ?>
 
     <main class="dashboard-container">
-        <section class="im-page-links">
+        <section class="im-page-links" style="height:150vh;">
             <ul>
                 <li class="im-page"><a href="CustomerSupportDashboard.php">Home</a></li>
                 <li class="im-page"><a href="Customersupport-inquiries.php">Inquiries</a></li>
@@ -86,8 +98,14 @@ if ($_SESSION['staff_role'] !== 'Support') { // Ensure admin user is redirected 
 
         <!-- Account Creation Chart -->
         <div id="chartContainer" style="background-color: white; width:70vw; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); padding: 20px; margin-left:7%;margin-top:7%;">
-            <h1 style="text-align:center">Account Creation Overview</h1>
+            <h1 style="text-align:center">Inquiries Overview</h1>
             <canvas id="accountCreationChart" width="800" height="200" style="margin-right: 30px; margin-left: 30px;"></canvas>
+        </div>
+
+        <!-- Account Creation Chart 2-->
+        <div id="chartContainer" style="background-color: white; width:70vw; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); padding: 20px; margin-left:7%;margin-top:7%;">
+            <h1 style="text-align:center">Consulation & Help Request Overview</h1>
+            <canvas id="accountCreationChart2" width="800" height="200" style="margin-right: 30px; margin-left: 30px;"></canvas>
         </div>
 
         </div>
@@ -103,6 +121,10 @@ if ($_SESSION['staff_role'] !== 'Support') { // Ensure admin user is redirected 
         const staffCount = <?php echo $status_closed; ?>;
         const totalCount = customerCount + staffCount;
 
+        const helpreq = <?php echo $help; ?>;
+        const consultreq = <?php echo $consultation; ?>;
+        const totalreq = helpreq + consultreq;
+
         const ctx = document.getElementById('accountCreationChart').getContext('2d');
 
         // Create the chart
@@ -113,6 +135,35 @@ if ($_SESSION['staff_role'] !== 'Support') { // Ensure admin user is redirected 
                 datasets: [{
                     label: 'Total Inquiries',
                     data: [customerCount, staffCount, totalCount],
+                    backgroundColor: [
+                        'rgba(255, 120, 120, 1)', // Color for active inquiries
+                        'rgba(103, 255, 188, 1)', // Color for closed inquiries
+                        'rgba(100, 163, 150, 1)' // Color for total inquiries
+                    ]
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true, // Start the y-axis at zero
+                        ticks: { stepSize: 1 } // y-axis increases in increments of 1
+                    }
+                }
+            }
+        });
+
+
+
+        const ctx2 = document.getElementById('accountCreationChart2').getContext('2d');
+
+        // Create the chart
+        const accountCreationChart2 = new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: ['Help Requests', 'Consultation Requests', 'Total'],
+                datasets: [{
+                    label: 'Total Inquiries',
+                    data: [helpreq, consultreq, totalreq],
                     backgroundColor: [
                         'rgba(255, 120, 120, 1)', // Color for active inquiries
                         'rgba(103, 255, 188, 1)', // Color for closed inquiries

@@ -110,6 +110,7 @@ if($_SESSION['staff_role']!=='Support'){ //condition make sure admin user redire
                                 </td>
                                 <td>
                                 <button style="background-color: #0B2F9F; border-radius: 5px; border: none; padding: 5px;"><a href="update_inquiry.php?updateid=<?php echo $row['Inquiry_ID']; ?>" style="text-decoration: none; color: white;">Update</a></button>
+                                <button style="background-color: #B8001F; border-radius: 5px; border: none; padding: 5px;  margin-top: 10px"><a href="delete-inquiries.php?deleteid=<?php echo $row['Inquiry_ID']; ?>" style="text-decoration: none; color: white;">Delete</a></button>
                                 </td>
                             </tr>
                             <?php endwhile; ?>
