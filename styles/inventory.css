@@ -306,6 +306,7 @@ footer {
     display: flex; 
     list-style-type: none; 
     padding: 0;
+    padding-left: 12px;
 }
 .tab1 {
     background-color: #2c3e50; 
