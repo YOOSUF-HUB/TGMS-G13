@@ -12,6 +12,43 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
 <?php
     include 'php/config.php';
 
+    // Query for summary table
+    //getting Total Number of Products and Total Stock Value
+    $total_products = "SELECT Price, SUM(Quantity) as tproducts FROM Inventory GROUP BY Price";
+    $tproducts_results = mysqli_query($conn, $total_products);
+    while ($row = mysqli_fetch_assoc($tproducts_results)){
+        $totalProducts += $row['tproducts'];
+        $totalValue += $row['tproducts'] * $row['Price'];
+    };
+
+    //getting Total Revenue Generated
+    $total_revenue = "SELECT SUM(Payment_amount) as tamount FROM Payments";
+    $trevenue_results = mysqli_query($conn, $total_revenue);
+    $rrow = mysqli_fetch_assoc($trevenue_results);
+    $totalRevenue = $rrow['tamount'];
+
+    //getting Total orders received, most ordered product and least orderd product
+    $orders = "SELECT I.Name as `name`, SUM(O.Quantity) as qty, COUNT(Order_ID) as torders FROM Inventory I, Orders O
+    WHERE I.Product_ID = O.Product_ID GROUP BY I.Name";
+    $orders_results = mysqli_query($conn, $orders);
+    while ($row = mysqli_fetch_assoc($orders_results)){
+        $totalOrders += $row['torders'];
+        if ($row['qty'] > $mostOrdered){
+            $mostOrdered = $row['qty'];
+            $mostOrdered_name = $row['name'];
+        }
+        if ($leastOrdered === null || $row['qty'] < $leastOrdered){
+            $leastOrdered = $row['qty'];
+            $leastOrdered_name = $row['name'];
+        }
+    };
+
+    
+    
+    
+
+
+
     // Query for revenue by product table
     $rbp_sql = "SELECT 
         I.Name as pname, 
@@ -112,28 +149,28 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                     
                     <tbody>
                         <tr>
-                            <td>Total Number of Products</td>
-                            <td><?php echo '5000'; ?></td>
+                            <td><strong>Total Number of Products</strong></td>
+                            <td><?php echo $totalProducts; ?></td>
                         </tr>
                         <tr>
-                            <td>Total Stock Value</td>
-                            <td><?php echo '5000'; ?></td>
+                            <td><strong>Total Stock Value</strong></td>
+                            <td><?php echo 'Rs. '.$totalValue .'.00'; ?></td>
                         </tr>
                         <tr>
-                            <td>Total Revenue Generated</td>
-                            <td><?php echo '5000'; ?></td>
+                            <td><strong>Total Revenue Generated</strong></td>
+                            <td><?php echo 'Rs. '.$totalRevenue; ?></td>
                         </tr>
                         <tr>
-                            <td>Total Orders Received</td>
-                            <td><?php echo '5000'; ?></td>
+                            <td><strong>Total Orders Received</strong></td>
+                            <td><?php echo $totalOrders; ?></td>
                         </tr>
                         <tr>
-                            <td>Most Ordered Product</td>
-                            <td><?php echo '5000'; ?></td>
+                            <td><strong>Most Ordered Product</strong></td>
+                            <td><?php echo $mostOrdered_name.' (' .$mostOrdered. ')'; ?></td>
                         </tr>
                         <tr>
-                            <td>Leased Ordered Product</td>
-                            <td><?php echo '5000'; ?></td>
+                            <td><strong>Least Ordered Product</strong></td>
+                            <td><?php echo $leastOrdered_name.' (' .$leastOrdered. ')'; ?></td>
                         </tr>
                     </tbody>
                 </table>
