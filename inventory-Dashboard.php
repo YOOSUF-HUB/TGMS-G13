@@ -61,7 +61,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
     FROM Orders O, Customer_account C, Inventory I
     where O.Customer_ID = C.Customer_ID AND O.Product_ID = I.Product_ID AND O.Status ='In-Progress' ORDER BY O.Delivery_Date ASC LIMIT 4;";
 
-    $order_result = $conn->query($sql);
+    $order_result = mysqli_query($conn, $sql);
 
 
     
@@ -110,7 +110,6 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
             <ul>
                 <li class="im-page"><a href="inventory-Dashboard.php" style="background-color: #34495e; padding-left: 20px;">Home</a></li>
                 <li class="im-page"><a href="inventory-Inventory.php" >Inventory</a></li>
-                <li class="im-page"><a href="inventory-Production.php">Production</a></li>
                 <li class="im-page"><a href="inventory-Orders.php">Orders</a></li>
                 <li class="im-page"><a href="inventory-Supplier.php">Suppliers</a></li>
                 <li class="im-page"><a href="inventory-Report.php">Report</a></li>
@@ -150,7 +149,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                         </tr>
                     </thead>
                     <tbody>
-                    <?php while($row = $result->fetch_assoc()): ?>
+                    <?php while($row = mysqli_fetch_assoc($result)): ?>
                         <tr>
                             <td><?php echo $row["Name"]; ?></td>
                             <td><?php echo $row["TotalQuantity"]; ?></td>
@@ -174,7 +173,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                         </tr>
                     </thead>
                     <tbody>
-                    <?php while($row = $order_result->fetch_assoc()): ?>
+                    <?php while($row = mysqli_fetch_assoc($order_result)): ?>
                         <tr>
                             <td><?php echo $row["pname"];?><br><p class="insideRow" style="font-size:smaller; margin:0;"><?php echo $row["pcolour"]; echo ", "; echo $row["psize"];?> </p></td>
                             <td><?php echo $row["oid"]; ?></td>
@@ -199,7 +198,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
 
 
     <!-- Footer Section -->
-    <footer>
+    <footer> 
         
         <div class="footer-links">
             <div class="social-media">
@@ -271,6 +270,5 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
         
     </script>
 
-    <script src="index.js"></script>
 </body>
 </html>

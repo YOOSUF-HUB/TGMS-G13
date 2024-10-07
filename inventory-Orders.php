@@ -13,7 +13,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
     // Include the database connection file here
     include 'php/config.php';
 
-    
+    // query for All Orders List
     $sql = "SELECT 
         O.Order_ID as oid,
         I.Name as pname,
@@ -29,6 +29,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
 
     $result = $conn->query($sql);
 
+    // query for active List
     $active_sql = "SELECT 
         O.Order_ID as oid,
         I.Name as pname,
@@ -39,8 +40,9 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
         O.Status as sts
     FROM Orders O, Customer_account C, Inventory I
     where O.Customer_ID = C.Customer_ID AND O.Product_ID = I.Product_ID AND O.Status ='In-Progress'";
-    $active_result =$conn->query($active_sql);
+    $active_result = mysqli_query($conn,$active_sql);
 
+    // query for completed List
     $completed_sql = "SELECT 
         O.Order_ID as oid,
         I.Name as pname,
@@ -51,8 +53,9 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
         O.Status as sts
     FROM Orders O, Customer_account C, Inventory I
     where O.Customer_ID = C.Customer_ID AND O.Product_ID = I.Product_ID AND O.Status ='Delivered'";
-    $completed_result =$conn->query($completed_sql);
+    $completed_result = mysqli_query($conn,$completed_sql);
 
+    // query for completed List
     $cancelled_sql = "SELECT 
         O.Order_ID as oid,
         I.Name as pname,
@@ -63,19 +66,8 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
         O.Status as sts
     FROM Orders O, Customer_account C, Inventory I
     where O.Customer_ID = C.Customer_ID AND O.Product_ID = I.Product_ID AND O.Status ='Cancelled'";
-    $cancelled_result =$conn->query($cancelled_sql);
+    $cancelled_result = mysqli_query($conn,$cancelled_sql);
 
-    $custom_sql = "SELECT 
-        O.Order_ID as oid,
-        O.Order_type as otype,
-        C.Customer_ID as cid,
-        O.Quantity as qty,
-        O.Order_Date as odate,
-        O.Delivery_Date as ddate,
-        O.Status as sts
-    FROM Orders O, Customer_account C, Inventory I
-    where O.Customer_ID = C.Customer_ID AND O.Product_ID = I.Product_ID AND O.Order_type ='Custom'";
-    $custom_result =$conn->query($custom_sql);
     ?>
 
 <!DOCTYPE html>
@@ -121,7 +113,6 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
             <ul> 
                 <li class="im-page"><a href="inventory-Dashboard.php">Home</a></li>
                 <li class="im-page"><a href="inventory-Inventory.php">Inventory</a></li>
-                <li class="im-page"><a href="inventory-Production.php">Production</a></li>
                 <li class="im-page"><a href="inventory-Orders.php" style="background-color: #34495e; padding-left: 20px;">Orders</a></li>
                 <li class="im-page"><a href="inventory-Supplier.php">Suppliers</a></li>
                 <li class="im-page"><a href="inventory-Report.php">Report</a></li>
@@ -130,7 +121,6 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
 
         <section class="content" >
             <div style="float:right;">
-                <button class="btn1" id="addOrderBtn"><a href="inventory-addOrder.php?>" >Add Order</a></button>
                 <button class="btn1" id="manageOrderBtn" onclick="manageOrder()" >Manage Order</button>
                 <button class="btn1" id="cancelBtn" style="display: none;" onclick="cancelManageOrder()"  >Cancel Manage</button>
             </div>
@@ -265,35 +255,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                 </table>
                 </div>
 
-                <!-- Custom Orders List -->
-                <div id="customOrdersTab" class="inner-table-container" style="display:none; "> 
-                <table class="table" >
-                    <thead>
-                        <tr>
-                            <th>Order ID</th>
-                            <th>Product Name</th>
-                            <th>Customer ID</th>
-                            <th>Quantity</th>
-                            <th>Order Date</th>
-                            <th>Delivery Date</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php while($row = $custom_result->fetch_assoc()): ?>
-                        <tr>
-                            <td><?php echo $row["oid"]; ?></td>
-                            <td><?php echo $row["otype"]; ?></td>
-                            <td><?php echo $row["cid"]; ?></td>
-                            <td><?php echo $row["qty"]; ?></td>
-                            <td><?php echo $row["odate"]; ?></td>
-                            <td><?php echo $row["ddate"]; ?></td>
-                            <td><?php echo $row["sts"]; ?></td>
-                        </tr>
-                        <?php endwhile; ?>
-                    </tbody>
-                </table>
-                </div>
+                
             </div>
 
             <!-- Manage orders -->
@@ -399,7 +361,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
 
     <script>
     
-    // JavaScript to toggle between view and manage mode
+    // js to change between view and manage mode
     function manageOrder() {
         document.getElementById('addOrderBtn').style.display = 'none'; 
         document.getElementById('manageOrderBtn').style.display = 'none'; 
@@ -409,7 +371,6 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
         document.getElementById('editMode').style.display = 'block';
         
     }
-
     function cancelManageOrder() {
         document.getElementById('addOrderBtn').style.display = 'inline-block'; 
         document.getElementById('manageOrderBtn').style.display = 'inline-block'; 
@@ -420,6 +381,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
         
     }
 
+    // js to change between tabs
     function allOrder() {
         document.getElementById('allOrdersTab').style.display='block'
         document.getElementById('activeOrdersTab').style.display='none'
@@ -458,6 +420,5 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
     </script>
     
     
-    <script src="index.js"></script>
 </body>
 </html>
