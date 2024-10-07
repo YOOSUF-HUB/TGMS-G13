@@ -207,14 +207,6 @@ mysqli_close($conn);
                                 </li>
                             </ul>
 
-                            <!-- <label for="fname">First Name:</label>
-                            <input type="text" id="fname" name="fname" value="<?php echo htmlspecialchars($user['First_name']); ?>" required>
-                
-                            <label for="lname">Last Name:</label>
-                            <input type="text" id="lname" name="lname" value="<?php echo htmlspecialchars($user['Last_name']); ?>" required>
-                
-                            <label for="email">Email:</label>
-                            <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($user['Email']); ?>" required> -->
                 
                             <button type="submit" name="save">Save Changes</button> <!-- Save button to save details and switch back to view mode  -->
                             <button type="button" onclick="cancelEdit()">Cancel</button>  <!-- Cancel button to switch back to view mode  -->
