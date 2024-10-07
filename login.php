@@ -193,11 +193,6 @@ if(isset($_POST['submit'])){
         </div>
     </footer>
 
-    <script>
-        function forgotPassword(){
-            document.getElementById()
-        }
-    </script>
     
 
 
