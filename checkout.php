@@ -176,13 +176,13 @@ if (isset($_POST['submit'])){
                         <img src="PRODUCT IMAGES/mastercard.svg" alt="MasterCard" width="60px">
                         <img src="PRODUCT IMAGES/amex.svg" alt="American Express" width="60px">
                         <label style="margin-top: 20px">
-                            <input type="radio" name="payment_method" value="credit_card" required>
+                            <input type="radio" name="payment_method" value="Credit Card" required>
                             <span>
                                 Credit Card
                             </span>
                         </label>
                         <label>
-                            <input type="radio" name="payment_method" value="other">
+                            <input type="radio" name="payment_method" value="Debit Card">
                             Debit Card
                         </label>
                     </div>
