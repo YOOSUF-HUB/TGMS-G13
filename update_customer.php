@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
 
     // Execute the query and check if successful
     if (mysqli_query($conn, $sql)) {
-        header("Location: AdminDashboard.php"); // Redirect to dashboard
+        header("Location: AdminDashboard-user.php"); // Redirect to dashboard
         exit(); // Ensure script ends after redirect
     } else {
         echo "<p style='color: red; text-align: center;'>Failed to Update: " . mysqli_error($conn) . "</p>";
