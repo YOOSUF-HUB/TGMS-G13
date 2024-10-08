@@ -127,9 +127,7 @@ if(isset($_POST['submit'])){
                     <input type="password" name="password" id="password" placeholder="Password" autocomplete="off" required>
                 </div>
 
-                <div class="link">
-                    <p> <a href="forgotpassword.php">Forgot password</a></p> 
-                </div>
+                
 
                 <div class="field">
                     <input class="btn" type="submit" name="submit" value="Login" required>
@@ -140,10 +138,7 @@ if(isset($_POST['submit'])){
                 </div>
             </form>
 
-            <form action="" method="post">
-                <input type="password" name="password" placeholder="Enter new password" required>
-                <button type="submit" name="submit">Reset Password</button>
-            </form>
+            
         </div>
         
     </div>
