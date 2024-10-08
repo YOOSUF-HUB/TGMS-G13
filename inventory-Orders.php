@@ -55,7 +55,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
     where O.Customer_ID = C.Customer_ID AND O.Product_ID = I.Product_ID AND O.Status ='Delivered'";
     $completed_result = mysqli_query($conn,$completed_sql);
 
-    // query for completed List
+    // query for Cancelled List
     $cancelled_sql = "SELECT 
         O.Order_ID as oid,
         I.Name as pname,
@@ -132,7 +132,6 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                     <li><button class="tab1" id="activeOrderBtn" onclick="activeOrder()">Active Orders</button></li>
                     <li><button class="tab1" id="completedOrderBtn" onclick="completedOrder()">Completed Orders</button></li>
                     <li><button class="tab1" id="cancelledOrderBtn" onclick="cancelOrder()">Cancelled Orders</button></li>
-                    <li><button class="tab1" id="customOrderBtn" onclick="customOrder()">Custom Orders</button></li>
                 </ul>
 
                 <!-- All Orders List -->
