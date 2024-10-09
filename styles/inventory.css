@@ -333,9 +333,7 @@ footer {
     zoom: 1.01;
 
 }
-.tab1.active {
-    background-color: #000000;
-}
+
 .inner-table-container{
     height: 80vh; overflow:auto; 
 }
