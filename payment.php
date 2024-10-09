@@ -307,14 +307,7 @@ if (isset($_POST['pay'])){
 
     <script>
         
-        // Retrieve the final price from sessionStorage and display it
-        const finalPrice = sessionStorage.getItem('finalPrice'); // Corrected key to match what was used in storeFinalPrice
-        // Assuming there is a span or input field for displaying the total price
-        if (finalPrice) {
-            document.getElementById('totalPrice').textContent = finalPrice; // Set the total price in the order summary
-        } else {
-            console.log('No final price found in sessionStorage.');
-        }
+
 
         // function storeFinalPrice() {
         //     let finalPriceElement = document.getElementById('totalPrice');
