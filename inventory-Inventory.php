@@ -88,7 +88,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                         </tr>
                     </thead>
                     <tbody>
-                    <?php while($row = $result->fetch_assoc()): ?>
+                    <?php while($row = mysqli_fetch_assoc($result)): ?>
                         <tr>
                             <td><?php echo $row["Product_ID"]; ?></td>
                             <td><?php echo $row["Name"]; ?></td>
@@ -124,7 +124,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
                     <?php 
                     
                     $result->data_seek(0); // Reset the result pointer to reuse the data for the duplicated table
-                    while($row = $result->fetch_assoc()): ?>
+                    while($row = mysqli_fetch_assoc($result)): ?>
                         <tr>
                             <td><?php echo $row["Product_ID"]; ?></td>
                             <td><?php echo $row["Name"]; ?></td>
