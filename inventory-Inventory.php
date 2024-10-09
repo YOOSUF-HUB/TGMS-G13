@@ -15,7 +15,7 @@ if($_SESSION['staff_role']!=='Inventory'){ //condition make sure admin user redi
 
     // SQL query to fetch data
     $sql = "SELECT `Product_ID`, `Name`, `Colour`, `Size`, `Type`, `Quantity` FROM Inventory";
-    $result = $conn->query($sql);
+    $result = mysqli_query($conn, $sql);
     ?>
 
 <!DOCTYPE html>
