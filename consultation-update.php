@@ -135,7 +135,7 @@ p {
     </select>
     <br><br>
     <input type="submit" name="submit" value="Update Status">
-    <input type="button" value="Cancel" onclick="window.location.href='Customersupport-consultation.php';">
+    <input type="button" value="Cancel" onclick="window.location.href='Customersupport-consultations.php';">
 </form>
 
 </html>
