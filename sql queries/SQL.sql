@@ -43,8 +43,8 @@ CREATE TABLE Staff_account (
 CREATE TABLE Inquiries (
     Inquiry_ID  VARCHAR(10) NOT NULL,
     Email VARCHAR(100) NOT NULL,
-    Date DATE DEFAULT CURRENT_DATE,
-    Time TIME DEFAULT CURRENT_TIME,
+    Date DATE DEFAULT (CURRENT_DATE()),
+    Time TIME DEFAULT (CURRENT_TIME()),
     Customer_ID VARCHAR(10),
     Customersupport_ID VARCHAR(10),
 
