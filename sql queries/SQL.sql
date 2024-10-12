@@ -226,20 +226,16 @@ INSERT INTO Payment (Payment_ID, Customer_ID, Amount) VALUES
 
 INSERT INTO Inventory (Product_ID, Name, Type, Size, Colour, Quantity, InventoryManager_ID) VALUES
 ('PD001', 'Hoodies', 'Cotton', 'Small', 'Red', 50, 'IM001'),
-('PD002', 'Tshirts', 'Polyester', 'Medium', 'Black', 200, 'IM002'),
-('PD003', 'Joggers', 'Cotton', 'Large', 'Blue', 500, 'IM003'),
-('PD004', 'Long Sleeve Tshirt', 'Polyester', 'Medium', 'White', 100, 'IM004'),
-('PD005', 'Hoodies', 'Cotton', 'Large', 'Green', 150, 'IM005');
+('PD002', 'Tshirts', 'Polyester', 'Medium', 'Black', 200, 'IM001'),
+('PD003', 'Joggers', 'Cotton', 'Large', 'Blue', 500, 'IM001'),
+('PD004', 'Long Sleeve Tshirt', 'Polyester', 'Medium', 'White', 100, 'IM001'),
+('PD005', 'Hoodies', 'Cotton', 'Large', 'Green', 150, 'IM001');
 
 
 
 
 INSERT INTO Inventory_Manager (InventoryManager_ID, User_name, Name, Email, Password) VALUES
-('IM001', 'lakmalp', 'Lakmal Perera', 'lakmal.perera@example.lk', 'password123'),
-('IM002', 'nadeeshaf', 'Nadeesha Fernando', 'nadeesha.fernando@example.lk', 'password456'),
-('IM003', 'tharindus', 'Tharindu Silva', 'tharindu.silva@example.lk', 'password789'),
-('IM004', 'dilshanj', 'Dilshan Jayasinghe', 'dilshan.jayasinghe@example.lk', 'password101'),
-('IM005', 'chamariw', 'Chamari Wijesinghe', 'chamari.wijesinghe@example.lk', 'password202');
+('IM001', 'lakmalp', 'Lakmal Perera', 'lakmal.perera@example.lk', 'password123');
 
 
 INSERT INTO Supplier (Supplier_ID, Supplier_Name, Phone, Email, Company_Name, Category, Supply, Inventory_Manager_ID) VALUES
@@ -253,10 +249,10 @@ INSERT INTO Supplier (Supplier_ID, Supplier_Name, Phone, Email, Company_Name, Ca
 
 INSERT INTO Report (Report_ID, Title, Start_date, End_date, Type, Date, InventoryManager_ID) VALUES
 ('R001', 'Monthly Sales Report', '2024-09-01', '2024-09-30', 'Sales', '2024-10-01', 'IM001'),
-('R002', 'Inventory Audit Report', '2024-09-01', '2024-09-30', 'Audit', '2024-10-02', 'IM002'),
-('R003', 'Quarterly Performance Report', '2024-07-01', '2024-09-30', 'Performance', '2024-10-03', 'IM003'),
-('R004', 'Supplier Evaluation Report', '2024-09-01', '2024-09-30', 'Evaluation', '2024-10-04', 'IM004'),
-('R005', 'Annual Financial Report', '2024-01-01', '2024-12-31', 'Financial', '2024-10-05', 'IM005');
+('R002', 'Inventory Audit Report', '2024-09-01', '2024-09-30', 'Audit', '2024-10-02', 'IM001'),
+('R003', 'Quarterly Performance Report', '2024-07-01', '2024-09-30', 'Performance', '2024-10-03', 'IM001'),
+('R004', 'Supplier Evaluation Report', '2024-09-01', '2024-09-30', 'Evaluation', '2024-10-04', 'IM001'),
+('R005', 'Annual Financial Report', '2024-01-01', '2024-12-31', 'Financial', '2024-10-05', 'IM001');
 
 
 -- Insert entries into Supplier_Inventory
