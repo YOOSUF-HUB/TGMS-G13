@@ -208,18 +208,14 @@ INSERT INTO Staff_account (Staff_ID, First_name, Last_name, Email, Password, Adm
 
 
 INSERT INTO Inquiries (Inquiry_ID, Email, Date, Time, Customer_ID, Customersupport_ID) VALUES
-('I001', 'kamal.perera@example.lk', CURRENT_DATE, CURRENT_TIME, 'C001', 'S001'),
-('I002', 'saman.fernando@example.lk', CURRENT_DATE, CURRENT_TIME, 'C002', 'S002'),
-('I003', 'nuwan.silva@example.lk', CURRENT_DATE, CURRENT_TIME, 'C003', 'S003'),
-('I004', 'ruwan.jayasinghe@example.lk', CURRENT_DATE, CURRENT_TIME, 'C004', 'S004'),
-('I005', 'anjali.wijesinghe@example.lk', CURRENT_DATE, CURRENT_TIME, 'C005', 'S005');
+('I001', 'kamal.perera@example.lk', CURRENT_DATE, CURRENT_TIME, 'C001', 'CS001'),
+('I002', 'saman.fernando@example.lk', CURRENT_DATE, CURRENT_TIME, 'C002', 'CS001'),
+('I003', 'nuwan.silva@example.lk', CURRENT_DATE, CURRENT_TIME, 'C003', 'CS001'),
+('I004', 'ruwan.jayasinghe@example.lk', CURRENT_DATE, CURRENT_TIME, 'C004', 'CS001'),
+('I005', 'anjali.wijesinghe@example.lk', CURRENT_DATE, CURRENT_TIME, 'C005', 'CS001');
 
 INSERT INTO Customer_Support (Customersupport_ID, First_name, Last_name, Email, Password) VALUES
-('S001', 'Nimal', 'Perera', 'nimal.perera@example.lk', 'password123'),
-('S002', 'Kumari', 'Fernando', 'kumari.fernando@example.lk', 'password456'),
-('S003', 'Sunil', 'Wijesinghe', 'sunil.wijesinghe@example.lk', 'password789'),
-('S004', 'Anura', 'De Silva', 'anura.desilva@example.lk', 'password101'),
-('S005', 'Ruwan', 'Jayasinghe', 'ruwan.jayasinghe@example.lk', 'password202');
+('CS001', 'Nimal', 'Perera', 'nimal.perera@example.lk', 'password123');
 
 INSERT INTO `Order` (Order_ID, Status, Total_Amount, Delivery_Date, Ordered_Date, Order_Type, Customer_ID) VALUES
 ('O001', 'In-Progress', 1500.00, '2024-10-10', '2024-10-01', 'Online', 'C001'),
