@@ -186,28 +186,24 @@ CREATE TABLE Inquiries_Phone_no(
 
 
 INSERT INTO Admin (Admin_ID, First_name, Last_name, Email, Password) VALUES
-('A001', 'Nimal', 'Perera', 'nimal.perera@example.lk', 'password123'),
-('A002', 'Kumari', 'Fernando', 'kumari.fernando@example.lk', 'password456'),
-('A003', 'Sunil', 'Wijesinghe', 'sunil.wijesinghe@example.lk', 'password789'),
-('A004', 'Anura', 'De Silva', 'anura.desilva@example.lk', 'password101'),
-('A005', 'Ruwan', 'Jayasinghe', 'ruwan.jayasinghe@example.lk', 'password202');
+('A001', 'Nimal', 'Perera', 'nimal.perera@example.lk', 'password123');
 
 
 
 INSERT INTO Customer_account (Customer_ID, First_name, Last_name, Email, Password, Address, Dob, Admin_ID) VALUES
 ('C001', 'Kamal', 'Perera', 'kamal.perera@example.lk', 'password123', '123 Galle Road, Colombo', '1985-05-15', 'A001'),
-('C002', 'Saman', 'Fernando', 'saman.fernando@example.lk', 'password456', '456 Kandy Road, Kandy', '1990-08-20', 'A002'),
-('C003', 'Nuwan', 'Silva', 'nuwan.silva@example.lk', 'password789', '789 Main Street, Galle', '1988-12-10', 'A003'),
-('C004', 'Ruwan', 'Jayasinghe', 'ruwan.jayasinghe@example.lk', 'password101', '101 Beach Road, Matara', '1992-03-25', 'A004'),
-('C005', 'Anjali', 'Wijesinghe', 'anjali.wijesinghe@example.lk', 'password202', '202 Lake Road, Nuwara Eliya', '1987-07-30', 'A005');
+('C002', 'Saman', 'Fernando', 'saman.fernando@example.lk', 'password456', '456 Kandy Road, Kandy', '1990-08-20', 'A001'),
+('C003', 'Nuwan', 'Silva', 'nuwan.silva@example.lk', 'password789', '789 Main Street, Galle', '1988-12-10', 'A001'),
+('C004', 'Ruwan', 'Jayasinghe', 'ruwan.jayasinghe@example.lk', 'password101', '101 Beach Road, Matara', '1992-03-25', 'A001'),
+('C005', 'Anjali', 'Wijesinghe', 'anjali.wijesinghe@example.lk', 'password202', '202 Lake Road, Nuwara Eliya', '1987-07-30', 'A001');
 
 
 INSERT INTO Staff_account (Staff_ID, First_name, Last_name, Email, Password, Admin_ID) VALUES
 ('S001', 'Lakmal', 'Perera', 'lakmal.perera@example.lk', 'password123', 'A001'),
-('S002', 'Nadeesha', 'Fernando', 'nadeesha.fernando@example.lk', 'password456', 'A002'),
-('S003', 'Tharindu', 'Silva', 'tharindu.silva@example.lk', 'password789', 'A003'),
-('S004', 'Dilshan', 'Jayasinghe', 'dilshan.jayasinghe@example.lk', 'password101', 'A004'),
-('S005', 'Chamari', 'Wijesinghe', 'chamari.wijesinghe@example.lk', 'password202', 'A005');
+('S002', 'Nadeesha', 'Fernando', 'nadeesha.fernando@example.lk', 'password456', 'A001'),
+('S003', 'Tharindu', 'Silva', 'tharindu.silva@example.lk', 'password789', 'A001'),
+('S004', 'Dilshan', 'Jayasinghe', 'dilshan.jayasinghe@example.lk', 'password101', 'A001'),
+('S005', 'Chamari', 'Wijesinghe', 'chamari.wijesinghe@example.lk', 'password202', 'A001');
 
 
 
