@@ -145,14 +145,7 @@ CREATE TABLE Report (
     CONSTRAINT Report_FK FOREIGN KEY (InventoryManager_ID) REFERENCES Inventory_Manager(InventoryManager_ID)
 );
 
--- Create Supplier_Inventory junction table for many-to-many relationship
-CREATE TABLE Supplier_Inventory (
-    Supplier_ID INT,
-    Product_ID INT,
-    PRIMARY KEY (Supplier_ID, Product_ID),
-    FOREIGN KEY (Supplier_ID) REFERENCES Supplier(Supplier_ID),
-    FOREIGN KEY (Product_ID) REFERENCES Inventory(Product_ID)
-);
+
 
 
 /*Table registered user contact*/
