@@ -39,6 +39,17 @@ CREATE TABLE Staff_account (
     CONSTRAINT Staff_account_FK FOREIGN KEY (Admin_ID) REFERENCES Admin(Admin_ID)
 );
 
+-- Create Customer_Support table
+CREATE TABLE Customer_Support (
+    Customersupport_ID VARCHAR(10),
+    First_name VARCHAR(50) NOT NULL,
+    Last_name VARCHAR(50) NOT NULL,
+    Email VARCHAR(100) NOT NULL UNIQUE,
+    Password VARCHAR(255) NOT NULL,
+
+    CONSTRAINT Customer_Support_PK PRIMARY KEY (Customersupport_ID),
+);
+
 -- Create Inquiries table
 CREATE TABLE Inquiries (
     Inquiry_ID  VARCHAR(10) NOT NULL,
@@ -53,16 +64,7 @@ CREATE TABLE Inquiries (
     CONSTRAINT Inquiries_FK2 FOREIGN KEY (Customersupport_ID) REFERENCES Customer_Support(Customersupport_ID)
 );
 
--- Create Customer_Support table
-CREATE TABLE Customer_Support (
-    Customersupport_ID VARCHAR(10),
-    First_name VARCHAR(50) NOT NULL,
-    Last_name VARCHAR(50) NOT NULL,
-    Email VARCHAR(100) NOT NULL UNIQUE,
-    Password VARCHAR(255) NOT NULL,
 
-    CONSTRAINT Customer_Support_PK PRIMARY KEY (Customersupport_ID),
-);
 
 -- Create Order table
 CREATE TABLE Order (
@@ -89,6 +91,17 @@ CONSTRAINT Payment_PK PRIMARY KEY (Payment_ID),
 CONSTRAINT Payment_FK FOREIGN KEY (Customer_ID) REFERENCES Customer_account(Customer_ID)
 );
 
+-- Create Inventory_Manager table
+CREATE TABLE Inventory_Manager (
+    InventoryManager_ID VARCHAR(10),
+    User_name VARCHAR(50) NOT NULL,
+    Name VARCHAR(100) NOT NULL,
+    Email VARCHAR(100) NOT NULL UNIQUE,
+    Password VARCHAR(255) NOT NULL,
+
+    CONSTRAINT Inventory_Manager_PK PRIMARY KEY (InventoryManager_ID)
+);
+
 -- Create Inventory table
 CREATE TABLE Inventory (
     Product_ID VARCHAR(10) NOT NULL,
@@ -103,16 +116,7 @@ CREATE TABLE Inventory (
     CONSTRAINT Inventory_FK FOREIGN KEY (InventoryManager_ID) REFERENCES Inventory_Manager(InventoryManager_ID)
 );
 
--- Create Inventory_Manager table
-CREATE TABLE Inventory_Manager (
-    InventoryManager_ID VARCHAR(10),
-    User_name VARCHAR(50) NOT NULL,
-    Name VARCHAR(100) NOT NULL,
-    Email VARCHAR(100) NOT NULL UNIQUE,
-    Password VARCHAR(255) NOT NULL,
 
-    CONSTRAINT Inventory_Manager_PK PRIMARY KEY (InventoryManager_ID)
-);
 
 
 -- Create Supplier table
