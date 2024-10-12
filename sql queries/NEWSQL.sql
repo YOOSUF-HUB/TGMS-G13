@@ -10,6 +10,9 @@ CREATE TABLE Admin (
     Password VARCHAR(255) NOT NULL,
 );
 
+'A001','Nimal','Perera','nimal.perera@example.lk','password123'
+
+
 -- Create Customer_account table
 CREATE TABLE Customer_account (
     Customer_ID VARCHAR(10) PRIMARY KEY,
@@ -25,6 +28,13 @@ CREATE TABLE Customer_account (
 
 );
 
+'C001','Kamal','Perera','kamal.perera@example.lk','password123','123 Galle Road, Colombo','1985-05-15','2024-10-12 11:02:58','A001'
+'C002','Saman','Fernando','saman.fernando@example.lk','password456','456 Kandy Road, Kandy','1990-08-20','2024-10-12 11:02:58','A001'
+'C003','Nuwan','Silva','nuwan.silva@example.lk','password789','789 Main Street, Galle','1988-12-10','2024-10-12 11:02:58','A001'
+'C004','Ruwan','Jayasinghe','ruwan.jayasinghe@example.lk','password101','101 Beach Road, Matara','1992-03-25','2024-10-12 11:02:58','A001'
+'C005','Anjali','Wijesinghe','anjali.wijesinghe@example.lk','password202','202 Lake Road, Nuwara Eliya','1987-07-30','2024-10-12 11:02:58','A001'
+
+
 -- Create Staff_account table
 CREATE TABLE Staff_account (
     Staff_ID VARCHAR(10) NOT NULL,
@@ -38,6 +48,13 @@ CREATE TABLE Staff_account (
     CONSTRAINT Staff_account_PK PRIMARY KEY (Staff_ID),
     CONSTRAINT Staff_account_FK FOREIGN KEY (Admin_ID) REFERENCES Admin(Admin_ID)
 );
+
+'S001','Lakmal','Perera','lakmal.perera@example.lk','password123','2024-10-12 11:10:57','A001'
+'S002','Nadeesha','Fernando','nadeesha.fernando@example.lk','password456','2024-10-12 11:10:57','A001'
+'S003','Tharindu','Silva','tharindu.silva@example.lk','password789','2024-10-12 11:10:57','A001'
+'S004','Dilshan','Jayasinghe','dilshan.jayasinghe@example.lk','password101','2024-10-12 11:10:57','A001'
+'S005','Chamari','Wijesinghe','chamari.wijesinghe@example.lk','password202','2024-10-12 11:10:57','A001'
+
 
 -- Create Inquiries table
 CREATE TABLE Inquiries (
@@ -53,6 +70,13 @@ CREATE TABLE Inquiries (
     CONSTRAINT Inquiries_FK2 FOREIGN KEY (Customersupport_ID) REFERENCES Customer_Support(Customersupport_ID)
 );
 
+'I001','kamal.perera@example.lk','2024-10-12','2024-10-12 11:12:54','C001','CS001'
+'I002','saman.fernando@example.lk','2024-10-12','2024-10-12 11:12:54','C002','CS001'
+'I003','nuwan.silva@example.lk','2024-10-12','2024-10-12 11:12:54','C003','CS001'
+'I004','ruwan.jayasinghe@example.lk','2024-10-12','2024-10-12 11:12:54','C004','CS001'
+'I005','anjali.wijesinghe@example.lk','2024-10-12','2024-10-12 11:12:54','C005','CS001'
+
+
 -- Create Customer_Support table
 CREATE TABLE Customer_Support (
     Customersupport_ID VARCHAR(10),
@@ -63,6 +87,9 @@ CREATE TABLE Customer_Support (
 
     CONSTRAINT Customer_Support_PK PRIMARY KEY (Customersupport_ID),
 );
+
+'CS001','Nimal','Perera','nimal.perera@example.lk','password123'
+
 
 -- Create Order table
 CREATE TABLE Order (
@@ -78,6 +105,13 @@ CREATE TABLE Order (
     CONSTRAINT Order_FK FOREIGN KEY (Customer_ID) REFERENCES Customer_account(Customer_ID)
 );
 
+'O001','In-Progress','1500.00','2024-10-10','2024-10-01','Online','C001'
+'O002','Shipped','2500.50','2024-10-12','2024-10-02','In-Store','C002'
+'O003','Delivered','3200.75','2024-10-08','2024-10-03','Online','C003'
+'O004','Cancelled','1800.00','2024-10-15','2024-10-05','In-Store','C004'
+'O005','Delivered','2200.00','2024-10-09','2024-10-04','Online','C005'
+
+
 
 -- Create Payment table
 CREATE TABLE Payment (
@@ -88,6 +122,13 @@ Amount DECIMAL(10, 2) NOT NULL,
 CONSTRAINT Payment_PK PRIMARY KEY (Payment_ID),
 CONSTRAINT Payment_FK FOREIGN KEY (Customer_ID) REFERENCES Customer_account(Customer_ID)
 );
+
+'P001','C001','1500.00'
+'P002','C002','2500.50'
+'P003','C003','3200.75'
+'P004','C004','1800.00'
+'P005','C005','2200.00'
+
 
 -- Create Inventory table
 CREATE TABLE Inventory (
@@ -103,6 +144,13 @@ CREATE TABLE Inventory (
     CONSTRAINT Inventory_FK FOREIGN KEY (InventoryManager_ID) REFERENCES Inventory_Manager(InventoryManager_ID)
 );
 
+
+'PD001','Hoodies','Cotton','Small','Red','50','IM001'
+'PD002','Tshirts','Polyester','Medium','Black','200','IM001'
+'PD003','Joggers','Cotton','Large','Blue','500','IM001'
+'PD004','Long Sleeve Tshirt','Polyester','Medium','White','100','IM001'
+'PD005','Hoodies','Cotton','Large','Green','150','IM001'
+
 -- Create Inventory_Manager table
 CREATE TABLE Inventory_Manager (
     InventoryManager_ID VARCHAR(10),
@@ -113,6 +161,8 @@ CREATE TABLE Inventory_Manager (
 
     CONSTRAINT Inventory_Manager_PK PRIMARY KEY (InventoryManager_ID)
 );
+
+'IM001','lakmalp','Lakmal Perera','lakmal.perera@example.lk','password123'
 
 
 -- Create Supplier table
@@ -130,6 +180,13 @@ CREATE TABLE Supplier (
     CONSTRAINT Inventory_FK FOREIGN KEY (InventoryManager_ID) REFERENCES Inventory_Manager(InventoryManager_ID)
 );
 
+'SP001','ABC Supplies','0112345678','contact@abcsupplies.lk','ABC Pvt Ltd','Electronics','Laptops, Smartphones','IM001'
+'SP002','XYZ Traders','0118765432','info@xyztraders.lk','XYZ Traders Ltd','Furniture','Chairs, Desks','IM001'
+'SP003','PQR Distributors','0113456789','sales@pqrdistributors.lk','PQR Distributors','Stationery','Notebooks, Pens','IM001'
+'SP004','LMN Enterprises','0119876543','support@lmnenterprises.lk','LMN Enterprises Ltd','Electronics','Monitors, Keyboards','IM001'
+'SP005','OPQ Suppliers','0114567890','service@opqsuppliers.lk','OPQ Suppliers Ltd','Furniture','Sofas, Tables','IM001'
+
+
 -- Create Report table
 CREATE TABLE Report (
     Report_ID VARCHAR(10) NOT NULL,
@@ -145,14 +202,10 @@ CREATE TABLE Report (
     CONSTRAINT Report_FK FOREIGN KEY (InventoryManager_ID) REFERENCES Inventory_Manager(InventoryManager_ID)
 );
 
--- Create Supplier_Inventory junction table for many-to-many relationship
-CREATE TABLE Supplier_Inventory (
-    Supplier_ID INT,
-    Product_ID INT,
-    PRIMARY KEY (Supplier_ID, Product_ID),
-    FOREIGN KEY (Supplier_ID) REFERENCES Supplier(Supplier_ID),
-    FOREIGN KEY (Product_ID) REFERENCES Inventory(Product_ID)
-);
+'R001','Monthly Sales Report','2024-09-01','2024-09-30','Sales','2024-10-01','IM001'
+'R002','Inventory Audit Report','2024-09-01','2024-09-30','Audit','2024-10-02','IM001'
+
+
 
 
 /*Table registered user contact*/
@@ -164,6 +217,13 @@ CREATE TABLE Customer_account_Phone_no(
     CONSTRAINT Customer_account_Phone_no_FK FOREIGN KEY (Customer_ID) References Customer_account(Customer_ID)
 );
 
+'C001','771234567'
+'C002','772345678'
+'C003','773456789'
+'C004','774567890'
+'C005','775678901'
+
+
 /*Table registered user contact*/
 CREATE TABLE Customer_support_Phone_no(
     Customersupport_ID varchar(20)not null,
@@ -172,6 +232,9 @@ CREATE TABLE Customer_support_Phone_no(
     CONSTRAINT Customer_support_Phone_no_PK PRIMARY KEY(Customer_ID),
     CONSTRAINT Customer_support_Phone_no_FK FOREIGN KEY (Customersupport_ID) References Customer_Support(Customersupport_ID)
 );
+
+'CS001','771234567'
+
 
 /*Table registered user contact*/
 CREATE TABLE Inquiries_Phone_no(
@@ -182,6 +245,11 @@ CREATE TABLE Inquiries_Phone_no(
     CONSTRAINT Inquiries_Phone_no_FK FOREIGN KEY (Inquiry_ID) References Inquiries(Inquiry_ID)
 );
 
+'I001','771234567'
+'I002','772345678'
+'I003','773456789'
+'I004','774567890'
+'I005','775678901'
 
 
 
@@ -257,13 +325,12 @@ INSERT INTO Inventory_Manager (InventoryManager_ID, User_name, Name, Email, Pass
 ('IM005', 'chamariw', 'Chamari Wijesinghe', 'chamari.wijesinghe@example.lk', 'password202');
 
 
-INSERT INTO Supplier (Supplier_ID, Supplier_Name, Phone, Email, Company_Name, Category, Supply, Inventory_Manager_ID) VALUES
-('SP001', 'ABC Supplies', '0112345678', 'contact@abcsupplies.lk', 'ABC Pvt Ltd', 'Clothing', 'Fabrics', 'IM001'),
-('SP002', 'XYZ Traders', '0118765432', 'info@xyztraders.lk', 'XYZ Traders Ltd', 'Clothing', 'Buttons', 'IM001'),
-('SP003', 'PQR Distributors', '0113456789', 'sales@pqrdistributors.lk', 'PQR Distributors', 'Accessories', 'Polyesters', 'IM001'),
-('SP004', 'LMN Enterprises', '0119876543', 'support@lmnenterprises.lk', 'LMN Enterprises Ltd', 'Clothing', 'Cotton', 'IM001'),
-('SP005', 'OPQ Suppliers', '0114567890', 'service@opqsuppliers.lk', 'OPQ Suppliers Ltd', 'Accessories', 'Fabrics', 'IM001');
-
+INSERT INTO Supplier (Supplier_ID, Supplier_Name, Phone_Number, Email, Company_Name, Category, Supply, InventoryManager_ID) VALUES
+('SP001', 'ABC Supplies', '0112345678', 'contact@abcsupplies.lk', 'ABC Pvt Ltd', 'Electronics', 'Laptops, Smartphones', 'IM001'),
+('SP002', 'XYZ Traders', '0118765432', 'info@xyztraders.lk', 'XYZ Traders Ltd', 'Furniture', 'Chairs, Desks', 'IM002'),
+('SP003', 'PQR Distributors', '0113456789', 'sales@pqrdistributors.lk', 'PQR Distributors', 'Stationery', 'Notebooks, Pens', 'IM003'),
+('SP004', 'LMN Enterprises', '0119876543', 'support@lmnenterprises.lk', 'LMN Enterprises Ltd', 'Electronics', 'Monitors, Keyboards', 'IM004'),
+('SP005', 'OPQ Suppliers', '0114567890', 'service@opqsuppliers.lk', 'OPQ Suppliers Ltd', 'Furniture', 'Sofas, Tables', 'IM005');
 
 
 INSERT INTO Report (Report_ID, Title, Start_date, End_date, Type, Date, InventoryManager_ID) VALUES
