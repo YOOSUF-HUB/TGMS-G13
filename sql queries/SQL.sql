@@ -249,19 +249,8 @@ INSERT INTO Supplier (Supplier_ID, Supplier_Name, Phone, Email, Company_Name, Ca
 
 INSERT INTO Report (Report_ID, Title, Start_date, End_date, Type, Date, InventoryManager_ID) VALUES
 ('R001', 'Monthly Sales Report', '2024-09-01', '2024-09-30', 'Sales', '2024-10-01', 'IM001'),
-('R002', 'Inventory Audit Report', '2024-09-01', '2024-09-30', 'Audit', '2024-10-02', 'IM001'),
-('R003', 'Quarterly Performance Report', '2024-07-01', '2024-09-30', 'Performance', '2024-10-03', 'IM001'),
-('R004', 'Supplier Evaluation Report', '2024-09-01', '2024-09-30', 'Evaluation', '2024-10-04', 'IM001'),
-('R005', 'Annual Financial Report', '2024-01-01', '2024-12-31', 'Financial', '2024-10-05', 'IM001');
+('R002', 'Inventory Audit Report', '2024-09-01', '2024-09-30', 'Audit', '2024-10-02', 'IM001');
 
-
--- Insert entries into Supplier_Inventory
-INSERT INTO Supplier_Inventory (Supplier_ID, Product_ID) VALUES
-('SP001', 'PD001'),
-('SP002', 'PD001'),
-('SP003', 'PD001'),
-('SP004', 'PD001'),
-('SP005', 'PD001');
 
 -- Insert entries into Customer_account_Phone_no
 INSERT INTO Customer_account_Phone_no (Customer_ID, Phone_no) VALUES
