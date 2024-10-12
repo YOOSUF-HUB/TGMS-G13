@@ -265,24 +265,20 @@ INSERT INTO Supplier_Inventory (Supplier_ID, Product_ID) VALUES
 
 -- Insert entries into Customer_account_Phone_no
 INSERT INTO Customer_account_Phone_no (Customer_ID, Phone_no) VALUES
-('C001', 94771234567),
-('C002', 94772345678),
-('C003', 94773456789),
-('C004', 94774567890),
-('C005', 94775678901);
+('C001', 0771234567),
+('C002', 0772345678),
+('C003', 0773456789),
+('C004', 0774567890),
+('C005', 0775678901);
 
 -- Insert entries into Customer_support_Phone_no
 INSERT INTO Customer_support_Phone_no (Customersupport_ID, Phone_no) VALUES
-('CS001', 94771234567),
-('CS002', 94772345678),
-('CS003', 94773456789),
-('CS004', 94774567890),
-('CS005', 94775678901);
+('CS001', 0771234567);
 
 -- Insert entries into Inquiries_Phone_no
 INSERT INTO Inquiries_Phone_no (Inquiry_ID, Phone) VALUES
-('I001', 94771234567),
-('I002', 94772345678),
-('I003', 94773456789),
-('I004', 94774567890),
-('I005', 94775678901);
+('I001', 0771234567),
+('I002', 0772345678),
+('I003', 0773456789),
+('I004', 0774567890),
+('I005', 0775678901);
