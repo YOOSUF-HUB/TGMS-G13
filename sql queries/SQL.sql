@@ -126,7 +126,7 @@ CREATE TABLE Supplier (
     Supply VARCHAR(100),
     InventoryManager_ID VARCHAR(10) NOT NULL,
 
-    CONSTRAINT Supplier_PK PRIMARY KEY (Supplier_ID),
+    CONSTRAINT Inventory_PK PRIMARY KEY (Supplier_ID),
     CONSTRAINT Inventory_FK FOREIGN KEY (InventoryManager_ID) REFERENCES Inventory_Manager(InventoryManager_ID)
 );
 
