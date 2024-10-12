@@ -1,13 +1,11 @@
 
-
---2nd sql
 -- Create Admin table
 CREATE TABLE Admin (
     Admin_ID VARCHAR(10) PRIMARY KEY,
     First_name VARCHAR(100) NOT NULL,
     Last_name VARCHAR(100) NOT NULL,
     Email VARCHAR(100) NOT NULL UNIQUE,
-    Password VARCHAR(255) NOT NULL,
+    Password VARCHAR(255) NOT NULL
 );
 
 -- Create Customer_account table
@@ -21,7 +19,7 @@ CREATE TABLE Customer_account (
     Dob DATE,
     Date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     Admin_ID VARCHAR(10),
-    CONSTRAINT FK_Admin FOREIGN KEY (Admin_ID) REFERENCES Admin(Admin_ID),
+    CONSTRAINT FK_Admin FOREIGN KEY (Admin_ID) REFERENCES Admin(Admin_ID)
 
 );
 
@@ -47,7 +45,7 @@ CREATE TABLE Customer_Support (
     Email VARCHAR(100) NOT NULL UNIQUE,
     Password VARCHAR(255) NOT NULL,
 
-    CONSTRAINT Customer_Support_PK PRIMARY KEY (Customersupport_ID),
+    CONSTRAINT Customer_Support_PK PRIMARY KEY (Customersupport_ID)
 );
 
 -- Create Inquiries table
@@ -67,7 +65,7 @@ CREATE TABLE Inquiries (
 
 
 -- Create Order table
-CREATE TABLE Order (
+CREATE TABLE `Order` (
     Order_ID VARCHAR(10) NOT NULL,
     Status ENUM('In-Progress', 'Shipped', 'Delivered', 'Cancelled') NOT NULL,
     Total_Amount DECIMAL(10, 2) NOT NULL,
@@ -131,7 +129,7 @@ CREATE TABLE Supplier (
     InventoryManager_ID VARCHAR(10) NOT NULL,
 
     CONSTRAINT Inventory_PK PRIMARY KEY (Supplier_ID),
-    CONSTRAINT Inventory_FK FOREIGN KEY (InventoryManager_ID) REFERENCES Inventory_Manager(InventoryManager_ID)
+    CONSTRAINT Supplier_FK FOREIGN KEY (InventoryManager_ID) REFERENCES Inventory_Manager(InventoryManager_ID)
 );
 
 -- Create Report table
@@ -202,7 +200,8 @@ INSERT INTO Staff_account (Staff_ID, First_name, Last_name, Email, Password, Adm
 ('S004', 'Dilshan', 'Jayasinghe', 'dilshan.jayasinghe@example.lk', 'password101', 'A001'),
 ('S005', 'Chamari', 'Wijesinghe', 'chamari.wijesinghe@example.lk', 'password202', 'A001');
 
-
+INSERT INTO Customer_Support (Customersupport_ID, First_name, Last_name, Email, Password) VALUES
+('CS001', 'Nimal', 'Perera', 'nimal.perera@example.lk', 'password123');
 
 INSERT INTO Inquiries (Inquiry_ID, Email, Date, Time, Customer_ID, Customersupport_ID) VALUES
 ('I001', 'kamal.perera@example.lk', CURRENT_DATE, CURRENT_TIME, 'C001', 'CS001'),
@@ -211,8 +210,7 @@ INSERT INTO Inquiries (Inquiry_ID, Email, Date, Time, Customer_ID, Customersuppo
 ('I004', 'ruwan.jayasinghe@example.lk', CURRENT_DATE, CURRENT_TIME, 'C004', 'CS001'),
 ('I005', 'anjali.wijesinghe@example.lk', CURRENT_DATE, CURRENT_TIME, 'C005', 'CS001');
 
-INSERT INTO Customer_Support (Customersupport_ID, First_name, Last_name, Email, Password) VALUES
-('CS001', 'Nimal', 'Perera', 'nimal.perera@example.lk', 'password123');
+
 
 INSERT INTO `Order` (Order_ID, Status, Total_Amount, Delivery_Date, Ordered_Date, Order_Type, Customer_ID) VALUES
 ('O001', 'In-Progress', 1500.00, '2024-10-10', '2024-10-01', 'Online', 'C001'),
@@ -242,7 +240,7 @@ INSERT INTO Inventory_Manager (InventoryManager_ID, User_name, Name, Email, Pass
 ('IM001', 'lakmalp', 'Lakmal Perera', 'lakmal.perera@example.lk', 'password123');
 
 
-INSERT INTO Supplier (Supplier_ID, Supplier_Name, Phone, Email, Company_Name, Category, Supply, Inventory_Manager_ID) VALUES
+INSERT INTO Supplier (Supplier_ID, Supplier_Name, Phone_Number, Email, Company_Name, Category, Supply, InventoryManager_ID) VALUES
 ('SP001', 'ABC Supplies', '0112345678', 'contact@abcsupplies.lk', 'ABC Pvt Ltd', 'Clothing', 'Fabrics', 'IM001'),
 ('SP002', 'XYZ Traders', '0118765432', 'info@xyztraders.lk', 'XYZ Traders Ltd', 'Clothing', 'Buttons', 'IM001'),
 ('SP003', 'PQR Distributors', '0113456789', 'sales@pqrdistributors.lk', 'PQR Distributors', 'Accessories', 'Polyesters', 'IM001'),
