@@ -169,7 +169,7 @@ CREATE TABLE Customer_support_Phone_no(
     Customersupport_ID varchar(20)not null,
     Phone_no decimal(10)not null,
 
-    CONSTRAINT Customer_support_Phone_no_PK PRIMARY KEY(Customer_ID),
+    CONSTRAINT Customer_support_Phone_no_PK PRIMARY KEY(Customersupport_ID),
     CONSTRAINT Customer_support_Phone_no_FK FOREIGN KEY (Customersupport_ID) References Customer_Support(Customersupport_ID)
 );
 
