@@ -1,2 +1,1 @@
-# TGMS-G13
-This is the GITHUB of the TGMS of G13
+I led the creation of a comprehensive Textile and Garment Management System, utilizing front-end technologies such as HTML, CSS, and JavaScript to craft a user-friendly and responsive interface. On the back end, I developed a secure PHP framework to facilitate safe database interactions, emphasizing the protection of data and user privacy. Collaborating closely with the team, we achieved key milestones and delivered a polished, high-performance solution. My commitment to quality drove extensive testing and troubleshooting efforts, ensuring smooth operation and system reliability.
